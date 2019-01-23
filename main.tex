@@ -13,7 +13,15 @@
 \input{meta}       % Use this to fill in author, title and other metadata used on front page
 \input{defs}        % DO NOT CHANGE
 
-\newcommand{\q}[1]{``#1''} % Custom command for making double quotation marks
+%%% CUSTOM COMMANDS - Start %%%
+
+% make double quotation marks
+\newcommand{\q}[1]{``#1''}
+
+% make a vertical ruler. Used to seperate grapihcs
+\newcommand{\rulesepv}{\unskip\ \vrule\ }
+
+%%% CUSTOM COMMANDS - End %%%
 
 \makeindex
 
@@ -24,15 +32,15 @@
     %-------------------------------------------------    
     \includepdf[pages={1, {}}] {titlepage} % Make your own catchy PDF title page, named titlepage.pdf
     \maketitle
-    \input{preface} % TO BE REMOVED IN FINAL REPORT
+    %\input{preface} % TO BE REMOVED IN FINAL REPORT
     \cleardoublepage % TO BE REMOVED IN FINAL REPORT
-    \input{abstract}
+    %\input{abstract}
     \addcontentsline{toc}{chapter}{Sammendrag}
     %-------------------------------------------------
 
     % OPTIONAL
     %-------------------------------------------------
-    \input{acknowledgements}
+    %\input{acknowledgements}
     \addcontentsline{toc}{chapter}{Takk Til}
     %-------------------------------------------------
 
@@ -63,13 +71,13 @@
     \input{bereket/kladd}
     \input{bjornar/kladd}
     \input{line/kladd}
-    \input{introduction}
-    \input{analysis}
-    \input{design}
-    \input{implementation}
-    \input{evaluation}
-    \input{discussion}
-    \input{conclusion}
+    %\input{introduction}
+    %\input{analysis}
+    %\input{design}
+    %\input{implementation}
+    %\input{evaluation}
+    %\input{discussion}
+    %\input{conclusion}
     %-------------------------------------------------
 
 
@@ -89,7 +97,7 @@
     \addcontentsline{toc}{chapter}{Register}
     \cleardoublepage    
     \appendix
-    \input{how-to}
+    %\input{how-to}
     %-------------------------------------------------
     
     \cleardoublepage %DO NOT CHANGE

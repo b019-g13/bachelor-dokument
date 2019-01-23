@@ -2,7 +2,7 @@
 
 \section{Konkurrentanalyse}
 
-Målet med konkurrentanalysen er å finne inspirasjon og kunnskap til nettstedet vi skal utvikle, ved å se på allerede eksisterende løsninger. Hvem er oppdragsgiver sine konkurrenter? Hvordan type løsning har disse valgt? Hvilke styrker og svakheter har løsningene? Analysen er først og fremst gjort fra en vanlig bruker sitt perspektiv, men noen tekniske faktorer har også blitt vurdert.
+Målet med konkurrentanalysen er å finne inspirasjon til nettstedet vi skal utvikle ved å se på allerede eksisterende løsninger. Hvem er oppdragsgiver sine konkurrenter? Hvordan type løsning har disse valgt? Hvilke styrker og svakheter har løsningene? Analysen er først og fremst gjort fra en vanlig bruker sitt perspektiv, men noen tekniske faktorer har også blitt vurdert.
 
 \subsection{Teknisk analyse}
 For å vurdere de tekniske faktorene har vi brukt Google Lighthouse til å sjekke hvor raskt nettstedene laster inn, beste praksis og SEO. I tillegg ble WAVE \footnote{Web Accessibility Evulation Tool. http://wave.webaim.org/} brukt til å sjekke om nettstedene følger kravene for loven om universell utforming og tilgjengelighet.
@@ -38,7 +38,30 @@ Nettstedet består også av følgende undersider:
 \end{itemize}
 
 \subsubsection{Teknisk analyse}
-Bruke google lighthouse
+
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[Google lighthouse]{
+            \label{fig:competitors-lighthouse-summary-tacticrealtime.com}
+            \includegraphics[width=0.7\textwidth]{line/tacticrealtime_com-lighthouse.png}
+        }
+        \rulesepv
+        \subfigure[WAVE]{
+            \label{fig:competitors-wave-summary-tacticrealtime.com}
+            \includegraphics[width=0.2\textwidth]{line/tacticrealtime_com-wave.png}
+        }
+        
+        \label{fig:competitors-tech_analysis-tacticrealtime.com}
+        \caption{Resultat for teknisk analyse av tacticrealtime.com}
+    \end{center}
+\end{figure}
+
+
+
+% KLADDIS - FJERN
+Figur \ref{fig:competitors-lighthouse-summary-tacticrealtime.com} viser test resultater fra Google Lighthouse. Se vedlegg X for full rapport på hver av disse. Merk at PWA ikke viser resultat som den skal, men det gjør ingenting ettersom det ikke er så relevant for disse nettstedene uansett \footnote{Se avsnitt \ref{sec:analysis-current-lighthouse} for en utdypende forklaring}.
+Vi har satt oss som mål å få minst like bra score som gjennomsnittet til disse.
+
 
 \subsubsection{Styrker}
 Førsteinntrykket er bra. Nettstedet fremstår som profesjonelt, noe som styrker inntrykket av bedriften. Nettstedet har også god oppbygning og struktur. 
@@ -79,11 +102,28 @@ Nettstedet består også av følgende undersider:
 \subsubsection{Teknisk analyse}
 5 kontrastfeil. Hele 147 feil når det kommer til universell utforming og tilgjengelighet. 135 av disse feilene er manglende bruk av alt-tekster.
 
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[Google lighthouse]{
+            \label{fig:competitors-lighthouse-summary-marketer.tech}
+            \includegraphics[width=0.7\textwidth]{line/marketer_tech-lighthouse.png}
+        }
+        \rulesepv
+        \subfigure[WAVE]{
+            \label{fig:competitors-wave-summary-marketer.tech}
+            \includegraphics[width=0.2\textwidth]{line/marketer_tech-wave.png}
+        }
+        
+        \label{fig:competitors-tech_analysis-marketer.tech}
+        \caption{Resultat for teknisk analyse av marketer.tech}
+    \end{center}
+\end{figure}
+
 \subsubsection{Styrker}
-Bra førsteinntrykk. Nettsted som skiller seg ut og er gjennomført. Chat som forenkler kontakt-prosessen for kunder. Klar og tydelig profil. Marketer har åpenbart sort som primærfarge og turkis som aksentfarge
+En av styrkene er at nettstedet gir et bra førsteinntrykk. Det er også et nettsted som skiller seg ut og er gjennomført. En annen styrke er at løsningen inneholder chat, der kunder enkelt kan ta kontakt. Profilen er også klar og tydelig, og det er åpenbart at bedriften har sort som primærfarge og turkis som aksentfarge.
 
 \subsubsection{Svakheter}
-Stort og tregt nettsted. Mange feil når det gjelder universell utforming og tilgjengelighet.
+En ulempe er at nettstedet består av flere store filer, som fører til at nettstedet oppleves som tregt. En annen svakhet er at løsningen får mange feil når det kjøres tester på universell utforming og tilgjengelighet.
 
 
 \subsection{Inviso AS}
@@ -115,44 +155,49 @@ Nettstedet består også av følgende undersider:
 
 
 \subsubsection{Teknisk analyse}
-4 kontrastfeil. 17 bilder som mangler alt-tekst. 
+Ved å kjøre test via WAVE oppgir resultatet at nettstedet har 4 kontrastfeil. I tillegg eksisterer det 17 bilder som mangler alt-tekst. 
 
-\subsubsection{Styrker}
-Bra profil. Man skjønner lett at rød er primærfargen til Inviso.
-Det tekstlige innholdet på siden er bra skrevet.
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[Google lighthouse]{
+            \label{fig:competitors-lighthouse-summary-inviso.no}
+            \includegraphics[width=0.7\textwidth]{line/inviso_no-lighthouse.png}
+        }
+        \rulesepv
+        \subfigure[WAVE]{
+            \label{fig:competitors-wave-summary-inviso.no}
+            \includegraphics[width=0.2\textwidth]{line/inviso_no-wave.png}
+        }
+        
+        \label{fig:competitors-tech_analysis-inviso.no}
+        \caption{Resultat for teknisk analyse av inviso.no}
+    \end{center}
+\end{figure}
+
+\subsubsection{Styrker} 
+Bra profil. Det er lett å skjønne at rød er primærfargen til Inviso. Det tekstlige innholdet på siden er godt skrevet og får bedriften til å fremstå profesjonelt.
 
 \subsubsection{Svakheter}
-For mye informasjon i headeren. En stor svakhet er at nettstedet får mange feil når man kjører tester når det gjelder universell utforming og tilgjengelighet. Har mobil-meny på fullversjon av siden.
+En svakhet er at det er for mye informasjon i headeren. Dette kan bidra til at førsteintrykket blir dratt ned. En annen stor svakhet er at nettstedet får mange feil når man kjører tester når det gjelder universell utforming og tilgjengelighet. Det faktum at nettsiden har en mobil-meny på fullversjon av siden, trekker også ned fordi dette gjør brukervennligheten dårligere.
 
 \subsection{Konklusjon}
-Felles for alle 3 konkurrentene er at ingen av de følger loven om universell utforming og tilgjengelighet.
+Felles for alle 3 konkurrentene er at ingen av de følger loven om universell utforming og tilgjengelighet. Universell utforming er lovpålagt i Norge \footnote{\url{https://lovdata.no/dokument/SF/forskrift/2013-06-21-732}}, og vår løsning kommer derfor til å følge disse kravene. 
 
-En annen ting alle har til felles er at de presenterer sine kunder og/eller partnere. Dette er noe Sirkus Media burde også burde gjøre. Det er tillitsvekkende og fører til bedre troverdighet.
+En annen egenskap alle har til felles er at de presenterer sine kunder og/eller partnere. Dette bør også Sirkus Media gjøre. Presentasjon av kunder som er kjente firmaer er tillitsvekkende og kan skape bedre troverdighet blant brukerne.
 
-Som vi kan se i figur \ref{fig:competitors-mobile} har alle konkurrentene gått for samme løsning når det kommer til design på mobil. Alle 3 har logo oppe til venstre, og et meny ikon til høyre.
-Dette er noe vi burde løse annerledes. Undersøkelser \footnote{Kilde: Luke Wroblewski, en internasjonalt anerkjent brukeropplevelsesdesigner \url{https://www.lukew.com/ff/entry.asp?1945}} viser at dette er langt fra beste løsning.
+Figur \ref{fig:competitors-mobile} viser at alle konkurrentene har gått for samme løsning når det kommer til design på mobil. Alle 3 har bedriftens logo oppe til venstre og et meny ikon til høyre.
+Planen er å at den nye nettsiden skal ha en annen løsning.  Undersøkelser \footnote{Kilde: Luke Wroblewski, en internasjonalt anerkjent brukeropplevelsesdesigner \url{https://www.lukew.com/ff/entry.asp?1945}} viser at dette er langt fra den mest optimale løsningen.
+
+Konkurrentene har gode løsninger, men også en del svakheter som har blitt påpekt i denne analysen. Studentgruppen har etter analysen fått inspirasjon på til deler av løsningen, men også en pekepinn på hva som bør gjøres annerledes.
 
 \begin{figure}[bh]
     \begin{center}
         \includegraphics[width=0.3\textwidth]{line/tacticrealtime_com_(iPhone_6_7_8).png}
         \includegraphics[width=0.3\textwidth]{line/marketer_tech_(iPhone_6_7_8).png}
         \includegraphics[width=0.3\textwidth]{line/inviso_no_(iPhone_6_7_8).png}
-        \caption{Mobil sider}
+        \caption{Alle nettstedene er mobiltilpasset}
         \label{fig:competitors-mobile}
     \end{center}
 \end{figure}
-
-\begin{figure}[H]
-    \begin{center}
-        \subfigure[tacticrealtime.com]{\label{fig:competitors-lighthouse-summary-tacticrealtime.com}\includegraphics[width=\textwidth]{line/tacticrealtime_com-lighthouse.png}}
-        \subfigure[marketer.tech]{\label{fig:competitors-lighthouse-summary-marketer.tech}\includegraphics[width=\textwidth]{line/marketer_tech-lighthouse.png}}
-        \subfigure[inviso.no]{\label{fig:competitors-lighthouse-summary-inviso.no}\includegraphics[width=\textwidth]{line/inviso_no-lighthouse.png}}
-        \caption{Lighthouse test resultater}
-        \label{fig:competitors-lighthouse-summary}
-    \end{center}
-\end{figure}
-
-Figur \ref{fig:competitors-lighthouse-summary} viser test resultater fra Google Lighthouse. Se vedlegg X for full rapport på hver av disse. Merk at PWA ikke viser resultat som den skal, men det gjør ingenting ettersom det ikke er så relevant for disse nettstedene uansett \footnote{Se avsnitt \ref{sec:analysis-current-lighthouse} for informasjon om hvorfor}.
-Vi har satt oss som mål å få minst like bra score som gjennomsnittet til disse.
 
 \clearpage
