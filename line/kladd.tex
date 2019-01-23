@@ -11,7 +11,7 @@ For å vurdere de tekniske faktorene har vi brukt Google Lighthouse til å sjekk
 Sirkus Media har mange konkurrenter, deriblant alle firmaer som driver mediebyråvirksomhet. Etter samtale med Hans Christian Hymer \footnote{Samtale med oppdragsgiver (16.01.2019)} fikk vi oppgitt 3 bedrifter som blir ansett som Sirkus Media sine største konkurrenter. Det er følgelig disse konkurrentene vi har valgt å analysere.
 
 \subsection{TACTIC™ Real-Time Marketing}
-Nettstedet til TACTIC™ Real-Time Marketing ligger på følgende domene; https://tacticrealtime.com
+Nettstedet til TACTIC™ Real-Time Marketing ligger på følgende domene; https://tacticrealtime.com. Se figur \ref{fig:competitors-tacticrealtime.com} for bilde av nettstedet.
 
 \subsubsection{Førsteinntrykk}
 Førsteinntrykket er at nettstedet fremstår ryddig og profesjonelt. Det første som møter deg er et stort bakgrunnsbilde. Bilde dekker hele skjermen og har en tittel og en underoverskrift. Headeren består også av en knapp der du kan trykke på \q{Request a demo}. Helt øverst på forsiden er logoen til Tactic og en meny. Til høyre er det en knapp som gir deg muligheten til å se på en video. 
@@ -39,6 +39,8 @@ Nettstedet består også av følgende undersider:
 
 \subsubsection{Teknisk analyse}
 
+WAVE
+
 \begin{figure}[H]
     \begin{center}
         \subfigure[Google lighthouse]{
@@ -52,30 +54,30 @@ Nettstedet består også av følgende undersider:
         }
         
         \label{fig:competitors-tech_analysis-tacticrealtime.com}
-        \caption{Resultat for teknisk analyse av tacticrealtime.com}
+        \caption{Resultat fra teknisk analyse av tacticrealtime.com}
     \end{center}
 \end{figure}
 
+Etter å ha gjennomført testen til Google Lighthouse, viste det seg at TACTIC var den desidert beste på alle punkter av de 3 konkurrentene. Restultatene fra Google Lighthouse kan man se i figur \ref{fig:competitors-lighthouse-summary-tacticrealtime.com}. De gjør relativt få feil med tanke på ytelse. De burde fikse feilene vedrørende \q{Eliminate render-blocking resources}\footnote{Hva vil dette si?} og \q{Serve static assets with an efficient cache policy}\footnote{Hva vil dette si?}. Vi kan se at siden lastet inn på 2,7 sekunder. Fikser man de overnevnte feilene, vil man kunne mer enn halvere innlastningstiden i følge rapporten.
 
+Når det kommer til \q{Best Pracices}, så er det et par forbedringer TACTIC burde gjort. De burde benytte HTTP2, i stedet for HTTP \footnote{HTTP2 er bakoverkompatibel, så ingen grunn til å ikke bruke det. Samt at det pleier å være 1 linje med kode for å skru på for de fleste web-servere.}. Det linkes til et JavaScript bibliotek med kjente sikkerhetshull. Dette burde man på ingen måte gjøre.
 
-% KLADDIS - FJERN
-Figur \ref{fig:competitors-lighthouse-summary-tacticrealtime.com} viser test resultater fra Google Lighthouse. Se vedlegg X for full rapport på hver av disse. Merk at PWA ikke viser resultat som den skal, men det gjør ingenting ettersom det ikke er så relevant for disse nettstedene uansett \footnote{Se avsnitt \ref{sec:analysis-current-lighthouse} for en utdypende forklaring}.
-Vi har satt oss som mål å få minst like bra score som gjennomsnittet til disse.
+På SEO delen av testen fikk TACTIC 100/100 poeng og det er derfor ingenting å påpeke.
 
+Full rapport for Google Lighthouse kan leses i vedlegg X1.
 
 \subsubsection{Styrker}
-Førsteinntrykket er bra. Nettstedet fremstår som profesjonelt, noe som styrker inntrykket av bedriften. Nettstedet har også god oppbygning og struktur. 
-Sterk profil. Det er ganske tydelig at grønn er pimærfargen til selskapet.
+Førsteinntrykket er bra. Nettstedet fremstår som profesjonelt, noe som styrker inntrykket av bedriften. Nettstedet har også god oppbygning og struktur. Løsningen har også en sterk profil, hvor det er ganske tydelig at det er grønn som er primærfargen til selskapet.
 
 \subsubsection{Svakheter}
-Hele nettstedet er på engelsk i tillegg til at det er et .com-domene. Dette kan forvirre brukerne. Vanskelig å skjønne at dette er et firma som er lokalisert i Oslo. En annen svakhet er at det er lite luft rundt noen elementer, som fører til at nettstedet fremstår som kompakt og mer rotete. Det er heller ikke samme mengde luft over og under elementene. Dette er også med på å trekke ned helhetsinntrykket. Det er heller ikke mulig å bevege seg rundt på nettstedet ved hjelp av tastaturet. Dette gjør det også vanskelig å navigere seg rundt ved hjelp av skjermleser, noe som er et krav i loven om universell utforming og tilgjengelighet. I tillegg får nettstedet mange kontrastfeil, som også bryter lovkravet om universell utforming.
+Hele nettstedet er på engelsk. I tillegg er det et .com-domene. Disse to faktorene kan forvirre brukerne, fordi det er vanskelig å skjønne at dette er et firma som er lokalisert i Oslo. En annen svakhet er at det er lite luft rundt noen elementer, som fører til at nettstedet fremstår som kompakt og mer rotete. Det er heller ikke samme mengde luft over og under elementene. Dette er også med på å trekke ned helhetsinntrykket. Det er heller ikke mulig å bevege seg rundt på nettstedet ved hjelp av tastaturet. Dette gjør det også vanskelig å navigere seg rundt ved hjelp av skjermleser, noe som er et krav i loven om universell utforming og tilgjengelighet. I tillegg får nettstedet mange kontrastfeil, som også bryter lovkravet om universell utforming.
 
 \subsection{Marketer Technologies AS}
 Nettstedet til Marketer Technologies AS ligger på følgende domene;
-https://marketer.tech/
+https://marketer.tech/. Se figur \ref{fig:competitors-marketer.tech} for bilde av nettstedet.
 
 \subsubsection{Førsteinntrykk}
-Førsteinntrykket av nettstedet er positivt, fordi den fremstår som ryddig og profesjonell. Det første som møter deg er headeren til nettstedet, som inneholder logoen til firmaet og en meny. Under menyen er en tittel, en underoverskrift og to lenker. Får også opp et ikon for chat. Det at man enkelt kan ta kontakt kan for en kunde virke betryggende, og kan være med å øke troverdigheten til bedriften.
+Førsteinntrykket av nettstedet er positivt, fordi den fremstår som ryddig og profesjonell. Det første som møter deg er headeren\footnote{Hodet til nettstedet} til nettstedet, som inneholder logoen til firmaet og en meny. Under menyen er en tittel, en underoverskrift og to lenker. Headeren inneholder også et ikon for chat. Det at kunder enkelt kan ta kontakt med firmaet kan virke betryggende, og kan være med å øke troverdigheten til bedriften.
 
 \begin{figure}[H]
     \centering
@@ -100,8 +102,6 @@ Nettstedet består også av følgende undersider:
 \end{itemize}
 
 \subsubsection{Teknisk analyse}
-5 kontrastfeil. Hele 147 feil når det kommer til universell utforming og tilgjengelighet. 135 av disse feilene er manglende bruk av alt-tekster.
-
 \begin{figure}[H]
     \begin{center}
         \subfigure[Google lighthouse]{
@@ -119,6 +119,11 @@ Nettstedet består også av følgende undersider:
     \end{center}
 \end{figure}
 
+Figur \ref{fig:competitors-lighthouse-summary-marketer.tech} viser resultatene fra testen gjort med Google Lighthouse. Her kom Marketer verst ut. Testen påpeker flere feil på punkter vedrørende ytelse, tilgjengelighet og beste praksiser. Det tar Google 5,3 sekunder å laste inn nettstedet, noe som er relativt tregt, men det er raskere enn Inviso.no. Selv om Marketer sin side laster inn raskere, så får den en dårligere poengsum på ytelse. Dette er fordi det tar hele 15,2 sekunder før siden blir beregnet som interaktiv \footnote{\q{Time to Interactive} i Google Lightouse rapporten}. Marketer burde ta samme grep som TACTIC, i tilleg til å fjerne ubrukt CSS, servere skalerte bilder og vurdere å redusere antall animasjoner.
+Full rapport for Google Lighthouse kan leses i vedlegg X2.
+
+Figur \ref{fig:competitors-wave-summary-marketer.tech} viser WAVE-resultatene. Her kommer det frem at løsningen har 5 kontrastfeil og hele 147 feil når det kommer til universell utforming og tilgjengelighet. 135 av disse feilmeldingene er manglende bruk av alt-tekster.
+
 \subsubsection{Styrker}
 En av styrkene er at nettstedet gir et bra førsteinntrykk. Det er også et nettsted som skiller seg ut og er gjennomført. En annen styrke er at løsningen inneholder chat, der kunder enkelt kan ta kontakt. Profilen er også klar og tydelig, og det er åpenbart at bedriften har sort som primærfarge og turkis som aksentfarge.
 
@@ -128,10 +133,10 @@ En ulempe er at nettstedet består av flere store filer, som fører til at netts
 
 \subsection{Inviso AS}
 Nettstedet til Inviso AS ligger på følgende domene;
-https://www.inviso.no/
+https://www.inviso.no/. Se figur \ref{fig:competitors-inviso.no} for bilde av nettstedet.
 
 \subsubsection{Førsteinntrykk}
-Førsteinntrykket av nettstedet er at den fremstår som rotete. Hovedgrunnen til dette er at det er mange elementer og mye som skjer i headeren\footnote{Hodet til nettstedet}. Logoen og noe av teksten på bakgrunnsbilde er også vanskelig å se, på grunn av for dårlig kontrast. 
+Førsteinntrykket av nettstedet er at den fremstår som rotete. Hovedgrunnen til dette er at det er mange elementer og mye som skjer i headeren. Logoen og noe av teksten på bakgrunnsbilde er også vanskelig å se, på grunn av for dårlig kontrast. 
 
 \begin{figure}[H]
     \centering
@@ -155,7 +160,6 @@ Nettstedet består også av følgende undersider:
 
 
 \subsubsection{Teknisk analyse}
-Ved å kjøre test via WAVE oppgir resultatet at nettstedet har 4 kontrastfeil. I tillegg eksisterer det 17 bilder som mangler alt-tekst. 
 
 \begin{figure}[H]
     \begin{center}
@@ -174,8 +178,16 @@ Ved å kjøre test via WAVE oppgir resultatet at nettstedet har 4 kontrastfeil. 
     \end{center}
 \end{figure}
 
+Figur \ref{fig:competitors-lighthouse-summary-inviso.no} viser resultatene fra testen gjort av Google Lighthouse. Her havnet Inviso midt på treet og kom dermed på andre plass av de tre konkurrentene. De får helt grei poengsum over hele linja. Når det kommer til ytelse, bør de ta samme grep som både TACTIC og Marketer. Hovedproblemet her ligger ved å servere bilder i et bedre egnet format. Ved å fikse dette kan de hente inn hele 4,2 sekunder av den totale innlastningstiden på 6,7 sekunder.
+
+På test delen vedrørende tilgjengelighet kommer det frem av Inviso burde forbedre kontrastforhold på deler av siden sin.
+
+Ingenting spesielt å påpeke ved SEO, men Inviso burde absolutt ta en titt på hvilke JavaScript biblioteker de bruker, ettersom Google kan melde om hele 5 kjente sikkerhetshull som er tilgjengelig på siden. Full rapport for Google Lighthouse kan leses i vedlegg X3.
+
+Ved å kjøre test via WAVE oppgir resultatet at nettstedet har 4 kontrastfeil. I tillegg eksisterer det 17 bilder som mangler alt-tekst. Figur \ref{fig:competitors-wave-summary-inviso.no} viser resultatene fra WAVE-testen.
+
 \subsubsection{Styrker} 
-Bra profil. Det er lett å skjønne at rød er primærfargen til Inviso. Det tekstlige innholdet på siden er godt skrevet og får bedriften til å fremstå profesjonelt.
+En av styrkene er at nettstedet har en bra profil. Det er lett å skjønne at rød er primærfargen til Inviso. En annen positiv side er at det tekstlige innholdet på siden er godt skrevet og får bedriften til å fremstå profesjonelt.
 
 \subsubsection{Svakheter}
 En svakhet er at det er for mye informasjon i headeren. Dette kan bidra til at førsteintrykket blir dratt ned. En annen stor svakhet er at nettstedet får mange feil når man kjører tester når det gjelder universell utforming og tilgjengelighet. Det faktum at nettsiden har en mobil-meny på fullversjon av siden, trekker også ned fordi dette gjør brukervennligheten dårligere.
@@ -183,12 +195,14 @@ En svakhet er at det er for mye informasjon i headeren. Dette kan bidra til at f
 \subsection{Konklusjon}
 Felles for alle 3 konkurrentene er at ingen av de følger loven om universell utforming og tilgjengelighet. Universell utforming er lovpålagt i Norge \footnote{\url{https://lovdata.no/dokument/SF/forskrift/2013-06-21-732}}, og vår løsning kommer derfor til å følge disse kravene. 
 
-En annen egenskap alle har til felles er at de presenterer sine kunder og/eller partnere. Dette bør også Sirkus Media gjøre. Presentasjon av kunder som er kjente firmaer er tillitsvekkende og kan skape bedre troverdighet blant brukerne.
+En annen side konkurrentene har til felles er at de presenterer sine kunder og/eller partnere. Dette bør også Sirkus Media gjøre. Presentasjon av kundeforhold med kjente firmaer er tillitsvekkende og kan skape bedre troverdighet blant brukerne.
 
-Figur \ref{fig:competitors-mobile} viser at alle konkurrentene har gått for samme løsning når det kommer til design på mobil. Alle 3 har bedriftens logo oppe til venstre og et meny ikon til høyre.
+Figur \ref{fig:competitors-mobile} viser at alle konkurrentene har gått for samme løsning når det kommer til design på mobil. Alle har bedriftens logo oppe til venstre og et meny ikon til høyre.
 Planen er å at den nye nettsiden skal ha en annen løsning.  Undersøkelser \footnote{Kilde: Luke Wroblewski, en internasjonalt anerkjent brukeropplevelsesdesigner \url{https://www.lukew.com/ff/entry.asp?1945}} viser at dette er langt fra den mest optimale løsningen.
 
-Konkurrentene har gode løsninger, men også en del svakheter som har blitt påpekt i denne analysen. Studentgruppen har etter analysen fått inspirasjon på til deler av løsningen, men også en pekepinn på hva som bør gjøres annerledes.
+Konkurrentene har gode løsninger, men også en del svakheter som har blitt påpekt i denne analysen. Konkurrentanalyse har vært nyttig fordi den både har ført til at gruppen har fått inspirasjon til deler av den løsningen som skal utvikles og samtidig gitt en pekepinn på hva som bør gjøres annerledes.
+
+??Vi har satt oss som mål å få minst like bra score som gjennomsnittet til disse.??
 
 \begin{figure}[bh]
     \begin{center}

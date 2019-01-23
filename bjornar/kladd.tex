@@ -2,27 +2,28 @@
 
 \section{Analyse av opprinnelig løsning}
 
-Målet med å analysere det nåværende nettstedet til Sirkus Media er å kartlegge eventuelle problemerområder som burde forbedres. Når utviklingen av det nye nettstedet er ferdig, vil vi sammenligne de nye testresultatene med resultatene som blir presentert i dette kapittelet.
+Målet med å analysere det nåværende nettstedet til Sirkus Media er å kartlegge eventuelle problemerområder som burde forbedres. Når utviklingen av det nye nettstedet er ferdig vil vi sammenligne de nye testresultatene med resultatene som blir presentert i dette kapittelet.
 
 
 \subsection{Test med Google Lighthouse}
 \label{sec:analysis-current-lighthouse}
 
-Ved å kjøre Google Lighthouse får vi resultater for hastighet, tilgjengelighet, beste praksis, søkemotoroptimalisering og progressiv webapplikasjon. Figur \ref{fig:analysis-current-lightouse-summary} viser oppsummering av resultatetene etter å ha kjørt testen. Oversikten viser at nettstedet får gode poeng på alle områdene. Dette fordi dagens nettsted består av kun en forside og lite informasjon. Dette begrenser muligheten for feil.
+Ved å kjøre Google Lighthouse \footnote{\url{https://web.dev/}, alternativt via Google Chrome DevTools} får vi resultater for hastighet, tilgjengelighet, beste praksis, søkemotoroptimalisering og progressiv webapplikasjon. Figur \ref{fig:analysis-current-lightouse-summary} viser oppsummering av resultatetene etter å ha kjørt testen. Oversikten viser at nettstedet får gode poengsummer på alle områdene. Hovedgrunnen til dette er at dagens nettsted består av kun en forside og lite informasjon. Dette begrenser muligheten for feil.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{bjornar/Lighthouse Report - mobile.png}
+    \includegraphics[width=\textwidth]{bjornar/Lighthouse-Report-mobile.png}
     \caption{Resultater fra Google Lighthouse}
     \label{fig:analysis-current-lightouse-summary}
 \end{figure}
 
-
 Ikonet for \q{Progressive Web App} har en feil, slik at man ikke får sett scoren. Ved hjelp av en JSON-fil \footnote{Se JSON-fil, linje 3386} som inneholder resultatene, ser man at poengscoren er på 58\%.
 
+Denne delen av testen er egentlig ikke relevant \footnote{Sirkus Media sitt nettsted er ikke, og kommer ikke til å bli en progressiv webapplikasjon. KILDE OM PWA}, og vi vil derfor ikke se på denne, eller nevne den i andre tekniske analysener som bruker Google Lighthouse.
+
+Full rapport for Google Lighthouse testen kan leses i vedlegg X.
 
 \subsection{Checkbot}
-Checkbot \footnote{https://checkbot.io} tester sikkerhet, hurtighet og søkemotoroptimalisering. Figur \ref{fig:analysis-current-checkbot-summary} viser oppsummering av resultatet. En mer detaljert rapport kan leses under vedlegg X. Denne testen viser en god poengsum når det gjelder totalt for gjennomsnittet. Isolert sett ser vi at sikkerheten til nettstedet drar ned poengscoren betydlig.
 
 \begin{figure}[H]
     \centering
@@ -31,17 +32,11 @@ Checkbot \footnote{https://checkbot.io} tester sikkerhet, hurtighet og søkemoto
     \label{fig:analysis-current-checkbot-summary}
 \end{figure}
 
-
+Checkbot \footnote{https://checkbot.io} tester sikkerhet, hurtighet og søkemotoroptimalisering. Figur \ref{fig:analysis-current-checkbot-summary} viser oppsummering av resultatet. En mer detaljert rapport kan leses under vedlegg X. Denne testen viser en god poengsum når det gjelder totalt for gjennomsnittet. Isolert sett ser vi at sikkerheten til nettstedet drar ned poengscoren betydlig.
 
 \subsection{Color Contrast Analyzer}
-
-Kan lastes ned her
-\url{https://chrome.google.com/webstore/detail/color-contrast-analyzer/dagdlcijhfbmgkjokkjicnnfimlebcll}
-
-Lagd av
-\url{https://accessibility.oit.ncsu.edu/} (North Carolina State University)
-
-Verktøyet tar bilde av nettstedet og scanner deretter kontrasten. Områder med bedre kontrast utheves og får lyse kanter. Jo mer markante kanter, desto mer kontrast.
+\label{sec:analysis-current-color-contrast-analyzer}
+Color Contrast Analyzer \footnote{\url{https://accessibility.oit.ncsu.edu/tools/color-contrast-chrome/}} tar bilde av nettstedet og scanner deretter kontrasten. Områder med bedre kontrast utheves og får lyse kanter. Jo mer markante kanter, desto mer kontrast.
 
 \begin{figure}[H]
     \centering
@@ -62,33 +57,23 @@ Ved å kjøre testen \q{small non bold text} for nivå AA, som gjelder for skrif
 \begin{figure}[H]
     \begin{center}
         \subfigure[grønn overskrift]{\label{fig:analysis-current-cdt-a}\includegraphics[width=0.3\textwidth]{bjornar/contrast-wcag-aa-small-gronn-tekst.png}}
-        \subfigure[blå logo tekst]{\label{fig:analysis-current-cdt-b}\includegraphics[width=0.3\textwidth]{bjornar/contrast-wcag-aa-small-logo-blaa.png}}
-        \subfigure[body tekst]{\label{fig:analysis-current-cdt-c}\includegraphics[width=0.3\textwidth]{bjornar/contrast-wcag-aaa-small-body.png}}
-        \caption{Chrome DevTools - color a11y}
+        \subfigure[blå tekst i logo]{\label{fig:analysis-current-cdt-b}\includegraphics[width=0.3\textwidth]{bjornar/contrast-wcag-aa-small-logo-blaa.png}}
+        \subfigure[vanlig tekst]{\label{fig:analysis-current-cdt-c}\includegraphics[width=0.3\textwidth]{bjornar/contrast-wcag-aaa-small-body.png}}
+        \caption{Chrome DevTools - kontrastforhold}
         \label{fig:analysis-current-cdt}
     \end{center}
 \end{figure}
 
 Resultatene etter å ha kjørt tester for nivå AAA viser at mesteparten av nettstedet ikke oppfyller kravet for kontrastnivå. Se figur \ref{fig:analysis-current-cca-aaa}. Her blir ingen av avsnittene med ordinær skriftstørrelse markert. Ved å kjøre en test med Chrome DevTools verifiseres påstanden om for dårlig kontrastnivå. Se figur \ref{fig:analysis-current-cdt-c}.
 
-
 \subsection{WAVE}
-\url{http://wave.webaim.org/}
-
-Kan videre \q{verifisere} funnene som ble gjort med verktøy over (CCA)r. LAG REF.
-
-Ved å skru på \q{No-styling} vil man oppdage at det er en skjult seksjon på siden.
-\q{THE COMPANIES THAT MAKE THEIR LIFE SIMPLE}. Dette blir plukket opp av skjermlesere og er derfor ikke ideelt.
-
-Det ble også oppdaget andre feil:
-1x: Document language missing
-4x: Tomme linker
-5x: Redudante linker
-
-Annet:
-8x: Bilder med tom alt attr.
-
-Bra stuktur på overskrifter som følger beste praksis:
+Med verktøyet WAVE \footnote{\url{http://wave.webaim.org/}} kan vi videre verifisere funnene som ble gjort med verktøyet over (avsnitt \ref{sec:analysis-current-color-contrast-analyzer}). WAVE raporterer om 20 kontrastfeil på nettsiden. \vskip 1em Det ble også oppdaget andre feil:\\ \quad 1x: Dokument språk mangler\\
+\quad 4x: Tomme linker\\
+\quad 5x: Redudante linker\\
+\vskip 1em Annet:\\
+\quad 8x: Bilder med tom alt attr.\\
+\vskip 1em Ved å skru på \q{No-styling} vil man oppdage at det er en skjult seksjon på siden. \q{THE COMPANIES THAT MAKE THEIR LIFE SIMPLE}. Dette blir plukket opp av skjermlesere og er derfor ikke ideelt.
+\vskip 1em Bra stuktur på overskrifter som følger beste praksis:
 \begin{itemize}
     \item h1: Vi skaffer konkrete kundehenvendelser.
     \begin{itemize}
@@ -101,12 +86,10 @@ Bra stuktur på overskrifter som følger beste praksis:
     \end{itemize}
 \end{itemize}
 
-\subsection{Bakgrunnsbilde A11y test}
-\url{https://www.brandwood.com/a11y/}
-
+\subsection{Text on background image a11y check}
 Ved å se på resultatene som ble presentert etter å ha benyttet CCA kan det konkluderes med at kontrastene er gode nok for nivå AA, men at de ikke oppfyller kravene for AAA. Dette er vanskelig å få verifisert med Chrome DevTools eller WAVE. Begge disse verktøyene kan gi negative resultater som er falske ettersom de ikke får en bakgrunnsfarge å se på, men et bakgrunnsbilde. Dette fører til at testen ikke blir utført korrekt.
 
-For å forhindre dette kan Brandwood sin A11y-test benyttes. Verktøyet deler opp bilde, der det ligger tekst over, i seksjoner og finner gjennomsnittsfargen i hver seksjon. Deretter sjekkes kontrastforholdet mellom hver seksjon og teksten.
+For å forhindre dette kan Brandwood sin A11y-test \footnote{\url{https://www.brandwood.com/a11y/}} benyttes. Verktøyet deler opp bilde, der det ligger tekst over, i seksjoner og finner gjennomsnittsfargen i hver seksjon. Deretter sjekkes kontrastforholdet mellom hver seksjon og teksten.
 Se figur.
 
 \begin{figure}[H]
@@ -153,14 +136,13 @@ Test & DOM & Load &  &  \\
 
 Resultatene måles i millisekunder. Testene ble kjørt på nettverket til Høgskolen i Østfold (avdeling Halden) fra en Dell XPS 13 (9350)
 
-\subsection{GOOGLE TRANSPARENCY REPORT - Safe Browsing: malware and phishing}
+\subsection{Google Transparency Report - Safe Browsing: malware and phishing}
 \url{https://transparencyreport.google.com/safe-browsing/search?url=https://sirkusmedia.no&hl=en-US}
 
 Det ble også gjort tester for å sjekke om det var skadevare på siden.
 Ingen funn ble gjort her, noe som selvfølgelig er positivt.
 
-\subsection{SSL test}
-
+\subsection{Qualys SSL Server Test}
 \url{https://www.ssllabs.com/ssltest/}
 
 Resultatet ble en A. Dette er bra, men nettstedet burde fått det beste resultatet som er A+, da det hverken kreves mye tid eller ressurser for å oppnå dette.
@@ -171,5 +153,8 @@ Resultatet ble en A. Dette er bra, men nettstedet burde fått det beste resultat
     \caption{Sertifikat score}
     \label{fig:analysis-current-ssl}
 \end{figure}
+
+\subsection{Konklusjon}
+lorem ipsum
 
 \clearpage
