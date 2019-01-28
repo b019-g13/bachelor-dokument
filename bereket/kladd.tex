@@ -2,99 +2,114 @@
 
 \section{Verktøyanalyse}
 
+\subsection{Laravel}
+Laravel\footnote{\url{https://laravel.com/}} er et åpen kildekode PHP-rammeverk som brukes til å lage webapplikasjoner og andre typer nettsteder. Ramnmeverket baserer seg på Symfony\footnote{Avsnitt \ref{sec:tools-symfony}} og følger Model-view-controller\footnote{Avsnitt \ref{sec:tools-mvc}} (MVC) designmønsteret.
+Laravel kommer med innebygde funksjoner for autentisering, modeller, visninger, sesjoner, ruting og andre funksjoner som en \textit{templating engine} kalt Blade\footnote{\url{https://laravel.com/docs/5.7/blade}}.
 
-\subsection{linux}
-Linux er en åpenkilde operativsystem. Et operativsystem er programvare som administrerer alle maskinvareressursene som er tilknyttet skrivebordet eller datamaskinen. 
+%%% VI SER PÅ FORDELER OG ULEMPER SENERE %%%
+%\subsubsection{Fordeler}
+%\begin{itemize}
+%    \item Laravel er veldig raskt i forhold til CMS (Content Management Systems).
+%    \item Har funksjoner som autentisering og autorisasjon.
+%    \item Alt kan tilpasses og styres hvordan tingene fungerer.
+%    \item Databasen kan brukes eller utformes på egen måte.
+%\end{itemize}
 
-Linux har en rekke forskjellige versjoner kalt distribusjoner. De disribusjonene er Ubuntu Linux, Linux Mint, Arch Linux, Deepin, Fedora, Debian og openSUSE.
+%\subsubsection{Ulemper}
+%\begin{itemize}
+%    \item I Laravel må SEO definere egne ruter, og det tar mye arbeid å utvikle et nettsted som hovedsakelig er avhengig av innhold.
+%    \item Laravel rammeverk er litt komplisert og krever mer kunnskap.
+%    \item Laravel er mindre fleksibel for å oppdatere innholdet.
+%\end{itemize}
 
-\url{http://lib.sgu.edu.vn:84/dspace/bitstream/TTHLDHSG/2808/1/Operating_System_Concepts_Essentials.pdf}
+%Fordeler og Ulemper av laravel ble tatt i forhold til CMS.
+%Kilde: \url{https://www.educba.com/laravel-vs-wordpress/}
 
-\subsection{nginx}
-NGINX er en gratis og åpen kilde HTTP proxy server. Nginx kan håndtere høyere belastning av HTTP-forespørsler. Den er kompatibel med operativsystemer som Windows, Linux, Mac OS, FreeBSD og Solaris.
+\subsection{Symfony}
+\label{sec:tools-symfony}
+Symfony\footnote{\url{https://symfony.com/what-is-symfony}} er et webapplikasjonsrammeverk og et sett med gjenbrukbare komponenter og biblioteker skrevet i PHP.
 
-\url{https://simplercloud.wordpress.com/2014/08/06/what-is-the-difference-between-lamp-stack-and-lemp-stack/}
+\subsection{MVC}
+\label{sec:tools-mvc}
+Model-View-Controller(MVC)\footnote{\url{http://www.dgp.toronto.edu/~dwigdor/teaching/csc2524/2012_F/papers/mvc.pdf}} er et designmønster som deler et program inn i tre hovedkomponenter: modell, visning og kontroll.
+Matteo J. (2018, Mars 16) Re: Explain MVC like I'm five [Blogg kommentar]\footnote{\url{https://dev.to/matteojoliveau/comment/2ikd}}
+\begin{quote}
+    You walk in a McDonald and you order at the big interactive touchscreen.
+    The screen is the View, and you ask for your meal there.
+    The order is passed to the operator, who is the Controller, that will go in the kitchen and fetch a burger (your wanted resource) of the type (Model) you asked, then deliver it back to you.
+\end{quote}
+%Typisk flyt er at det kommer inn en forespørsel som går til kontrolleren. Den tolker forespørselen og behandler den ved å hente og endre data via modell. Til slutt sendes det et svar til visning.
 
+\subsubsection{Modell}
+Modell (Model) representerer de forskjellige type ressurser som en applikasjon har. Her beskriver man hver resurs, hvordan den er oppbygd og hva som kan gjøres med den.
 
-\subsection{php}
-PHP er en forkortelse for Hypertext Pre-processor. PHP er et skriptspråk som er spesielt egnet for webutvikling og kan legges inn i HTML. PHP er en serverside programmeringsspråk derfor kan man programmere dynamiske, interaktive websider med PHP. PHP er gratis og plattformuavhengig. PHP er rask og fleksibel. Dette kan installeres i pakker sammen med web servere som LAMP, WAMP, XAMPP og LEMP.
+\subsubsection{Visning}
+Visning (View) håndterer brukerinteraksjon og presentasjon av data. Er ofte et grafisk brukergrensesnitt.
 
-\url{https://www.guru99.com/what-is-php-first-php-program.html}
+\subsubsection{Kontrolleren}
+Kontroll (Control) delen er ansvarlig for å koordinere forespørsler og svar.
 
-\subsection{sessions}
+\subsection{GNU/Linux}
+GNU/Linux er en familie med Unix lignende operativsystemer som baserer seg på Linux kjernen og en del programvare fra GNU prosjektet.
+I denne familien finner vi blant annet Ubuntu, Debian, Fedora, Red Hat Linux og Arch Linux.
+Kilder: \url{https://www.kernel.org} \url{https://www.gnu.org/}
+%Et operativsystem er programvare som administrerer alle maskinvareressursene som er tilknyttet skrivebordet eller datamaskinen. 
 
-\subsection{phpmyadmin}
-phpMyAdmin er et gratis og web-basert administrasjonsverktøy for MySQL-database. Dette er skrevet i PHP. phpMyAdmin gjør flere operasjoner på MySQL og MariaDB. Med phpMyAdmin kan man lage og slette databaser, lage /slette /endre tabeller, slette/redigere/ legge til felt, utføre noen SQL-setninger, administrere nøkler på felt, administrere privilegier og eksporter data til ulike formater.
+\subsection{Nginx}
+Nginx er en gratis og åpen kildekode HTTP server. Nginx kan håndtere en høy belastning av HTTP-forespørsler. Programmet er tilgjengelig på operativsystemer som Windows, GNU/Linux-baserte, Mac OS, BSD-baserte og Solaris.
 
-\url{https://www.phpmyadmin.net/}
+Kilde: Nedelcu, C. (2010). Nginx HTTP Server: Adopt Nginx for Your Web Applications to Make the Most of Your Infrastructure and Serve Pages Faster Than Ever. Packt Publishing Ltd.
 
-\subsection{mariadb}
+\subsection{PHP}
+PHP (rekursiv akronym for PHP Hypertext Pre-processor) er et skriptspråk som er spesielt egnet for webutvikling og kan legges inn i HTML. PHP er et serverside programmeringsspråk og man kan lage dynamiske, interaktive websider med PHP. PHP er gratis og plattformuavhengig. PHP er rask og fleksibel. Dette kan installeres i pakker sammen med web servere som LAMP, LEMP, WAMP og XAMPP.
 
-\subsection{mvc}
+\subsection{Sesjoner}
+En sesjon\footnote{\url{https://ieeexplore.ieee.org/abstract/document/8392612}} (session) er en samling av data lagret på en web server. En web server tildeler en ID for brukere som sender forespørsler via en nettleser. ID-en lagres som en cookie på nettlesern til brukeren. Hver videre forespørsel identifiseres av ID-en som er lagret hos brukeren.
 
-\subsection{symfony}
+\subsection{phpMyAdmin}
+phpMyAdmin\footnote{\url{https://www.phpmyadmin.net/}} er et gratis og web-basert administrasjonsverktøy for MySQL-database. Dette er skrevet i PHP. phpMyAdmin gjør flere operasjoner på MySQL og MariaDB. Med phpMyAdmin kan man lage og slette databaser, lage /slette /endre tabeller, slette/redigere/ legge til felt, utføre noen SQL-setninger, administrere nøkler på felt, administrere privilegier og eksporter data til ulike formater.
 
-\subsection{laravel}
-Laravel er en åpen kilde PHP-rammeverk som brukes til å lage webapplikasjoner og andre typer nettsteder. Det er basert på Symfony. Symfony er et PHP webapplikasjonsramme og et sett med gjenbrukbare PHP-komponenter eller biblioteker. Det følger Model-view-controller (MVC) designmønsteret.
+\subsection{MariaDB}
+MariaDB er et gratis og åpen kildekode relasjonsdatabase system basert på MySQL. Databasestrukturen og indeksene til MariaDB er det samme som MySQL. MariaDB er kompatibel med MySQL og samsvarer med MySQL-kommandoer. 
 
-Dette er utgitt med innebygde funksjoner for autentisering, lokalisering, modeller, visninger, sesjoner, ruting og andre funksjoner som en inversjon av kontroll og et templerende system kalt Blade. Den nye funksjonen kommandolinje grensesnitt kalles artisan, innebygd støtte av database management system, støtte for håndtering hendelser og pakkesystem kalt bundler.
-
-\url{https://www.educba.com/laravel-vs-wordpress/}
-
-\subsubsection{Fordel}
-\begin{itemize}
-\item Laravel er veldig raskt.
-\item Har mange funksjoner som autentisering, autorisasjon, inversjon av kontroll osv.
-\item Alt kan tilpasses og styres hvordan tingene fungerer.
-\item Databasen kan brukes eller utformes på egen måte.
-\end{itemize}
-
-\subsubsection{Ulemper}
-\begin{itemize}
-\item I Laravel må SEO definere egne ruter, og det tar mye arbeid å utvikle et nettsted som hovedsakelig er avhengig av innhold.
-\item Laravel rammeverk er litt komplisert og krever mer kunnskap.
-\item Laravel er mindre fleksibel for å oppdatere innholdet.
-\end{itemize}
-
-\subsection{csrf}
+\subsection{CSRF}
+Cross site request forgery\footnote{url{https://ieeexplore.ieee.org/abstract/document/5283085}} (CSRF) er et angrep som gjør en nettleser til å utføre en uønsket handling i et nettsted som en bruker er logget på. Angriperen bruker rettighetene offeret har i webapplikasjonen for å utføre handlingene. Handlingene utføres på vegne av offeret.
 
 \subsection{CI \& CD}
+CI står for Continuous integration and CD står for continuous delivery. CI/CD\footnote{\url{https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment}} er en av de beste metodene for DevOps-gruppe for å implementere og levere kodeendringer rask og pålitelig. 
 
-\subsection{buddy.works}
+\subsection{Buddy}
+Buddy\footnote{\url{https://buddy.works}} er en web-basert applikasjon for CI og CD. Applikasjonen lar utviklere bygge, teste og distribuere nettsider og programkode automatisk når kildekoden oppdateres. Man kan for eksempel koble Buddy til et nettsted sin kildekode via Git. Når man da oppdaterer koden til nettstedet, vil Buddy automatisk detektere endringer og starte en byggeprosess. Når byggeprosessen er ferdig kjøres det automatisk tester på koden, som kan verifisere at alt funker som det skal. Deretter vil Buddy laste koden opp til en server og oppdatere nettstedet som ligger ute på nett. Dette skjer gjerne gjennom Docker\footnote{\url{https://www.docker.com/}} sammen med Kubernetes\footnote{\url{https://kubernetes.io/}}.
 
-\subsection{github}
- Git er et distribuert versjonskontrollsystem for sporing av versjoner av filer. Versjonskontroll er et system som registrerer endringer i en fil eller et sett med filer og man kan se endringene senere. Github er webportal for Git-repositoriene. Git lar utvikleere spore og vert versjoner av filer på Github. Github hjelper utviklere for å samarbeide sammen offentlig eller privat.
- 
- \url{https://searchitoperations.techtarget.com/definition/GitHub}
+\subsection{Axios}
+Axios\footnote{\url{https://github.com/axios/axios}} et et JavaScript bibliotek for en promise-basert\footnote{\url{https://leanpub.com/exploring-es6/}} HTTP-klient som kan kjøres i nettlesere og Node.Js. Biblioteket gjør det enkelt å lage og behandle asynkrone forespørsler.
+
+\subsection{Github}
+ Git er et distribuert versjonskontrollsystem for sporing av versjoner av filer. Versjonskontroll er et system som registrerer endringer i en fil eller et sett med filer og man kan se endringene senere. Github\footnote{ \url{https://searchitoperations.techtarget.com/definition/GitHub}} er webportal for Git-repositoriene. Git lar utvikleere spore og vert versjoner av filer på Github. Github hjelper utviklere for å samarbeide sammen offentlig eller privat.
  
 \subsection{Overleaf}
-Overleaf er en gratis tjeneste som brukes til å lage, redigere og dele akademiske artikler enkelt på nettet ved hjelp av LaTeX. Dette er en nettbasert redigering og skriving program. 
-Overleaf v2 tilbyr direkte synkronisering til GitHub og mulighet til toveissynkronisering mellom Overleaf og Dropbox.
-
-\url{http://web.simmons.edu/~wilsonjd/LIS488/website/OverleafTutorial.pdf}
-
-\url{https://no.overleaf.com/learn/how-to/Working_Offline_in_Overleaf}
+Overleaf\footnote{\url{http://web.simmons.edu/~wilsonjd/LIS488/website/OverleafTutorial.pdf}} er en gratis tjeneste som brukes til å lage, redigere og dele akademiske artikler enkelt på nettet ved hjelp av LaTeX. Dette er en nettbasert redigering og skriving program. 
+Overleaf v2\footnote{\url{https://no.overleaf.com/learn/how-to/Working_Offline_in_Overleaf}} tilbyr direkte synkronisering til GitHub og mulighet til toveissynkronisering mellom Overleaf og Dropbox.
 
 \subsection{ottomatik.io}
+Ottomatik\footnote{\url{https://laravel-news.com/ottomatik}} er en tjeneste for automatisk sikkerhetskopiering av filer og databaser.
+Dette er basert på webtjeneste som håndterer databasekoblinger automatisk. Når den blir konfigurert tar den sikkerhetskopi av databasen. 
 
 \subsection{amazon web services (AWS) S3}
+Amazon Web Services (AWS)\footnote{\url{https://link.springer.com/chapter/10.1007/978-3-319-96145-3_3}} er en sikker skytjeneste plattform som tilbyr database lagring, innholds leveranse og andre funksjoner. Amazon S3 (Simple Storage Service)\footnote{\url{https://aws.amazon.com/products/storage/}} er en webtjeneste som kan lagre data på nett. Dette tilbyr tjenester som data skalerbarhet, data tilgjengelighet og data sikkerhet.
 
 \subsection{HTTP2}
-HTTP2 er en HTTP protokoll krever et SSL/TLS sertifikat for å servere nettsider over HTTPS. SSL/TLSsertifikatet kan skaffes gjennom Let’s Encrypt.  
-
-\url{https://kinsta.com/learn/what-is-http2/}
+HTTP2\footnote{\url{https://kinsta.com/learn/what-is-http2/}} er en HTTP protokoll krever et SSL/TLS sertifikat for å servere nettsider over HTTPS. SSL/TLSsertifikatet kan skaffes gjennom Let’s Encrypt.  
 
 \subsection{HTTPS}
-HTTPS (Hypertext Transfer Protocol Secure) er en sikrere versjon av HTTP-protokollen som overfører data på web. HTTP er en applikasjonslagprotokoll for overføring av hypermedia dokumenter, for eksempel HTML. HTTPS-protokollen oppretter kryptert kanal mellom nettleseren og webserveren slik  kommunikasjonen blir sikkert. 
-
-\url{https://www.rfc-editor.org/rfc/pdfrfc/rfc2616.txt.pdf}
+HTTPS (Hypertext Transfer Protocol Secure)\footnote{\url{https://www.rfc-editor.org/rfc/pdfrfc/rfc2616.txt.pdf}} er en sikrere versjon av HTTP-protokollen som overfører data på web. HTTP er en applikasjonslagprotokoll for overføring av hypermedia dokumenter, for eksempel HTML. HTTPS-protokollen oppretter kryptert kanal mellom nettleseren og webserveren slik  kommunikasjonen blir sikkert. 
 
 \subsection{Let’s Encrypt}
-Let’s Encrypt er en gratis og åpent sertifikatautoritet som gir X.509-sertifikater for kryptering av transportlagsikkerhet(TLS). Tjenesten leveres av Internet Security Research Group (ISRG).
-
-\url{https://letsencrypt.org/}
+Let’s Encrypt\footnote{\url{https://letsencrypt.org/}} er en gratis og åpent sertifikatautoritet som gir X.509-sertifikater for kryptering av transportlagsikkerhet(TLS). Tjenesten leveres av Internet Security Research Group (ISRG).
 
 \subsection{SSL/TLS}
+Transport Layer Security (TLS) eller Secure Socket Layer (SSL) er en kryptografisk protokoll. Dette er viktig for å sikre informasjon som overføres gjennom nettverk. TLS/SSL brukes i forskjellige tjenester som web, post, FTP, VoIP og VPN.
+Når en tjeneste bruker en sikker tilkobling, legges bokstaven S til tjenestens protokollnavn. For eksempel: HTTPS, SMTP, FTP, SHIPS.
 
 \subsection{HTML}
 HTML (Hypertext Markup Language) er et oppslagsspråk som brukes til å lage nettsidedokumenter. Det er et system som identifiserer og beskriver de forskjellige komponentene i et dokument som overskrifter, avsnitt og lister. HTML5 er den nyeste versjonen av HTML-standarden.
@@ -108,33 +123,23 @@ SASS (Syntactically Awesome Style Sheets) er en utvidelse av CSS. SASS tilbyr mu
 \subsection{javascript}
 Javascript er et programmeringsspråk som er mye brukt til å utvikle webapplikasjoner. Den støttes av de fleste av de moderne nettleserne. JavaScript brukes til å manipulere elementene på nettsiden og stilene som er brukt på dem. JavaScript støtter objektorientert språk.
 
-\subsection{reactjs}
-Reactjs er et fleksibelt JavaScript bibliotek for å bygge brukergrensesnitt. React er Det er visningslaget for webapplikasjoner. React er en åpen kildekode og utviklet av Facebook for å bygge brukergrensesnitt. Node.js er et JavaScript runtime miljø som gjør at vi kan kompilere React kode.
-
-\url{https://www.fullstackreact.com/assets/media/sGEMe/MNzue/30-days-of-react-ebook-fullstackio.pdf}
-
-\subsection{axios}
+\subsection{React}
+React\footnote{\url{https://reactjs.org/}\url{https://www.fullstackreact.com/assets/media/sGEMe/MNzue/30-days-of-react-ebook-fullstackio.pdf}} er et fleksibelt JavaScript bibliotek for å bygge brukergrensesnitt. React er Det er visningslaget for webapplikasjoner. React er en åpen kildekode og utviklet av Facebook for å bygge brukergrensesnitt. Node.Js er et JavaScript runtime miljø som gjør at vi kan kompilere React kode.
 
 \subsection{rest-api}
-REST API-design (Representational State Transfer) er designet for å utnytte eksisterende protokoller. REST kan brukes over nesten hvilken som helst protokoll. Når den brukes til web-APIer benytter den vanligvis HTTP. Dette betyr at utviklere ikke trenger å installere biblioteker eller tilleggsprogramvare for å bruke REST API-design.
-
-\url{https://www.mulesoft.com/resources/api/what-is-rest-api-design}
+REST API-design (Representational State Transfer)\footnote{\url{https://www.mulesoft.com/resources/api/what-is-rest-api-design}} er designet for å utnytte eksisterende protokoller. REST kan brukes over nesten hvilken som helst protokoll. Når den brukes til web-APIer benytter den vanligvis HTTP. Dette betyr at utviklere ikke trenger å installere biblioteker eller tilleggsprogramvare for å bruke REST API-design.
 
 \subsection{Figma}
-Figma er et grensesnitt design program som kjører i en nettleser. Med Figma har designere muligheter å dele en redigerbar design med andre. I tillegg kan designere også overføre filer til utviklere i en view-only modus. I denne modusen kan en utvikler inspisere design og eksportkode.
+Figma\footnote{\url{https://www.xfive.co/blog/figma-best-designer-developer-cooperation/}} er et grensesnitt design program som kjører i en nettleser. Med Figma har designere muligheter å dele en redigerbar design med andre. I tillegg kan designere også overføre filer til utviklere i en view-only modus. I denne modusen kan en utvikler inspisere design og eksportkode.
 
-\url{https://www.xfive.co/blog/figma-best-designer-developer-cooperation/}
-
-\subsection{ Google Analytics}
-Google Analytics er en gratis webanalysetjeneste som gir statistikk og grunnleggende analytiske verktøy for søkemotoroptimalisering (SEO) og markedsføringsformål. Google Analytics hjelper for å måle, samle, analysere og rapportere av internettdata med hensikt å forstå og optimalisere bruken av nettet.
-
-\url{https://searchbusinessanalytics.techtarget.com/definition/Google-Analytics}
+\subsection{Google Analytics}
+Google Analytics\footnote{\url{https://searchbusinessanalytics.techtarget.com/definition/Google-Analytics}} er en gratis webanalysetjeneste som gir statistikk og grunnleggende analytiske verktøy for søkemotoroptimalisering (SEO) og markedsføringsformål. Google Analytics hjelper for å måle, samle, analysere og rapportere av internettdata med hensikt å forstå og optimalisere bruken av nettet.
 
 \subsection{Lighthouse}
-Lighthouse er et open-source, automatisert verktøy for å forbedre kvaliteten på nettsidene. Du kan kjøre den mot en hvilken som helst nettside, offentlig eller krever godkjenning. Den har revisjoner for ytelse, tilgjengelighet, progressive webapps og mer. Den kan kjøres i Chrome DevTools, fra kommandolinjen, eller som en node modul.
+Lighthouse\footnote{\url{https://developers.google.com/web/tools/lighthouse/}} er et gratis verktøy for å sjekke kvaliteten på nettsider. Den analyserer nettsidens tilgjengelighet, hastighet, beste praksis, progressiv webapplikasjon og SEO. Den kan kjøres i Chrome DevTools fra kommandolinjen.
 
 \subsection{WAVE}
-WAVE (Web Accessibility Evaluation Tool) er utviklet og gjort tilgjengelig som en gratis samfunnstjeneste av WebAIM. WAVE er en tilgjengelighetstest av nettsider.
+WAVE (Web Accessibility Evaluation Tool)\footnote{
+\url{https://wave.webaim.org/about}} er utviklet og gjort tilgjengelig som en gratis samfunnstjeneste av WebAIM. WAVE er en tilgjengelighetstest av nettsider.
 
-\url{https://wave.webaim.org/about}
 \clearpage
