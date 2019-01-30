@@ -1,84 +1,196 @@
 \cleardoublepage
 \chapter{Introduksjon}
 \label{chap:intro}
-\meta{
-Det som er markert med grått, er forklaringer på hva de enkelte delene av rapportene skal inneholde, og som er det minimum leseren bør skumme gjennom før malen taes i bruk. Det som ikke er markert med grått, er eksempeltekst som kunne tenkes brukt i et fiktivt prosjekt der formålet er å utarbeide en mal for hoveddokumentet i en bacheloroppgave ved HiØ/IT.
-Introduksjonen skal gi leseren et bilde av rammene rundt prosjektet, prosjektets formål, metoder og leveranser. Den bør også inneholde en oversikt over resten av dokumentet[1]. Husk at kapitler, sections etc. bør ha et par setninger med ``innledning'' før man starter på neste undernivå.
-}
+% \meta{
+% Det som er markert med grått, er forklaringer på hva de enkelte delene av rapportene skal inneholde, og som er det minimum leseren bør skumme gjennom før malen taes i bruk. Det som ikke er markert med grått, er eksempeltekst som kunne tenkes brukt i et fiktivt prosjekt der formålet er å utarbeide en mal for hoveddokumentet i en bacheloroppgave ved HiØ/IT.
+% Introduksjonen skal gi leseren et bilde av rammene rundt prosjektet, prosjektets formål, metoder og leveranser. Den bør også inneholde en oversikt over resten av dokumentet[1]. Husk at kapitler, sections etc. bør ha et par setninger med ``innledning'' før man starter på neste undernivå.
+% }
+Kapittel 1 omhandler hensikt, beskrivelse og hvilke mål som er satt for prosjektet, samt en presentasjon av prosjektgruppen og oppdragsgiver. Prosjektet er knyttet til Bacheloroppgave 2019, der oppdragsgiveren er Sirkus Media. Veilederen for prosjektgruppen er Einar Krogh. 
 
 \section{Prosjektgruppen}
 
-\meta{
-Det er vanlig å starte med å presentere prosjektgruppen, litt om hver enkelt av deltagerne, deres kompetanse og interesser, og litt om hvordan dere har kommet sammen, f.eks. om dere har jobbet sammen i andre fag.
-}
+% \meta{
+% Det er vanlig å starte med å presentere prosjektgruppen, litt om hver enkelt av deltagerne, deres kompetanse og interesser, og litt om hvordan dere har kommet sammen, f.eks. om dere har jobbet sammen i andre fag.
+% }
+Prosjektgruppen består av 3 medlemmer, der alle er dataingeniørstudenter.
 
+\textit{Om Bereket}
+Gikk på IKT-servicefag på  videregående og var deretter lærling hos IT-avdelingen til Rana kommune. Etter bestått fagbrev begynte jeg på Høgskolen i Østfold på dataingeniørstudiet Y-vei.
+
+Er interessert å jobbe med teknologier som HTML, CSS, PHP og JavaScript.
+
+\textit{Om Bjørnar}
+Tok fagbrev som IKT-servicemedarbeider hos Optimale Systemer AS i Larvik etter 2 år som lærling. Dette etter å ha fullført IKT-linja hos Sandefjord videregående skole. Deretter gikk det videre til Høgskolen i Østfold, og startet da på Y-veien for dataingeniørstudiet.
+
+Jobber nå som daglig leder hos Datahjelpen AS, hvor arbeidsoppgavene innebærer utvikling som full-stack og en del DevOps. Liker å jobbe med teknologier som HTML, CSS, JavaScript, Node, React, PHP og Linux.
+
+\textit{Om Line}
+Gikk IKT-servicefag på Sandefjord videregående skole. Var etter dette lærling hos Vestfold Fylkeskommune der jeg tok fagbrev og dermed ble utdannet IKT-servicemedarbeider. Startet deretter på Y-veien på dataingeniørstudiet ved Høgskolen i Østfold. 
+
+Jobber nå som front-end utvikler hos Datahjelpen AS og liker best å jobbe med teknologier som HTML, CSS, JavaScript og PHP.
 
 \section{Oppdragsgiver}
 
-\meta{
-Beskriv oppdragsgiver, både firma og kontaktpersoner.
-}
+% \meta{
+% Beskriv oppdragsgiver, både firma og kontaktpersoner.
+% }
+Oppdragsgiver for dette prosjektet er Sirkus Media.
+Sirkus Media ble stiftet i 2010 av Hans-Christian Hymer og er et teknologi-, data- og analyseselskap som leverer innovative løsninger for digital markedsføring. Deres kunder er små og store bedrifter i hele Norge som ønsker å få økt salg og lønnsomhet. 
 
+Ved hjelp av deres egenutviklede løsning jobber de med å skaffe konkrete kundehenvendelser til sine kunder. Løsningen når direkte ut til kjøpsklare kunder. Dette innebærer at de utelukkende markedsfører mot personer som, basert på nettadferd, vet at med stor sannsynlighet er på utkikk etter produkter eller tjenester som selskapet tilbyr.
+
+Sirkus Media har i dag 2 ansatte og hadde i 2017 en omsetning på 6.4 millioner.
+
+Vår kontaktperson hos oppdragsgiver er Hans-Christian Hymer som både er grunnlegger og daglig leder av Sirkus Media. 
 
 \section{Oppdraget}
 \label{sec:oppgaven}
 
-\meta{
-Forklar hva slags problem oppdragsgiver ønsker å løse, og hvordan det er tenkt gjort. Dette skal ikke være en inngående analyse, men en utvidet og oppdatert versjon av det som opprinnelig fantes i prosjektbeskrivelsen, f.eks. slik:
-}
+% \meta{
+% Forklar hva slags problem oppdragsgiver ønsker å løse, og hvordan det er tenkt gjort. Dette skal ikke være en inngående analyse, men en utvidet og oppdatert versjon av det som opprinnelig fantes i prosjektbeskrivelsen, f.eks. slik:
+% }
 
-Bakgrunnen for dette prosjektet er at retningslinjene for evaluering av bacheloroppgaver ved Høgskolen i Østfold legger stor vekt på hoveddokumentasjonen\footnote{``Hoveddelen av karakteren utgjøres av sluttrapporten og prosjektets faglige nivå og utforming'' \url{http://www.it.hiof.no/hovedp/evaluering2013.htm}}.
-Erfaringsmessig hersker det endel forvirring om hva som skal med i dette dokumentet, hvordan det skal struktureres, og hvordan det bør se ut. I tillegg har vi tre ulike hovedvarianter av prosjekter:
-
-
-\begin{compactdesc}
-\item[Utredninger:] Dette er den vanlige formen i IT-ledelse. Her er det ikke snakk om å lage et produkt, men heller foreta en undersøkelse,
- f.eks. en evaluering av av et sett med programvare med tanke på hva som egner seg best for oppdragsgivers behov.
-\item[Mediaproduksjoner:] I DMPRO består ofte prosjektene i større eller mindre grad å produsere en video, et radioprogram eller liknende.
-\item[Utvikling:] På Informatikk, Dataingeniør og Webutvikling er det vanligst at oppdraget går ut på å laget et program, en app, eller f.eks. et nettsted.
-\end{compactdesc}
+% Bakgrunnen for dette prosjektet er at retningslinjene for evaluering av bacheloroppgaver ved Høgskolen i Østfold legger stor vekt på hoveddokumentasjonen\footnote{``Hoveddelen av karakteren utgjøres av sluttrapporten og prosjektets faglige nivå og utforming'' \url{http://www.it.hiof.no/hovedp/evaluering2013.htm}}.
+% Erfaringsmessig hersker det endel forvirring om hva som skal med i dette dokumentet, hvordan det skal struktureres, og hvordan det bør se ut. I tillegg har vi tre ulike hovedvarianter av prosjekter:
 
 
-Utfordringen i dette prosjektet er å lage en felles mal, både for innhold, struktur og utforming, som kan brukes i alle typer bacheloroppgaver. Malen bør implementeres med to ulike typer skriveverktøy. Det er et krav at malene skal være representert i åpne formater, og at de kan brukes på de fleste typer plattformer (minstekrav: Mac, Windows, Linux og beslektede).
+% \begin{compactdesc}
+% \item[Utredninger:] Dette er den vanlige formen i IT-ledelse. Her er det ikke snakk om å lage et produkt, men heller foreta en undersøkelse,
+%  f.eks. en evaluering av av et sett med programvare med tanke på hva som egner seg best for oppdragsgivers behov.
+% \item[Mediaproduksjoner:] I DMPRO består ofte prosjektene i større eller mindre grad å produsere en video, et radioprogram eller liknende.
+% \item[Utvikling:] På Informatikk, Dataingeniør og Webutvikling er det vanligst at oppdraget går ut på å laget et program, en app, eller f.eks. et nettsted.
+% \end{compactdesc}
 
-\section{Hvorfor, hva og hvordan: Formål, leveranser og metode}
-\label{sec:maal-metode-resultater}
-\meta{
-I dette kapittelet tar dere for dere tre sentrale aspekter: Formål, leveranser og metode. {\em Formålet} (ofte bare kalt {\em målet}, skal beskrive virkningen av prosjektet på et overordnet plan (f.eks. øke omsetningen i et firma). 
-{\em Leveransene} er konkrete resultater (tangibles) som blir produsert underveis (f.eks. programvare med tilhørende brukerdokumentasjon), mao.\ {\em hva} som skal produseres. 
-{\em Metoden} er {\em hvordan} formål og leveranser skal oppnås (f.eks. analysere dagens situasjon og designe og utvikle en ny nettbutikk). 
-Jo mer teoretisk og ``akademisk'' prosjektet er, jo større vekt må man legge på metoden. Tradisjonelt er det metodiske aspektet relativt nedtonet i en bacheloroppgave i forhold til et master- eller PhD-prosjekt.
-Erfaringsmessig oppfatter studentene dette som en litt fremmed måte å betrakte et prosjekt på, men den er utbredt i både akademia og næringslivet, og gjør det lettere å holde tunga rett i munnen underveis. 
-Formålet uttrykkes gjerne som ett hovedmål, og et par-tre delmål som utdyper hovedmålet. Beskrivelsen av et mål starter nesten alltid med et verb. I dette prosjektet kan formål, resultater og metode beskrives slik:
-}
 
+% Utfordringen i dette prosjektet er å lage en felles mal, både for innhold, struktur og utforming, som kan brukes i alle typer bacheloroppgaver. Malen bør implementeres med to ulike typer skriveverktøy. Det er et krav at malene skal være representert i åpne formater, og at de kan brukes på de fleste typer plattformer (minstekrav: Mac, Windows, Linux og beslektede).
+
+Bakgrunnen for dette oppdraget er at Sirkus Media ønsker å forbedre deres profil på nett, slik at potensielle kunder får en bedre forståelse av deres produkter og tjenester og tar kontakt gjennom nettstedet. Dette er viktig for oppdragsgiver ettersom dagens nettsted har store mangler og ikke inneholder nok informasjon om hva Sirkus Media tilbyr. Sirkus Media har derfor et stort behov for utvikling av en ny nettside. 
+
+Nettstedet skal inkludere en løsning for skjemahenvendelser, beskrive Sirkus Media sitt produkt, hva de tilbyr, resultater de kan vise til og omtale fra eksisterende kunder.
+I tillegg skal nettstedet inneholde informasjon angående deres prosess, live chat og kart integrert med Google Maps. Oppdragsgiver ønsker også å ha muligheten til å logge inn på nettstedet og selv kunne oppdatere innhold.
+
+% \section{Hvorfor, hva og hvordan: Formål, leveranser og metode}
+% \label{sec:maal-metode-resultater}
+% \meta{
+% I dette kapittelet tar dere for dere tre sentrale aspekter: Formål, leveranser og metode. {\em Formålet} (ofte bare kalt {\em målet}, skal beskrive virkningen av prosjektet på et overordnet plan (f.eks. øke omsetningen i et firma). 
+% {\em Leveransene} er konkrete resultater (tangibles) som blir produsert underveis (f.eks. programvare med tilhørende brukerdokumentasjon), mao.\ {\em hva} som skal produseres. 
+% {\em Metoden} er {\em hvordan} formål og leveranser skal oppnås (f.eks. analysere dagens situasjon og designe og utvikle en ny nettbutikk). 
+% Jo mer teoretisk og ``akademisk'' prosjektet er, jo større vekt må man legge på metoden. Tradisjonelt er det metodiske aspektet relativt nedtonet i en bacheloroppgave i forhold til et master- eller PhD-prosjekt.
+% Erfaringsmessig oppfatter studentene dette som en litt fremmed måte å betrakte et prosjekt på, men den er utbredt i både akademia og næringslivet, og gjør det lettere å holde tunga rett i munnen underveis. 
+% Formålet uttrykkes gjerne som ett hovedmål, og et par-tre delmål som utdyper hovedmålet. Beskrivelsen av et mål starter nesten alltid med et verb. I dette prosjektet kan formål, resultater og metode beskrives slik:
+% }
 \subsection{Formål}
-\label{sec:maal}
+% \label{sec:maal}
 
-\begin{compactenum}[{\bf Hovedmål}]
-\item Gjøre det lettere og enklere å dokumentere en bacheloroppgave (og liknende prosjekter).
-\begin{compactenum}[{\bf  Delmål} \bf 1]
-\item Gjøre det lettere og enklere å få en god struktur på dokumentasjonen.
-\item Gjøre det lettere og enklere å få et godt innhold.
-\item Gjøre det lettere og enklere å få til en profesjonell og konsistent utforming.
-\end{compactenum}
-\end{compactenum}
+% \begin{compactenum}[{\bf Hovedmål}]
+% \item Gjøre det lettere og enklere å dokumentere en bacheloroppgave (og liknende prosjekter).
+% \begin{compactenum}[{\bf  Delmål} \bf 1]
+% \item Gjøre det lettere og enklere å få en god struktur på dokumentasjonen.
+% \item Gjøre det lettere og enklere å få et godt innhold.
+% \item Gjøre det lettere og enklere å få til en profesjonell og konsistent utforming.
+% \end{compactenum}
+% \end{compactenum}
+
+\begin{compactitem}
+\item [{\bf Hovedmål}] Forbedre Sirkus Media sin profil på nett, slik at potensielle kunder får en bedre forståelse av deres produkter og tjenester og dermed tar kontakt gjennom deres nettsted. På et overordnet plan vil dette bidra til å øke omsetningen til oppdragsgiver.
+\begin{compactitem}
+\item [{\bf  Delmål 1} ] Generere mer trafikk, som fører til at flere kunder tar kontakt med bedriften. 
+\item [{\bf  Delmål 2} ] Måle trafikken på nettstedet, slik at man ser hva som fungerer og deretter kan tilpasse informasjonen til brukerne som besøker siden.
+\end{compactitem}
+\end{compactitem}
 
 \subsection{Leveranser}
-\label{sec:resultater}
-Hovedresultatet av prosjektet vil være en {\em komplett, selvforklarende mal} for en bachelorrapport ved HiØ, tilgjengelig på HiØ sine nettsider, i to versjoner for to ulike skriveverktøy.
+% \label{sec:resultater}
+% Hovedresultatet av prosjektet vil være en {\em komplett, selvforklarende mal} for en bachelorrapport ved HiØ, tilgjengelig på HiØ sine nettsider, i to versjoner for to ulike skriveverktøy.
+Oppdragsgiver ønsker å forbedre nåværende nettsiden og få levert en ny ferdigstilt nettside.
+
+Følgende dokumenter må leveres:
+\begin{itemize}
+\item Prosjekt og gruppekontrakt
+\item Gruppenettsted
+\item Forprosjektrapport
+\item Første versjon av hoveddokument
+\item Andre versjon av hoveddokument
+\item Hoveddokument med vedlegg
+\item Prosjektplakat
+\item Presentasjon
+\end{itemize}
+% I tillegg vil disse konkrete resultatene bli opprettet i løpet av dette prosjektet:
+% \begin{itemize}
+% \item Analyse av gammelt nettsted
+% \item Analyse av konkurrenter
+% \item Analyse av verktøy
+% \item Visuell profil og designsystem
+% \item Prototype og mockups av nytt nettsted
+% \item Database og modeller
+% \item Nettsted
+% \item Analyse av nytt nettsted
+% \item Sitemap
+% \item Brukerveiledninger
+% \end{itemize}
 
 \subsection{Metode}
-\label{sec:metode}
-For å oppnå dette vil det bli utført en ad-hoc undersøkelse av krav og retningslinjer til bacheloroppgaver ved andre høgskoler og universiteter, både nasjonalt og internasjonalt. I tillegg vil forfatterens erfaring som sensor og veileder av bacheloroppgaver bli brukt som utgangspunkt for å lage en anbefalt struktur med tilhørende innhold.
-Videre vil det bli gjort en studie av omtaler og beskrivelser av verktøy for produksjon, vedlikehold og publisering av store og komplekse dokumenter. Det vil bli lagt spesiell vekt på muligheter og erfaringer med å bruker maler. I tillegg vil sentral og kritisk funksjonalitet bli utprøvet ved de mest lovende verktøyene. På denne bakgrunnen (samt forfatterens egne erfaringer) vil det bli valgt ut to verktøy. Verktøyene vil til slutt bli brukt til å lage to maler, som tilbyr mer eller mindre samme funksjonalitet, og mer eller mindre likt utseende resultat. Malene skal utformes slik at de inneholder all nødvendig informasjon, både når det gjelder hvordan de skal brukes, hvordan rapporten skal struktureres, og hva slags innhold de enkelte delene skal ha.
+% \label{sec:metode}
+% For å oppnå dette vil det bli utført en ad-hoc undersøkelse av krav og retningslinjer til bacheloroppgaver ved andre høgskoler og universiteter, både nasjonalt og internasjonalt. I tillegg vil forfatterens erfaring som sensor og veileder av bacheloroppgaver bli brukt som utgangspunkt for å lage en anbefalt struktur med tilhørende innhold.
+% Videre vil det bli gjort en studie av omtaler og beskrivelser av verktøy for produksjon, vedlikehold og publisering av store og komplekse dokumenter. Det vil bli lagt spesiell vekt på muligheter og erfaringer med å bruker maler. I tillegg vil sentral og kritisk funksjonalitet bli utprøvet ved de mest lovende verktøyene. På denne bakgrunnen (samt forfatterens egne erfaringer) vil det bli valgt ut to verktøy. Verktøyene vil til slutt bli brukt til å lage to maler, som tilbyr mer eller mindre samme funksjonalitet, og mer eller mindre likt utseende resultat. Malene skal utformes slik at de inneholder all nødvendig informasjon, både når det gjelder hvordan de skal brukes, hvordan rapporten skal struktureres, og hva slags innhold de enkelte delene skal ha.
 
-\section{Rapportstruktur}
+Hovedmålet er å forbedre Sirkus Media sin nettprofil. Dette løser vi med å analysere dagens nettside og kartlegger hva som er bra og dårlig. Deretter går vi videre til å analysere konkurrentene sine nettsider og ser hvordan deres løsninger ser ut. 
 
-\meta{
-Det er vanlig å avslutte innledningen med en oversikt over resten av rapporten, f.eks. slik som dette:
-}
+Det første delmålet er å generere mer trafikk til nettsiden. Da må vi å lage et attraktivt nettsted som følger beste praksis for god søkemotoroptimalisering, semantikk og universell utforming. 
 
-I Kapittel~\ref{chap:analysis} starter vi med å se på generelle krav til akademiske og tekniske dokumenter, og ikke minst hva som skiller disse fra ``vanlige'' dokumenter. Vi ser deretter nærmere på krav og retningslinjer til bachelorrapporter ved nasjonale og internasjonale læresteder. Vi går også gjennom HiØ/IT sine egen beskrivelse av hovedprosjektet.  Vi gir eksempler på maler fra andre læresteder. Deretter ser vi på de tekniske sidene ved å produsere store og komplekse dokumenter, med spesiell vekt på aktuelle programvareverktøy. Vi presenterer en overordnet design av vår rapportmal i Kapittel~\ref{chap:design}, og beskriver den konkrete implementasjon i OpenOffice i Kapittel~\ref{chap:implementation}. Løsningen blir ad-hoc evaluert i Kapittel~\ref{chap:evaluation}, og i Kapittel~\ref{chap:discussion} diskuterer vi resultatet av prosjektet. Rapporten avsluttes med en kort konklusjon i Kapittel~\ref{chap:conclusion}. En mer detaljert gjennomgang av hvordan malen kan brukes finnes i Vedlegg~ \ref{chap:how-to}.
+For å oppnå delmålet om måling av trafikk på nettstedet må vi benytte oss av verktøy som Google Analytics. 
+
+Mockups oppnår vi ved å hente inspirasjon fra lignende nettsider og deretter lager et forslag på design til nettstedet.
+
+Database og modeller løser vi ved å først tegne og deretter forbedre databasen ved hjelp av penn og papir. 
+
+
+\section*{Prosjektplan}
+Prosjektet består av en rekke aktiviteter med tidsfrister. Deltageren som er ansvarlig for oppgaven sørger for levering til avtalt tid. Ved eventuell forsinkelse må deltageren informere resten av gruppen om dette. Aktivitetene er satt opp i prioritert rekkefølge.
+Gruppen skal møtes med veileder hver andre uke for å få råd og tilbakemelding. Ved behov vil gruppen møte oppdragsgiver. 
+\smallskip
+I tillegg til den skriftlig representasjonen av prosjektplanen har vi laget et Gantt-diagram for å få bedre oversikt. Se figur \ref{fig:gantt-diagram}.
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\includegraphics[width=0.95\paperwidth]{Ganttchart.png}}
+    \caption{Gantt-diagram for prosjektplanen}
+    \label{fig:gantt-diagram}
+\end{figure}
+
+\smallskip
+
+\subsection*{Risikoanalyse}
+
+Vi har analysert de kritiske faktorer og flaskehalser vi mener kan dukke opp i løpet av prosjektet, og utarbeidet en tabell med følgende risikoanalyse:
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\includegraphics[width=0.90\paperwidth]{Risikoanalyse.png}}
+    \caption{Risikoanalyse}
+    \label{fig:risikoanalyse}
+\end{figure}
+
+\section*{Gjennomføring}
+Medlemmene i gruppen plikter til å bidra like mye og skal delta med like mange timer. Medlemmene skal møtes minst en gang i uken for å jobbe sammen og oppgi status. Ved behov vil medlemmene møtes flere ganger i løpet av uken. I tillegg skal medlemmene ha fortløpende dialog via Facebook Messenger og Google Hangouts.
+
+
+Det er besluttet å ha en fast prosjektleder, da det er nødvendig å ha en fast person som følger opp prosessen og som har ansvar for dialogen med både veileder og oppdragsgiver. Gruppen har vedtatt at personen som er best egnet til dette er Bjørnar.
+
+Deltagerne har i tillegg fått hvert sitt overordnet ansvarsområdet når det kommer til gjennomføringen av nettstedet. Bereket har ansvar for back-end, Line for frond-end og Bjørnar for design og DevOps. Bjørnar vil også rullere mellom å jobbe med back-end og front-end, avhengig av behovet.
+
+Versjonskontroll og backup av kildekode håndteres via Git. Deltagerne plikter å ta en sikkerhetkopi så fort man har opprettet og testet en ny kodebit. Selve prosjektstyringen skjer via en Kanban-tavle som er opprettet i Github. En aktivitet skal markeres som fullført så raskt som mulig av deltageren som utførte oppdraget. Gruppen følger en metodikk som ligner på Kanban-metodikken, men i dette prosjektet har deltagerne fått tildelt hver sin rolle. 
+
+Gruppen skal ha fortløpende kontakt med oppdragsgiver, minimum etter hver fullførte aktivitet. Da har oppdragsgiver mulighet til å gi tilbakemelding underveis, slik at det ikke vil komme store endringer nær innlevering. Gruppen ønsker at tilbakemeldingene skal være skriftlige og ønsker hovedsaklig tilbakemeldinger på design og funksjonalitet. Dialogen med oppdragsgiver vil i hovedsak foregå over e-post, telefon og videosamtale. For slike type prosjekter er det ikke like stort behov for å ha møter fysisk, og gruppen vil få like stort utbytte gjennom videosamtaler. 
+
+Deltagerne har avtalt å ha møter med veileder hver andre uke, som et minimum. Ved behov vil gruppen og veileder møtes hyppigere. Dette avtales med veileder over e-post.
+
+% \section{Rapportstruktur}
+
+% \meta{
+% Det er vanlig å avslutte innledningen med en oversikt over resten av rapporten, f.eks. slik som dette:
+% }
+
+% I Kapittel~\ref{chap:analysis} starter vi med å se på generelle krav til akademiske og tekniske dokumenter, og ikke minst hva som skiller disse fra ``vanlige'' dokumenter. Vi ser deretter nærmere på krav og retningslinjer til bachelorrapporter ved nasjonale og internasjonale læresteder. Vi går også gjennom HiØ/IT sine egen beskrivelse av hovedprosjektet.  Vi gir eksempler på maler fra andre læresteder. Deretter ser vi på de tekniske sidene ved å produsere store og komplekse dokumenter, med spesiell vekt på aktuelle programvareverktøy. Vi presenterer en overordnet design av vår rapportmal i Kapittel~\ref{chap:design}, og beskriver den konkrete implementasjon i OpenOffice i Kapittel~\ref{chap:implementation}. Løsningen blir ad-hoc evaluert i Kapittel~\ref{chap:evaluation}, og i Kapittel~\ref{chap:discussion} diskuterer vi resultatet av prosjektet. Rapporten avsluttes med en kort konklusjon i Kapittel~\ref{chap:conclusion}. En mer detaljert gjennomgang av hvordan malen kan brukes finnes i Vedlegg~ \ref{chap:how-to}.
 
 

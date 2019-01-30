@@ -8,6 +8,7 @@
 \usepackage{hiofreport}
 \usepackage{makeidx}
 \usepackage{pdfpages}
+
 \usepackage{float}
 
 \input{meta}       % Use this to fill in author, title and other metadata used on front page
@@ -23,6 +24,11 @@
 
 %%% CUSTOM COMMANDS - End %%%
 
+%%% CUSTOM STYLING - Start %%%
+
+% Listings should use a monospace font
+\lstset{basicstyle=\ttfamily,breaklines=true}
+%%% CUSTOM STYLING - End %%%
 \makeindex
 
 \begin{document}
