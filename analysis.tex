@@ -12,9 +12,11 @@ I dette kapittelet danner vi oss et bilde av hvordan en akademisk/teknisk rappor
 Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. I dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, struktur og utforming. I tillegg vil vi presentere de verktøy vi mener er passende i et slikt prosjekt.
 
 \section{Utdypning av oppgavebeskrivelse}
-Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en langt nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen skal dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. 
+Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en langt nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. 
 
 CMS og API
+
+\section{Risikoanalyse}
 
 \section{Hvorfor et nettsted er viktig}
 Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. I følge undersøkelser gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} i 2017, hadde hele 98\% av Norges befolkning tilgang på internett hjemme \cite{ssb17fim}. Det viste seg også at 9 av 10 nordmenn surfet på nettet hver dag \cite{ssb17nat}. SSB har også kartlagt  at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 måneder i 2018 \cite{ssb18aup}. Disse foregående funnene er svært relevante, og er med å underbygge hvorfor det er så viktig for en bedrift å være på internett i dag.
@@ -28,7 +30,8 @@ Når en bedrift har et nettsted blir det mulig å dukke opp i søkeresultatene h
 
 
 \subsection{Troverdighet}
-Etter studier gjort av avdelingen for informasjon og ledelse ved HuaZhong Normal University viser det seg at troverdihgeten til en bedrifts nettsted er en viktig faktor når brukerene skal bestemme seg for om prosessen skal gå videre eller ikke, og vil ha en stor påvirkning på deres avgjørelse når det gjelder kjøp.
+\label{sec:analyse-troverdighet}
+Etter studier gjort av avdelingen for informasjon og ledelse ved HuaZhong Normal University viser det seg at troverdihgeten til en bedrift sitt nettsted er en viktig faktor når brukerene skal bestemme seg for om prosessen skal gå videre eller ikke, og vil ha en stor påvirkning på deres avgjørelse når det gjelder kjøp.
 
 
 \meta{The level of enterprise website credibility is an important basis for the
@@ -36,25 +39,18 @@ website browsers (or consumers) deciding whether to take
 further action or not, and will have a great influence on their
 purchase decision-making. }
 
-I følge studiene kommer det også frem at kriteriene for å bestemme troverdigheten til et nettsted er basert på subjektiv vurdering og ikke profesjonell analyse. Brukere undersøker vanligvis utseende, informasjonen og funksjonaliteten til nettstedet i henhold til deres faktiske behov og gjør seg deretter opp deres egen konklusjon. Vi kan klassifisere disse faktorene, i forhold til å dømme troverdigheten, i tre typer: 
+I følge studiene kommer det også frem at kriteriene for å bestemme troverdigheten til et nettsted er basert på subjektiv vurdering og ikke profesjonell analyse. Brukere undersøker vanligvis utseende, informasjon og funksjon til nettstedet i henhold til deres faktiske behov og gjør seg deretter opp deres egen konklusjon \cite{zhao2009eew}.
 
 \meta{As the above study shows, criterion for determining the
 credibility of website is based on subjective judgment instead
 of professional analysis. People usually examine the
 appearance, information and function of the website
 according to their actual needs and then get their own
-conclusion. We can classify these factors, in terms with
-judging the credibility, into three types: website image,
-information content and business function. Accordingly,
-from the online consumers’ perspective, the enterprise
-website credibility can be divided into three parts: the
-website image credibility, the information content credibility
-and the business function credibility}
-\url{https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5279898}
+conclusion.}
+% https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5279898
 
-\cite{zhao2009eew}
 
-I en studie gjennomført av  "brightlocal" i 2016 ble det gjort undersøkelser på hva forbrukere ønsker fra lokale bedrifter. Resultatene ble tatt fra et panel på 800 forbrukere, der alle er basert i USA, med forskjellig alder og kjønn. Blant de 800 respondentene, var alderspennet følgende: 
+I en studie gjennomført av BrightLocal Ltd. i 2016 ble det gjort undersøkelser på hva forbrukere ønsker fra lokale bedrifter. Resultatene ble tatt fra et panel på 800 forbrukere, der alle er basert i USA, med forskjellig alder og kjønn. Blant de 800 respondentene, var alderspennet følgende: 
 
 \begin{itemize}
 \item 18-34 – 44\%
@@ -67,31 +63,19 @@ I denne undersøkelsen svarte 40\% av aldergruppen mellom 18-34 og 35-54 at det 
 Med utgangspunktet i disse studiene kan vi derfor konkludere med at en nettside med god troverdighet kan føre til at flere potensielle kunder tar kontakt.
 
 \subsection{Markedsføringskanal}
-Nettsteder kan ses på som et eksempel på et enveis nettverktøy med høy  bedrifts kontroll.
-Websites and e-mail can be seen as examples of one-way online tools with high company control. https://www.emeraldinsight.com/doi/pdfplus/10.1108/JSBED-05-2013-0073. På en nettside har en bedrift altså mulighet til å bestemme innholdet og hvordan firmaet skal fremstå. 
+Nettstederer er et eksempel på et enveis nettverktøy med høy  bedrifts kontroll.
+Websites and e-mail can be seen as examples of one-way online tools with high company control. https://www.emeraldinsight.com/doi/pdfplus/10.1108/JSBED-05-2013-0073. På en nettside har en bedrift altså mulighet til å bestemme innholdet og hvordan firmaet skal fremstå. Dette er en mulighet enhver bedrift burde benytte seg av, da nettstedet kan være med å forbedre og øke troverdigheten\footnote{Se avsnitt \ref{sec:analyse-troverdighet}} og dermed forholdet kunden har til bedriften.
 
 \subsection{Innsamling av data}
 
-\section{Strategi og planlegging}
-I alle type prosjekter er det viktig å ha en strategi og planlegge etter dette. Kilde. Derfor kan det være helt avgjørende å ha en god plan.
+\section{Viktige faktorer innen webdesign}
+Innenfor webdesign finnes det flere forskjellige faktorer er avgjørende når det kommer til hvor godt et nettsted er utført. En presentasjon av disse faktorene og hvorfor de er så viktig vil bli presentert nærmere i dette kapittelet. 
 
-Når det kommer til webdesign-prosjekter inneholder disse fire viktige komponenter. Første steg er at du må kjenne miljøet ditt. Andre steg er å planlegge. Tredje steg er å lære å kunne tilpasse seg, og siste steg er å fullføre prosessen ved å løse kompatibilitetsproblemer etter hvert som de oppstår. (Dawson, 2011).
-
-Dawson, A. (2011). Future-proof web design. Retrieved from https://ebookcentral.proquest.com
-
-\url{https://www.sciencedirect.com/science/article/pii/S014829631630203X#bb0175 }
-
-\section{Relevante begreper og viktigheten av disse}
-
-\subsection{Personas og målgruppe}
-
-Personas er fiktive og detaljerte beskrivelser av kunder som fungerer som modeller eller test-caser for produktdesign. Personas er mye brukt i nettsidedesign , samt for markedsføringsrelatert behovsanalyse \cite[s.~130]{grenci2007mcv}.
+\subsection{Målgruppe}
 
 \url{https://www.thinkwithgoogle.com/marketing-resources/tutorials/human-insights-audience-strategy/}
 
 En målgruppe
-
-Personas vs målgruppe:
 
 
 \subsection{Design, profil og førsteinntrykk}
@@ -105,27 +89,28 @@ Personas vs målgruppe:
 \subsection{Responsivt design}
 Undersøkelser fra Google om mobilbruk... Står om det i en av kildene som har blitt brukt tidligere
 
-\subsection{Struktur og oppbygning}
-
 \subsection{Søkemotoroptimalisering}
 \label{sec:concepts-seo}
 Søkemotoroptimalisering (SEO) går ut på å oppnå gode plasseringer i de organiske søkeresulatene hos søkemotorer \cite[s.~16]{flensted10smg}. I praksis handler SEO om at en nettside blir optimalisert på en rekke områder, slik at søkemotoren finner akkurat dette nettstedet og presenterer den godt synlig i de organiske søkeresultatene ved å se på søkeordene ønsket målgruppe benytter  \cite[s.~20]{flensted10smg}.
 
-Mer teoretisk fungerer søkemotoroptimalisering ved at de innsamlede dataene blir indeksert og lagret i en database. Alle disse operasjonene utføres av søkemotorprogramvaren (crawler, edderkopp,
+Mer teoretisk fungerer søkemotoroptimalisering ved at de innsamlede dataene blir indeksert og lagret. Alle disse operasjonene utføres av søkemotorprogramvaren (crawler, edderkopp,
 bot). Disse programmene beveger seg ved å bruke hyperkobling struktur på nettet. De navigerer regelmessig gjennom nettsider og fanger endringer som har blitt gjort siden sist  \cite[s.~488]{yalccin2010search}.
-
-God SEO krever disiplin, planlegging og research før man setter i gang. Dette er ikke en oppgave som kun gjøres en gang, og krever konstant overvåking og optimalisering da algoritmene hele tiden endrer hvordan de evaluerer nettsider \cite[s.~1]{mitchell2012usb}.
 
 Undersøkelser viser at 75\% of Internet users never scroll past the first page of search results, TRENGER KILDE!! 
 Disse funnene underbygger påstanden om at SEO er viktig i dagens samfunn, og en god SEO-strategi er derfor på sin plass. 
 \url{https://www.searchenginepeople.com/blog/40-unbelievable-seo-statistics-need-know.html#note-68961-5 }
 
-\subsection{Brukeropplevelse}
-I følge Steve Krug, forfatteren bak boken \q{Don't make me think}, går brukervennlighet ut på noe så enkelt som at en helt vanlig bruker med gjennomsnittlige egenskaper og erfaring (eller til og med lavere), skal kunne finne ut av hvordan en ting skal brukes for å oppnå et mål, uten å dette fører til mer trøbbel enn det er verdt \cite[s.~9]{krug2014dmt}. Det er nettopp derfor forfatterens første lov til god brukeropplevelse er \q{ik ke få meg til å tenke}. Et nettsted skal nemlig være selvforklarende, og en bruker skal intuitivt forstå hva et nettsted representerer og hvordan den kan brukes, uten å måtte anstrenge seg for å finne ut av det \cite[s.~11]{krug2014dmt}. 
+En faktor som er viktg å tenke på er at god SEO krever disiplin, planlegging og research før man setter i gang. Dette er ikke en oppgave som kun gjøres en gang, og krever konstant overvåking og optimalisering da algoritmene hele tiden endrer hvordan de evaluerer nettsider \cite[s.~1]{mitchell2012usb}. Derfor er det viktig å hele tiden ha SEO i fokus når man utvikler, når et av målene er god plassering hos søkemotorene.
+
+
+\subsection{Brukeropplevelsen}
+I følge Steve Krug, forfatteren bak boken \q{Don't make me think}, går brukervennlighet ut på noe så enkelt som at en helt vanlig bruker med gjennomsnittlige egenskaper og erfaring (eller til og med lavere), skal kunne finne ut av hvordan en ting skal brukes for å oppnå et mål, uten å dette fører til mer trøbbel enn det er verdt \cite[s.~9]{krug2014dmt}. Det er nettopp derfor forfatterens første lov til god brukeropplevelse er \q{ikke få meg til å tenke}. Et nettsted bør nemlig være selvforklarende, og en bruker skal intuitivt forstå hva et nettsted representerer og hvordan den kan brukes, uten å måtte anstrenge seg for å finne ut av det \cite[s.~11]{krug2014dmt}. Krug hevder at dette er viktig, fordi brukere kan tenke at det faktum at utviklerne bak dette nettstedet ikke tok seg bryet med å gjøre ting åpenbart og enkelt, vil påvirke deres inntrykk av siden og hele bedriften bak den \cite[s.~15]{krug2014dmt}.
 
 \url{https://www.thinkwithgoogle.com/marketing-resources/experience-design/strong-audience-design/}
 
-\subsubsection{Hurtighet}
+\subsubsection{Hastighet}
+
+Bouncerate 
 \url{https://www.section.io/blog/page-load-time-bounce-rate/ }
 
 
@@ -150,13 +135,12 @@ https://www.brightlocal.com/2016/03/04/gender-age-what-consumers-want-from-local
 \subsection{Sikkerhet}
  (hashing av passord. sende data over kryptert kanal)
 
-\section{Relatert arbeid}
 
-Finne nettsider som har vunnet priser.
+\section{Analyse av nåværende nettsted}
+\section{Analyse av konkurrenter}
 
-
-\section{Teknologi}
-Når det kommer til utvikling av nettsteder finnes det mange ulike teknologier, systemer og verktøy som kan benyttes for å få det samme resultatet. Derfor er det viktig å kartlegge brukerens behov og deretter sette ønskede kvalifikasjoner og krav, slik at de valgte verktøyene er tilpasset dette. Basert på foregående analyse i dette kapittelet har studentgruppen foreslått et sett med minimumskrav. Videre blir passende verktøy og tilhørende teknologier presentert.
+\section{Teknologier}
+Når det kommer til utvikling av nettsteder finnes det mange ulike teknologier, systemer og verktøy som kan benyttes for å få det samme resultatet. Derfor er det viktig å kartlegge brukerens behov og deretter sette ønskede kvalifikasjoner og krav, slik at de valgte verktøyene er tilpasset dette. Basert på de foregående analysene i dette kapittelet har studentgruppen kommet frem til et sett med minimumskrav. Videre blir passende verktøy og tilhørende teknologier presentert.
 
 \subsection{Krav til teknologier}
 Følgende sett med minimumskrav er satt med basis i den foregående analysen:
@@ -168,6 +152,7 @@ Følgende sett med minimumskrav er satt med basis i den foregående analysen:
 \subsection{Verktøy til front-end}
 \subsection{Andre verktøy}
 \subsection{Tilhørende teknologier og begreper}
+\subsection{Verktøyanalyse}
 
 \subsubsection{Laravel}
 Laravel\footnote{\url{https://laravel.com/}} er et PHP-rammeverk, med åpen kildekode, som brukes til å lage webapplikasjoner og andre nettsteder. Rammeverket baserer seg på Symfony\footnote{Avsnitt \ref{sec:tools-symfony}} og følger Model-view-controller\footnote{Avsnitt \ref{sec:tools-mvc}} (MVC) designmønsteret.
