@@ -1,174 +1,183 @@
 \clearpage
+\section{Back-end dokumentasjon}
+\subsection{Installasjon}
+Startet med å laste ned laravel, xampp og Gitkraken til datamaskinen. Gjorde clone til repositoren som ble opprettet tidligere i github. Repositoren inneholder laravel. 
 
-\section{Presentasjon av verktøy}
+\subsection{Database}
+Opprettet en database til prosjektet på phpMyAdmin og satt inn databasen og innloggingsinformasjonen i konfigurasjonsfilen .env. Så laget det modeller for databasen. Modellene lages ved å skrive koden nede i kommandolinjen. 
+\begin{lstlisting}
+    Php artisan make:model Modelnavn -m
+\end{lstlisting}  
+Det siste “-m” brukes for å opprette migrasjon for modellen  samtidig. Dette dropes og opprettes etter på: 
+ \begin{lstlisting}   
+    Php artisan make:migration tabellnavn.
+\end{lstlisting}
+Etter modellene og migrasjonene er på plass kan det lages felter på tabellene og ta migrasjon for å legge til tabellene til phpMyAdmin. Legge til migrasjonene til phpMyAdmin ved å sette koden Php artisan migrate  i kommandolinjen.
+AppServiceProvider defualtlength satt til varchar(255). Dette gjøres for å bestemme lengden på strengen.
+Oppretting av  attributter på tabellene gjøres slik: 
 
-\subsection{Laravel}
-Laravel\footnote{\url{https://laravel.com/}} er et PHP-rammeverk, med åpen kildekode, som brukes til å lage webapplikasjoner og andre nettsteder. Rammeverket baserer seg på Symfony\footnote{Avsnitt \ref{sec:tools-symfony}} og følger Model-view-controller\footnote{Avsnitt \ref{sec:tools-mvc}} (MVC) designmønsteret.
-Laravel kommer med innebygde funksjoner for autentisering, modeller, visninger, sesjoner, ruting og andre funksjoner som en \textit{templating engine} kalt Blade\footnote{\url{https://laravel.com/docs/5.7/blade}}.
+\begin{lstlisting}
+    $table->type('atributtnavn');
+\end{lstlisting}
 
-%%% VI SER PÅ FORDELER OG ULEMPER SENERE %%%
-%\subsubsection{Fordeler}
-%\begin{itemize}
-%    \item Laravel er veldig raskt i forhold til CMS (Content Management Systems).
-%    \item Har funksjoner som autentisering og autorisasjon.
-%    \item Alt kan tilpasses og styres hvordan tingene fungerer.
-%    \item Databasen kan brukes eller utformes på egen måte.
-%\end{itemize}
+Brukte UUID som primære nøkler på de fleste  tabellene.  UUID (Universally unique identifier) er en ID som kan gis til tabellrader for å identifisere dem på en måte som er litt finere enn et sekvensielt tabell-ID.\footnote{\url{https://medium.com/binary-cabin/automatically-generating-a-uuid-on-your-laravel-models-b8b9c3599e2b}} Dette hjelper å har større tabellrader enn å bruke increments.
 
-%\subsubsection{Ulemper}
-%\begin{itemize}
-%    \item I Laravel må SEO definere egne ruter, og det tar mye arbeid å utvikle et nettsted som hovedsakelig er avhengig av innhold.
-%    \item Laravel rammeverk er litt komplisert og krever mer kunnskap.
-%    \item Laravel er mindre fleksibel for å oppdatere innholdet.
-%\end{itemize}
+\subsection{Feil under migrasjon}
+Prøvde å ta migrasjon oppsto en feilmelding.
+\begin{lstlisting}
+Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
+\end{lstlisting}
+Årsaken var at datamaskinen har gammel versjon av mysql som ikke støtter standard streng lengde på 255. Da måtte streng lengden endre til 191 og løste feilen.
 
-%Fordeler og Ulemper av laravel ble tatt i forhold til CMS.
-%Kilde: \url{https://www.educba.com/laravel-vs-wordpress/}
+\subsection{Lage forhold mellom modellene}
+Opprettet relasjoner mellom database-modellene. 
+Relasjoner  lages ved å bruke  manyToMany,(belongsToMany), One to One(hasOne), Many to One(belongsTo) og  One to Many (hasMany). Eks.  slik  
 
-\subsection{Symfony}
-\label{sec:tools-symfony}
-Symfony\footnote{\url{https://symfony.com/what-is-symfony}} er et webapplikasjonsrammeverk og er et sett med gjenbrukbare komponenter og biblioteker skrevet i PHP.
+\begin{lstlisting}
+    $this->hasMany(‘App\Model’) og invers.
+\end{lstlisting}
 
-\subsection{MVC}
-\label{sec:tools-mvc}
-Model-View-Controller(MVC)\footnote{\url{http://www.dgp.toronto.edu/~dwigdor/teaching/csc2524/2012_F/papers/mvc.pdf}} er et designmønster som deler et program inn i tre hovedkomponenter: modell, visning og kontroll. Oppbygningen kan enkelt forklares ved hjelp av et eksempel fra Matteo publisert på dev.to:
-Matteo J. (2018, Mars 16) Re: Explain MVC like I'm five [Blogg kommentar]\footnote{\url{https://dev.to/matteojoliveau/comment/2ikd}}
-\begin{quote}
-    You walk in a McDonald and you order at the big interactive touchscreen.
-    The screen is the View, and you ask for your meal there.
-    The order is passed to the operator, who is the Controller, that will go in the kitchen and fetch a burger (your wanted resource) of the type (Model) you asked, then deliver it back to you.
-\end{quote}
-%Typisk flyt er at det kommer inn en forespørsel som går til kontrolleren. Den tolker forespørselen og behandler den ved å hente og endre data via modell. Til slutt sendes det et svar til visning.
+\subsection{Lagringstest til DB}
+Etter jeg opprettet ferdig koblingene mellom modellene, tok jeg test for å lagre data på databasen.Testen gjorde på alle tabellene.
 
-\subsubsection{Modell}
-Modell (Model) representerer de forskjellige type ressurser en applikasjon har. Her beskrives hver ressurs, hvordan den er oppbygd og hva som kan gjøres med den.
+\subsection{Feilmeldinger}
+\subsubsection{Felt har ikke  standardverdi}
+Fremmednøkkel feltet har ikke  standardverdi.
 
-\subsubsection{Visning}
-Visning (View) håndterer brukerinteraksjon og presentasjon av data. Er ofte et grafisk brukergrensesnitt.
+\begin{lstlisting}
+    SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value (SQL: insert into `fields` (`name`, `slug`, `updated_at`, `created_at`) values (HELLO WORLD, hello_world, 2019-02-06 08:57:48, 2019-02-06 08:57:48))
+\end{lstlisting}
 
-\subsubsection{Kontrolleren}
-Kontroll (Control) delen er ansvarlig for å koordinere forespørsler og svar.
+Feilen oppsto da fremmednøkkel feltet ble satt til null. Dette løste ved å sette riktig verdien til feltet eller sette fremmednøkkelen til nullable. 
 
-\subsection{GNU/Linux}
-GNU/Linux er en familie med Unix-lignende operativsystemer som baserer seg på Linux-kjernen og en del programvare fra GNU-prosjektet.
-I denne familien finner vi blant annet Ubuntu, Debian, Fedora, Red Hat Linux og Arch Linux.
-Kilder: \url{https://www.kernel.org} \url{https://www.gnu.org/} \url{https://www.ubuntu.com/} \url{https://www.debian.org/} \url{https://getfedora.org/} \url{https://www.redhat.com/en/topics/linux} \url{https://www.archlinux.org/}
+\subsubsection{Data truncated for column}
+Vi bruker UUID i stedet increments og trenger å identifisere primærnøkkelen slik.
+\begin{lstlisting}
+    $table->uuid(‘id’)->primary();
+\end{lstlisting}
 
-\subsection{Nginx}
-Nginx er en gratis HTTP-server med åpen kildekode. Nginx har mulighet til å håndtere høy belastning av HTTP-forespørsler. Programmet er tilgjengelig på operativsystemer som Windows, Mac OS og Solaris. I tillegg er Nginx tilgjengelig på operativsystemer som er basert på GNU/Linux eller BSD.
+For å bruke UUID er det viktig å opprette UsesUuid.php trait i App / Trait.
+Denne filen brukes til å opprette UUID automatisk når du oppretter nye modeller, deaktivere automatisk increments id-er, sette primærnøkkel som uuid og sette primærnøkkeltype som streng.\footnote{
+\url{https://medium.com/@mamreezaa/use-uuid-in-lumen-d47ec02c330}}
+Siden det ikke opprettet UsesUuid.php trait i App/Trait dukket opp feilmelding. 
 
-Kilde: Nedelcu, C. (2010). Nginx HTTP Server: Adopt Nginx for Your Web Applications to Make the Most of Your Infrastructure and Serve Pages Faster Than Ever. Packt Publishing Ltd.
-
-\subsection{PHP}
-PHP (rekursiv akronym for PHP Hypertext Pre-processor) er et skriptspråk som er spesielt egnet for webutvikling og kan legges inn i filer sammen med HTML. PHP er et serverside programmeringsspråk og kan brukes til å lage dynamiske og interaktive nettsteder. PHP er gratis og plattformuavhengig, samtidig som det er  er raskt og fleksibelt. Det kan installeres i pakker med webserver og database. Eksempelvis LAMP, LEMP, WAMP og XAMPP. PHP er også mulig å installere enkeltstående. 
-
-Kilde: \url{http://php.net/}
-
-\subsection{Sesjoner}
-En sesjon\footnote{\url{https://ieeexplore.ieee.org/abstract/document/8392612}} (session) er en samling av data lagret på en webserver. En webserver tildeler en ID til hver bruker som sender forespørsler via en nettleser. ID-en lagres som en informasjonskapsel i nettlesern til brukeren. Alle nye forespørsel vil så identifiseres av ID-en som er lagret hos brukeren.
-
-\subsection{phpMyAdmin}
-phpMyAdmin\footnote{\url{https://www.phpmyadmin.net/}} er et gratis og webbasert administrasjonsverktøy for MySQL og MariaDB databaser. Verktøyet er skrevet i PHP og JavaScript. Med phpMyAdmin kan man lage, endre og slette databaser, tabeller og felter. Annen funksjonalitet kan være å utføre SQL-setninger, administrere nøkler og privilegier og eksportere data til ulike formater.
-
-\subsection{MariaDB}
-MariaDB er et relasjonsdatabasesystem basert på MySQL, som er gratis og har åpen kildekode. Systemet funker som en \textit{drop-in} erstatning for MySQL.
-
-Kilde \url{https://mariadb.org/}
-
-\subsection{CSRF}
-Cross site request forgery\footnote{url{https://ieeexplore.ieee.org/abstract/document/5283085}} (CSRF) er angrep som tvinger brukere til å utføre uønskede handlinger på en nettside der brukeren er logget inn, via en annen nettside. For eksempel: hvis brukeren er logget inn på Facebook.com, og går til Twitter.com. Da kan Twitter laste inn et bilde som dette: \lstinline{<img src="https://facebook.com/delete-my-account">}. Dette vil da sende en forespørsel til den linken, som kan føre til sletting av konto. Om Facebook ikke har implementert mottiltak for slike angrep, vil denne forespørselen tolkes som om den kommer direkte fra brukeren.
-
-\subsection{CI \& CD}
-CI står for continuous integration og CD står for continuous delivery. CI/CD\footnote{\url{https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment}} er en metode som lar utviklere implementere og levere kodeendringer raskt og pålitelig.
-
-\subsection{Buddy}
-Buddy\footnote{\url{https://buddy.works}} er en webbasert applikasjon for CI og CD. Applikasjonen lar utviklere bygge, teste og distribuere nettsider og programkode automatisk når kildekoden oppdateres. For eksempel er det mulig å koble Buddy til et nettsteds kildekode via Git. Når koden til nettstedet oppdateres, vil Buddy automatisk detektere endringer og starte en byggeprosess. Når byggeprosessen er ferdig kjøres det automatisk tester på koden, som verifiserer at alt fungerer. Deretter vil Buddy laste koden opp til en server og oppdatere nettstedet som ligger ute på nett. Dette skjer gjerne gjennom Docker\footnote{\url{https://www.docker.com/}} sammen med Kubernetes\footnote{\url{https://kubernetes.io/}}.
-
-\subsection{Axios}
-Axios\footnote{\url{https://github.com/axios/axios}} et et JavaScript-bibliotek for en promise-basert\footnote{\url{https://leanpub.com/exploring-es6/}} HTTP-klient som kan kjøres i nettlesere og Node.Js. Biblioteket gjør det enklere å lage og behandle asynkrone forespørsler.
-
-\subsection{Git}
-Git er et system for versjonskontroll. Et versjonskontrollsystem blir hovedsaklig brukt under utvikling av software og nettsteder. Det kan også brukes til andre type prosjekter som grafisk design og skriving av dokumenter.
-
-Ved å bruke Git opprettes det historikk over alle endringer, samt en sikkerhetskopi av alle versjoner av filene.
-
-En annen fordel ved å bruke Git er at det blir enklere å samarbeide med andre, uten å måtte tenke på at alle må sitte på nyeste versjon av filene.
-
-KILDE (GIT OG GITHUB): \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668}
-\url{https://searchitoperations.techtarget.com/definition/GitHub}
-
-\subsection{Github}
-GitHub.com er et nettsted for å hoste git repositories, og blir mye brukt for \q{Open Source}-prosjekter. 
-
-Github er et sentralisert punkt for å samle en brukers repositories. Ved siden av å hoste repositories, lar GitHub brukere dele repositories med hverandre, lage informasjonssider om prosjektet og opprette saker (issues).
+\begin{lstlisting}
+SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value (SQL: insert into `fields` (`name`, `slug`, `updated_at`, `created_at`) values (HELLO WORLD, hello_world, 2019-02-06 08:57:48, 2019-02-06 08:57:48))
+\end{lstlisting}
+Dette betyr at det prøvde å sende UUID verdi i integer.
+Dette ble løst med å lage en trait som automatisk lager en UUID når man lagrer modell til DB. (Filsti: /App/Traits/UsesUUID.php).\footnote{\url{ https://dev.to/wilburpowery/easily-use-uuids-in-laravel-45be.}}
  
-\subsection{Overleaf}
-Overleaf\footnote{\url{http://web.simmons.edu/~wilsonjd/LIS488/website/OverleafTutorial.pdf}} er en tjeneste som brukes til å lage, redigere og dele akademiske artikler på nettet ved hjelp av LaTeX. Dette er et nettbasert tekstforfattings-program. 
-Overleaf v2\footnote{\url{https://no.overleaf.com/learn/how-to/Working_Offline_in_Overleaf}} tilbyr synkronisering med GitHub og Dropbox.
+\subsubsection{Fremmednøkkel feil}
+Feilmeldingen oppsto da det ble prøvd å lagre en bruker på databasen. 
 
-\subsection{Ottomatik.io}
-Ottomatik\footnote{\url{https://ottomatik.io/}} er en webbasert tjeneste for automatisk sikkerhetskopiering av filer og MySQL databaser.
+\begin{lstlisting}
+    SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sirkus-media`.`users`, CONSTRAINT `users_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`)) (SQL: insert into `users` (`name`, `phone`, `email`, `password`, `image_id`, `verified`, `email_token`, `id`, `updated_at`, `created_at`) values (Bere, 4578891, berg@gmail.com, 1234567r, 2432479, 1, e-token, 53f98032-f9bf-40a6-9d70-ca9c0785d7ee, 2019-02-08 10:11:16, 2019-02-08 10:11:16))
+\end{lstlisting}
 
-\subsection{Amazon S3}
-Amazon Simple Storage Service\footnote{\url{https://aws.amazon.com/s3/}} er en webbasert tjeneste som tilbyr objekt-lagring. Tjenesten tilbyr meget god skalerbarhet, datatilgjengelighet, sikkerhet og ytelse.
+Grunnen var at det ikke går an å sette verdi på en fremmednøkkel felt som verdien ikke finnes på referanse tabellen. Løste ved å sette riktig verdi.
 
-KILDE: https://dash.harvard.edu/handle/1/24829568
+\subsubsection{Fremmednøkkel er ikke satt riktig}
+Feilmelding oppsto da migrasjonen utføres. 
+Årsaken var at primær og fremmed nøklene satt på ulike type.
+Dette betyr at primær nøkkelen blir satt på auto increments og den er unsignedInteger. Da det blir brukt som fremmed nøkkel på en annen tabell burde ha samme type. Dette var satt på integer.
+Løste ved å endre typen integer til unsigned integer til fremmednøkkelen. Slik:
 
-\subsection{HTTP/2}
-HTTP/2\footnote{\url{https://www.rfc-editor.org/rfc/pdfrfc/rfc7540.txt.pdf}} er en revisjon av HTTP-nettverksprotokollen. HTTP er et sett med regler for overføring av filer (tekst, grafiske bilder, lyd, video og andre mediefiler). Et av de store målene med HTTP/2 var å tillate multipleksing.
+\begin{lstlisting}
+    $table->integer('image_size_id')->unsigned();
+    $table->foreign('image_size_id')->references('image_size_id')->on('image_sizes');
+\end{lstlisting}
 
-\subsection{HTTPS}
-HTTPS\footnote{\url{https://www.rfc-editor.org/rfc/pdfrfc/rfc2616.txt.pdf}} (Hypertext Transfer Protocol Secure) er en sikker versjon av HTTP-protokollen som overfører data på nett. HTTPS-protokollen krever at det opprettes en kryptert kanal mellom nettleseren og webserveren, slik at overføring mellom disse blir sikker.
+\subsubsection{Feilmelding om oppdatering og oppretting kolloner}
+\begin{lstlisting}
+    "SQLSTATE[42S22]: Column not found: 1054 Unknown column 'updated_at' in 'field list' (SQL: insert into `image_sizes` (`name`, `max_width`, `max_height`, `id`, `updated_at`, `created_at`) values (size-name, 10, 20, 879d1360-9a74-46f8-b383-ff6ec6e0f387, 2019-02-07 21:08:09, 2019-02-07 21:08:09))
+\end{lstlisting}
+Grunnen var at timestamps som oppretter opprettings- og oppdateringstiden er automatisk aktivert.
+Løste ved å deaktivere den. Slik: 
 
-\subsection{TLS}
-Transport Layer Security er en kryptografisk protokoll. Dette er viktig for å sikre informasjon som overføres gjennom nettverk. TLS brukes i forskjellige tjenester som HTTPS, FTPS, VoIP og VPN.
-Når en tjeneste bruker en sikker tilkobling, legges bokstaven S til tjenestens protokollnavn. For eksempel: HTTPS, SMTPS, FTPS, SHIPS.
-SSL (Secure Socket Layer) er en utdatert forgjenger til TLS.
+\begin{lstlisting}
+    public $timestamps = false;
+\end{lstlisting}
 
-KILDE: Thomas, S. (2000). SSL and TLS essentials. New Yourk, 3.
+\subsubsection{Auto Increments feil}
+Feilmeldingen sa at fremmednøkkel var ikke satt riktig.
+Dette var at auto increments er unsigned integer og brukte bare integer da jeg satte den som fremmednøkkel.
+Løste ved å endre integer til UnsignedInteger ved fremmednøkkelen. Slik:
 
-\subsection{Let’s Encrypt}
-Let’s Encrypt\footnote{\url{https://letsencrypt.org/}} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
+\begin{lstlisting}
+    $table->integer(‘image_size_id’)->unsigned();
+    $table->foreign(‘image_size_id’)->references(‘image_size_id’)->on(‘image_sizes’);
+\end{lstlisting}
 
-\subsection{HTML}
-Hypertext Markup Language\footnote{\url{https://www.w3.org/standards/webdesign/htmlcss}} er et markeringsspråk som brukes til å lage nettsidedokumenter. Det er et system som identifiserer og beskriver de forskjellige komponentene i et dokument som overskrifter, avsnitt og lister. HTML5 er den nyeste versjonen av HTML-standarden.
+\subsubsection{Forelder/barn fremmednøkkel feil}
+Fremmednøkkelen var satt på samme måte som i andre tabeller i et barn tabell. Problemet var at jeg prøvde å lage fremmednøkkel til en tabell som ikke er opprettet enda.
+Måtte bryte dette inn i to Schema-blokker, en skaper kolonnene, den andre legger til fremmednøkkel.\footnote{\url{https://stackoverflow.com/questions/18427391/laravel-migration-self-referencing-foreign-key-issue}}
+Løste ved å sette fremmednøkkelen på riktig måte. Slik
+\begin{lstlisting}
+Schema::create('components', function (Blueprint $table)
+       {
+           $table->uuid('id')->primary();
+           $table->string('name');
+           $table->string('slug');
+           $table->integer('order');
+           $table->uuid('parent_id')->nullable();
+           $table->timestamps();
+       });
+       Schema::table('components', function(Blueprint $table){
+           $table->foreign('parent_id')->references('id')->on('components');
+       });
+\end{lstlisting}
 
-\subsection{CSS}
-Casecading Style Sheet\footnote{https://www.w3.org/standards/webdesign/htmlcss} er et format for stilsett som beskriver utseendet i en applikasjon eller på et nettsted. CSS styrer blant annet fonter, farger, bakgrunnsbilder, linjeavstand og sidelayout. Formatet lar utviklere style innhold på en slik måte at brukere enklere kan identifisere hva det er, samt være i tråd med en bedrift eller person sin identitet.
+\subsection{Modelkobling test}
+Flere fremmednøkkel-felter var satt til nullable som ikke skulle nullable. Startet med å fikse de feltene som skulle ikke ha nullable fremmednøkler.
 
-\subsection{SASS}
-Syntactically Awesome Style Sheets\footnote{\url{https://sass-lang.com/}} er en utvidelse av CSS. SASS gir mulighet til å bruke variabler, nestede regler, inline-import og mixins. Alt dette gjør det enklere å gjenbruke CSS syntaks. Med SASS er det mulig å lage stilark raskere. SASS er kompatibel med alle versjoner av CSS. Det er ingen nettlesere som kjører SASS, man må derfor kompilere SASS til CSS for å kunne bruke det på nettsider.
+\subsubsection{Ukjent kolonne feilmelding}
+Siden forholdene mellom modellene var ikke satt riktig, oppsto feil under testingen.
+\begin{lstlisting}
+"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'links.menu_link_id' in 'where clause' (SQL: select * from links where links.`menu_link_id` = 3 and links.`menu_link_id` is not null) 
+\end{lstlisting}
+Løste ved å gå gjennom alle modellene og fikse forholdene mellom dem.
 
-KILDE: Cederholm, D. (2013). Sass for web designers. A Book Apart.
+\subsection {Roller og Permisjoner} \footnote{\url{https://github.com/spatie/laravel-permission#laravel}}
 
-\subsection{JavaScript}
-JavaScript\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript} er et programmeringsspråk som følger ECMAScript-spesifikasjonen. Det er mye brukt til å utvikle webapplikasjoner. Språket støttes av de fleste moderne nettlesere, og brukes til å manipulere elementene på nettsiden og stilene som er brukt på dem. JavaScript støtter objektorientert- og funksjonell programmering.
+Laravel permisjon er en pakke med tillatelser og roller. Dette hjelper brukere til å knytte seg til tillatelser og roller. Hver rolle er knyttet til flere tillatelser. En rolle og en tillatelse er vanlige Eloquent-modeller\footnote{\url{https://scotch.io/tutorials/user-authorization-in-laravel-54-with-spatie-laravel-permission}}.
+\subsubsection{Laravel permisjon pakke installasjon} 
+Laravel permisjon pakken er bygget ut over laravel autorisasjon funksjoner\footnote{\url{https://laravel-news.com/two-best-roles-permissions-packages}}.
+For installere permisjon pakken kjørte jeg composer require spatie/laravel-permission i kommando linje.
 
-\subsection{React}
-React\footnote{\url{https://reactjs.org/}} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og brukes som visningslaget for webapplikasjoner som følger MVC. React har åpen kildekode og er utviklet av Facebook.
+\subsubsection{Inkludere pakken på service provider listen}
+Inkluderte permisjon pakken på config/app.php. 
+\begin{lstlisting}
+    Spatie\Permission\PermissionServiceProvider::class
+\end{lstlisting}
 
-Alternativ kilde: \url{https://www.fullstackreact.com/assets/media/sGEMe/MNzue/30-days-of-react-ebook-fullstackio.pdf}
+\subsubsection{Publisere migrasjonen}
+Ved å kjøre koden på kommandolinjen publisere migrasjon filen for permisjon pakken.
+\begin{lstlisting}
+   php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations" 
+\end{lstlisting}
 
-\subsection{REST-API}
-Et API (programmeringsgrensesnitt) er et sett med funksjoner, prosedyrer, metoder eller klasser som brukes av dataprogrammer for å be om tjenester fra operativsystemet eller programvare som er på datamaskinen. En programmerer kan bruke API-er til å lage applikasjoner.
+Siden vi bruker uuid som primær nøkkel på user måtte det redigeres permisjon filen. På permisjon filen er satt 'unsignedBigInteger' som standard og burde det  endres  til uuid. Redigeringen gjøres ved å åpne permisjon filen  under 'database/migrations' og erstatte 'unsignedBigInteger' med 'uuid'.
+\begin{lstlisting}
+  $table->unsignedBigInteger($columnNames['model_morph_key'])
+    Erstatter med 
+ $table->uuid($columnNames['model_morph_key'])
+\end{lstlisting}
 
-REST (Representational State Transfer) er en arkitektonisk stil for programvare. Et REST-API er et API som følger REST-stilen og de begrensninger som REST definerer.
+\subsubsection{Publisere konfigurasjonen}
+Konfigureringsfilen tillater oss å angi plasseringen av Eloquent-modellen til permisjon og rolle klasse.
+For å publisere konfigurasjonsfilen for pakken kjøres koden nede i kommandolinjen.
 
-KILDE: Masse, M. (2011). REST API Design Rulebook: Designing Consistent RESTful Web Service Interfaces. " O'Reilly Media, Inc.".
-side 5 og 6
+\begin{lstlisting}
+  php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
+\end{lstlisting}
 
-\subsection{Figma}
-Figma\footnote{\url{https://www.figma.com/}} er et webbasert designverktøy som åpner muligheten for å samarbeide i sanntid. Med Figma er det også mulig å designe mockups og prototyper av applikasjoner og nettsider.
+\subsubsection{Bygge opp tabeller}
+Tok migrasjon slik permisjon tabellene blir bygget på databasen.
+Kjørte koden i kommandolinjen.
+\begin{lstlisting}
+  php artisan migrate
+\end{lstlisting}
 
-ekstra kilde: \url{https://www.xfive.co/blog/figma-best-designer-developer-cooperation/}
 
-\subsection{Google Analytics}
-Google Analytics\footnote{\url{https://analytics.google.com/analytics/web/}} er en gratis, webbasert tjeneste som gir statistikk og grunnleggende verktøy for analyse av bruksdata, søkemotoroptimalisering og markedsføring.
-
-\subsection{Google Lighthouse}
-Google Lighthouse\footnote{\url{https://developers.google.com/web/tools/lighthouse/}} er et gratis verktøy for å sjekke kvaliteten på nettsider. Det analyserer nettsidens tilgjengelighet, hastighet og SEO, samt om nettsiden følger de beste praksiser både generelt sett og for progressive webapplikasjoner. Lighthouse kan kjøres via Google Chrome DevTools, en nettleserutvidelse i Google Chrome eller via nettsiden \url{https://web.dev/}.
-
-\subsection{WAVE}
-Web Accessibility Evaluation Tool\footnote{\url{https://wave.webaim.org/about}} er et verktøy som tester universell utforming hos nettsider og hvorvidt de følger visse punkter i WCAG 2.1-standarden og Section 508. Verktøyet er tilgjenglig som en nettleserutvidelse og som en webbasert tjeneste hos \url{https://wave.webaim.org/}.
 
 \clearpage
