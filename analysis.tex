@@ -67,6 +67,10 @@ Nettstederer er et eksempel på et enveis nettverktøy med høy  bedrifts kontro
 Websites and e-mail can be seen as examples of one-way online tools with high company control. https://www.emeraldinsight.com/doi/pdfplus/10.1108/JSBED-05-2013-0073. På en nettside har en bedrift altså mulighet til å bestemme innholdet og hvordan firmaet skal fremstå. Dette er en mulighet enhver bedrift burde benytte seg av, da nettstedet kan være med å forbedre og øke troverdigheten\footnote{Se avsnitt \ref{sec:analyse-troverdighet}} og dermed forholdet kunden har til bedriften.
 
 \subsection{Innsamling av data}
+En annen god grunn for å ha et nettsted, er at man kan benytte seg av verktøy som Google Analytics\footnote{Se avsnitt \ref{sec:google-analytics}}. Data samlet av Google Analytics kan brukes til å finne ut av hvilken av sidene som er mest populær eller har flest besøk. Det er også mulig å finne ut av hvilken type informasjon besøkene er interessert i, gjennom hvilken vei en bruker kommer inn og ut av siden på og hvor mye tid som har blitt brukt på nettstedet \cite{kent2011lwa}. Ved å kartlegge dette vil bedriften alltid ha oppdatert og relevant informasjon tilgjengelig, som kan brukes til å forbedre nettstedet fortløpende. 
+
+% https://ac.els-cdn.com/S0363811111001433/1-s2.0-S0363811111001433-main.pdf?_tid=6362f9f9-b2cf-4c0f-95ac-004f5552c93e&acdnat=1550673249_e4d9b2b5340feb6427e7bd538ecd0f65
+
 
 \section{Viktige faktorer innen webdesign}
 Innenfor webdesign finnes det flere forskjellige faktorer er avgjørende når det kommer til hvor godt et nettsted er utført. En presentasjon av disse faktorene og hvorfor de er så viktig vil bli presentert nærmere i dette kapittelet. 
@@ -115,7 +119,10 @@ Bouncerate
 
 
 \section{Lovverk}
+Det finnes også noen lovverk som må følges når det kommer til utvikling av nettsteder. I dette underkapittelet blir det beskrevet hva disse går ut på. Det blir også gjennomgått hvorfor disse lovene er viktig, utover det faktum at de er lovpålagt. 
+
 \subsection{WCAG 2.0}
+
 \subsection{GDPR}
 
 
@@ -135,9 +142,398 @@ https://www.brightlocal.com/2016/03/04/gender-age-what-consumers-want-from-local
 \subsection{Sikkerhet}
  (hashing av passord. sende data over kryptert kanal)
 
+\section{Analyse av opprinnelig løsning}
 
-\section{Analyse av nåværende nettsted}
-\section{Analyse av konkurrenter}
+Målet med å analysere det nåværende nettstedet til Sirkus Media er å kartlegge eventuelle problemerområder som burde forbedres. Når utviklingen av det nye nettstedet er ferdig vil vi sammenligne de nye testresultatene med resultatene som blir presentert i dette kapittelet.
+Se figur \ref{fig:analysis-current-sirkusmedia.no} for bilde av nettsiden på PC og mobil.
+
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[PC]{
+            \label{fig:analysis-current-sirkusmedia.no-desktop}
+            \frame{\includegraphics[width=0.7\textwidth]{bjornar/sirkusmedia_no_(1366x768).png}}
+        }
+        \subfigure[Mobil]{
+            \label{fig:analysis-current-sirkusmedia.no-mobile}
+            \frame{\includegraphics[width=0.25\textwidth]{bjornar/sirkusmedia_no_(iPhone_6_7_8).png}}
+        }
+        \label{fig:analysis-current-sirkusmedia.no}
+        \caption{sirkusmedia.no}
+    \end{center}
+\end{figure}
+
+\subsection{Test med Google Chrome DevTools}
+Google Chrome DevTools\footnote{\url{https://developers.google.com/web/tools/chrome-devtools/}} er et utviklerverktøy som følger med nettleseren Google Chrome. Det lar oss blant annet sjekke hastighet og kontrastforhold på siden og kjøre tester med Google Lighthouse.
+
+Vi testet hastigheten til siden på det trådløse nettverket til Høgskolen i Østfold (avdeling Halden) fra en Dell XPS 13 (9350).
+Resultatene måles i millisekunder.
+
+\begin{table}[H]
+\begin{tabular}{lllll}
+Test & DOM & Load &  &  \\
+1 & 268 & 624 &  &  \\
+2 & 203 & 550 &  &  \\
+3 & 216 & 560 &  &  \\
+4 & 387 & 928 &  &  \\
+5 & 210 & 572 &  &  \\
+6 & 634 & 844 &  &  \\
+7 & 309 & 857 &  &  \\
+8 & 256 & 670 &  &  \\
+9 & 348 & 673 &  &  \\
+10 & 249 & 579 &  &  \\
+\end{tabular}
+\end{table}
+
+Gjennomsnitt:\\
+- DOM: 308ms\\
+- Load: 614ms
+
+Innlastningstiden til DOM beskriver hvor lang tid det tar for nettleseren å lese gjennom og analysere HTML-koden til nettsiden. Load vil si hvor lang tid det tar å laste inn DOM sammen med alle bilder, stylesheets, scripts og iframes.
+
+\subsection{Test med Google Lighthouse}
+\label{sec:analysis-current-lighthouse}
+
+Ved å kjøre Google Lighthouse får vi resultater for hastighet, tilgjengelighet, beste praksis, søkemotoroptimalisering og progressiv webapplikasjon. Figur \ref{fig:analysis-current-lightouse-summary} viser oppsummering av resultatetene etter å ha kjørt testen. Oversikten viser at nettstedet får gode poengsummer på alle områdene. Hovedgrunnen til dette er at dagens nettsted består av kun en forside og lite informasjon. Dette begrenser muligheten for feil.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bjornar/Lighthouse-Report-mobile.png}
+    \caption{Resultater fra Google Lighthouse}
+    \label{fig:analysis-current-lightouse-summary}
+\end{figure}
+
+Ikonet for \q{Progressive Web App} har en feil, slik at man ikke får sett scoren. Ved hjelp av en JSON-fil\footnote{Se JSON-fil, linje 3386} som inneholder resultatene, ser man at poengscoren er på 58\%.
+
+Denne delen av testen er egentlig ikke relevant\footnote{Sirkus Media sitt nettsted er ikke, og kommer ikke til å bli en progressiv webapplikasjon. KILDE OM PWA}, og vi vil derfor ikke se på denne, eller nevne den i andre tekniske analysener som bruker Google Lighthouse.
+
+I rapporten kan vi se at Google laster inn nettsiden på 2,7 sekunder og at det tar 4,9 sekunder før siden blir beregnet som interaktiv. Hovedproblemet til siden er bruken av \q{render-blocking resources}\footnote{Hva er dette?}. Dette kan lett fikses og kan i følge Google spare 1,34 sekunder. Google påpeker også at det finnes 3 sikkerhetshull i JavaScript-biblioteker som blir brukt på nettsiden. Dette er ikke ønskelig, da dette øker risikoen for uønskede hendelser.
+
+Full rapport for Google Lighthouse testen kan leses i vedlegg X.
+
+\subsection{Checkbot}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{bjornar/checkbotio-summary.png}
+    \caption{Checkbot.io summary}
+    \label{fig:analysis-current-checkbot-summary}
+\end{figure}
+
+Checkbot\footnote{https://checkbot.io} tester sikkerhet, hurtighet og søkemotoroptimalisering. Figur \ref{fig:analysis-current-checkbot-summary} viser oppsummering av resultatene. En mer detaljert rapport kan leses under vedlegg X. Denne testen viser en god poengsum når det gjelder totalt for gjennomsnittet. Isolert sett ser vi at sikkerheten til nettstedet drar ned gjennomsnittet betydlig. Den fulle rapporten viser at dette kommer av at nettsiden ikke bruker HSTS, \q{content sniffing protection}, \q{clickjack protection}, \q{XSS protection} og at det ikke skjuler server-versjon data.
+
+\subsection{Color Contrast Analyzer}
+\label{sec:analysis-current-color-contrast-analyzer}
+Color Contrast Analyzer\footnote{\url{https://accessibility.oit.ncsu.edu/tools/color-contrast-chrome/}} tar bilde av nettstedet og scanner deretter kontrasten. Områder med bedre kontrast utheves og får lyse kanter. Jo mer markante kanter, desto mer kontrast.
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\includegraphics[width=0.80\paperwidth]{bjornar/contrast-wcag-aa-small.png}}
+    \caption{CCA resultat AA}
+    \label{fig:analysis-current-cca-aa}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \makebox[\textwidth]{\includegraphics[width=0.80\paperwidth]{bjornar/contrast-wcag-aaa-small.png}}
+    \caption{CCA resultat AAA}
+    \label{fig:analysis-current-cca-aaa}
+\end{figure}
+
+Ved å kjøre testen \q{small non bold text} for nivå AA, som gjelder for skriftstørrelser opptil 18pt, viser resultatene at deler av teksten i logo og de grønne overskriftene ikke har gode nok kontraster. Dette illustreres i figur \ref{fig:analysis-current-cca-aa}. Google Chrome DevTools verifiserer at kontrastforholdet ikke oppfyller kontrastkravet for AA. Se figur \ref{fig:analysis-current-cdt-a} og \ref{fig:analysis-current-cdt-b}
+
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[grønn overskrift]{\label{fig:analysis-current-cdt-a}\includegraphics[width=0.3\textwidth]{bjornar/contrast-wcag-aa-small-gronn-tekst.png}}
+        \subfigure[blå tekst i logo]{\label{fig:analysis-current-cdt-b}\includegraphics[width=0.3\textwidth]{bjornar/contrast-wcag-aa-small-logo-blaa.png}}
+        \subfigure[vanlig tekst]{\label{fig:analysis-current-cdt-c}\includegraphics[width=0.3\textwidth]{bjornar/contrast-wcag-aaa-small-body.png}}
+        \caption{Google Chrome DevTools - kontrastforhold}
+        \label{fig:analysis-current-cdt}
+    \end{center}
+\end{figure}
+
+Resultatene etter å ha kjørt tester for nivå AAA viser at mesteparten av nettstedet ikke oppfyller kravet for kontrastnivå. Se figur \ref{fig:analysis-current-cca-aaa}. Her blir ingen av avsnittene med ordinær skriftstørrelse markert. Ved å kjøre en test med Chrome DevTools verifiseres påstanden om for dårlig kontrastnivå. Se figur \ref{fig:analysis-current-cdt-c}.
+
+\subsection{WAVE}
+Med verktøyet WAVE\footnote{\url{http://wave.webaim.org/}} kan vi videre verifisere funnene som ble gjort i avsnitt \ref{sec:analysis-current-color-contrast-analyzer}. WAVE raporterer om 20 kontrastfeil på nettsiden. \vskip 1em Det ble også oppdaget andre feil:\\ \quad 1x: Dokument språk mangler\\
+\quad 4x: Tomme linker\\
+\quad 5x: Redudante linker\\
+\vskip 1em Annet:\\
+\quad 8x: Bilder med tom alt-attributt.\\
+\vskip 1em Ved å skru på \q{No-styling} vil man oppdage at det er en skjult seksjon på siden (\q{THE COMPANIES THAT MAKE THEIR LIFE SIMPLE}). Dette blir plukket opp av noen skjermlesere og er derfor ikke ideelt.\\
+WAVE viser også at nettstedet har bra stuktur på overskrifter og følger beste praksis.
+
+\subsection{Kontrastforhold mellom tekst og bakgrunnsbilder}
+Etter å ha testet kontrasten til siden med verktøyet fra avsnitt \ref{sec:analysis-current-color-contrast-analyzer} og Google Chrome DevTools, vet vi enda ikke om kontrastforholdet i headeren er bra nok. Vi kan se på figur \ref{fig:analysis-current-cca-aa} og \ref{fig:analysis-current-cca-aaa} at det teksten i headeren blir uthevet, og er noe svakere i figur \ref{fig:analysis-current-cca-aaa} enn i \ref{fig:analysis-current-cca-aa}. Dette må vi undersøke nærmere.
+
+Dette er ikke mulig å sjekke med Chrome DevTools eller WAVE. Begge verktøyene vil gi negative resultater som ikke stemmer ettersom de ikke får en bakgrunnsfarge å se på, men et bakgrunnsbilde. Dette fører til at testen ikke blir utført korrekt.
+
+For å løse dette bruker vi Brandwood sin A11y-test\footnote{\url{https://www.brandwood.com/a11y/}}. Verktøyet deler opp bilde i seksjoner og finner gjennomsnittsfargen i hver av disse seksjonene. Deretter sjekkes kontrastforholdet mellom teksten sin farge og fargen i de seksjonene som teksten er over. I figur \ref{fig:analysis-current-a11y_bg-example} kan man se eksempel på resultatet av en test. Her testet vi en hvit tekst mot et bilde av en regnbue. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bjornar/bg-image-eksempel.png}
+    \caption{Eksempel}
+    \label{fig:analysis-current-a11y_bg-example}
+\end{figure}
+
+Vi gjenskapte headeren til Sirkus Media i verktøyet, og testet den store teksten: \q{Vi skaffer konkrete kundehenvendelser} og den mindre teksten \q{Med vår egenutviklede løsning jobber vi for å skaffe våre kunder konkrete kundehenvendelser - direkte på epost og telefon.} Se figur \ref{fig:analysis-current-a11y_bg-generator}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bjornar/bg-image-generator.png}
+    \caption{Stor tekst fra header i verktøyet}
+    \label{fig:analysis-current-a11y_bg-generator}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[Stor tekst]{\label{fig:analysis-current-a11y_bg-h1}\includegraphics[width=0.475\textwidth]{bjornar/bg-image-h1.png}}
+        \subfigure[Liten tekst]{\label{fig:analysis-current-a11y_bg-p}\includegraphics[width=0.475\textwidth]{bjornar/bg-image-p.png}}
+
+        \caption{Testresultat}
+        \label{fig:analysis-current-a11y_bg-h1_p}
+    \end{center}
+\end{figure}
+
+Resultatet som vi ser i figur \ref{fig:analysis-current-a11y_bg-h1_p} viser at teksten i headeren har bra nok kontrastforhold for å passere kravet for AA, men ikke AAA. 
+
+\subsection{Qualys SSL Server Test}
+SSL Server Test\footnote{\url{https://www.ssllabs.com/ssltest/}} er en tjeneste som tester SSL og TLS sertifikater. Resultatet på testen ble en A. Dette er bra, men nettstedet burde få et bedre resultatet som A+ eller A++. Det kreves hverken mye tid eller ressurser for å oppnå dette.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bjornar/ssllabs.png}
+    \caption{Sertifikat score}
+    \label{fig:analysis-current-ssl}
+\end{figure}
+
+\subsection{Test med skjermleser}
+Brukervennligheten via skjermleser ble også testet. Nettsiden ble testet med skjermleseren NVDA\footnote{\url{https://www.nvaccess.org/about-nvda/}}. Det var enkelt å navigere seg rundt på nettsiden. Innholdet kom i en logisk rekkefølge og det var lett å navigere seg mellom elementene. Det eneste problemet var kontaktskjema, som er ganske viktig ettersom målet med nettsiden er at potensielle kunder skal ta kontakt. En annen faktor som manglet var en \q{skip to main content}-link.
+
+\subsection{Google Transparency Report - Safe Browsing: malware and phishing}
+Til slutt sjekket vi om nettsiden har skadevare på seg med en tjeneste fra Google\footnote{\url{https://transparencyreport.google.com/safe-browsing/search?url=https://sirkusmedia.no&hl=en-US}}. Her ble det ikke gjort noen funn, noe som selvfølgelig er positivt.
+
+\subsection{Konklusjon}
+Ut i fra testene gjort med Google Chrome DevTools, Google Lighthouse og Checkbot kan vi konkludere med at nettsiden er rask. På testen gjort ved høgskolen laster siden inn på under 1 sekund i gjennomsnittet, noe som er meget bra. Siden får over 70\% i poengsum fra Google Lighthouse og Checkbot. Med relativt enkle forbedringer, kan vi få denne summen opp til mellom 90-100\%.
+
+Når det kommer til universell utforming gjør Sirkus Media det bra og følger de lover og regler som gjelder i Norge vedrørende dette. Vi ser likevel at kontrastforholdene på siden er gode nok for kravene til nivå AA, men ikke helt for AAA. Dette er noe som kan forbedres.
+
+Totalt sett gjør nettstedet til Sirkus Media det bra på testene som vi kjørte den gjennom. Som tidligere nevnt er hovedgrunnen til dette at dagens nettsted består av kun en forside og lite informasjon. Dette begrenser muligheten for feil. Det vil være en utfordring å gjøre det like bra i disse testene med et nettsted som består av flere sider, mer innhold og kompleks funksjonalitet.
+
+\section{Konkurrentanalyse}
+
+Målet med konkurrentanalysen er å finne inspirasjon til nettstedet vi skal utvikle ved å se på allerede eksisterende løsninger. Hvem er oppdragsgiver sine konkurrenter? Hvordan type løsning har disse valgt? Hvilke styrker og svakheter har løsningene? Analysen er først og fremst gjort av gruppen med vekt på å se det fra en vanlig bruker sitt perspektiv, men noen tekniske faktorer har også blitt vurdert.
+
+\subsection{Teknisk analyse}
+For å vurdere de tekniske faktorene har vi brukt Google Lighthouse til å sjekke hvor raskt nettstedene lastes inn, beste praksis og SEO. I tillegg ble WAVE \footnote{Web Accessibility Evulation Tool. http://wave.webaim.org/} brukt til å sjekke om nettstedene følger kravene for loven om universell utforming og tilgjengelighet.
+
+\subsection{Konkurrentene}
+Sirkus Media har mange konkurrenter, deriblant alle firmaer som driver mediebyråvirksomhet. Etter samtale med Hans Christian Hymer \footnote{Samtale med oppdragsgiver (16.01.2019)} fikk vi oppgitt 3 bedrifter som blir ansett som Sirkus Media sine største konkurrenter. Det er følgelig disse konkurrentene vi har valgt å analysere.
+
+\subsection{TACTIC™ Real-Time Marketing}
+Nettstedet til TACTIC™ Real-Time Marketing ligger på følgende domene; https://tacticrealtime.com. Se figur \ref{fig:competitors-tacticrealtime.com} for bilde av nettstedet.
+
+\subsubsection{Førsteinntrykk}
+Førsteinntrykket er at nettstedet fremstår ryddig og profesjonelt. Det første som møter deg er et stort bakgrunnsbilde. Bilde dekker hele skjermen og har en tittel og en underoverskrift. Headeren består også av en knapp der du kan trykke på \q{Request a demo}. Helt øverst på forsiden er logoen til Tactic og en meny. Til høyre er det en knapp som gir deg muligheten til å se på en video. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{line/tacticrealtime_com_(1366x768).png}
+    \caption{tacticrealtime.com}
+    \label{fig:competitors-tacticrealtime.com}
+\end{figure}
+
+\subsubsection{Forside og undersider}
+
+Forsiden består av bakgrunnsbilde som inneholder logo, meny, overskrifter og en video.  
+Deretter kommer det en beskrivende tekst om firmaet, informasjon om plattformen, logo av ledende  Ad-servers og DSP's, partnerprogram og utvalgte kunder. Siden avsluttes med en \q{Contact us}-seksjon.
+
+Nettstedet består også av følgende undersider:
+\begin{itemize}
+\item Platform
+\item Company
+\item Partners
+\item Clients
+\item Blog
+\end{itemize}
+
+\subsubsection{Teknisk analyse}
+
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[Google lighthouse]{
+            \label{fig:competitors-lighthouse-summary-tacticrealtime.com}
+            \includegraphics[width=0.7\textwidth]{line/tacticrealtime_com-lighthouse.png}
+        }
+        \rulesepv
+        \subfigure[WAVE]{
+            \label{fig:competitors-wave-summary-tacticrealtime.com}
+            \includegraphics[width=0.2\textwidth]{line/tacticrealtime_com-wave.png}
+        }
+        
+        \label{fig:competitors-tech_analysis-tacticrealtime.com}
+        \caption{Resultat fra teknisk analyse av tacticrealtime.com}
+    \end{center}
+\end{figure}
+
+Etter å ha gjennomført testen til Google Lighthouse, viste det seg at TACTIC var den desidert beste på alle punkter av de 3 konkurrentene. Restultatene fra Google Lighthouse kan man se i figur \ref{fig:competitors-lighthouse-summary-tacticrealtime.com}. Bedriften gjør relativt få feil med tanke på ytelse. Feilene som gjelder \q{Eliminate render-blocking resources}\footnote{Hva vil dette si?} og \q{Serve static assets with an efficient cache policy}\footnote{Hva vil dette si?} burde rettes opp. Vi kan se at siden lastet inn på 2,7 sekunder. Fikser man de overnevnte feilene, vil man kunne mer enn halvere innlastningstiden i følge rapporten.
+
+Når det kommer til \q{Best Pracices}, så er det et par forbedringer TACTIC burde gjort. De burde benytte HTTP2, i stedet for HTTP \footnote{HTTP2 er bakoverkompatibel, så ingen grunn til å ikke bruke det. Samt at det pleier å være 1 linje med kode for å skru på for de fleste web-servere.}. Det linkes også til et JavaScript-bibliotek med kjente sikkerhetshull. Dette burde man på ingen måte gjøre.
+
+På SEO-delen av testen fikk TACTIC 100 av 100 poeng og det er derfor ingenting å påpeke her.
+
+Full rapport for Google Lighthouse kan leses i vedlegg X1.
+
+Figur \ref{fig:competitors-wave-summary-tacticrealtime.com} viser resultatene fra WAVE. Fra resultatene ser man at Tactic fikk 6 feilmeldinger når det kommer til universell utforming. I tillegg har nettsiden deres 22 kontrastfeil. 
+
+\subsubsection{Styrker}
+En stor fordel er at nettstedet gir et bra førsteinntrykket. Dette fordi nettstedet fremstår som profesjonelt. Førsteinntrykket er dermed med på å styrke brukerens inntrykk av bedriften. Nettstedet har også god oppbygning og struktur. Løsningen har også en sterk profil, hvor det er ganske tydelig at det er grønn som er primærfargen til selskapet.
+
+\subsubsection{Svakheter}
+Noe som kan være en svakhet er at hele nettstedet er på engelsk og i tillegg er på et .com-domene. Disse to faktorene kan forvirre brukerne. En av grunnen til dette er at det er vanskelig å skjønne at dette er et firma som er lokalisert i Oslo. En annen svakhet er at det er lite luft rundt noen elementer, som fører til at nettstedet fremstår som kompakt og mer rotete. Det er heller ikke samme mengde luft over og under elementene. Dette er også med på å trekke ned helhetsinntrykket. Det er heller ikke så lett å bevege seg rundt på nettstedet ved hjelp av tastaturet ettersom TACTIC har fjernet all visuell indikasjon for fokus. Dette gjør at nettsiden ikke oppfyller noe som er et krav i loven om universell utforming og tilgjengelighet. I tillegg får nettstedet mange kontrastfeil, som også bryter lovkravet om universell utforming.
+
+\subsection{Marketer Technologies AS}
+Nettstedet til Marketer Technologies AS ligger på følgende domene;
+https://marketer.tech/. Se figur \ref{fig:competitors-marketer.tech} for bilde av nettstedet.
+
+\subsubsection{Førsteinntrykk}
+Førsteinntrykket av nettstedet er positivt, fordi den fremstår som ryddig og profesjonell. Det første som møter deg er headeren\footnote{Hodet til nettstedet} til nettstedet, som inneholder logoen til firmaet og en meny. Under menyen er en tittel, en underoverskrift og to lenker. Headeren inneholder også et ikon for chat. Det at kunder enkelt kan ta kontakt med firmaet kan virke betryggende, og kan være med å øke troverdigheten til bedriften.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{line/marketer_tech_(1366x768).png}
+    \caption{marketer.tech}
+    \label{fig:competitors-marketer.tech}
+\end{figure}
+
+\subsubsection{Forside og undersider}
+
+Forsiden, i tillegg til headeren, består av logo til noen utvalgre kunder, prosessen til Marketer, animasjoner, resultater fra tidligere prosjekter og en presentasjon av deres løsninger. Helt nederst på siden kommer bunnfeltet, der organisasjonsnummeret, kontaktinformasjon og adresse blir presentert.
+
+Nettstedet består også av følgende undersider:
+\begin{itemize}
+\item Solutions
+\item Company
+\item Customers
+\item Blog
+\item Careers 
+\item Contact
+\item Book demo
+\end{itemize}
+
+\subsubsection{Teknisk analyse}
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[Google lighthouse]{
+            \label{fig:competitors-lighthouse-summary-marketer.tech}
+            \includegraphics[width=0.7\textwidth]{line/marketer_tech-lighthouse.png}
+        }
+        \rulesepv
+        \subfigure[WAVE]{
+            \label{fig:competitors-wave-summary-marketer.tech}
+            \includegraphics[width=0.2\textwidth]{line/marketer_tech-wave.png}
+        }
+        
+        \label{fig:competitors-tech_analysis-marketer.tech}
+        \caption{Resultat for teknisk analyse av marketer.tech}
+    \end{center}
+\end{figure}
+
+Figur \ref{fig:competitors-lighthouse-summary-marketer.tech} viser resultatene fra testen gjort med Google Lighthouse. Her kom Marketer dårligst ut. Testen påpeker flere feil på punkter vedrørende ytelse, tilgjengelighet og beste praksiser. Det tar Google 5,3 sekunder å laste inn nettstedet, noe som er relativt tregt, men det er raskere enn Inviso.no. Selv om Marketer sin side laster inn raskere, så får den en dårligere poengsum på ytelse. Dette fordi det tar hele 15,2 sekunder før siden blir beregnet som interaktiv \footnote{\q{Time to Interactive} i Google Lightouse rapporten}. Marketer burde ta samme grep som TACTIC, i tillegg til å fjerne ubrukt CSS, servere skalerte bilder og vurdere å redusere antall animasjoner.
+Full rapport for Google Lighthouse kan leses i vedlegg X2.
+
+Figur \ref{fig:competitors-wave-summary-marketer.tech} viser WAVE-resultatene. Her kommer det frem at løsningen har 5 kontrastfeil og hele 147 feil når det kommer til universell utforming og tilgjengelighet. 135 av disse feilmeldingene er manglende bruk av alt-tekster.
+
+\subsubsection{Styrker}
+En av styrkene er at nettstedet gir et bra førsteinntrykk. Det er også et nettsted som skiller seg ut og er gjennomført. En annen styrke er at løsningen inneholder chat, der kunder enkelt kan ta kontakt. Profilen er også klar og tydelig, og det er åpenbart at bedriften har sort som primærfarge og turkis som aksentfarge.
+
+\subsubsection{Svakheter}
+En ulempe er at nettstedet består av flere store filer, som fører til at nettstedet oppleves som tregt. En annen svakhet er at løsningen får mange feil når det kjøres tester på universell utforming og tilgjengelighet. Det er i tillegg vanskelig å navigere seg rundt på nettstedet ved hjelp av kun tastatur.
+
+
+\subsection{Inviso AS}
+Nettstedet til Inviso AS ligger på følgende domene;
+https://www.inviso.no/. Se figur \ref{fig:competitors-inviso.no} for bilde av nettstedet.
+
+\subsubsection{Førsteinntrykk}
+Førsteinntrykket av nettstedet er at den fremstår som rotete. Hovedgrunnen til dette er at det er mange elementer og mye som skjer i headeren. Logoen og noe av teksten på bakgrunnsbilde er også vanskelig å se på grunn av det dårlige kontrastforholdet. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{line/inviso_no_(1366x768).png}
+    \caption{inviso.no}
+    \label{fig:competitors-inviso.no}
+\end{figure}
+
+\subsubsection{Forside og undersider}
+I tillegg til headeren består forsiden av \q{Om oss}-tekst, deres tjenester og utvalgte kunder. 
+
+Nettstedet består også av følgende undersider:
+\begin{itemize}
+\item Inviso
+\item Våre produkter
+\item Kontakt
+\item Galleri
+\item Verktøy
+\item Nyheter
+\end{itemize}
+
+
+\subsubsection{Teknisk analyse}
+
+\begin{figure}[H]
+    \begin{center}
+        \subfigure[Google lighthouse]{
+            \label{fig:competitors-lighthouse-summary-inviso.no}
+            \includegraphics[width=0.7\textwidth]{line/inviso_no-lighthouse.png}
+        }
+        \rulesepv
+        \subfigure[WAVE]{
+            \label{fig:competitors-wave-summary-inviso.no}
+            \includegraphics[width=0.2\textwidth]{line/inviso_no-wave.png}
+        }
+        
+        \label{fig:competitors-tech_analysis-inviso.no}
+        \caption{Resultat for teknisk analyse av inviso.no}
+    \end{center}
+\end{figure}
+
+Figur \ref{fig:competitors-lighthouse-summary-inviso.no} viser resultatene fra testen gjort av Google Lighthouse. Her havnet Inviso midt på treet og kom dermed på andreplass av de tre konkurrentene. Bedriften får en helt grei poengsum i gjennomsnitt. Når det kommer til ytelse, bør de ta samme grep som både TACTIC og Marketer. Hovedproblemet her er at bildene serveres i en lite egnet filtype, og kan enkelt løse ved å velge en filtype som er mer egnet. Ved å fikse dette kan de hente inn hele 4,2 sekunder av den totale innlastningstiden på 6,7 sekunder.
+
+På test delen vedrørende tilgjengelighet kommer det frem av Inviso burde forbedre kontrastforhold på deler av siden sin.
+
+Ingenting spesielt å påpeke ved SEO, men Inviso burde absolutt ta en titt på hvilke JavaScript-biblioteker de bruker, ettersom Google kan melde om hele 5 kjente sikkerhetshull er tilgjengelig på siden. Full rapport for Google Lighthouse kan leses i vedlegg X3.
+
+Ved å kjøre test via WAVE oppgir resultatet at nettstedet har 4 kontrastfeil. Nettstedet får også 37 feilmeldinger når det gjelder universell utforming. Figur \ref{fig:competitors-wave-summary-inviso.no} viser resultatene fra WAVE-testen.
+
+\subsubsection{Styrker} 
+En av styrkene er at nettstedet har en bra profil. Det er lett å skjønne at rød er primærfargen til Inviso. En annen positiv side er at det tekstlige innholdet på siden er godt skrevet og får bedriften til å fremstå profesjonelt.
+
+\subsubsection{Svakheter}
+En svakhet er at det er for mye informasjon i headeren. Dette kan bidra til at førsteinntrykket blir dratt ned. En annen stor svakhet er at nettstedet får mange feil når man kjører tester når det gjelder universell utforming og tilgjengelighet. Det faktum at nettsiden har en mobil-meny på fullversjon av siden, trekker også ned fordi dette gjør brukeropplevelsen dårligere.
+
+\subsection{Konklusjon}
+Felles for alle 3 konkurrentene er at ingen av de følger loven om universell utforming og tilgjengelighet. Universell utforming er lovpålagt i Norge \footnote{\url{https://lovdata.no/dokument/SF/forskrift/2013-06-21-732}}, og vår løsning kommer derfor til å følge disse kravene. 
+
+En annen faktor konkurrentene har til felles er at de presenterer sine kunder og/eller partnere. Dette bør også Sirkus Media gjøre. Presentasjon av kundeforhold med kjente firmaer er tillitsvekkende og kan skape bedre troverdighet blant brukerne. \footnote{Kilde?}
+
+Figur \ref{fig:competitors-mobile} viser at alle konkurrentene har gått for samme løsning når det kommer til design på mobil. Alle har bedriftens logo oppe til venstre og et meny ikon til høyre. Undersøkelser \footnote{Kilde: Luke Wroblewski, en internasjonalt anerkjent brukeropplevelsesdesigner \url{https://www.lukew.com/ff/entry.asp?1945}} viser at dette er langt fra den mest optimale løsningen. Planen er derfor at vår løsning skal ha en annen struktur.
+
+Konkurrentene har gode løsninger, men også en del svakheter som har blitt påpekt i denne analysen. Konkurrentanalysen har vært nyttig fordi den både har ført til at gruppen har fått inspirasjon til deler av den løsningen som skal utvikles og samtidig gitt en pekepinn på hva som bør gjøres annerledes.
+
+Studentgruppen har satt som mål å få minst like bra score på testen til Google Lighthouse, som gjennomsnittsscoren til de utvalgte konkurrentene.
+
+\begin{figure}[bh]
+    \begin{center}
+        \includegraphics[width=0.3\textwidth]{line/tacticrealtime_com_(iPhone_6_7_8).png}
+        \includegraphics[width=0.3\textwidth]{line/marketer_tech_(iPhone_6_7_8).png}
+        \includegraphics[width=0.3\textwidth]{line/inviso_no_(iPhone_6_7_8).png}
+        \caption{Alle nettstedene er mobiltilpasset}
+        \label{fig:competitors-mobile}
+    \end{center}
+\end{figure}
+
+
+
 
 \section{Teknologier}
 Når det kommer til utvikling av nettsteder finnes det mange ulike teknologier, systemer og verktøy som kan benyttes for å få det samme resultatet. Derfor er det viktig å kartlegge brukerens behov og deretter sette ønskede kvalifikasjoner og krav, slik at de valgte verktøyene er tilpasset dette. Basert på de foregående analysene i dette kapittelet har studentgruppen kommet frem til et sett med minimumskrav. Videre blir passende verktøy og tilhørende teknologier presentert.
@@ -314,6 +710,7 @@ Figma\footnote{\url{https://www.figma.com/}} er et webbasert designverktøy som 
 ekstra kilde: \url{https://www.xfive.co/blog/figma-best-designer-developer-cooperation/}
 
 \subsubsection{Google Analytics}
+\label{sec:google-analytics}
 Google Analytics\footnote{\url{https://analytics.google.com/analytics/web/}} er en gratis, webbasert tjeneste som gir statistikk og grunnleggende verktøy for analyse av bruksdata, søkemotoroptimalisering og markedsføring.
 
 \subsubsection{Google Lighthouse}
