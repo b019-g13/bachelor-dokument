@@ -9,48 +9,32 @@ I dette kapittelet danner vi oss et bilde av hvordan en akademisk/teknisk rappor
 
 -- 
 
-Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. I dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, struktur og utforming. I tillegg vil vi presentere de verktøy vi mener er passende i et slikt prosjekt.
+Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. Vi vil også presentere noen gode eksempler når det gjelder relatert arbeid. I løpet av dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, struktur og utforming. I tillegg vil vi presentere en analyse av opprinnelig løsning, konkurrentanalyse, kravene som er satt til verktøy etterfulgt av en presentasjon av de verktøy vi mener er passende.
 
 \section{Utdypning av oppgavebeskrivelse}
-Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en langt nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. 
-
-CMS og API
+Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en langt nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API...
 
 \section{Risikoanalyse}
 
 \section{Hvorfor et nettsted er viktig}
-Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. I følge undersøkelser gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} i 2017, hadde hele 98\% av Norges befolkning tilgang på internett hjemme \cite{ssb17fim}. Det viste seg også at 9 av 10 nordmenn surfet på nettet hver dag \cite{ssb17nat}. SSB har også kartlagt  at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 måneder i 2018 \cite{ssb18aup}. Disse foregående funnene er svært relevante, og er med å underbygge hvorfor det er så viktig for en bedrift å være på internett i dag.
+Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. I følge undersøkelser gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} i 2017, hadde hele 98\% av Norges befolkning tilgang på internett hjemme \cite{ssb17fim}. Videre viser undersøkelsene at hele 9 av 10 nordmenn surfet på nettet hver dag i 2017 \cite{ssb17nat}. SSB har også kartlagt  at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 måneder i 2018 \cite{ssb18aup}. Disse foregående funnene er svært relevante og er med å bevise hvorfor det er så viktig for en bedrift å være på internett i dag.
 
 I tillegg til disse funnene, er det også andre faktorer som bidrar til at et nettsted for en bedrift er så viktig i dag. Disse blir presentert nærmere i dette kapittelet. 
 
 \subsection{Treff i søk}
-Når en bedrift har et nettsted blir det mulig å dukke opp i søkeresultatene hos søkemotorer\footnote{Se avsnitt \ref{sec:concepts-seo}}. I følge undersøkelser gjort av Google viser det seg at hele 76\% av de som søker på smarttelefonene etter noe i nærheten, besøker en bedrift innen en dag \cite{google16hms}. I tillegg viser undersøkelsene at når et spørsmål eller behov oppstår er sannsynligheten minst dobbelt så stor for å benytte seg av søk, enn andre online og offline kilder som sosiale medier eller å besøke butikker. Ikke bare er søk den mest brukte ressursen, det er den tjenesten 87\% vender seg til først \cite{google16mhc}. I undersøkelsene ble det også kartlagt at 51\% av brukere har oppdaget et nytt produkt eller bedrift når de har utført søk på deres telefon \cite{google16scp}. For bedrifter er det altså helt avgjørende å være godt synlig hos søkemotorer.
+\label{sec:search-results}
+Når en bedrift har et nettsted blir det mulig å dukke opp i søkeresultatene hos søkemotorer\footnote{Se avsnitt \ref{sec:concepts-seo}}. I følge undersøkelser gjort av Google viser det seg at hele 76\% av de som søker på smarttelefonene etter noe i nærheten, besøker en bedrift innen en dag \cite{google16hms}. I tillegg viser undersøkelsene at når et spørsmål eller behov oppstår er sannsynligheten minst dobbelt så stor for å benytte seg av søk, enn andre online og offline kilder som sosiale medier eller å besøke butikker. Ikke bare er søk den mest brukte ressursen, det er den tjenesten 87\% vender seg til først \cite{google16mhc}. I undersøkelsene ble det også kartlagt at 51\% av brukere har oppdaget et nytt produkt eller bedrift når de har utført søk på deres telefon \cite{google16scp}. For at en bedrift skal lykkes, er det altså helt avgjørende å være godt synlig hos søkemotorer.
 
 
 
 
 \subsection{Troverdighet}
 \label{sec:analyse-troverdighet}
-Etter studier gjort av avdelingen for informasjon og ledelse ved HuaZhong Normal University viser det seg at troverdihgeten til en bedrift sitt nettsted er en viktig faktor når brukerene skal bestemme seg for om prosessen skal gå videre eller ikke, og vil ha en stor påvirkning på deres avgjørelse når det gjelder kjøp.
+Etter en studie gjort av avdelingen for informasjon og ledelse ved HuaZhong Normal University, viser det seg at troverdihgeten til nettstedet til en bedrift er en viktig faktor når brukerene skal bestemme seg for om prosessen skal gå videre eller ikke og vil ha en stor påvirkning på deres avgjørelse når det gjelder kjøp. I følge studien kommer det også frem at kriteriene for å bestemme troverdigheten til et nettsted er basert på subjektiv vurdering og ikke profesjonell analyse. Brukere undersøker vanligvis utseende, informasjon og funksjon til nettstedet i henhold til deres faktiske behov og gjør seg deretter opp deres egen konklusjon \cite{zhao2009eew}.
 
-
-\meta{The level of enterprise website credibility is an important basis for the
-website browsers (or consumers) deciding whether to take
-further action or not, and will have a great influence on their
-purchase decision-making. }
-
-I følge studiene kommer det også frem at kriteriene for å bestemme troverdigheten til et nettsted er basert på subjektiv vurdering og ikke profesjonell analyse. Brukere undersøker vanligvis utseende, informasjon og funksjon til nettstedet i henhold til deres faktiske behov og gjør seg deretter opp deres egen konklusjon \cite{zhao2009eew}.
-
-\meta{As the above study shows, criterion for determining the
-credibility of website is based on subjective judgment instead
-of professional analysis. People usually examine the
-appearance, information and function of the website
-according to their actual needs and then get their own
-conclusion.}
 % https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5279898
 
-
-I en studie gjennomført av BrightLocal Ltd. i 2016 ble det gjort undersøkelser på hva forbrukere ønsker fra lokale bedrifter. Resultatene ble tatt fra et panel på 800 forbrukere, der alle er basert i USA, med forskjellig alder og kjønn. Blant de 800 respondentene, var alderspennet følgende: 
+Videre ble det, i en undersøkelse gjennomført av BrightLocal Ltd. i 2016, kartlagt hva forbrukere ønsker fra lokale bedrifter. Resultatene ble tatt fra et panel på 800 forbrukere, der alle er basert i USA, med forskjellig alder og kjønn. Blant de 800 respondentene, var alderspennet følgende: 
 
 \begin{itemize}
 \item 18-34 – 44\%
@@ -60,29 +44,24 @@ I en studie gjennomført av BrightLocal Ltd. i 2016 ble det gjort undersøkelser
 
 I denne undersøkelsen svarte 40\% av aldergruppen mellom 18-34 og 35-54 at det er mer sannsynlig at de kontakter en lokal bedrift hvis de har en nettside. På spørsmål om en klar og smart nettside øker bedriftens troverdighet, svarte 43\% av respondendene over 55 at dette hadde noe å si \cite{marchant18wdc}.
 
-Med utgangspunktet i disse studiene kan vi derfor konkludere med at en nettside med god troverdighet kan føre til at flere potensielle kunder tar kontakt.
+Med utgangspunktet i disse studiene kan vi derfor konkludere med at en nettside med god troverdighet kan føre til at flere potensielle kunder tar kontakt. Troverdighet er derfor en viktig faktor for nettsider.
 
 \subsection{Markedsføringskanal}
-Nettstederer er et eksempel på et enveis nettverktøy med høy  bedrifts kontroll.
-Websites and e-mail can be seen as examples of one-way online tools with high company control. https://www.emeraldinsight.com/doi/pdfplus/10.1108/JSBED-05-2013-0073. På en nettside har en bedrift altså mulighet til å bestemme innholdet og hvordan firmaet skal fremstå. Dette er en mulighet enhver bedrift burde benytte seg av, da nettstedet kan være med å forbedre og øke troverdigheten\footnote{Se avsnitt \ref{sec:analyse-troverdighet}} og dermed forholdet kunden har til bedriften.
+Et nettsted kan ses på som et enveis onlineverktøy med høy bedriftskontroll \cite{taiminen2015tuo}. På en nettside har en bedrift altså mulighet til å bestemme innholdet og hvordan firmaet skal fremstå. Dette er en mulighet enhver bedrift burde benytte seg av, da nettstedet kan være med å forbedre og øke troverdigheten\footnote{Se avsnitt \ref{sec:analyse-troverdighet}} og dermed påvirke forholdet kunden har til bedriften.
 
 \subsection{Innsamling av data}
-En annen god grunn for å ha et nettsted, er at man kan benytte seg av verktøy som Google Analytics\footnote{Se avsnitt \ref{sec:google-analytics}}. Data samlet av Google Analytics kan brukes til å finne ut av hvilken av sidene som er mest populær eller har flest besøk. Det er også mulig å finne ut av hvilken type informasjon besøkene er interessert i, gjennom hvilken vei en bruker kommer inn og ut av siden på og hvor mye tid som har blitt brukt på nettstedet \cite{kent2011lwa}. Ved å kartlegge dette vil bedriften alltid ha oppdatert og relevant informasjon tilgjengelig, som kan brukes til å forbedre nettstedet fortløpende. 
+En annen god grunn for å ha et nettsted, er at man kan benytte seg av verktøy som Google Analytics\footnote{Se avsnitt \ref{sec:google-analytics}}. Data samlet inn av Google Analytics kan brukes til å finne ut av hvilken av sidene som er mest populær eller har flest besøk. Det er også mulig å finne ut av hvilken type informasjon besøkene er interessert i, gjennom hvilken vei en bruker kommer inn og ut av siden på og hvor mye tid som har blitt brukt på nettstedet \cite{kent2011lwa}. Ved å kartlegge dette vil bedriften alltid ha oppdatert og relevant informasjon tilgjengelig, som kan brukes til å forbedre nettstedet fortløpende. 
 
 % https://ac.els-cdn.com/S0363811111001433/1-s2.0-S0363811111001433-main.pdf?_tid=6362f9f9-b2cf-4c0f-95ac-004f5552c93e&acdnat=1550673249_e4d9b2b5340feb6427e7bd538ecd0f65
 
 
 \section{Viktige faktorer innen webdesign}
-Innenfor webdesign finnes det flere forskjellige faktorer er avgjørende når det kommer til hvor godt et nettsted er utført. En presentasjon av disse faktorene og hvorfor de er så viktig vil bli presentert nærmere i dette kapittelet. 
-
-\subsection{Målgruppe}
-
-\url{https://www.thinkwithgoogle.com/marketing-resources/tutorials/human-insights-audience-strategy/}
-
-En målgruppe
+\label{sec:viktige-faktorer}
+Innenfor webdesign finnes det flere forskjellige avgjørende faktorer, som er med å bestemme hvor godt et nettsted er utført. I dette kapittelet vil vi kartlegge disse faktorene. I tillegg skal vi se nærmere på hvorfor de er så viktig.
 
 
-\subsection{Design, profil og førsteinntrykk}
+\subsection{Førsteinntrykk}
+
 \url{https://www.tandfonline.com/doi/pdf/10.1080/10447318.2013.839899?needAccess=true }
 
 \url{http://news.mst.edu/2012/02/eye-tracking_studies_show_firs/}
@@ -91,28 +70,70 @@ En målgruppe
 
 
 \subsection{Responsivt design}
-Undersøkelser fra Google om mobilbruk... Står om det i en av kildene som har blitt brukt tidligere
+Målet med responsivt design er at nettsted skal se like bra ut, uavhengig av skjemstørrelsen på en enhet \cite{kim2013rwd}. Når det er ønskelig at et nettsted skal lykkes i dagens samfunn, er det helt avgjørende å ha et responsivt design.  I følge brukerdata fra Google viser det seg nemlig at dagens forbrukere er mer avhengig av telefonen sin enn noen gang, og at mer enn halvparten av all nettverkstrafikk kommer fra mobiler eller nettbrett \cite{google16hms}. 
 
-\subsection{Søkemotoroptimalisering}
+I tillegg viser undersøkelser gjort av Adobe at nesten 8 av 10 forbrukere vil slutte å engasjere seg i innhold, om det ikke er godt nok tilpasset deres enhet \cite{stark2015frf}.
+
+Ved å benytte seg av responsivt design er det, i følge Google, også mulig å spare ressurser når en Googlebot skal indekserer et nettsted. For responsive nettsider vil en enkelt Googlebot kun trenge å gå igjennom siden en gang. Dette i steden for å gjøre det flere ganger med forskjellige Googlebots, som må gjøres for å få hentet ut alle versjoner av innholdet når et nettsted ikke er responsivt. Fordelen med denne effektiviseringen, er at dette indirekte kan hjelpe Google å indeksere mer av nettsidenes innhold og holde det oppdatert \cite{google2018rwd}. Fordelen med å lette indekseringen er at det kan føre til bedre plassering i søkeresultatene hos Google.  
+
+Etter analysen gjort i dette kapittelet kan vi konkludere med at det finnes flere grunner til at nettstedet vårt bør være responsivt.
+
+
+\subsection{Søkemotoroptimalisering - mangler gode kilder}
 \label{sec:concepts-seo}
-Søkemotoroptimalisering (SEO) går ut på å oppnå gode plasseringer i de organiske søkeresulatene hos søkemotorer \cite[s.~16]{flensted10smg}. I praksis handler SEO om at en nettside blir optimalisert på en rekke områder, slik at søkemotoren finner akkurat dette nettstedet og presenterer den godt synlig i de organiske søkeresultatene ved å se på søkeordene ønsket målgruppe benytter  \cite[s.~20]{flensted10smg}.
+Søkemotoroptimalisering (SEO) er sterkt knyttet til resultater i søk, som vi beskrev viktigheten av i avsnitt \ref{sec:search-results}. SEO går rett og slett ut på å oppnå gode plasseringer i de organiske søkeresulatene hos søkemotorer \cite[s.~16]{flensted10smg}. I praksis handler SEO om at en nettside blir optimalisert på en rekke områder, slik at søkemotoren finner akkurat dette nettstedet og presenterer den godt synlig i de organiske søkeresultatene ved å se på søkeordene ønsket målgruppe benytter \cite[s.~20]{flensted10smg}.
 
 Mer teoretisk fungerer søkemotoroptimalisering ved at de innsamlede dataene blir indeksert og lagret. Alle disse operasjonene utføres av søkemotorprogramvaren (crawler, edderkopp,
-bot). Disse programmene beveger seg ved å bruke hyperkobling struktur på nettet. De navigerer regelmessig gjennom nettsider og fanger endringer som har blitt gjort siden sist  \cite[s.~488]{yalccin2010search}.
+bot). Disse programmene beveger seg ved å bruke hyperkoblingstruktur på nettet. De navigerer regelmessig gjennom nettsider og fanger endringer som har blitt gjort siden sist  \cite[s.~488]{yalccin2010search}.
 
-Undersøkelser viser at 75\% of Internet users never scroll past the first page of search results, TRENGER KILDE!! 
+Viktigheten av god SEO kommer tydlig frem etter karlegging av normale brukerbevegelser. I følge undersøkelser viser det seg at 75\% of Internet users never scroll past the first page of search results, TRENGER KILDE!! 
 Disse funnene underbygger påstanden om at SEO er viktig i dagens samfunn, og en god SEO-strategi er derfor på sin plass. 
 \url{https://www.searchenginepeople.com/blog/40-unbelievable-seo-statistics-need-know.html#note-68961-5 }
 
-En faktor som er viktg å tenke på er at god SEO krever disiplin, planlegging og research før man setter i gang. Dette er ikke en oppgave som kun gjøres en gang, og krever konstant overvåking og optimalisering da algoritmene hele tiden endrer hvordan de evaluerer nettsider \cite[s.~1]{mitchell2012usb}. Derfor er det viktig å hele tiden ha SEO i fokus når man utvikler, når et av målene er god plassering hos søkemotorene.
+En faktor som er viktg å tenke på er at god SEO krever disiplin, planlegging og research før man setter i gang. Dette er ikke en oppgave som kun gjøres en gang, og krever konstant overvåking og optimalisering da algoritmene hele tiden endrer hvordan de evaluerer nettsider \cite[s.~1]{mitchell2012usb}. Derfor er det viktig å hele tiden ha SEO i fokus når man utvikler, når et av målene er god plassering hos søkemotorene for å gjøre bedriften synlig i søkeresultatene.
 
 
-\subsection{Brukeropplevelsen}
-I følge Steve Krug, forfatteren bak boken \q{Don't make me think}, går brukervennlighet ut på noe så enkelt som at en helt vanlig bruker med gjennomsnittlige egenskaper og erfaring (eller til og med lavere), skal kunne finne ut av hvordan en ting skal brukes for å oppnå et mål, uten å dette fører til mer trøbbel enn det er verdt \cite[s.~9]{krug2014dmt}. Det er nettopp derfor forfatterens første lov til god brukeropplevelse er \q{ikke få meg til å tenke}. Et nettsted bør nemlig være selvforklarende, og en bruker skal intuitivt forstå hva et nettsted representerer og hvordan den kan brukes, uten å måtte anstrenge seg for å finne ut av det \cite[s.~11]{krug2014dmt}. Krug hevder at dette er viktig, fordi brukere kan tenke at det faktum at utviklerne bak dette nettstedet ikke tok seg bryet med å gjøre ting åpenbart og enkelt, vil påvirke deres inntrykk av siden og hele bedriften bak den \cite[s.~15]{krug2014dmt}.
+\subsection{Brukeropplevelse}
+\label{sec:ux}
+I følge Steve Krug, forfatteren bak boken \q{Don't Make Me Think}, går brukeropplevelse ut på noe så enkelt som at en helt vanlig bruker med gjennomsnittlige egenskaper og erfaring (eller til og med lavere), skal kunne finne ut av hvordan en ting skal brukes for å oppnå et mål, uten at dette fører til mer trøbbel enn det er verdt \cite[s.~9]{krug2014dmt}.
+Det er nettopp derfor forfatterens første lov til god brukeropplevelse er \q{ikke få meg til å tenke}. Et nettsted bør nemlig være selvforklarende og en bruker skal intuitivt forstå hva et nettsted representerer og hvordan det kan brukes, uten å måtte anstrenge seg for å finne ut av det \cite[s.~11]{krug2014dmt}.
+Krug hevder at dette er viktig, fordi det faktum at utviklerne bak dette nettstedet ikke tok seg bryet med å gjøre ting åpenbart og enkelt, vil negativt påvirke brukerens inntrykk av siden og bedriften bak den \cite[s.~15]{krug2014dmt}.
 
-\url{https://www.thinkwithgoogle.com/marketing-resources/experience-design/strong-audience-design/}
+For å lage en best mulig brukeropplevelse burde man:
+\begin{itemize}
+    \item Dra nytte av konvensjoner
+    \item Lage effektive visuelle hierarkier
+    \item Dele sider opp i veldefinerte seksjoner
+    \item Gjøre trykkbare elementer åpenbare
+    \item Fjerne forstyrrelser
+    \item Formatere innhold for skumlesing
+\end{itemize}
+\cite[s.~29]{krug2014dmt}
+
+\url{https://www.nngroup.com/articles/clickable-elements/}
+
+De fleste bedrifter i dag er avhengig av gode kundeforhold og at deres kunder har et godt inntrykk av firmaet. Brukeropplevelsen til et nettsted er derfor en viktig faktor som må tas hensyn til underveis i prosessen, og kommer i stor grad til å påvirke designet til nettstedet som skal utvikles i denne oppgaven.
 
 \subsubsection{Hastighet}
+1 \url{https://www.nngroup.com/articles/website-response-times/}
+2 \url{https://barrgroup.com/Embedded-Systems/How-To/User-Interface-Timing}
+
+Brukeropplevelse handler mye om innhold, det visuelle og funksjonalitet, men det handler også om noen tekniske aspekter, som hastighet. En brukers opplevelse av et nettsteds hastighet påvirkes av flere elementer. Man har responstid, indikasjon på ventetid og animasjoner til brukergrensesnitt.
+
+Responstid er tiden et system bruker på å svare på en gitt brukerinput.
+Dette kan være mye forskjellig, men for nettsider er responstid den tiden det tar fra brukeren har trykket på en link/knapp og den ønskede handlingen utføres, samt tiden tiden fra brukeren går på en nettadresse og siden lastes inn.
+
+Indikasjon på ventetid er teknikker brukt for å informere brukeren om at systemet har motatt brukerinput opptatt og utfører en jobb. Her er det vanlig med blant annet fremdriftslinjer, spinners eller animerte ikoner og illustrasjoner. D
+
+
+
+
+Users want to feel in control of the system they’re using, which means they want to know and understand their current context at any given time, and especially when a system is busy doing work
+
+
+
+Brukere hater trege nettsider
+
 
 Bouncerate 
 \url{https://www.section.io/blog/page-load-time-bounce-rate/ }
@@ -121,26 +142,65 @@ Bouncerate
 \section{Lovverk}
 Det finnes også noen lovverk som må følges når det kommer til utvikling av nettsteder. I dette underkapittelet blir det beskrevet hva disse går ut på. Det blir også gjennomgått hvorfor disse lovene er viktig, utover det faktum at de er lovpålagt. 
 
-\subsection{WCAG 2.0}
+\subsection{Universell utforming}
+\label{sec:universal-design}
+Universell utforming er en del av likestillings- og diskrimineringsloven \cite{lovdata2018fou}. Loven definerer universell utforming slik:
 
-\subsection{GDPR}
+\begin{quote}
+    Med universell utforming menes utforming eller tilrettelegging av hovedløsningen i de fysiske forholdene, inkludert informasjons- og kommunikasjonsteknologi (IKT), slik at virksomhetens alminnelige funksjoner kan benyttes av flest mulig, uavhengig av funksjonsnedsettelse.
+\end{quote}
+
+Universell utforming er utrolig viktig fordi det gjør at alle kan benytte seg av løsningene uavhengig av funksjonsnedsettelse. Et annet viktig aspekt er at ved å følge loven om universell utforming, vil bedriften oppnå fordeler som at det blir færre løsninger å utvikle og vedlikeholde og at det er få eller ingen spesialløsninger for de funksjonshemmede. I tillegg kommer fordeler som at løsningene blir enkle og bedre for alle, det vil være flere måter å bruke løsningene på og det er nå mulighet for at flere kan bruke løsningene \cite{difi2018keu}.
+
+For å kunne følge loven og øke tilgjengeligheten, må det tas bevisse valg hele i utviklingsprosessen. Designet til løsningen vi utvikler vil derfor bli sterkt påvirket ved å følge loven om universell utforming. Det er for eksempel viktig å ha gode kontraster og at nettsiden kan benyttes av skjermlesere. 
 
 
+\subsubsection{WCAG 2.0}
 
-\section{Beste praksis og tidligere undersøkelser}
-Undersøkelser viser at følgende struktur på en nettside er å foretrekke...:
+I Norge er det slik at Forskrift om universell utforming av informasjons- og kommunikasjonsteknologiske (IKT)-løsninger \cite{lovdata2013fou} stiller krav til at nettsider oppfyller 35 av 61 suksesskriterier i standarden \q{Retningslinjer for tilgjengelig webinnhold} (WCAG) 2.0 \cite{difi2018wca}. 
+
+For å imøtekomme de ulike behovene som de forskjellige behovsgrupper og situasjoner innehar, har det blitt fastsatt 3 nivåer; A (lavest), AA og AAA (høyest) \cite{w3c2008wca}. De fleste av kravene i Norge er på A-nivået, men det finnes også krav som må følge nivå AA.
+
+\subsection{Personvern og GDPR}
+I dette avsnittet tar vi for oss Datatilsynets \cite{data2018opm} introduksjon av den nye personopplysningsloven Norge fikk i 2018. Personopplysningsloven består både av nasjonale regler og EUs personvernsforordning (GDPR - General Data Protection Regulation). Denne forordningen er et sett med regler som gjelder alle EU- og EØS-land. Loven tar for seg innsamling og bruk av personopplysninger, altså hvordan personopplysninger behandles. Reglene i denne loven gir virksomhetene flere plikter, samtidig som den gir enkeltperson en rekke rettigheter. I tillegg gjelder loven for stort sett alle virksomheter, fordi den gjelder for alle virksomheter etablert i Norge og helt eller delvis foretar elektronisk (automatisk) behandling av personopplysninger. 
+
+Oppdragsgiver ønsker et kontaktskjema på nettstedet. Følgelig vil systemet vi skal utvikle også bli påvirket av denne loven, og studentgruppen må under hele prosessen ta hensyn til at løsningen vår følger de gjeldene lover og regler.
+
+\section{Beste praksis}
+
+I kapittel \ref{sec:viktige-faktorer} har vi kartlagt og analysert hvilke faktorer som er viktige når det kommer til webdesign. Videre i dette kapittelet vil vi presentere nettsider som har tatt hensyn til disse faktorene og fulgt beste praksis. 
 
 Finne et nettsted som følger best practice og skrive om det.
 
 Obvious Always Wins:
 \url{https://www.lukew.com/ff/entry.asp?1945}
 
+\subsection{Design}
+I følge boken \q{The Principles of Beautiful Webdesign} \cite[s.~5]{beaird2014tpo} finnes det to hovedpunkter som er avgjørende når det gjelder hvordan de fleste bestemmer om designet til en nettside er bra eller dårlig. Det første punktet er brukbarheten, som fokuserer på funksjonaliteten, hvor effektivt informasjonen presenteres og effektiviteten til nettstedet. Hovedpunkt nummer to er det rent estetiske perspektivet, som kun fokuserer på artistisk verdi og visuell fremtoning av designet. For å nå ut til kunder og holde deres interesse, er det nødvendig og gjøre mest ut av begge punktene. Brukere blir nemlig fornøyde med god design, men trukket til innholdet.  Beste praksis når det gjelder design vil altså være å ha god brukeropplevelse\footnote{Se avsnitt \ref{sec:ux}} samtidig som nettsiden har et pent og innbydende design.
+
 \subsection{Innhold}
-https://www.brightlocal.com/2016/03/04/gender-age-what-consumers-want-from-local-business-websites/ 
+Det ble i en undersøkelse \cite{marchant18wdc} kartlagt hva som er nøkkelinformasjon på en lokal bedrifts nettsted, ved å spørre deltagerne om hva akkurat de mente var den viktigste informasjonen. Resultatene var klare, og det viste seg at forbrukere jevnt over var på utkikk etter samme informasjon:
+\begin{enumerate}
+\item  Oversikt over produkt eller tjenester
+\item  Prisliste
+\item  Åpningstider
+\item Telefonnummer
+\item Fysisk adresse
+\end{enumerate}
+
+Vårt nettsted bør derfor inneha de fleste av disse punktene, slik at kundene er fornøyd med nettsidens innhold.
+
+
 \subsection{Struktur}
+Et nettsteds struktur og oppbygning er viktig på grunn av flere faktorer.
+
+God brukeropplevelse. Logisk rekkefølge. Letter også for universell utforming (skjermleser), de som beveger seg med kun tastaturet.
+Forbedrer SEO
+
 
 \subsection{Sikkerhet}
  (hashing av passord. sende data over kryptert kanal)
+
 
 \section{Analyse av opprinnelig løsning}
 
