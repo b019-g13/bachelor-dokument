@@ -9,10 +9,10 @@ I dette kapittelet danner vi oss et bilde av hvordan en akademisk/teknisk rappor
 
 -- 
 
-Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. Vi vil også presentere noen gode eksempler når det gjelder relatert arbeid. I løpet av dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, struktur og utforming. I tillegg vil vi presentere en analyse av opprinnelig løsning, konkurrentanalyse, kravene som er satt til verktøy etterfulgt av en presentasjon av de verktøy vi mener er passende.
+Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. I løpet av dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, design og funksjonalitet. I tillegg vil vi presentere en analyse av opprinnelig løsning, konkurrentanalyse, kravene som er satt til verktøy etterfulgt av en presentasjon av de verktøy vi mener er passende.
 
 \section{Utdypning av oppgavebeskrivelse}
-Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en langt nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API...
+Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en langt nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API. Videre ønsker at systemet skal ha mulighet for å legge til to sider, kundehistorier og blogg. Dette er ikke noe som skal være ferdig utviklet, i denne oppgaven skal vi kun ta høyde for at det er mulig å utvide.
 
 \section{Risikoanalyse}
 
@@ -61,12 +61,19 @@ Innenfor webdesign finnes det flere forskjellige avgjørende faktorer, som er me
 
 
 \subsection{Førsteinntrykk}
+Et nettsted er ofte første, eller til og med eneste, interaksjon en forbruker har med et firma i moderne handel. Fordi forbrukere har en tendens til å ta avgjørelser i løpet av de første par sekundene av en online-interaksjon, kan førsteinntrykket gitt til brukere i stor grad bestemme suksessen til et nettsted. \url{https://www.tandfonline.com/doi/pdf/10.1080/10447318.2013.839899?needAccess=true }
 
-\url{https://www.tandfonline.com/doi/pdf/10.1080/10447318.2013.839899?needAccess=true }
+94\% av førsteinntrykket påvirkes av designet. 
+First impressions are 94\% design-related. \url{https://www.researchgate.net/publication/221516871_Trust_and_mistrust_of_online_health_sites}
+Viktigheten av design har vi skrevet mer om i avsnitt \ref{sec:design}.
 
-\url{http://news.mst.edu/2012/02/eye-tracking_studies_show_firs/}
 
-\url{https://www.tandfonline.com/doi/abs/10.1080/01449290500330448 }
+Videre i en annen studie \cite{} ble det også kartlagt at en webdesigner kun har 50 ms på å gjøre et godt førsteinntrykk.
+I løpet av denne korte tiden danner forbrukeren seg en formening om nettstedet, som bestemmer om de liker nettstedet  eller ikke og om de vil bli eller forlate siden.
+
+\url{https://www.tandfonline.com/doi/abs/10.1080/01449290500330448}
+
+For å øke sannsynligheten for at en bruker forblir på nettstedet vil vi forsøke å lage et innbydende design som vil falle i smak hos majoriteten av kundene.
 
 
 \subsection{Responsivt design}
@@ -99,7 +106,7 @@ I følge Steve Krug, forfatteren bak boken \q{Don't Make Me Think}, går brukero
 Det er nettopp derfor forfatterens første lov til god brukeropplevelse er \q{ikke få meg til å tenke}. Et nettsted bør nemlig være selvforklarende og en bruker skal intuitivt forstå hva et nettsted representerer og hvordan det kan brukes, uten å måtte anstrenge seg for å finne ut av det \cite[s.~11]{krug2014dmt}.
 Krug hevder at dette er viktig, fordi det faktum at utviklerne bak dette nettstedet ikke tok seg bryet med å gjøre ting åpenbart og enkelt, vil negativt påvirke brukerens inntrykk av siden og bedriften bak den \cite[s.~15]{krug2014dmt}.
 
-For å lage en best mulig brukeropplevelse burde man:
+I følge samme kilde \cite[s.~29]{krug2014dmt}, er følgende punkter viktig for å lage en best mulig brukeropplevelse:
 \begin{itemize}
     \item Dra nytte av konvensjoner
     \item Lage effektive visuelle hierarkier
@@ -108,36 +115,32 @@ For å lage en best mulig brukeropplevelse burde man:
     \item Fjerne forstyrrelser
     \item Formatere innhold for skumlesing
 \end{itemize}
-\cite[s.~29]{krug2014dmt}
-
-\url{https://www.nngroup.com/articles/clickable-elements/}
 
 De fleste bedrifter i dag er avhengig av gode kundeforhold og at deres kunder har et godt inntrykk av firmaet. Brukeropplevelsen til et nettsted er derfor en viktig faktor som må tas hensyn til underveis i prosessen, og kommer i stor grad til å påvirke designet til nettstedet som skal utvikles i denne oppgaven.
 
 \subsubsection{Hastighet}
-1 \url{https://www.nngroup.com/articles/website-response-times/}
-2 \url{https://barrgroup.com/Embedded-Systems/How-To/User-Interface-Timing}
+I dette avsnittet gjennomgår vi funn fra undersøkelser og konklusjoner gjort av Jakob Nielsen hos Nielsen Norman Group \cite{nngroupWebsiteResponseTimes} og Niall Murphy hos Barr Group \cite{barrgroupReponseTimingUI}
+
 
 Brukeropplevelse handler mye om innhold, det visuelle og funksjonalitet, men det handler også om noen tekniske aspekter, som hastighet. En brukers opplevelse av et nettsteds hastighet påvirkes av flere elementer. Man har responstid, indikasjon på ventetid og animasjoner til brukergrensesnitt.
 
 Responstid er tiden et system bruker på å svare på en gitt brukerinput.
 Dette kan være mye forskjellig, men for nettsider er responstid den tiden det tar fra brukeren har trykket på en link/knapp og den ønskede handlingen utføres, samt tiden tiden fra brukeren går på en nettadresse og siden lastes inn.
 
-Indikasjon på ventetid er teknikker brukt for å informere brukeren om at systemet har motatt brukerinput opptatt og utfører en jobb. Her er det vanlig med blant annet fremdriftslinjer, spinners eller animerte ikoner og illustrasjoner. D
+\begin{figure}[H]
+    \centering
+    \frame{\includegraphics[width=\textwidth]{bjornar/analysis-loading-indicators.png}}
+    \caption{Eksempel på fremdriftslinje og spinner}
+    \label{fig:analysis-loading-indicators}
+\end{figure}
 
+Indikasjon på ventetid er teknikker som brukes for å informere brukeren om at systemet har motatt brukerinput eller at det opptatt og utfører en jobb. Her er det vanlig med blant annet fremdriftslinjer, spinners eller animerte ikoner og illustrasjoner. Se figur \ref{fig:analysis-loading-indicators} for eksempeler.
+Det er ønskelig å bruke disse for å gi brukeren en følelse av kontroll, samt å sette forventninger. Om en bruker sender inn et skjema så er det best å vise for eksempel en spinner med en gang brukeren trykk send. Da kan brukeren skjønne at skjemaet holder på å sende, i stedet for at man ikke viser noen ting før etter skjemaet har blitt sendt. Ved å ikke vise noen ting kan brukeren tro at knapptrykket ikke ble registrert og trykker derfor en gang til. 
 
-
-
-Users want to feel in control of the system they’re using, which means they want to know and understand their current context at any given time, and especially when a system is busy doing work
-
-
-
-Brukere hater trege nettsider
-
+Brukere hater trege nettsider. Dette fordi de mister følelsen av kontroll. Når det trykkes på noe og det får en umiddelbar reaksjon, føler brukeren seg i kontroll. Med en gang ventetiden på en reaksjon fra et trykk går over et sekund begynner brukeren å miste følelsen av kontroll. En treg nettside kan føre til at brukeren gir opp og går vekk fra siden.
 
 Bouncerate 
 \url{https://www.section.io/blog/page-load-time-bounce-rate/ }
-
 
 \section{Lovverk}
 Det finnes også noen lovverk som må følges når det kommer til utvikling av nettsteder. I dette underkapittelet blir det beskrevet hva disse går ut på. Det blir også gjennomgått hvorfor disse lovene er viktig, utover det faktum at de er lovpålagt. 
@@ -168,17 +171,20 @@ Oppdragsgiver ønsker et kontaktskjema på nettstedet. Følgelig vil systemet vi
 
 \section{Beste praksis}
 
-I kapittel \ref{sec:viktige-faktorer} har vi kartlagt og analysert hvilke faktorer som er viktige når det kommer til webdesign. Videre i dette kapittelet vil vi presentere nettsider som har tatt hensyn til disse faktorene og fulgt beste praksis. 
-
-Finne et nettsted som følger best practice og skrive om det.
+I dette kapittelet skal vi se på hva som er beste praksis når det kommer til design, innhold og struktur. I tillegg skal vi se på hvorfor det er viktig at vi følger den beste praksisen.
 
 Obvious Always Wins:
 \url{https://www.lukew.com/ff/entry.asp?1945}
 
 \subsection{Design}
+\label{sec:design}
 I følge boken \q{The Principles of Beautiful Webdesign} \cite[s.~5]{beaird2014tpo} finnes det to hovedpunkter som er avgjørende når det gjelder hvordan de fleste bestemmer om designet til en nettside er bra eller dårlig. Det første punktet er brukbarheten, som fokuserer på funksjonaliteten, hvor effektivt informasjonen presenteres og effektiviteten til nettstedet. Hovedpunkt nummer to er det rent estetiske perspektivet, som kun fokuserer på artistisk verdi og visuell fremtoning av designet. For å nå ut til kunder og holde deres interesse, er det nødvendig og gjøre mest ut av begge punktene. Brukere blir nemlig fornøyde med god design, men trukket til innholdet.  Beste praksis når det gjelder design vil altså være å ha god brukeropplevelse\footnote{Se avsnitt \ref{sec:ux}} samtidig som nettsiden har et pent og innbydende design.
 
 \subsection{Innhold}
+Selve innholdet er ofte hovedgrunnen til de fleste besøk på en nettside og er derfor av stor betydning.
+
+ \url{https://www.researchgate.net/profile/Meinald_Thielsch/publication/259149186_User_Evaluation_of_Websites_From_First_Impression_to_Recommendation/links/57d3edd508ae0c0081e6df01/User-Evaluation-of-Websites-From-First-Impression-to-Recommendation.pdf} side 2
+
 Det ble i en undersøkelse \cite{marchant18wdc} kartlagt hva som er nøkkelinformasjon på en lokal bedrifts nettsted, ved å spørre deltagerne om hva akkurat de mente var den viktigste informasjonen. Resultatene var klare, og det viste seg at forbrukere jevnt over var på utkikk etter samme informasjon:
 \begin{enumerate}
 \item  Oversikt over produkt eller tjenester
@@ -191,20 +197,12 @@ Det ble i en undersøkelse \cite{marchant18wdc} kartlagt hva som er nøkkelinfor
 Vårt nettsted bør derfor inneha de fleste av disse punktene, slik at kundene er fornøyd med nettsidens innhold.
 
 
-\subsection{Struktur}
-Et nettsteds struktur og oppbygning er viktig på grunn av flere faktorer.
-
-God brukeropplevelse. Logisk rekkefølge. Letter også for universell utforming (skjermleser), de som beveger seg med kun tastaturet.
-Forbedrer SEO
-
-
 \subsection{Sikkerhet}
- (hashing av passord. sende data over kryptert kanal)
-
+ passord kryptering/hashing/salting. https/tls, csrf, xss, ssh
 
 \section{Analyse av opprinnelig løsning}
 
-Målet med å analysere det nåværende nettstedet til Sirkus Media er å kartlegge eventuelle problemerområder som burde forbedres. Når utviklingen av det nye nettstedet er ferdig vil vi sammenligne de nye testresultatene med resultatene som blir presentert i dette kapittelet.
+I dette kapittelet vil vi analysere nettstedet Sirkus Media har i dag. Målet med å analyseringen er å kartlegge eventuelle problemerområder som burde forbedres. Når utviklingen av det nye nettstedet er ferdig vil vi sammenligne de nye testresultatene med resultatene som blir presentert i dette kapittelet.
 Se figur \ref{fig:analysis-current-sirkusmedia.no} for bilde av nettsiden på PC og mobil.
 
 \begin{figure}[H]
@@ -381,7 +379,7 @@ Totalt sett gjør nettstedet til Sirkus Media det bra på testene som vi kjørte
 
 \section{Konkurrentanalyse}
 
-Målet med konkurrentanalysen er å finne inspirasjon til nettstedet vi skal utvikle ved å se på allerede eksisterende løsninger. Hvem er oppdragsgiver sine konkurrenter? Hvordan type løsning har disse valgt? Hvilke styrker og svakheter har løsningene? Analysen er først og fremst gjort av gruppen med vekt på å se det fra en vanlig bruker sitt perspektiv, men noen tekniske faktorer har også blitt vurdert.
+Med utgangspunktet i teori og analyse som ble kartlagt i de foregående kapitlene har det blitt gjennomført en konkurrentanalyse. Målet med konkurrentanalysen er å finne inspirasjon til nettstedet vi skal utvikle ved å se på allerede eksisterende løsninger. Hvem er oppdragsgiver sine konkurrenter? Hvordan type løsning har disse valgt? Hvilke styrker og svakheter har løsningene? Analysen er først og fremst gjort av gruppen med vekt på å se det fra en vanlig bruker sitt perspektiv. Vi har derfor fokusert mye på brukeropplevelsen, men noen tekniske faktorer har også blitt vurdert.
 
 \subsection{Teknisk analyse}
 For å vurdere de tekniske faktorene har vi brukt Google Lighthouse til å sjekke hvor raskt nettstedene lastes inn, beste praksis og SEO. I tillegg ble WAVE \footnote{Web Accessibility Evulation Tool. http://wave.webaim.org/} brukt til å sjekke om nettstedene følger kravene for loven om universell utforming og tilgjengelighet.
