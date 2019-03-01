@@ -17,7 +17,7 @@ Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at n
 \section{Risikoanalyse}
 
 \section{Hvorfor et nettsted er viktig}
-Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. Undersøkelser \cite{ssb18aup,ssb17fim,ssb17nat} gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} er med å underbygge denne påstanden. I 2017 hadde nemlig hele 98\% av Norges befolkning tilgang på internett hjemme. Videre viser undersøkelsene at hele 9 av 10 nordmenn surfet på nettet hver dag i 2017. SSB kartla også at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 måneder i 2018. Disse foregående funnene er svært relevante og er med å bevise hvorfor det er så viktig for en bedrift å være på internett i dag.
+Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. Undersøkelser gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} er med å underbygge denne påstanden. Den første undersøkelsen \cite{ssb17fim} kartla at hadde hele 98\% av Norges befolkning tilgang på internett hjemme i 2017. Videre viser en undersøkelse \cite{ssb17nat} at hele 9 av 10 nordmenn surfet på nettet hver dag i 2017. SSB har også kartlagt  at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 måneder i 2018 \cite{ssb18aup}. Disse foregående funnene er svært relevante og er med å bevise hvorfor det er så viktig for en bedrift å være på internett i dag.
 
 I tillegg til disse funnene, er det også andre faktorer som bidrar til at et nettsted for en bedrift er så viktig i dag. Disse blir presentert nærmere i dette kapittelet. 
 
@@ -180,9 +180,9 @@ Selve innholdet er ofte hovedgrunnen til de fleste besøk på en nettside og er 
 
 Det ble i en undersøkelse \cite{marchant18wdc} kartlagt hva som er nøkkelinformasjon på en lokal bedrifts nettsted, ved å spørre deltagerne om hva akkurat de mente var den viktigste informasjonen. Resultatene var klare, og det viste seg at forbrukere jevnt over var på utkikk etter samme informasjon:
 \begin{enumerate}
-\item  Oversikt over produkt eller tjenester
-\item  Prisliste
-\item  Åpningstider
+\item Oversikt over produkt eller tjenester
+\item Prisliste
+\item Åpningstider
 \item Telefonnummer
 \item Fysisk adresse
 \end{enumerate}
@@ -191,19 +191,68 @@ Vårt nettsted bør derfor inneha de fleste av disse punktene, slik at kundene e
 
 
 \subsection{Sikkerhet}
+\label{sec:analysis-security}
  passord kryptering/hashing/salting. https/tls, csrf, xss, ssh
  \cite{NattTomHeine2015Datasikkerhet}
  
-\subsubsection{HTTPS}
-HTTPS (Hypertext Transfer Protocol Secure) er en sikker versjon av HTTP-protokollen som overfører data på nett. HTTPS-protokollen krever at det opprettes en kryptert kanal mellom nettleseren og webserveren, slik at overføring mellom disse blir sikker.\cite{rfc26161999hypertext}
-
-\subsubsection{CSRF}
-Cross site request forgery (CSRF) er angrep som tvinger brukere til å utføre uønskede handlinger på en nettside der brukeren er logget inn, via en annen nettside \cite{lin2009threat}. For eksempel: hvis brukeren er logget inn på Facebook.com, og går til Twitter.com. Da kan Twitter laste inn et bilde som dette: \lstinline{<img src="https://facebook.com/delete-my-account">}. Dette vil da sende en forespørsel til den linken, som kan føre til sletting av konto. Om Facebook ikke har implementert mottiltak for slike angrep, vil denne forespørselen tolkes som om den kommer direkte fra brukeren.
-
-\subsubsection{TLS}
+ \subsubsection{Kryptering}
+ \label{sec:analysis-security-encryption}
+ Krypering er en prosess som gjør om data fra et leselig format til et uleslig format. For å kunne lese kryptert data trenger man nøkkelen/hemmeligheten som ble brukt til å kryptere dataene. Kryptering brukes for å forhindre at tredjeparter kan lese data som kommer på avveie.\cite[s.117-118]{NattTomHeine2015Datasikkerhet}
+ 
+ \subsubsection{Passord hashing og salting}
+ \label{sec:analysis-security-password-hashing}
+ hashing hashing hashing
+ 
+ \subsubsection{Offentlig nøkkelkryptering}
+ \label{sec:analysis-security-public_key-cryptography}
+ key key key
+ 
+ \subsubsection{TLS}
+ \label{sec:analysis-security-tls}
 Transport Layer Security er en kryptografisk protokoll. Denne er viktig for å sikre informasjon som overføres gjennom nettverk. TLS brukes i forskjellige protokoller som HTTPS, FTPS, VoIP og VPN.
 Når en protokoll bruker en sikker tilkobling, legges bokstaven S til i protokollens navn. For eksempel: HTTP med TLS blir HTTPS eller SMTP med TLS blir SMTPS.
 SSL (Secure Socket Layer) er en utdatert forgjenger til TLS. \cite{thomas2000ssl}
+ 
+\subsubsection{HTTPS}
+\label{sec:analysis-security-https}
+HTTPS (Hypertext Transfer Protocol Secure) er en sikker versjon av HTTP-protokollen som overfører data på nett. HTTPS-protokollen krever at det opprettes en kryptert kanal mellom nettleseren og webserveren, slik at overføring mellom disse blir sikker.\cite{rfc26161999hypertext}
+
+\subsubsection{CSRF}
+\label{sec:analysis-security-csrf}
+Cross site request forgery (CSRF) er angrep som tvinger brukere til å utføre uønskede handlinger på en nettside der brukeren er logget inn, via en annen nettside \cite{lin2009threat}. For eksempel: hvis brukeren er logget inn på Facebook.com, og går til Twitter.com. Da kan Twitter laste inn et bilde som dette: \lstinline{<img src="https://facebook.com/delete-my-account">}. Dette vil da sende en forespørsel til den linken, som kan føre til sletting av konto. Om Facebook ikke har implementert mottiltak for slike angrep, vil denne forespørselen tolkes som om den kommer direkte fra brukeren.
+
+\subsubsection{XSS}
+\label{sec:analysis-security-xss}
+Escape brukerinput.
+PHP sin htmlspecialchars
+
+\subsubsection{SQL injection}
+\label{sec:analysis-security-sql-injection}
+Valider input. Aldri stol på klienten. Escape brukerinput.
+Bruk pepared statements
+
+\subsubsection{MySQL}
+\label{sec:analysis-security-mysql}
+Bruk forskjellig brukernavn og passord på alle databaser.
+Skru av remote tilgang.
+Ikke gi en bruker tilgang til flere databaser.
+
+\subsubsection{phpMyAdmin}
+\label{sec:analysis-security-phpmyadmin}
+Ikke bruk /phpmyadmin i linken. Gjør om til f.eks /pma, eller enda bedre; noe mindre åpenbart.
+Skift brukernavn vekk fra standard "root".
+Skru på HTTP Auth.
+
+\subsubsection{Web-server med SSH tilkobling}
+\label{sec:analysis-security-web-server-ssh}
+Skru av remote root login og lag en egen bruker.
+Skru av passord login
+Bruk public/private key pair til login. Helst med passord
+Sett maks login attempts.
+Ban de som prøver for mye i en dag, så en uke, så en måned.
+Skift vekk fra standard port "22" til f.eks. 44
+Sett opp brannmur. Blokker alt bortsett fra SSH porten man har satt, 80 (http) og 443 (https)
+Web server Bruk 755 på mapper og 644 på filer.
 
 \section{Analyse av opprinnelig løsning}
 
