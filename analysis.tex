@@ -12,12 +12,12 @@ I dette kapittelet danner vi oss et bilde av hvordan en akademisk/teknisk rappor
 Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. I løpet av dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, design og funksjonalitet. I tillegg vil vi presentere en analyse av opprinnelig løsning, konkurrentanalyse, kravene som er satt til verktøy etterfulgt av en presentasjon av de verktøy vi mener er passende.
 
 \section{Utdypning av oppgavebeskrivelse}
-Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en langt nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API. Videre ønsker at systemet skal ha mulighet for å legge til to sider, kundehistorier og blogg. Dette er ikke noe som skal være ferdig utviklet, i denne oppgaven skal vi kun ta høyde for at det er mulig å utvide.
+Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en langt nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API. Videre ønsker oppdragsgiver at systemet skal ha mulighet for å legge til to sider, kundehistorier og blogg. Disse sidene skal ikke være en del av den ferdige løsningen, men systemet skal kunne ta høyde for og ha mulighet til å utvide.
 
 \section{Risikoanalyse}
 
 \section{Hvorfor et nettsted er viktig}
-Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. I følge undersøkelser gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} i 2017, hadde hele 98\% av Norges befolkning tilgang på internett hjemme \cite{ssb17fim}. Videre viser undersøkelsene at hele 9 av 10 nordmenn surfet på nettet hver dag i 2017 \cite{ssb17nat}. SSB har også kartlagt  at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 måneder i 2018 \cite{ssb18aup}. Disse foregående funnene er svært relevante og er med å bevise hvorfor det er så viktig for en bedrift å være på internett i dag.
+Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. Undersøkelser \cite{ssb18aup,ssb17fim,ssb17nat} gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} er med å underbygge denne påstanden. I 2017 hadde nemlig hele 98\% av Norges befolkning tilgang på internett hjemme. Videre viser undersøkelsene at hele 9 av 10 nordmenn surfet på nettet hver dag i 2017. SSB kartla også at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 måneder i 2018. Disse foregående funnene er svært relevante og er med å bevise hvorfor det er så viktig for en bedrift å være på internett i dag.
 
 I tillegg til disse funnene, er det også andre faktorer som bidrar til at et nettsted for en bedrift er så viktig i dag. Disse blir presentert nærmere i dette kapittelet. 
 
@@ -61,17 +61,13 @@ Innenfor webdesign finnes det flere forskjellige avgjørende faktorer, som er me
 
 
 \subsection{Førsteinntrykk}
-Et nettsted er ofte første, eller til og med eneste, interaksjon en forbruker har med et firma i moderne handel. Fordi forbrukere har en tendens til å ta avgjørelser i løpet av de første par sekundene av en online-interaksjon, kan førsteinntrykket gitt til brukere i stor grad bestemme suksessen til et nettsted. \url{https://www.tandfonline.com/doi/pdf/10.1080/10447318.2013.839899?needAccess=true }
+I følge en artikkel skrevet av Paul Benjamin Lowry \cite{lowry2014pis}, er et nettsted ofte første, eller til og med eneste, interaksjon en forbruker har med et firma i moderne handel. Fordi forbrukere har en tendens til å ta avgjørelser i løpet av de første par sekundene av en online-interaksjon, kan førsteinntrykket gitt til brukere i stor grad bestemme suksessen til et nettsted. 
 
-94\% av førsteinntrykket påvirkes av designet. 
-First impressions are 94\% design-related. \url{https://www.researchgate.net/publication/221516871_Trust_and_mistrust_of_online_health_sites}
-Viktigheten av design har vi skrevet mer om i avsnitt \ref{sec:design}.
-
-
-Videre i en annen studie \cite{} ble det også kartlagt at en webdesigner kun har 50 ms på å gjøre et godt førsteinntrykk.
+Videre viser en studie \cite{lindgaard2006awd} at en webdesigner kun har 50 ms på å gjøre et godt førsteinntrykk.
 I løpet av denne korte tiden danner forbrukeren seg en formening om nettstedet, som bestemmer om de liker nettstedet  eller ikke og om de vil bli eller forlate siden.
 
-\url{https://www.tandfonline.com/doi/abs/10.1080/01449290500330448}
+En ytterligere studie \cite{sillence2004tam} viser at 94\% av førsteinntrykket påvirkes av designet.
+Viktigheten av design har vi skrevet mer om i avsnitt \ref{sec:design}.
 
 For å øke sannsynligheten for at en bruker forblir på nettstedet vil vi forsøke å lage et innbydende design som vil falle i smak hos majoriteten av kundene.
 
@@ -119,8 +115,7 @@ I følge samme kilde \cite[s.~29]{krug2014dmt}, er følgende punkter viktig for 
 De fleste bedrifter i dag er avhengig av gode kundeforhold og at deres kunder har et godt inntrykk av firmaet. Brukeropplevelsen til et nettsted er derfor en viktig faktor som må tas hensyn til underveis i prosessen, og kommer i stor grad til å påvirke designet til nettstedet som skal utvikles i denne oppgaven.
 
 \subsubsection{Hastighet}
-I dette avsnittet gjennomgår vi funn fra undersøkelser og konklusjoner gjort av Jakob Nielsen hos Nielsen Norman Group \cite{nngroupWebsiteResponseTimes} og Niall Murphy hos Barr Group \cite{barrgroupReponseTimingUI}
-
+I denne seksjonen gjennomgår vi funn fra undersøkelser som omhandler brukeropplevelsen rundt hastighet til nettsider, gjort av Jakob Nielsen fra Nielsen Norman Group \cite{nngroupWebsiteResponseTimes} og Niall Murphy fra Barr Group \cite{barrgroupReponseTimingUI}. 
 
 Brukeropplevelse handler mye om innhold, det visuelle og funksjonalitet, men det handler også om noen tekniske aspekter, som hastighet. En brukers opplevelse av et nettsteds hastighet påvirkes av flere elementer. Man har responstid, indikasjon på ventetid og animasjoner til brukergrensesnitt.
 
@@ -181,9 +176,7 @@ Obvious Always Wins:
 I følge boken \q{The Principles of Beautiful Webdesign} \cite[s.~5]{beaird2014tpo} finnes det to hovedpunkter som er avgjørende når det gjelder hvordan de fleste bestemmer om designet til en nettside er bra eller dårlig. Det første punktet er brukbarheten, som fokuserer på funksjonaliteten, hvor effektivt informasjonen presenteres og effektiviteten til nettstedet. Hovedpunkt nummer to er det rent estetiske perspektivet, som kun fokuserer på artistisk verdi og visuell fremtoning av designet. For å nå ut til kunder og holde deres interesse, er det nødvendig og gjøre mest ut av begge punktene. Brukere blir nemlig fornøyde med god design, men trukket til innholdet.  Beste praksis når det gjelder design vil altså være å ha god brukeropplevelse\footnote{Se avsnitt \ref{sec:ux}} samtidig som nettsiden har et pent og innbydende design.
 
 \subsection{Innhold}
-Selve innholdet er ofte hovedgrunnen til de fleste besøk på en nettside og er derfor av stor betydning.
-
- \url{https://www.researchgate.net/profile/Meinald_Thielsch/publication/259149186_User_Evaluation_of_Websites_From_First_Impression_to_Recommendation/links/57d3edd508ae0c0081e6df01/User-Evaluation-of-Websites-From-First-Impression-to-Recommendation.pdf} side 2
+Selve innholdet er ofte hovedgrunnen til de fleste besøk på en nettside og er derfor av stor betydning \cite{thielsch2014ueo}.
 
 Det ble i en undersøkelse \cite{marchant18wdc} kartlagt hva som er nøkkelinformasjon på en lokal bedrifts nettsted, ved å spørre deltagerne om hva akkurat de mente var den viktigste informasjonen. Resultatene var klare, og det viste seg at forbrukere jevnt over var på utkikk etter samme informasjon:
 \begin{enumerate}
@@ -199,10 +192,22 @@ Vårt nettsted bør derfor inneha de fleste av disse punktene, slik at kundene e
 
 \subsection{Sikkerhet}
  passord kryptering/hashing/salting. https/tls, csrf, xss, ssh
+ \cite{NattTomHeine2015Datasikkerhet}
+ 
+\subsubsection{HTTPS}
+HTTPS (Hypertext Transfer Protocol Secure) er en sikker versjon av HTTP-protokollen som overfører data på nett. HTTPS-protokollen krever at det opprettes en kryptert kanal mellom nettleseren og webserveren, slik at overføring mellom disse blir sikker.\cite{rfc26161999hypertext}
+
+\subsubsection{CSRF}
+Cross site request forgery (CSRF) er angrep som tvinger brukere til å utføre uønskede handlinger på en nettside der brukeren er logget inn, via en annen nettside \cite{lin2009threat}. For eksempel: hvis brukeren er logget inn på Facebook.com, og går til Twitter.com. Da kan Twitter laste inn et bilde som dette: \lstinline{<img src="https://facebook.com/delete-my-account">}. Dette vil da sende en forespørsel til den linken, som kan føre til sletting av konto. Om Facebook ikke har implementert mottiltak for slike angrep, vil denne forespørselen tolkes som om den kommer direkte fra brukeren.
+
+\subsubsection{TLS}
+Transport Layer Security er en kryptografisk protokoll. Denne er viktig for å sikre informasjon som overføres gjennom nettverk. TLS brukes i forskjellige protokoller som HTTPS, FTPS, VoIP og VPN.
+Når en protokoll bruker en sikker tilkobling, legges bokstaven S til i protokollens navn. For eksempel: HTTP med TLS blir HTTPS eller SMTP med TLS blir SMTPS.
+SSL (Secure Socket Layer) er en utdatert forgjenger til TLS. \cite{thomas2000ssl}
 
 \section{Analyse av opprinnelig løsning}
 
-I dette kapittelet vil vi analysere nettstedet Sirkus Media har i dag. Målet med å analyseringen er å kartlegge eventuelle problemerområder som burde forbedres. Når utviklingen av det nye nettstedet er ferdig vil vi sammenligne de nye testresultatene med resultatene som blir presentert i dette kapittelet.
+I dette kapittelet blir det gjort en analyser av nettstedet Sirkus Media har i dag, som tar utgangspunkt i teori og analyse som ble kartlagt i de foregående kapitlene. Målet med å analyseringen er å kartlegge eventuelle problemerområder som burde forbedres. Når utviklingen av det nye nettstedet er ferdig vil vi sammenligne de nye testresultatene med resultatene som blir presentert i dette kapittelet. Analysen har hovedvekt på brukeropplevelsen og noen tekniske aspekter.
 Se figur \ref{fig:analysis-current-sirkusmedia.no} for bilde av nettsiden på PC og mobil.
 
 \begin{figure}[H]
@@ -678,9 +683,6 @@ MariaDB er et relasjonsdatabasesystem basert på MySQL, som er gratis og har åp
 
 Kilde \url{https://mariadb.org/}
 
-\subsubsection{CSRF}
-Cross site request forgery\footnote{\url{https://ieeexplore.ieee.org/abstract/document/5283085}} (CSRF) er angrep som tvinger brukere til å utføre uønskede handlinger på en nettside der brukeren er logget inn, via en annen nettside. For eksempel: hvis brukeren er logget inn på Facebook.com, og går til Twitter.com. Da kan Twitter laste inn et bilde som dette: \lstinline{<img src="https://facebook.com/delete-my-account">}. Dette vil da sende en forespørsel til den linken, som kan føre til sletting av konto. Om Facebook ikke har implementert mottiltak for slike angrep, vil denne forespørselen tolkes som om den kommer direkte fra brukeren.
-
 \subsubsection{CI \& CD}
 CI står for continuous integration og CD står for continuous delivery. CI/CD\footnote{\url{https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment}} er en metode som lar utviklere implementere og levere kodeendringer raskt og pålitelig.
 
@@ -719,16 +721,6 @@ KILDE: https://dash.harvard.edu/handle/1/24829568
 
 \subsubsection{HTTP/2}
 HTTP/2\footnote{\url{https://www.rfc-editor.org/rfc/pdfrfc/rfc7540.txt.pdf}} er en revisjon av HTTP-nettverksprotokollen. HTTP er et sett med regler for overføring av filer (tekst, grafiske bilder, lyd, video og andre mediefiler). Et av de store målene med HTTP/2 var å tillate multipleksing.
-
-\subsubsection{HTTPS}
-HTTPS\footnote{\url{https://www.rfc-editor.org/rfc/pdfrfc/rfc2616.txt.pdf}} (Hypertext Transfer Protocol Secure) er en sikker versjon av HTTP-protokollen som overfører data på nett. HTTPS-protokollen krever at det opprettes en kryptert kanal mellom nettleseren og webserveren, slik at overføring mellom disse blir sikker.
-
-\subsubsection{TLS}
-Transport Layer Security er en kryptografisk protokoll. Dette er viktig for å sikre informasjon som overføres gjennom nettverk. TLS brukes i forskjellige tjenester som HTTPS, FTPS, VoIP og VPN.
-Når en tjeneste bruker en sikker tilkobling, legges bokstaven S til tjenestens protokollnavn. For eksempel: HTTPS, SMTPS, FTPS, SHIPS.
-SSL (Secure Socket Layer) er en utdatert forgjenger til TLS.
-
-KILDE: Thomas, S. (2000). SSL and TLS essentials. New Yourk, 3.
 
 \subsubsection{Let’s Encrypt}
 Let’s Encrypt\footnote{\url{https://letsencrypt.org/}} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
