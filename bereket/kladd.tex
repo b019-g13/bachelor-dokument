@@ -34,7 +34,7 @@ Opprettet relasjoner mellom database-modellene.
 Relasjoner  lages ved å bruke  manyToMany,(belongsToMany), One to One(hasOne), Many to One(belongsTo) og  One to Many (hasMany). Eks.  slik  
 
 \begin{lstlisting}
-    $this->hasMany(‘App\Model’) og invers.
+    $this->hasMany('App\Model') og invers.
 \end{lstlisting}
 
 \subsection{Lagringstest til DB}
@@ -53,7 +53,7 @@ Feilen oppsto da fremmednøkkel feltet ble satt til null. Dette løste ved å se
 \subsubsection{Data truncated for column}
 Vi bruker UUID i stedet increments og trenger å identifisere primærnøkkelen slik.
 \begin{lstlisting}
-    $table->uuid(‘id’)->primary();
+    $table->uuid('id')->primary();
 \end{lstlisting}
 
 For å bruke UUID er det viktig å opprette UsesUuid.php trait i App / Trait.
@@ -104,8 +104,8 @@ Dette var at auto increments er unsigned integer og brukte bare integer da jeg s
 Løste ved å endre integer til UnsignedInteger ved fremmednøkkelen. Slik:
 
 \begin{lstlisting}
-    $table->integer(‘image_size_id’)->unsigned();
-    $table->foreign(‘image_size_id’)->references(‘image_size_id’)->on(‘image_sizes’);
+    $table->integer('image_size_id')->unsigned();
+    $table->foreign('image_size_id')->references('image_size_id')->on('image_sizes');
 \end{lstlisting}
 
 \subsubsection{Forelder/barn fremmednøkkel feil}
@@ -137,7 +137,7 @@ Siden forholdene mellom modellene var ikke satt riktig, oppsto feil under testin
 \end{lstlisting}
 Løste ved å gå gjennom alle modellene og fikse forholdene mellom dem.
 
-\subsection{Roller og Permisjoner}\footnote{\url{https://github.com/spatie/laravel-permission#laravel}}
+\subsection{Roller og Permisjoner}\footnote{\url{https://github.com/spatie/laravel-permission}}
 Laravel permisjon er en pakke med tillatelser og roller. Dette hjelper brukere til å knytte seg til tillatelser og roller. Hver rolle er knyttet til flere tillatelser. En rolle og en tillatelse er vanlige Eloquent-modeller\footnote{\url{https://scotch.io/tutorials/user-authorization-in-laravel-54-with-spatie-laravel-permission}}.
 \subsubsection{Laravel permisjon pakke installasjon} 
 Laravel permisjon pakken er bygget ut over laravel autorisasjon funksjoner\footnote{\url{https://laravel-news.com/two-best-roles-permissions-packages}}.
@@ -206,7 +206,7 @@ Forholdene ble satt opp via pivot tabellene sine modeller. På kontroller ble de
     }
 \end{lstlisting}
 Da det ble testet om for eksempel en page ble brukt i menu tabellen via fremmednøkkel, fikk ikke svar.
-Fikset ved å sette opp forholdene ved hjelp av ‘hasManyThrough’. Gjøres slik:
+Fikset ved å sette opp forholdene ved hjelp av 'hasManyThrough'. Gjøres slik:
 \begin{lstlisting}
     public function links(){
          return $this->hasManyThrough(    
@@ -219,8 +219,6 @@ Fikset ved å sette opp forholdene ved hjelp av ‘hasManyThrough’. Gjøres sl
          );
       }
 \end{lstlisting}
-    
-
 
 
 \clearpage
