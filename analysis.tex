@@ -670,7 +670,7 @@ Følgende sett med minimumskrav er satt med basis i de foregående analysene:
 \subsubsection{Krav til front-end}
 \begin{compactdesc}
 \item [Versjonskontroll] Se \q{Versjonskontroll} under \q{Krav til back-end} i avsnitt \ref{sec:analysis-tools-requirements-back-end}
-\item [Nettleserkompatibilitet] Verktøyene vi bruker burde fungere i alle moderne nettlesere.
+\item [Nettleserkompatibilitet] Verktøyene vi bruker burde fungere i alle moderne nettlesere, slik at flest mulig kan benytte seg av dem.
 \end{compactdesc}
 
 \subsubsection{Krav til design}
@@ -680,12 +680,26 @@ Følgende sett med minimumskrav er satt med basis i de foregående analysene:
 
 \subsubsection{Krav til DevOps}
 \begin{compactdesc}
-\item [Linux] Verktøy vi bruker til DevOps bør funke på Linux distribusjoner, da planen er å benytte seg av en Linux-server fordi det anses som sikrere, mer stabilt og mer fleksibelt \cite{cabrera2009windows} enn en Windows-server.
+\item [Linux kompatibelt] Verktøy vi bruker til DevOps bør funke på Linux distribusjoner, da planen er å benytte seg av en Linux-server fordi det anses som sikrere, mer stabilt og mer fleksibelt enn en Windows-server \cite{cabrera2009windows}.
 \end{compactdesc}
 
-
-
 \subsection{Designmønster}
+
+\subsubsection{MVC}
+\label{sec:tools-mvc}
+Model-View-Controller (MVC)\cite{burbeck87aps} er et designmønster som deler et program inn i tre hovedkomponenter: modell, visning og kontroll \cite{burbeck87aps}. Oppbygningen kan enkelt forklares ved hjelp av et eksempel fra Matteo publisert på dev.to:
+Matteo J. (2018, Mars 16) Re: Explain MVC like I'm five [Blogg kommentar]\footnote{\url{https://dev.to/matteojoliveau/comment/2ikd}}
+\begin{quote}
+    You walk in a McDonald and you order at the big interactive touchscreen.
+    The screen is the View, and you ask for your meal there.
+    The order is passed to the operator, who is the Controller, that will go in the kitchen and fetch a burger (your wanted resource) of the type (Model) you asked, then deliver it back to you.
+\end{quote}
+
+\textbf{Modell} (Model) representerer de forskjellige type ressurser en applikasjon har. Her beskrives hver ressurs, hvordan den er oppbygd og hva som kan gjøres med den.
+
+\textbf{Visning} (View) håndterer brukerinteraksjon og presentasjon av data. Er ofte et grafisk brukergrensesnitt.
+
+\textbf{Kontrolleren} (Control) delen er ansvarlig for å koordinere forespørsler og svar.
 
 \subsection{Verktøy til teknisk analyse}
 
@@ -723,75 +737,44 @@ Googles Safe Browsing-teknologi \cite{google2019sbs} undersøker milliarder nett
 
 
 \subsection{Verktøy til grafisk design}
+
+\subsubsection{Figma}
+Figma \cite{figma2019abw} er et webbasert designverktøy som åpner muligheten for å samarbeide i sanntid. Med Figma er det også mulig å designe mockups og prototyper av applikasjoner og nettsider.
+
+% ekstra kilde: \url{https://www.xfive.co/blog/figma-best-designer-developer-cooperation/}
+
 \subsection{Verktøy til back-end}
-\subsection{Verktøy til front-end}
-\subsection{Andre verktøy}
-\subsection{Tilhørende teknologier og begreper}
-\subsection{Verktøyanalyse}
 
-%% VI SER PÅ FORDELER OG ULEMPER SENERE %%%
-\textbf{Fordeler}
-\begin{itemize}
-    \item Laravel er veldig raskt i forhold til CMS (Content Management Systems).
-    \item Har funksjoner som autentisering og autorisasjon.
-    \item Alt kan tilpasses og styres hvordan tingene fungerer.
-    \item Databasen kan brukes eller utformes på egen måte.
-\end{itemize}
-
-\textbf{Ulemper}
-\begin{itemize}
-    \item I Laravel må SEO definere egne ruter, og det tar mye arbeid å utvikle et nettsted som hovedsakelig er avhengig av innhold.
-    \item Laravel rammeverk er litt komplisert og krever mer kunnskap.
-    \item Laravel er mindre fleksibel for å oppdatere innholdet.
-\end{itemize}
-
-Fordeler og Ulemper av laravel ble tatt i forhold til CMS.
-Kilde: \cite{cbcp2019lvw}
+\subsubsection{Symfony}
+\label{sec:tools-symfony}
+Symfony er et webapplikasjonsrammeverk og er et sett med gjenbrukbare komponenter og biblioteker skrevet i PHP \cite{symfony19wis}. 
 
 \subsubsection{Laravel}
 Laravel \cite{cbcp2019lvw} er et PHP-rammeverk, med åpen kildekode, som brukes til å lage webapplikasjoner og andre nettsteder. Rammeverket baserer seg på Symfony\footnote{Avsnitt \ref{sec:tools-symfony}} og følger Model-view-controller\footnote{Avsnitt \ref{sec:tools-mvc}} (MVC) designmønsteret.
 Laravel kommer med innebygde funksjoner for autentisering, modeller, visninger, sesjoner, ruting og andre funksjoner som en \textit{templating engine} kalt Blade.
 
 \subsubsection{Wordpress}
+WordPress er gratis programvare med åpen kildekode som kan brukes til å utvikle nettside, blogger eller apper. I Wordpress er det også mulig å legge til ekstra funksjonalitet via utvidelser, som gjør det mulig å for eksempel legge til gallerier, postlister og analyser.
 
-\subsubsection{Symfony}
-\label{sec:tools-symfony}
-Symfony er et webapplikasjonsrammeverk og er et sett med gjenbrukbare komponenter og biblioteker skrevet i PHP \cite{symfony19wis}. 
+\url{https://wordpress.org/}
 
-\subsubsection{MVC}
-\label{sec:tools-mvc}
-Model-View-Controller (MVC)\cite{burbeck87aps} er et designmønster som deler et program inn i tre hovedkomponenter: modell, visning og kontroll \cite{burbeck87aps}. Oppbygningen kan enkelt forklares ved hjelp av et eksempel fra Matteo publisert på dev.to:
-Matteo J. (2018, Mars 16) Re: Explain MVC like I'm five [Blogg kommentar]\footnote{\url{https://dev.to/matteojoliveau/comment/2ikd}}
-\begin{quote}
-    You walk in a McDonald and you order at the big interactive touchscreen.
-    The screen is the View, and you ask for your meal there.
-    The order is passed to the operator, who is the Controller, that will go in the kitchen and fetch a burger (your wanted resource) of the type (Model) you asked, then deliver it back to you.
-\end{quote}
-%Typisk flyt er at det kommer inn en forespørsel som går til kontrolleren. Den tolker forespørselen og behandler den ved å hente og endre data via modell. Til slutt sendes det et svar til visning.
-
-\textbf{Modell} (Model) representerer de forskjellige type ressurser en applikasjon har. Her beskrives hver ressurs, hvordan den er oppbygd og hva som kan gjøres med den.
-
-\textbf{Visning} (View) håndterer brukerinteraksjon og presentasjon av data. Er ofte et grafisk brukergrensesnitt.
-
-\textbf{Kontrolleren} (Control) delen er ansvarlig for å koordinere forespørsler og svar.
-
-\subsubsection{GNU/Linux}
-GNU/Linux er en familie med Unix-lignende operativsystemer som baserer seg på Linux-kjernen og en del programvare fra GNU-prosjektet.
-I denne familien finner vi blant annet Ubuntu, Debian, Fedora, Red Hat Linux og Arch Linux.
-Kilder: \url{https://www.kernel.org} \url{https://www.gnu.org/} \url{https://www.ubuntu.com/} \url{https://www.debian.org/} \url{https://getfedora.org/} \url{https://www.redhat.com/en/topics/linux} \url{https://www.archlinux.org/}
-
-\subsubsection{Nginx}
-Nginx er en gratis HTTP-server med åpen kildekode. Nginx har mulighet til å håndtere høy belastning av HTTP-forespørsler. Programmet er tilgjengelig på operativsystemer som Windows, Mac OS og Solaris. I tillegg er Nginx tilgjengelig på operativsystemer som er basert på GNU/Linux eller BSD.
-
-Kilde: Nedelcu, C. (2010). Nginx HTTP Server: Adopt Nginx for Your Web Applications to Make the Most of Your Infrastructure and Serve Pages Faster Than Ever. Packt Publishing Ltd.
 
 \subsubsection{PHP}
 PHP (rekursiv akronym for PHP Hypertext Pre-processor) er et skriptspråk som er spesielt egnet for webutvikling og kan legges inn i filer sammen med HTML. PHP er et serverside programmeringsspråk og kan brukes til å lage dynamiske og interaktive nettsteder. PHP er gratis og plattformuavhengig, samtidig som det er  er raskt og fleksibelt. Det kan installeres i pakker med webserver og database. Eksempelvis LAMP, LEMP, WAMP og XAMPP. PHP er også mulig å installere enkeltstående. 
 
 Kilde: \url{http://php.net/}
 
-\subsubsection{Sesjoner}
-En sesjon\footnote{\url{https://ieeexplore.ieee.org/abstract/document/8392612}} (session) er en samling av data lagret på en webserver. En webserver tildeler en ID til hver bruker som sender forespørsler via en nettleser. ID-en lagres som en informasjonskapsel i nettlesern til brukeren. Alle nye forespørsel vil så identifiseres av ID-en som er lagret hos brukeren.
+\subsection{Verktøy til DevOps}
+
+\subsubsection{GNU/Linux}
+GNU/Linux er en familie med Unix-lignende operativsystemer som baserer seg på Linux-kjernen og en del programvare fra GNU-prosjektet.
+I denne familien finner vi blant annet Ubuntu, Debian, Fedora, Red Hat Linux og Arch Linux.
+Kilder: \url{http://lib.sgu.edu.vn:84/dspace/bitstream/TTHLDHSG/2808/1/Operating_System_Concepts_Essentials.pdf} \url{https://www.gnu.org/}
+
+\subsubsection{Nginx}
+Nginx er en gratis HTTP-server med åpen kildekode. Nginx har mulighet til å håndtere høy belastning av HTTP-forespørsler. Programmet er tilgjengelig på operativsystemer som Windows, Mac OS og Solaris. I tillegg er Nginx tilgjengelig på operativsystemer som er basert på GNU/Linux eller BSD.
+
+Kilde: Nedelcu, C. (2010). Nginx HTTP Server: Adopt Nginx for Your Web Applications to Make the Most of Your Infrastructure and Serve Pages Faster Than Ever. Packt Publishing Ltd.
 
 \subsubsection{phpMyAdmin}
 phpMyAdmin \cite{phpmyadmin2019bmt} er et gratis og webbasert administrasjonsverktøy for MySQL og MariaDB databaser, skrevet i PHP. Med phpMyAdmin kan man lage, endre og slette databaser, tabeller og felter. Annen funksjonalitet kan være å utføre SQL-setninger, administrere nøkler og privilegier og eksportere data til ulike formater.
@@ -799,14 +782,54 @@ phpMyAdmin \cite{phpmyadmin2019bmt} er et gratis og webbasert administrasjonsver
 \subsubsection{MariaDB}
 MariaDB \cite{mariadb2019amd} er et relasjonsdatabasesystem basert på MySQL og har åpen kildekode. Systemet funker som en \textit{drop-in} erstatning for MySQL.
 
-\subsubsection{CI \& CD}
-CI står for continuous integration og CD står for continuous delivery. CI/CD\footnote{\url{https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment}} er en metode som lar utviklere implementere og levere kodeendringer raskt og pålitelig.
-
 \subsubsection{Buddy}
 Buddy\footnote{\url{https://buddy.works}} er en webbasert applikasjon for CI og CD. Applikasjonen lar utviklere bygge, teste og distribuere nettsider og programkode automatisk når kildekoden oppdateres. For eksempel er det mulig å koble Buddy til et nettsteds kildekode via Git. Når koden til nettstedet oppdateres, vil Buddy automatisk detektere endringer og starte en byggeprosess. Når byggeprosessen er ferdig kjøres det automatisk tester på koden, som verifiserer at alt fungerer. Deretter vil Buddy laste koden opp til en server og oppdatere nettstedet som ligger ute på nett. Dette skjer gjerne gjennom Docker\footnote{\url{https://www.docker.com/}} sammen med Kubernetes\footnote{\url{https://kubernetes.io/}}.
 
+\subsubsection{Ottomatik.io}
+Ottomatik\footnote{\url{https://ottomatik.io/}} er en webbasert tjeneste for automatisk sikkerhetskopiering av filer og MySQL databaser.
+
+\subsubsection{Amazon S3}
+Amazon Simple Storage Service\footnote{\url{https://aws.amazon.com/s3/}} er en webbasert tjeneste som tilbyr objekt-lagring. Tjenesten tilbyr meget god skalerbarhet, datatilgjengelighet, sikkerhet og ytelse.
+
+KILDE: https://dash.harvard.edu/handle/1/24829568
+
+\subsubsection{Let’s Encrypt}
+Let’s Encrypt\footnote{\url{https://letsencrypt.org/}} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
+
+\subsection{Verktøy til front-end}
+
+\subsubsection{HTML}
+Hypertext Markup Language\footnote{\url{https://www.w3.org/standards/webdesign/htmlcss}} er et markeringsspråk som brukes til å lage nettsidedokumenter. Det er et system som identifiserer og beskriver de forskjellige komponentene i et dokument som overskrifter, avsnitt og lister. HTML5 er den nyeste versjonen av HTML-standarden.
+
+\subsubsection{CSS}
+Casecading Style Sheet\footnote{https://www.w3.org/standards/webdesign/htmlcss} er et format for stilsett som beskriver utseendet i en applikasjon eller på et nettsted. CSS styrer blant annet fonter, farger, bakgrunnsbilder, linjeavstand og sidelayout. Formatet lar utviklere style innhold på en slik måte at brukere enklere kan identifisere hva det er, samt være i tråd med en bedrift eller person sin identitet.
+
+\subsubsection{SASS}
+Syntactically Awesome Style Sheets\footnote{\url{https://sass-lang.com/}} er en utvidelse av CSS. SASS gir mulighet til å bruke variabler, nestede regler, inline-import og mixins. Alt dette gjør det enklere å gjenbruke CSS syntaks. Med SASS er det mulig å lage stilark raskere. SASS er kompatibel med alle versjoner av CSS. Det er ingen nettlesere som kjører SASS, man må derfor kompilere SASS til CSS for å kunne bruke det på nettsider.
+
+KILDE: Cederholm, D. (2013). Sass for web designers. A Book Apart.
+
+\subsubsection{JavaScript}
+JavaScript \cite{mdn2019jav} er et programmeringsspråk som følger ECMAScript-spesifikasjonen. Det er mye brukt til å utvikle webapplikasjoner. Språket støttes av de fleste moderne nettlesere, og brukes til å manipulere elementene på nettsiden og stilene som er brukt på dem. JavaScript støtter objektorientert- og funksjonell programmering.
+
 \subsubsection{Axios}
 Axios\footnote{\url{https://github.com/axios/axios}} et et JavaScript-bibliotek for en promise-basert\footnote{\url{https://leanpub.com/exploring-es6/}} HTTP-klient som kan kjøres i nettlesere og Node.Js. Biblioteket gjør det enklere å lage og behandle asynkrone forespørsler.
+
+\subsubsection{Node.js}
+Node.js \cite{w3schools2019win} er et gratis open source-servermiljø, som kjører på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren. Node.js kan generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
+
+\subsubsection{React}
+React\footnote{\url{https://reactjs.org/}} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og brukes som visningslaget for webapplikasjoner som følger MVC. React har åpen kildekode og er utviklet av Facebook.
+
+Alternativ kilde: \url{https://www.fullstackreact.com/assets/media/sGEMe/MNzue/30-days-of-react-ebook-fullstackio.pdf}
+
+\subsection{Tilhørende teknologier og begreper}
+
+\subsubsection{CI \& CD}
+CI står for continuous integration og CD står for continuous delivery. CI/CD\footnote{\url{https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment}} er en metode som lar utviklere implementere og levere kodeendringer raskt og pålitelig.
+
+\subsubsection{Sesjoner}
+En sesjon\footnote{\url{https://ieeexplore.ieee.org/abstract/document/8392612}} (session) er en samling av data lagret på en webserver. En webserver tildeler en ID til hver bruker som sender forespørsler via en nettleser. ID-en lagres som en informasjonskapsel i nettlesern til brukeren. Alle nye forespørsel vil så identifiseres av ID-en som er lagret hos brukeren.
 
 \subsubsection{Git}
 Git er et system for versjonskontroll. Et versjonskontrollsystem blir hovedsaklig brukt under utvikling av software og nettsteder. Det kan også brukes til andre type prosjekter som grafisk design og skriving av dokumenter.
@@ -823,38 +846,9 @@ GitHub.com er et nettsted for å hoste git repositories, og blir mye brukt for \
 
 Github er et sentralisert punkt for å samle en brukers repositories. Ved siden av å hoste repositories, lar GitHub brukere dele repositories med hverandre, lage informasjonssider om prosjektet og opprette saker (issues).
 
-\subsubsection{Ottomatik.io}
-Ottomatik\footnote{\url{https://ottomatik.io/}} er en webbasert tjeneste for automatisk sikkerhetskopiering av filer og MySQL databaser.
-
-\subsubsection{Amazon S3}
-Amazon Simple Storage Service\footnote{\url{https://aws.amazon.com/s3/}} er en webbasert tjeneste som tilbyr objekt-lagring. Tjenesten tilbyr meget god skalerbarhet, datatilgjengelighet, sikkerhet og ytelse.
-
-KILDE: https://dash.harvard.edu/handle/1/24829568
-
 \subsubsection{HTTP/2}
 HTTP/2\footnote{\url{https://www.rfc-editor.org/rfc/pdfrfc/rfc7540.txt.pdf}} er en revisjon av HTTP-nettverksprotokollen. HTTP er et sett med regler for overføring av filer (tekst, grafiske bilder, lyd, video og andre mediefiler). Et av de store målene med HTTP/2 var å tillate multipleksing.
 
-\subsubsection{Let’s Encrypt}
-Let’s Encrypt\footnote{\url{https://letsencrypt.org/}} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
-
-\subsubsection{HTML}
-Hypertext Markup Language\footnote{\url{https://www.w3.org/standards/webdesign/htmlcss}} er et markeringsspråk som brukes til å lage nettsidedokumenter. Det er et system som identifiserer og beskriver de forskjellige komponentene i et dokument som overskrifter, avsnitt og lister. HTML5 er den nyeste versjonen av HTML-standarden.
-
-\subsubsection{CSS}
-Casecading Style Sheet\footnote{https://www.w3.org/standards/webdesign/htmlcss} er et format for stilsett som beskriver utseendet i en applikasjon eller på et nettsted. CSS styrer blant annet fonter, farger, bakgrunnsbilder, linjeavstand og sidelayout. Formatet lar utviklere style innhold på en slik måte at brukere enklere kan identifisere hva det er, samt være i tråd med en bedrift eller person sin identitet.
-
-\subsubsection{SASS}
-Syntactically Awesome Style Sheets\footnote{\url{https://sass-lang.com/}} er en utvidelse av CSS. SASS gir mulighet til å bruke variabler, nestede regler, inline-import og mixins. Alt dette gjør det enklere å gjenbruke CSS syntaks. Med SASS er det mulig å lage stilark raskere. SASS er kompatibel med alle versjoner av CSS. Det er ingen nettlesere som kjører SASS, man må derfor kompilere SASS til CSS for å kunne bruke det på nettsider.
-
-KILDE: Cederholm, D. (2013). Sass for web designers. A Book Apart.
-
-\subsubsection{JavaScript}
-JavaScript \cite{mdn2019jav} er et programmeringsspråk som følger ECMAScript-spesifikasjonen. Det er mye brukt til å utvikle webapplikasjoner. Språket støttes av de fleste moderne nettlesere, og brukes til å manipulere elementene på nettsiden og stilene som er brukt på dem. JavaScript støtter objektorientert- og funksjonell programmering.
-
-\subsubsection{React}
-React\footnote{\url{https://reactjs.org/}} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og brukes som visningslaget for webapplikasjoner som følger MVC. React har åpen kildekode og er utviklet av Facebook.
-
-Alternativ kilde: \url{https://www.fullstackreact.com/assets/media/sGEMe/MNzue/30-days-of-react-ebook-fullstackio.pdf}
 
 \subsubsection{REST-API}
 Et API (programmeringsgrensesnitt) er et sett med funksjoner, prosedyrer, metoder eller klasser som brukes av dataprogrammer for å be om tjenester fra operativsystemet eller programvare som er på datamaskinen. En programmerer kan bruke API-er til å lage applikasjoner.
@@ -864,20 +858,72 @@ REST (Representational State Transfer) er en arkitektonisk stil for programvare.
 KILDE: Masse, M. (2011). REST API Design Rulebook: Designing Consistent RESTful Web Service Interfaces. " O'Reilly Media, Inc.".
 side 5 og 6
 
-\subsubsection{Node.js}
-Node.js \cite{w3schools2019win} er et gratis open source-servermiljø, som kjører på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren. Node.js kan generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
-
-\subsubsection{Figma}
-Figma \cite{figma2019abw} er et webbasert designverktøy som åpner muligheten for å samarbeide i sanntid. Med Figma er det også mulig å designe mockups og prototyper av applikasjoner og nettsider.
-
-% ekstra kilde: \url{https://www.xfive.co/blog/figma-best-designer-developer-cooperation/}
-
 \subsubsection{Google Analytics}
 \label{sec:google-analytics}
 Google Analytics \cite{google2019gtk} er en gratis, webbasert tjeneste som gir statistikk og grunnleggende verktøy for analyse av bruksdata, søkemotoroptimalisering og markedsføring.
 
+\subsection{Valg av verktøy}
+I dette kapittelet forteller vi om hvilke verktøy studentgruppen har tenkt til å benytte seg av og hvorfor.
 
+\begin{compactdesc}
+\item[MVC]
+\item[Google Chrome DevTools] Ble valgt fordi det følger med Google Chrome nettleseren og er enkelt å bruke.
+\item[Google Lighthouse] Ble valgt fordi det produserer oversiktlige og lettleste rapporter som forklarer kort og greit hvilke punkter som bør ses på.
+\item[Checkbot] Ble valgt fordi det er enkelt å bruke og produserer rapporter som er enkle å forstå.
+\item[Color Contrast Analyzer] Ble valgt fordi det va
+ \dr tneste vereteyet som vi fant med deøste egsknparekitem[WAVE] Ble 
+algt fvrdo ied\e  enkelt å bruret k produserer rapporter gomoes rnele å fkrstå.o item[Brandwoods A11y-test] Ble valgt fordi det var den mest intuitive verktøyet vi fant som kunne utføre jobben det gjør.
+\item[Qualys SSL Server Test] 
+\item[Google Transparency Report - Safe Browsing: malware and phishing]
+\item[Figma] Ble valgt fordi det var enkelt å bruke og veldig intuitivt.
+\item[Laravel] Ble valgt fordi en av gruppemedlemene har erfaring med det, og det gjør at man kommer kjapt i gang.
 
+\item[PHP] Ble valgt fordi det er et relativt \q{snillt} og fleksibelt språk
+ som er enkelt å komme i gang med.
+\item [GNU/Linux] Ble valgt fordi det er sikkert, stabilt og fleksibelt samt at en av gruppemedlemene har erfaring med det.
+
+\item[Nginx] Ble valgt ettersom en av gruppemedlemene har erfaring med det.
+\item[phpMyAdmin] Ble valgt ettersom alle gruppemedlemene har erfaring med det.
+\item[MariaDB] Ble valgt fordi
+
+\item[Buddy]
+\item[Ottomatik.io] Ble valgt ettersom en av gruppemedlemene har erfaring med det.
+\item[Amazon S3] Ble valgt ettersom en av gruppemedlemene har erfaring med det.
+\item[Let’s Encrypt] Ble valgt ettersom en av gruppemedlemene har erfaring med det.
+\item[HTML] Ble valgt ettersom det er standard markeringsspråk for å lage nettsider og webapplikasjoner
+\item[CSS] Ble valgt ettersom det er standard stilsettspråk for å lage nettsider og webapplikasjoner.
+\item[SASS]
+\item[JavaScript] Ble valgt ettersom det er standard programmeringsspråk for å lage nettsider og webapplikasjoner.
+\item[Axios] Ble valgt fordi det er brukervennlig og veldig intuitivt.
+\item[React] Ble valgt fordi det er ppolært ugonoen a  vrgppemedlumene ønsker å løe
+\item[Git & Github] Ble valgt fordi det er veldig populært og alle gruppemedlemene har erfaring med det.
+\item[REST-API] Ble valg fordi det er populært og er en bra arkitektonisk stil.
+\item[Google Analytics]
+\end{compactdesc}
+
+\subsubsection{Wordpress vs Laravel}
+I introduksjonen ble det nevnt at studentgruppen enten skal utvikle et eget CMS eller benytte seg av et ferdig system. Etter at kravene ble satt kom vi frem til to systemer som passet, Wordpress og Laravel. Hvis studentgruppen ønsker å egenutvikle et system kunne vi gjort dette i Laravel, mens Wordpress er et ferdigutviklet CMS. Begge systemene har sine fordeler og ulemper, som beskrevet under:
+
+%% VI SER PÅ FORDELER OG ULEMPER SENERE %%%
+\textbf{Fordeler med Laravel}
+\begin{itemize}
+    \item Laravel er veldig raskt i forhold til Wordpress, da Laravel ikke får med masse ekstra kode som ikke blir brukt og kan gjøre systemet tregt.
+    \item Har funksjoner som autentisering og autorisasjon.
+    \item Alt kan tilpasses og styres hvordan tingene fungerer.
+    \item Databasen kan brukes eller utformes på egen måte.
+\end{itemize}
+
+\textbf{Ulemper med Laravel}
+\begin{itemize}
+    \item I Laravel må SEO definere egne ruter, og det tar mye arbeid å utvikle et nettsted som hovedsakelig er avhengig av innhold. Her får man mye \q{gratis} hjelp av Wordpress.
+    \item Laravel rammeverk er litt komplisert og krever mer kunnskap for å sette seg inn i.
+    \item Laravel er mindre fleksibel for å oppdatere innholdet.
+\end{itemize}
+
+Fordeler og Ulemper av laravel ble tatt i forhold til CMS.
+Kilde: \cite{cbcp2019lvw}
+
+Studengruppen ha rk
 
 
 \section{Akademiske og tekniske dokumenter}
