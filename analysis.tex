@@ -1,13 +1,13 @@
 \cleardoublepage
 \chapter{Analyse og teori}
 \label{chap:analysis}
-\meta{
-Kapittelet tar for seg analysedelen av arbeidet. Den består av to hoveddeler, en grundig beskrivelse av oppgaven basert på skissen gitt av oppdragsgiver, og en undersøkelse av hva som finnes av relatert arbeid, {\em best practise} og relevant teknologi. 
-}
+% \meta{
+% Kapittelet tar for seg analysedelen av arbeidet. Den består av to hoveddeler, en grundig beskrivelse av oppgaven basert på skissen gitt av oppdragsgiver, og en undersøkelse av hva som finnes av relatert arbeid, {\em best practise} og relevant teknologi. 
+% }
 
-I dette kapittelet danner vi oss et bilde av hvordan en akademisk/teknisk rapport bør se ut, både med hensyn på innhold, struktur og utforming. Vi ser også på hvordan store og komplekse dokumenter blir produsert (både analogt og digitalt), og hva slags (digitale) verktøy som kan tenkes å brukes. Vi går også gjennom endel tilgjengelig materiale som kan gjøre det lettere å velge hva slags digitale verktøy man burde bruke i en bacheloroppgave\footnote{Utvalget er noe overfladisk utført, i hovedsak basert på forfatterens erfaringer.}.
+% I dette kapittelet danner vi oss et bilde av hvordan en akademisk/teknisk rapport bør se ut, både med hensyn på innhold, struktur og utforming. Vi ser også på hvordan store og komplekse dokumenter blir produsert (både analogt og digitalt), og hva slags (digitale) verktøy som kan tenkes å brukes. Vi går også gjennom endel tilgjengelig materiale som kan gjøre det lettere å velge hva slags digitale verktøy man burde bruke i en bacheloroppgave\footnote{Utvalget er noe overfladisk utført, i hovedsak basert på forfatterens erfaringer.}.
 
--- 
+%  -- 
 
 Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. I løpet av dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, design og funksjonalitet. I tillegg vil vi presentere en analyse av opprinnelig løsning, konkurrentanalyse, kravene som er satt til verktøy etterfulgt av en presentasjon av de verktøy vi mener er passende.
 
@@ -236,26 +236,30 @@ For å unngå slike angrep kan man bruke \textit{prepared statements} eller \tex
 \label{sec:analysis-security-mysql}
 Ved bruk av MySQL databaser er det noen grep man bør ta med tanke 
 å på sikkerhet.
-Man bør lage èn bruker for hver applikasjon som skal bruke en database. \cite{ellingwood_2013}
-Man bør skru av fjerntilgang.
-Man bør kun godta tilkoblinger fra lokalmaskin.
-Man bør fjerne eller endre standardbrukere.
+\begin{itemize}
+\item Man bør lage èn bruker for hver applikasjon som skal bruke en database. \cite{ellingwood_2013}
+\item Man bør skru av fjerntilgang.
+\item Man bør kun godta tilkoblinger fra lokalmaskin.
+\item Man bør fjerne eller endre standardbrukere.
+\end{itemize}
 
 \subsubsection{phpMyAdmin}
 \label{sec:analysis-security-phpmyadmin}
-Ved bruk av phpMyAdmin er det også grep man vil ta med tanke på sikkerhet. Man bør ikke bruke "phpmyadmin" i URL-en som går til login, f.eks: http://eksempel.com/phpmyadmin. Man bør gjøre om til f.eks /pma, eller enda bedre; noe mindre åpenbart.\cite{canepa2016}
+Ved bruk av phpMyAdmin er det også grep man vil ta med tanke på sikkerhet. Man bør ikke bruke \q{phpmyadmin} i URL-en som går til login, f.eks: http://eksempel.com/phpmyadmin. Man bør gjøre om til f.eks /pma, eller enda bedre; noe mindre åpenbart \cite{canepa2016}.
 Man bør skru på HTTP Basic access authentication, som gjør at man må skrive inn et brukernavn og passord før man kan komme inn på login siden til phpMyAdmin \cite{drake_2018}.
 
 \subsubsection{Web-server med SSH tilkobling}
 \label{sec:analysis-security-web-server-ssh}
 For å forbedre sikkerheten på en web-server er det visse grep man bør ta.
-Man bør skru av fjerntilgang for root brukeren og lage en egen bruker i sudo gruppen \cite{ellingwood_2014}.
-Man bør skru av login med passord \cite{jetha2018}.
-Man bør skru på login med public/private key pair. Gjerne med passord på key-en \cite{jetha2018}.
-Man bør sette maks antall forsøk på login før man blir midlertidig utestengt via IP \cite{ellingwood_2014_2}.
-Man bør skift vekk fra standard SSH port 22 til en annen under 1024 \cite{w3cports1995}
-Man bør sette opp en brannmur som blokker alt bortsett fra SSH porten man har satt, samt port 80 for HTTP og port 443 for HTTPS \cite{virdo2016}.
-Man bør bruke rettighetene 755 på mapper og 644 på filer som serveres offentlig. \cite[s.~34]{barnettapache}
+\begin{itemize}
+\item Man bør skru av fjerntilgang for root brukeren og lage en egen bruker i sudo gruppen \cite{ellingwood_2014}.
+\item Man bør skru av login med passord \cite{jetha2018} og heller bruke login med public/private nøkkelpar. Gjerne med passord på nøkkelen \cite{jetha2018}.
+\item Man bør sette maks antall forsøk på login før man blir midlertidig utestengt via IP \cite{ellingwood_2014_2}.
+\item Man bør skift vekk fra standard SSH port 22 \cite{miessler2019} til en annen port under 1024 \cite{w3cports1995}.
+\item Man bør sette opp en brannmur som blokker alt bortsett fra SSH porten man har satt, port 80 for HTTP og port 443 for HTTPS \cite{virdo2016}.
+\item Man bør bruke rettighetene 755 på mapper og 644 på filer som serveres offentlig. \cite[s.~34]{barnettapache}
+\end{itemize}
+
 
 \section{Analyse av opprinnelig løsning}
 
@@ -462,13 +466,13 @@ Forsiden består av bakgrunnsbilde som inneholder logo, meny, overskrifter og en
 Deretter kommer det en beskrivende tekst om firmaet, informasjon om plattformen, logo av ledende  Ad-servers og DSP's, partnerprogram og utvalgte kunder. Siden avsluttes med en \q{Contact us}-seksjon.
 
 Nettstedet består også av følgende undersider:
-\begin{itemize}
+\begin{compactitem}
 \item Platform
 \item Company
 \item Partners
 \item Clients
 \item Blog
-\end{itemize}
+\end{compactitem}
 
 \subsubsection{Teknisk analyse}
 
@@ -524,7 +528,7 @@ Førsteinntrykket av nettstedet er positivt, fordi den fremstår som ryddig og p
 Forsiden, i tillegg til headeren, består av logo til noen utvalgre kunder, prosessen til Marketer, animasjoner, resultater fra tidligere prosjekter og en presentasjon av deres løsninger. Helt nederst på siden kommer bunnfeltet, der organisasjonsnummeret, kontaktinformasjon og adresse blir presentert.
 
 Nettstedet består også av følgende undersider:
-\begin{itemize}
+\begin{compactitem}
 \item Solutions
 \item Company
 \item Customers
@@ -532,7 +536,7 @@ Nettstedet består også av følgende undersider:
 \item Careers 
 \item Contact
 \item Book demo
-\end{itemize}
+\end{compactitem}
 
 \subsubsection{Teknisk analyse}
 \begin{figure}[H]
@@ -582,14 +586,14 @@ Førsteinntrykket av nettstedet er at den fremstår som rotete. Hovedgrunnen til
 I tillegg til headeren består forsiden av \q{Om oss}-tekst, deres tjenester og utvalgte kunder. 
 
 Nettstedet består også av følgende undersider:
-\begin{itemize}
+\begin{compactitem}
 \item Inviso
 \item Våre produkter
 \item Kontakt
 \item Galleri
 \item Verktøy
 \item Nyheter
-\end{itemize}
+\end{compactitem}
 
 
 \subsubsection{Teknisk analyse}
@@ -655,7 +659,7 @@ Følgende sett med minimumskrav er satt med basis i de foregående analysene:
 
 \begin{compactdesc}
 \item [Robusthet] Både når det gjelder DevOps, back- og front-end er det viktig å ha verktøy som er stabile og til å stole på. Ved å bruke robuste systemer er det mer sannsynlighet at nettstedet vi utvikler også er stabilt.
-\item [Sikkerhet] For å unngå konsekvensene av angrep som for eksempel kan føre til at vi mister sensitiv informasjon, er det viktig å bruke systemer med god sikkerhet.
+\item [Sikkerhet] For å minimere konsekvensene av angrep som for eksempel kan føre til at vi mister sensitiv informasjon, er det viktig å bruke systemer med god sikkerhet.
 \item [Brukermasse] Når et verktøy er populært finnes det ofte tilhørende forum der brukerne enkelt kan finne svar. En annen fordel med en stor brukermasse er at det kan tyde på at verktøyet holder mål.
 \item [Dokumentasjon] Verktøyene må være godt dokumentert, slik at det er lett å finne svar om det oppstår spørsmål.
 \end{compactdesc}
@@ -664,7 +668,7 @@ Følgende sett med minimumskrav er satt med basis i de foregående analysene:
 \label{sec:analysis-tools-requirements-back-end}
 \begin{compactdesc}
 \item [Versjonskontroll] Verktøyene vi bruker burde være mulig å sjekke inn i versjonskontroll, slik at studentgruppen alltid har historikk på kodeendringer. En annen fordel er at det vil opprettes en sikkerhetskopi.
-\item [Hastighet] Systemet på back-end må kunne svare raskt på forespørsler fra front-end slik at det blir minst mulig ventetid for klientene
+\item [Hastighet] Systemet på back-end må kunne svare raskt på forespørsler fra front-end slik at det blir minst mulig ventetid for klientene.
 \end{compactdesc}
 
 \subsubsection{Krav til front-end}
@@ -699,7 +703,7 @@ Matteo J. (2018, Mars 16) Re: Explain MVC like I'm five [Blogg kommentar]\footno
 
 \textbf{Visning} (View) håndterer brukerinteraksjon og presentasjon av data. Er ofte et grafisk brukergrensesnitt.
 
-\textbf{Kontrolleren} (Control) delen er ansvarlig for å koordinere forespørsler og svar.
+\textbf{Kontroller} (Control) delen er ansvarlig for å koordinere forespørsler og svar.
 
 \subsection{Verktøy til teknisk analyse}
 
@@ -713,11 +717,11 @@ Google Lighthouse \cite{google2018lig} er et gratis verktøy for å sjekke kvali
 
 \subsubsection{Checkbot}
 \label{sec:checkbot}
-Checkbot \cite{checkbot2019cth} tester en nettsides sikkerhet, hurtighet og søkemotoroptimalisering. Checkbot kan sjekke hundrevis av sider i minutter for å se etter ødelagte koblinger, duplikat innhold, ugyldig HTML, usikre skjemaer og mer.
+Checkbot \cite{checkbot2019cth} tester en nettsides sikkerhet, hurtighet og søkemotoroptimalisering. Checkbot kan sjekke hundrevis av sider på minutter for å se etter ødelagte koblinger, duplikat innhold, ugyldig HTML, usikre skjemaer og mer.
 
 \subsubsection{Color Contrast Analyzer}
 \label{sec:color-contrast-analyzer}
-Color Contrast Analyzer \cite{ncstate2013cca} er en Chrome-utvidelse som lar deg analysere kontrastproblemer på nettsteder i henhold til WCAG 2 fargekontrastkravene. Denne utvidelsen gjør det mulig å analysere tekst som ligger over bakgrunnsbilder eller gradienter, analysere tekst i bilder og gi en visuell oversikt over kontrastene på siden.
+Color Contrast Analyzer \cite{ncstate2013cca} er en Google Chrome-utvidelse som lar deg analysere kontrastproblemer på nettsteder i henhold til WCAG 2 fargekontrastkravene. Denne utvidelsen gjør det mulig å analysere tekst som ligger over bakgrunnsbilder eller gradienter, analysere tekst i bilder og gi en visuell oversikt over kontrastene på siden.
 
 \subsubsection{WAVE}
 \label{sec:wave}
@@ -741,7 +745,11 @@ Googles Safe Browsing-teknologi \cite{google2019sbs} undersøker milliarder nett
 \subsubsection{Figma}
 Figma \cite{figma2019abw} er et webbasert designverktøy som åpner muligheten for å samarbeide i sanntid. Med Figma er det også mulig å designe mockups og prototyper av applikasjoner og nettsider.
 
-% ekstra kilde: \url{https://www.xfive.co/blog/figma-best-designer-developer-cooperation/}
+\subsubsection{Dribbble}
+Dribbble er et nettsted for deling av design verk. Det brukes ofte som en kilde for inspirasjon\footnote{\url{https://dribbble.com/about}}.
+
+\subsubsection{Adobe Behance}
+Behance er et nettsted for deling av design verk. Det brukes ofte som en kilde for inspirasjon\footnote{\url{https://help.behance.net/hc/en-us/articles/204483894-What-is-Behance-}}.
 
 \subsection{Verktøy til back-end}
 
@@ -767,14 +775,10 @@ Kilde: \url{http://php.net/}
 \subsection{Verktøy til DevOps}
 
 \subsubsection{GNU/Linux}
-GNU/Linux er en familie med Unix-lignende operativsystemer som baserer seg på Linux-kjernen og en del programvare fra GNU-prosjektet.
-I denne familien finner vi blant annet Ubuntu, Debian, Fedora, Red Hat Linux og Arch Linux.
-Kilder: \url{http://lib.sgu.edu.vn:84/dspace/bitstream/TTHLDHSG/2808/1/Operating_System_Concepts_Essentials.pdf} \url{https://www.gnu.org/}
+GNU/Linux er en familie med Unix-lignende operativsystemer som baserer seg på Linux-kjernen \cite{kernel_org} og en del programvare fra GNU-prosjektet \cite{gnu_org}. I denne familien finner vi blant annet Ubuntu, Debian, Fedora, Red Hat Linux og Arch Linux.
 
 \subsubsection{Nginx}
-Nginx er en gratis HTTP-server med åpen kildekode. Nginx har mulighet til å håndtere høy belastning av HTTP-forespørsler. Programmet er tilgjengelig på operativsystemer som Windows, Mac OS og Solaris. I tillegg er Nginx tilgjengelig på operativsystemer som er basert på GNU/Linux eller BSD.
-
-Kilde: Nedelcu, C. (2010). Nginx HTTP Server: Adopt Nginx for Your Web Applications to Make the Most of Your Infrastructure and Serve Pages Faster Than Ever. Packt Publishing Ltd.
+Nginx er en gratis HTTP-server med åpen kildekode \cite{nedelcu2010nginx}. Nginx har mulighet til å håndtere høy belastning av HTTP-forespørsler. Programmet er tilgjengelig på operativsystemer som Windows, Mac OS og Solaris. I tillegg er Nginx tilgjengelig på operativsystemer som er basert på GNU/Linux eller BSD.
 
 \subsubsection{phpMyAdmin}
 phpMyAdmin \cite{phpmyadmin2019bmt} er et gratis og webbasert administrasjonsverktøy for MySQL og MariaDB databaser, skrevet i PHP. Med phpMyAdmin kan man lage, endre og slette databaser, tabeller og felter. Annen funksjonalitet kan være å utføre SQL-setninger, administrere nøkler og privilegier og eksportere data til ulike formater.
@@ -783,15 +787,13 @@ phpMyAdmin \cite{phpmyadmin2019bmt} er et gratis og webbasert administrasjonsver
 MariaDB \cite{mariadb2019amd} er et relasjonsdatabasesystem basert på MySQL og har åpen kildekode. Systemet funker som en \textit{drop-in} erstatning for MySQL.
 
 \subsubsection{Buddy}
-Buddy\footnote{\url{https://buddy.works}} er en webbasert applikasjon for CI og CD. Applikasjonen lar utviklere bygge, teste og distribuere nettsider og programkode automatisk når kildekoden oppdateres. For eksempel er det mulig å koble Buddy til et nettsteds kildekode via Git. Når koden til nettstedet oppdateres, vil Buddy automatisk detektere endringer og starte en byggeprosess. Når byggeprosessen er ferdig kjøres det automatisk tester på koden, som verifiserer at alt fungerer. Deretter vil Buddy laste koden opp til en server og oppdatere nettstedet som ligger ute på nett. Dette skjer gjerne gjennom Docker\footnote{\url{https://www.docker.com/}} sammen med Kubernetes\footnote{\url{https://kubernetes.io/}}.
+Buddy\cite{fsf2019gos} er en webbasert applikasjon for CI og CD. Applikasjonen lar utviklere bygge, teste og distribuere nettsider og programkode automatisk når kildekoden oppdateres. For eksempel er det mulig å koble Buddy til et nettsteds kildekode via Git. Når koden til nettstedet oppdateres, vil Buddy automatisk detektere endringer og starte en byggeprosess. Når byggeprosessen er ferdig kjøres det automatisk tester på koden, som verifiserer at alt fungerer. Deretter vil Buddy laste koden opp til en server og oppdatere nettstedet som ligger ute på nett. Dette skjer gjerne gjennom Docker\footnote{\url{https://www.docker.com/}} sammen med Kubernetes\footnote{\url{https://kubernetes.io/}}.
 
 \subsubsection{Ottomatik.io}
-Ottomatik\footnote{\url{https://ottomatik.io/}} er en webbasert tjeneste for automatisk sikkerhetskopiering av filer og MySQL databaser.
+Ottomatik\cite{barnes2016osb} er en webbasert tjeneste for automatisk sikkerhetskopiering av filer og MySQL databaser.
 
 \subsubsection{Amazon S3}
-Amazon Simple Storage Service\footnote{\url{https://aws.amazon.com/s3/}} er en webbasert tjeneste som tilbyr objekt-lagring. Tjenesten tilbyr meget god skalerbarhet, datatilgjengelighet, sikkerhet og ytelse.
-
-KILDE: https://dash.harvard.edu/handle/1/24829568
+Amazon Simple Storage Service\cite{aws2019as3} er en webbasert tjeneste som tilbyr objekt-lagring. Tjenesten tilbyr meget god skalerbarhet, datatilgjengelighet, sikkerhet og ytelse \cite{garfinkel2007aeagcs}.
 
 \subsubsection{Let’s Encrypt}
 Let’s Encrypt\footnote{\url{https://letsencrypt.org/}} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
@@ -923,162 +925,162 @@ Kilde:
 Studengruppen har kommet frem til at fordelene trumfer ulempene når det kommer til Laravel. Derfor har vi valgt å bruke dette for å videreutvikle et eget CMS.
 
 
-\section{Akademiske og tekniske dokumenter}
+% \section{Akademiske og tekniske dokumenter}
 
-Akademiske og tekniske dokumenter ser noe forskjellige ut avhengig av fagfeltet. Likevel, en litt grundigere analyse avslører en felles hovedstruktur, som egentlig er ganske intuitiv\dots og omtrent lik den vi lærte på barneskolen: {\em Hode, kropp og hale}. Hver av disse hoveddelene består som regel av omtrent de samme elementene. 
-
-
-
-\subsection{Mayfield Handbook of Technical \& Scientific Writing}
-\label{sec:mayfield}
-
-I følge engelsk terminologi deler man gjerne et dokument opp i {\em Front matter, Body og End (Back) matter}, og det gjøres konsekvent i
-Mayfield Handbook of Technical \& Scientific Writing \cite{perelman97mht}. Denne utmerkede kilden finnes også på 
-elektronisk form\footnote{\url{http://www.mhhe.com/mayfieldpub/tsw/home.htm}}. 
-I kapittelet 
-{\em Elements of Technical Documents}\footnote{\url{http://www.mhhe.com/mayfieldpub/tsw/elemtech.htm}}
-blir den følgende generiske strukturen foreslått:
-
-\begin{compactitem}
-\item Front Matter
-\begin{compactitem}
-\item Title page
-\item Abstract
-\item Table of contents
-\item List of figures
-\item List of tables
-\item List of terms
-\item Acknowledgments
-\end{compactitem}
-
-\item Body
-\begin{compactitem}
-\item Introduction
-\item Background
-\item Theory
-\item Design criteria
-\item Materials and apparatus
-\item Procedure
-\item Workplan
-\item Results
-\item Discussion
-\item Conclusion
-\item Recommendations
-\end{compactitem}
-
-\item End Matter
-\begin{compactitem}
-\item References
-\item Appendixes
-\item Index
-\end{compactitem}
-
-\end{compactitem}
-
-Hvert av punktene blir nærmere beskrevet, med mange eksempler på godt (og dårlig) innhold, og det anbefales på det sterkeste å  studere dette kapitellet nærmere. 
-
-Denne strukturen er så nær man kommer en universell mal for en teknisk/vitenskapelig rapport.
-
-\subsection{HiØ/IT}
-\label{sec:hiof-it}
-
-Ved HiØ/IT har man valgt å skille grovt sett mellom to typer dokumentasjon.
-{\em Prosessdokumentasjonen} omfatter en forprosjektrapport samt individuelle refleksjonsnotater, og selve produktet er omtalt i
-{\em hoveddokumentet}\footnote{\url{https://wiki.hiof.no/index.php/Bacheloroppgaven_-_Leveranser}}(eller rett og slett det vi kaller bacheloroppgaven).
-Når det gjelder oppbygging og innhold er hoveddokumentet å regne som en typisk akademisk/teknisk rapport/artikkel:
-
-\begin{compactitem}
-\item Tittelside
-\item Sammendrag
-\item (Takk til)
-\item Innholdsfortegnelse
-\item (Liste over figurer)
-\item (Liste over tabeller)
-\item Introduksjon
-\item Analyse
-\item Design
-\item Implementasjon
-\item Evaluering
-\item Diskusjon
-\item Konklusjon
-\item Referanser
-\item Referanser
-\end{compactitem}
-
-\section{Skriveverktøy for store og komplekse dokumenter}
-
-For å starte på et stort og komplekst dokument, vil mange åpne sin vanlige teksteditor og sette igang. Det går sjelden bra. Som ved alle typer større oppgaver, bør man velge sine verktøy med omhu.
-Før man setter igang å lage et digitalt dokument, kan det være fornuftig å dvele litt ved hvordan dokumenter har blitt, og blir, produsert på tradisjonelt vis. 
-
-\subsection{Forfatter, redaktør, typograf, trykkeri}
-
-Tradisjonelt hersker det en streng arbeidsdeling innen produksjon av dokumenter, som f.eks. en bok, eller en avis. Forfatteren (eller journalisten) skriver såkalt {\rm brødtekst}, som rett og slett er tekst, skrevet for hånd, på skrivemaskin, eller talt inn på diktafon. I teksten er det gjerne markert ulike strukturelle elementer. Det er markert hvor et nytt avsnitt begynner, kanskje det står skrevet at her kommer det en illustrasjon, etc. Dette råmaterialet går gjerne til en redaktør, som kvalitetssikrer innholdet og tildels struktur, og eventuelt foreslår/foretar endringer. Deretter tar typografen (eller den grafiske formgiveren) over, og bestemmer skriftstørrelser, fonter, marger, linjeavstand etc. Til slutt går trykkoriginalen til trykkeriet\footnote{Her kan jo være på sine plass å tenke litt på XHTML og CSS, og hvor de har sine røtter\dots og da tenker jeg ikke på Håkon Wium Lie \smiley.}.
-
-Denne framgangsmåten ivaretar en klar tredeling av arbeidet; innhold, struktur, og form. Innholdet, og grovstrukturen, bestemmes av forfatteren. Redaktøren sørger for å kvalitetssikre innholdet, og eventuelle justere strukturen. Den endelig formgivingen av dokumentet blir typografens rolle. Det er viktig å merke seg at alle disse tre rollene krever høy kompetanse innen helt forskjellige fagfelt. De fleste mener også at det er ganske unaturlig for en forfatter å legge ned mye tankearbeid i hvilken font og størrelse det bør være på overskriftene. På den annen side ville vel det ikke være rett at typografen blandet seg bort i innholdet.
-
-\subsection{The curse of the cursor \\  \normalsize -eller- \\DTP: DeskTop Publishing eller Dom Tokigas Paradis? }
-
-Og etterhvert kom datamaskinene, som tilsynelatende kunne gjøre ``alt'', og dermed begynte mange å gjøre ``alt'', selv. Teksteditorer og desktop publishing verktøy gjorde det mulig for at en person kunne stå for hele prosessen, både skrive, redigere, og formgi, uten å ha særlig kompetanse, ferdighet eller erfaring i noen av feltene.
-
-Personlig husker jeg godt mitt første møte med DTP, tidlig i IT-utdannelsen. Oppgaven var å lage en liten avis, med bilder og det hele, ved hjelp av en søt liten Mac, som på et mysteriøst vis var knyttet sammen med en skriver som til og med skrev ut illustrasjoner og fotografier i grov oppløsning. Den blinkende markøren i teksteditoren var hypnotisk, halvt innbydende, halvt skremmende. Og så måtte man bare kaste seg ut i det. Skrive noen setninger, markere en del som ``bold'' og fontstørrelse 18, fin overskrift, et par ``enter'', forsette med vanlig font, nei, kanskje en litt mer fancy kalligrafifont, kanskje til og med blå? Og dermed var det gjort, forvirringen var total. Noe senere erfarte jeg at i enkelte svenske miljøer mente man at DTP sto for ``Dom Tokigas Paradis". Innen visse segmenter av reklamebransjen mener jeg fremdeles å se spor etter slike traumatiske møter med datastøttet publisering.
-
-Man kan jo spørre seg om det egentlig er noen forskjell mellom et blankt ark, enten på et skrivebord eller i en skrivemaskin, og en blinkende markør øverst i venstre hjørne i en editor? Uansett svar, det blanke arket gir deg ikke anledning til å eksperimentere med fonter, marger, skriftstørrelse og plassering av bilder. Arket handler kun om innhold, og hvordan det skal struktureres, hvilken passasje som følger en annen, og hvor det begynner et nytt avsnitt.
-
-\subsection{Programmering av dokumenter}
-
-Et par år senere skal jeg produsere min første akademiske artikkel, i \LaTeX~med  AMS stilen. Hæh?
-
-Det tok et par dager før jeg skjønte poenget. Skrive innholdet i filer (ark) i en editor uten formateringsmulighet, sette inn kryptiske kommandoer for å markere avsnitt eller matematiske uttrykk, sette sammen delene i en styrefil, legge til noen kommandoer som avgjorde hvordan dokumentet ble seendes ut. Deretter {\em kompilere} hele greia! Som så resulterte i  en DVI-fil\footnote{DVI: DeVice Independent}, som igjen kunne konverteres til alle mulige trykk- og printbare formater. Og det beste av alt, resultatet, rent formmessig, ble helt strøkent, akkurat som i lærebøkene og artikkelsamlingene.
-
-Dette var jo akkurat som å programmere. Full kontroll.
+% Akademiske og tekniske dokumenter ser noe forskjellige ut avhengig av fagfeltet. Likevel, en litt grundigere analyse avslører en felles hovedstruktur, som egentlig er ganske intuitiv\dots og omtrent lik den vi lærte på barneskolen: {\em Hode, kropp og hale}. Hver av disse hoveddelene består som regel av omtrent de samme elementene. 
 
 
-\section{Digital dokumentproduksjon}
 
-Vi foreslår et sett med minimumskrav til digitale dokumentverktøy, basert på  den forutgående analysen. Deretter gir vi kort beskrivelse av 
-\LaTeX~ og OpenOffice Writer, som etter en kort vurdering er de to verktøyene som tilfredstiller de fleste av kravene.
+% \subsection{Mayfield Handbook of Technical \& Scientific Writing}
+% \label{sec:mayfield}
 
-\subsection{Generelle krav}
-\label{sec:generelle-krav}
+% I følge engelsk terminologi deler man gjerne et dokument opp i {\em Front matter, Body og End (Back) matter}, og det gjøres konsekvent i
+% Mayfield Handbook of Technical \& Scientific Writing \cite{perelman97mht}. Denne utmerkede kilden finnes også på 
+% elektronisk form\footnote{\url{http://www.mhhe.com/mayfieldpub/tsw/home.htm}}. 
+% I kapittelet 
+% {\em Elements of Technical Documents}\footnote{\url{http://www.mhhe.com/mayfieldpub/tsw/elemtech.htm}}
+% blir den følgende generiske strukturen foreslått:
 
-Kravene er utarbeidet delvis med basis i den forutgående analysen, men i hovedsak ut fra forfatterens erfaringer.
+% \begin{compactitem}
+% \item Front Matter
+% \begin{compactitem}
+% \item Title page
+% \item Abstract
+% \item Table of contents
+% \item List of figures
+% \item List of tables
+% \item List of terms
+% \item Acknowledgments
+% \end{compactitem}
 
-\vspace{1em}
-\begin{compactdesc}
-\item [Plattformuavhengighet] I et prosjekt med flere deltagere, er det direkte arrogant å forvente at alle skal bruke samme plattform, fordi valget av dokumentasjonsverktøy krever dette.
-\item [Robusthet] En hovedrapport er ofte relativt stor, og tildels med komplekst innhold (figurer, tabeller etc). Det er ikke uvanlig at selv kostbare og vidt utbredte verktøy kræsjer i en slik kontekst, eller verre, begynner å oppføre seg inkonsistent og uforutsigbart Det å åpne et dokument, bare for å oppleve at formatering som ble foretatt kvelden før er ødelagt, er ingen særlig givende erfaring, særlig ikke hvis det er to timer til rapporten skal leveres inn.
-\item [Maler/stiler] Det må kunne være mulig å skifte mal på et og samme dokument uten å gjøre ekstra tilpasninger. Dermed oppnår man et klart skille mellom innhold og utforming. Hvis f.eks. retningslinjene for hovedrapporten endrer seg, så er det bare å lage en ny mal og bruke denne.
-\item [Oppsplitting]Det bør kunne være mulig å splitte dokumentet i mindre deler, f.eks. en fil for hvert kapittel. Delene må kunne knyttes sammen i et masterdokument. På denne måten vil det være lett å endre rekkefølgen på komponentene. Da er også strukturen uavhengig av det faktiske innholdet. Oppsplitting er også en forutsetning for å kunne jobbe distribuert, der de ulike deltagerne jobber parallelt på ulike deler av rapporten.
-\item [Kryssreferanser]Det må være mulig å bruke dynamiske kryssreferanser, slik at man f.eks. kan referere til en nummerert figur. Hvis da nummeret til figuren endrer seg pga. av at det blir lagt inn en figur tidligere i dokumentet, så må referanse oppdateres automatisk.
-\item [Bibliografi]De må være enkelt å referere til en ekstern samling bibliografiske referanser. Det også være enkelt å når som helst endre referansestil (f.eks. IEEE eller Harvard).
-\item [Brukermasse]Det bør eksistere en stor og variert brukermasse, noe som i seg selv kan være en antydning om at verktøyet holder mål.
-\item [Dokumentasjon]Verktøyet må være godt dokumentert, både den innebyggede dokumentasjonen, samt i ulike fora på nettet.
-\item [Versjonskontroll]Det må være enkelt å håndtere versjonering, dvs. at man lett kan rekonstruere tidlige versjoner, og lett se hva som er endret fra versjon til versjon.
-\item [Framtids/fortidssikker]Verktøyet bør kunne uten videre behandle dokumenter som er laget i tidligere versjoner. Dette vil også være en indikasjon på at dokumentet du jobber fremdeles ``lever'' i rimelig overskuelig framtid. 
-\item [Stave/grammatikkontroll] Minimumskravet er at det er mulig å utføre effektiv stavekontroll, for ulike språk, ikke minst norsk bokmål. I tillegg vil det være et pluss om det er mulig å verifisere grammatikk.
-\end{compactdesc}
+% \item Body
+% \begin{compactitem}
+% \item Introduction
+% \item Background
+% \item Theory
+% \item Design criteria
+% \item Materials and apparatus
+% \item Procedure
+% \item Workplan
+% \item Results
+% \item Discussion
+% \item Conclusion
+% \item Recommendations
+% \end{compactitem}
+
+% \item End Matter
+% \begin{compactitem}
+% \item References
+% \item Appendixes
+% \item Index
+% \end{compactitem}
+
+% \end{compactitem}
+
+% Hvert av punktene blir nærmere beskrevet, med mange eksempler på godt (og dårlig) innhold, og det anbefales på det sterkeste å  studere dette kapitellet nærmere. 
+
+% Denne strukturen er så nær man kommer en universell mal for en teknisk/vitenskapelig rapport.
+
+% \subsection{HiØ/IT}
+% \label{sec:hiof-it}
+
+% Ved HiØ/IT har man valgt å skille grovt sett mellom to typer dokumentasjon.
+% {\em Prosessdokumentasjonen} omfatter en forprosjektrapport samt individuelle refleksjonsnotater, og selve produktet er omtalt i
+% {\em hoveddokumentet}\footnote{\url{https://wiki.hiof.no/index.php/Bacheloroppgaven_-_Leveranser}}(eller rett og slett det vi kaller bacheloroppgaven).
+% Når det gjelder oppbygging og innhold er hoveddokumentet å regne som en typisk akademisk/teknisk rapport/artikkel:
+
+% \begin{compactitem}
+% \item Tittelside
+% \item Sammendrag
+% \item (Takk til)
+% \item Innholdsfortegnelse
+% \item (Liste over figurer)
+% \item (Liste over tabeller)
+% \item Introduksjon
+% \item Analyse
+% \item Design
+% \item Implementasjon
+% \item Evaluering
+% \item Diskusjon
+% \item Konklusjon
+% \item Referanser
+% \item Referanser
+% \end{compactitem}
+
+% \section{Skriveverktøy for store og komplekse dokumenter}
+
+% For å starte på et stort og komplekst dokument, vil mange åpne sin vanlige teksteditor og sette igang. Det går sjelden bra. Som ved alle typer større oppgaver, bør man velge sine verktøy med omhu.
+% Før man setter igang å lage et digitalt dokument, kan det være fornuftig å dvele litt ved hvordan dokumenter har blitt, og blir, produsert på tradisjonelt vis. 
+
+% \subsection{Forfatter, redaktør, typograf, trykkeri}
+
+% Tradisjonelt hersker det en streng arbeidsdeling innen produksjon av dokumenter, som f.eks. en bok, eller en avis. Forfatteren (eller journalisten) skriver såkalt {\rm brødtekst}, som rett og slett er tekst, skrevet for hånd, på skrivemaskin, eller talt inn på diktafon. I teksten er det gjerne markert ulike strukturelle elementer. Det er markert hvor et nytt avsnitt begynner, kanskje det står skrevet at her kommer det en illustrasjon, etc. Dette råmaterialet går gjerne til en redaktør, som kvalitetssikrer innholdet og tildels struktur, og eventuelt foreslår/foretar endringer. Deretter tar typografen (eller den grafiske formgiveren) over, og bestemmer skriftstørrelser, fonter, marger, linjeavstand etc. Til slutt går trykkoriginalen til trykkeriet\footnote{Her kan jo være på sine plass å tenke litt på XHTML og CSS, og hvor de har sine røtter\dots og da tenker jeg ikke på Håkon Wium Lie \smiley.}.
+
+% Denne framgangsmåten ivaretar en klar tredeling av arbeidet; innhold, struktur, og form. Innholdet, og grovstrukturen, bestemmes av forfatteren. Redaktøren sørger for å kvalitetssikre innholdet, og eventuelle justere strukturen. Den endelig formgivingen av dokumentet blir typografens rolle. Det er viktig å merke seg at alle disse tre rollene krever høy kompetanse innen helt forskjellige fagfelt. De fleste mener også at det er ganske unaturlig for en forfatter å legge ned mye tankearbeid i hvilken font og størrelse det bør være på overskriftene. På den annen side ville vel det ikke være rett at typografen blandet seg bort i innholdet.
+
+% \subsection{The curse of the cursor \\  \normalsize -eller- \\DTP: DeskTop Publishing eller Dom Tokigas Paradis? }
+
+% Og etterhvert kom datamaskinene, som tilsynelatende kunne gjøre ``alt'', og dermed begynte mange å gjøre ``alt'', selv. Teksteditorer og desktop publishing verktøy gjorde det mulig for at en person kunne stå for hele prosessen, både skrive, redigere, og formgi, uten å ha særlig kompetanse, ferdighet eller erfaring i noen av feltene.
+
+% Personlig husker jeg godt mitt første møte med DTP, tidlig i IT-utdannelsen. Oppgaven var å lage en liten avis, med bilder og det hele, ved hjelp av en søt liten Mac, som på et mysteriøst vis var knyttet sammen med en skriver som til og med skrev ut illustrasjoner og fotografier i grov oppløsning. Den blinkende markøren i teksteditoren var hypnotisk, halvt innbydende, halvt skremmende. Og så måtte man bare kaste seg ut i det. Skrive noen setninger, markere en del som ``bold'' og fontstørrelse 18, fin overskrift, et par ``enter'', forsette med vanlig font, nei, kanskje en litt mer fancy kalligrafifont, kanskje til og med blå? Og dermed var det gjort, forvirringen var total. Noe senere erfarte jeg at i enkelte svenske miljøer mente man at DTP sto for ``Dom Tokigas Paradis". Innen visse segmenter av reklamebransjen mener jeg fremdeles å se spor etter slike traumatiske møter med datastøttet publisering.
+
+% Man kan jo spørre seg om det egentlig er noen forskjell mellom et blankt ark, enten på et skrivebord eller i en skrivemaskin, og en blinkende markør øverst i venstre hjørne i en editor? Uansett svar, det blanke arket gir deg ikke anledning til å eksperimentere med fonter, marger, skriftstørrelse og plassering av bilder. Arket handler kun om innhold, og hvordan det skal struktureres, hvilken passasje som følger en annen, og hvor det begynner et nytt avsnitt.
+
+% \subsection{Programmering av dokumenter}
+
+% Et par år senere skal jeg produsere min første akademiske artikkel, i \LaTeX~med  AMS stilen. Hæh?
+
+% Det tok et par dager før jeg skjønte poenget. Skrive innholdet i filer (ark) i en editor uten formateringsmulighet, sette inn kryptiske kommandoer for å markere avsnitt eller matematiske uttrykk, sette sammen delene i en styrefil, legge til noen kommandoer som avgjorde hvordan dokumentet ble seendes ut. Deretter {\em kompilere} hele greia! Som så resulterte i  en DVI-fil\footnote{DVI: DeVice Independent}, som igjen kunne konverteres til alle mulige trykk- og printbare formater. Og det beste av alt, resultatet, rent formmessig, ble helt strøkent, akkurat som i lærebøkene og artikkelsamlingene.
+
+% Dette var jo akkurat som å programmere. Full kontroll.
 
 
-\subsection{\LaTeX}
+% \section{Digital dokumentproduksjon}
 
-Klipt og limt fra Wikipedia\footnote{\url{http://no.wikipedia.org/wiki/LaTeX}}:
+% Vi foreslår et sett med minimumskrav til digitale dokumentverktøy, basert på  den forutgående analysen. Deretter gir vi kort beskrivelse av 
+% \LaTeX~ og OpenOffice Writer, som etter en kort vurdering er de to verktøyene som tilfredstiller de fleste av kravene.
 
-\begin{quotation}
-\LaTeX~ er et typesettingssystem for dokumentproduksjon. Det skrives normalt LaTeX i dokumenter som ikke har hevet og senket tekst.
-\LaTeX~ ble opprinnelig utviklet av Leslie Lamport i 1984 og tilbyr idag en lang rekke dokumentproduksjonspakker som f.eks. automatisk opprettelse av innholdsfortegnelser, lister med tabeller og figurer, inkludering av bilder, kryssreferanser, sideoppsett, bibliografier mm.
+% \subsection{Generelle krav}
+% \label{sec:generelle-krav}
+
+% Kravene er utarbeidet delvis med basis i den forutgående analysen, men i hovedsak ut fra forfatterens erfaringer.
+
+% \vspace{1em}
+% \begin{compactdesc}
+% \item [Plattformuavhengighet] I et prosjekt med flere deltagere, er det direkte arrogant å forvente at alle skal bruke samme plattform, fordi valget av dokumentasjonsverktøy krever dette.
+% \item [Robusthet] En hovedrapport er ofte relativt stor, og tildels med komplekst innhold (figurer, tabeller etc). Det er ikke uvanlig at selv kostbare og vidt utbredte verktøy kræsjer i en slik kontekst, eller verre, begynner å oppføre seg inkonsistent og uforutsigbart Det å åpne et dokument, bare for å oppleve at formatering som ble foretatt kvelden før er ødelagt, er ingen særlig givende erfaring, særlig ikke hvis det er to timer til rapporten skal leveres inn.
+% \item [Maler/stiler] Det må kunne være mulig å skifte mal på et og samme dokument uten å gjøre ekstra tilpasninger. Dermed oppnår man et klart skille mellom innhold og utforming. Hvis f.eks. retningslinjene for hovedrapporten endrer seg, så er det bare å lage en ny mal og bruke denne.
+% \item [Oppsplitting]Det bør kunne være mulig å splitte dokumentet i mindre deler, f.eks. en fil for hvert kapittel. Delene må kunne knyttes sammen i et masterdokument. På denne måten vil det være lett å endre rekkefølgen på komponentene. Da er også strukturen uavhengig av det faktiske innholdet. Oppsplitting er også en forutsetning for å kunne jobbe distribuert, der de ulike deltagerne jobber parallelt på ulike deler av rapporten.
+% \item [Kryssreferanser]Det må være mulig å bruke dynamiske kryssreferanser, slik at man f.eks. kan referere til en nummerert figur. Hvis da nummeret til figuren endrer seg pga. av at det blir lagt inn en figur tidligere i dokumentet, så må referanse oppdateres automatisk.
+% \item [Bibliografi]De må være enkelt å referere til en ekstern samling bibliografiske referanser. Det også være enkelt å når som helst endre referansestil (f.eks. IEEE eller Harvard).
+% \item [Brukermasse]Det bør eksistere en stor og variert brukermasse, noe som i seg selv kan være en antydning om at verktøyet holder mål.
+% \item [Dokumentasjon]Verktøyet må være godt dokumentert, både den innebyggede dokumentasjonen, samt i ulike fora på nettet.
+% \item [Versjonskontroll]Det må være enkelt å håndtere versjonering, dvs. at man lett kan rekonstruere tidlige versjoner, og lett se hva som er endret fra versjon til versjon.
+% \item [Framtids/fortidssikker]Verktøyet bør kunne uten videre behandle dokumenter som er laget i tidligere versjoner. Dette vil også være en indikasjon på at dokumentet du jobber fremdeles ``lever'' i rimelig overskuelig framtid. 
+% \item [Stave/grammatikkontroll] Minimumskravet er at det er mulig å utføre effektiv stavekontroll, for ulike språk, ikke minst norsk bokmål. I tillegg vil det være et pluss om det er mulig å verifisere grammatikk.
+% \end{compactdesc}
 
 
-LaTeX~ baserer seg på at forfatteren av et dokument kun skal være forfatter av dokumentet og slippe å bry seg om utforming og hvordan ting ser ut; noe han normalt sett ikke er ekspert på uansett. Det forfatteren gjør er å dele opp dokumentet i logiske strukturer før han lar LaTeX~ ta seg av selve oppsettet. LaTeX~ ansees ofte som WYSIWYM (det du ser er det du mener) fremfor WYSIWYG (det du ser er det du får) editor. Dette fører til at det ofte anerkjennes som overlegent fremfor andre skriveprogrammer grunnet at endringer som påvirker hele dokumentet er meget enkle å gjennomføre. De trenger ofte bare en endring et sted, så er endringen gjennomført i hele dokumentet.
-\end{quotation}
+% \subsection{\LaTeX}
+
+% Klipt og limt fra Wikipedia\footnote{\url{http://no.wikipedia.org/wiki/LaTeX}}:
+
+% \begin{quotation}
+% \LaTeX~ er et typesettingssystem for dokumentproduksjon. Det skrives normalt LaTeX i dokumenter som ikke har hevet og senket tekst.
+% \LaTeX~ ble opprinnelig utviklet av Leslie Lamport i 1984 og tilbyr idag en lang rekke dokumentproduksjonspakker som f.eks. automatisk opprettelse av innholdsfortegnelser, lister med tabeller og figurer, inkludering av bilder, kryssreferanser, sideoppsett, bibliografier mm.
 
 
-\subsection{OpenOffice Writer (med kloner)}
+% LaTeX~ baserer seg på at forfatteren av et dokument kun skal være forfatter av dokumentet og slippe å bry seg om utforming og hvordan ting ser ut; noe han normalt sett ikke er ekspert på uansett. Det forfatteren gjør er å dele opp dokumentet i logiske strukturer før han lar LaTeX~ ta seg av selve oppsettet. LaTeX~ ansees ofte som WYSIWYM (det du ser er det du mener) fremfor WYSIWYG (det du ser er det du får) editor. Dette fører til at det ofte anerkjennes som overlegent fremfor andre skriveprogrammer grunnet at endringer som påvirker hele dokumentet er meget enkle å gjennomføre. De trenger ofte bare en endring et sted, så er endringen gjennomført i hele dokumentet.
+% \end{quotation}
 
-Klipt og limt fra Wikipedia\footnote{\url{http://no.wikipedia.org/wiki/OpenOffice}}:
 
-\begin{quotation}
-Apache OpenOffice (AOO), er en kontorprogramvare som inneholder tekstbehandlingsprogram, regneark, presentasjonsprogram, tegneprogram og et databaseprogram. AOO er fri programvare, og distribueres av Apache Software Foundation under Apache-lisensen. Det betyr at både programmet og dets kildekode kan lastes ned gratis, og privatpersoner eller bedrifter kan selv gjøre endringer eller reparere feil. 
+% \subsection{OpenOffice Writer (med kloner)}
 
-AOO benytter ODF som sitt primære dokumentformat. Dette er en ISO-standard som blant annet er tatt i bruk av offentlig sektor i Norge og EU for utveksling av digitale dokumenter. I tillegg støttes formatene til Microsoft Office og en rekke andre kontorprogrammer. AOO er multiplattform programvare, tilgjengelig for mange forskjellige operativsystemer, deriblant Microsoft Windows, Mac OS X, Linux, Solaris, FreeBSD, NetBSD og OpenBSD.
-\end{quotation}
+% Klipt og limt fra Wikipedia\footnote{\url{http://no.wikipedia.org/wiki/OpenOffice}}:
+
+% \begin{quotation}
+% Apache OpenOffice (AOO), er en kontorprogramvare som inneholder tekstbehandlingsprogram, regneark, presentasjonsprogram, tegneprogram og et databaseprogram. AOO er fri programvare, og distribueres av Apache Software Foundation under Apache-lisensen. Det betyr at både programmet og dets kildekode kan lastes ned gratis, og privatpersoner eller bedrifter kan selv gjøre endringer eller reparere feil. 
+
+% AOO benytter ODF som sitt primære dokumentformat. Dette er en ISO-standard som blant annet er tatt i bruk av offentlig sektor i Norge og EU for utveksling av digitale dokumenter. I tillegg støttes formatene til Microsoft Office og en rekke andre kontorprogrammer. AOO er multiplattform programvare, tilgjengelig for mange forskjellige operativsystemer, deriblant Microsoft Windows, Mac OS X, Linux, Solaris, FreeBSD, NetBSD og OpenBSD.
+% \end{quotation}
 
