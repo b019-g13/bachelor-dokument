@@ -232,12 +232,8 @@ CSRF er angrep som tvinger brukere til å utføre uønskede handlinger på en ne
 \label{sec:analysis-security-sql-injection}
 SQL injections klassifiseres av noen som en av de mest seriøse trusselene mot webapplikasjoner \cite[s.~1]{halfond2006classification}. Om et nettsted har en svakhet for SQL injections kan en angriper ende opp med full kontroll over databasen.
 
-En SQL injection 
-ufker ved at en agriper skriver inn SQL kode i et brukerinputfelt, som da kjøres på serveren \cite[s.~2]{halfond2006classification}.n
-For å unngå slik
- angrep kanema  brnke \textit{prepared statemen}st eller \textit{escape} brukerinuup \cite[s.~6]{halfond2006classification}.t
-Valider input. Aldri stol på klienten. Escape brukerinput.
-Bruk pepared statements
+En SQL injection funker ved at en agriper skriver inn SQL kode i et brukerinput, som da kjøres på serveren \cite[s.~2]{halfond2006classification}.
+For å unngå slike angrep kan man bruke \textit{prepared statements} eller \textit{escape} brukerinput \cite[s.~6]{halfond2006classification}.
 
 \subsubsection{MySQL}
 \label{sec:analysis-security-mysql}
