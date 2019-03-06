@@ -129,13 +129,11 @@ Dette kan være mye forskjellig, men for nettsider er responstid den tiden det t
     \label{fig:analysis-loading-indicators}
 \end{figure}
 
-Indikasjon på ventetid er teknikker som brukes for å informere brukeren om at systemet har motatt brukerinput eller at det opptatt og utfører en jobb. Her er det vanlig med blant annet fremdriftslinjer, spinners eller animerte ikoner og illustrasjoner. Se figur \ref{fig:analysis-loading-indicators} for eksempeler.
+Indikasjon på ventetid er teknikker som brukes for å informere brukeren om at systemet har motatt brukerinput eller at det opptatt og utfører en jobb. Her er det vanlig med blant annet fremdriftslinjer, spinners eller animerte ikoner og illustrasjoner. Se figur \ref{fig:analysis-loading-indicators} for eksempler.
 Det er ønskelig å bruke disse for å gi brukeren en følelse av kontroll, samt å sette forventninger. Om en bruker sender inn et skjema så er det best å vise for eksempel en spinner med en gang brukeren trykk send. Da kan brukeren skjønne at skjemaet holder på å sende, i stedet for at man ikke viser noen ting før etter skjemaet har blitt sendt. Ved å ikke vise noen ting kan brukeren tro at knapptrykket ikke ble registrert og trykker derfor en gang til. 
 
 Brukere hater trege nettsider. Dette fordi de mister følelsen av kontroll. Når det trykkes på noe og det får en umiddelbar reaksjon, føler brukeren seg i kontroll. Med en gang ventetiden på en reaksjon fra et trykk går over et sekund begynner brukeren å miste følelsen av kontroll. En treg nettside kan føre til at brukeren gir opp og går vekk fra siden.
 
-Bouncerate 
-\url{https://www.section.io/blog/page-load-time-bounce-rate/ }
 
 \section{Lovverk}
 Det finnes også noen lovverk som må følges når det kommer til utvikling av nettsteder. I dette underkapittelet blir det beskrevet hva disse går ut på. Det blir også gjennomgått hvorfor disse lovene er viktig, utover det faktum at de er lovpålagt. 
@@ -256,8 +254,8 @@ Man bør skru av login med passord \cite{jetha2018}.
 Man bør skru på login med public/private key pair. Gjerne med passord på key-en \cite{jetha2018}.
 Man bør sette maks antall forsøk på login før man blir midlertidig utestengt via IP \cite{ellingwood_2014_2}.
 Man bør skift vekk fra standard SSH port 22 til en annen under 1024 \cite{w3cports1995}
-Man bør sette opp en brannmur som blokker alt bortsett fra SSH porten man har satt, samt port 80 for HTTP og port 443 for HTTPS
-Man bør bruke rettighetene 755 på mapper og 644 på filer som serveres offentlig.
+Man bør sette opp en brannmur som blokker alt bortsett fra SSH porten man har satt, samt port 80 for HTTP og port 443 for HTTPS \cite{virdo2016}.
+Man bør bruke rettighetene 755 på mapper og 644 på filer som serveres offentlig. \cite[s.~34]{barnettapache}
 
 \section{Analyse av opprinnelig løsning}
 
@@ -821,7 +819,7 @@ Syntactically Awesome Style Sheets\footnote{\url{https://sass-lang.com/}} er en 
 KILDE: Cederholm, D. (2013). Sass for web designers. A Book Apart.
 
 \subsubsection{JavaScript}
-JavaScript\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript} er et programmeringsspråk som følger ECMAScript-spesifikasjonen. Det er mye brukt til å utvikle webapplikasjoner. Språket støttes av de fleste moderne nettlesere, og brukes til å manipulere elementene på nettsiden og stilene som er brukt på dem. JavaScript støtter objektorientert- og funksjonell programmering.
+JavaScript \cite{mdn2019jav} er et programmeringsspråk som følger ECMAScript-spesifikasjonen. Det er mye brukt til å utvikle webapplikasjoner. Språket støttes av de fleste moderne nettlesere, og brukes til å manipulere elementene på nettsiden og stilene som er brukt på dem. JavaScript støtter objektorientert- og funksjonell programmering.
 
 \subsubsection{React}
 React\footnote{\url{https://reactjs.org/}} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og brukes som visningslaget for webapplikasjoner som følger MVC. React har åpen kildekode og er utviklet av Facebook.
