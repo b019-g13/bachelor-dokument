@@ -178,6 +178,26 @@ Kjørte koden i kommandolinjen.
   php artisan migrate
 \end{lstlisting}
 
+\subsection{Lage API}
+For å lage api opprettet det først controller via cmd terminalen.
+Gjøres slik:
+\begin{lstlisting}
+    php artisan make:controller PageController --resource
+\end{lstlisting}
+Den siste parameteren "resource" er et alternativ og kan dropes.
+\url{https://laravel.com/docs/5.7/controllers}
+
+På api.php fil under routes gjøres slik
+\begin{lstlisting}
+    Route::get('/pages', 'PageController@index');
+\end{lstlisting} 
+For en enkel page
+\begin{lstlisting}
+    Route::get('pages/{page}', 'PageController@show');
+\end{lstlisting}
+\url{https://laravel.com/docs/5.7/routing}
+
+
 
 
 \clearpage
