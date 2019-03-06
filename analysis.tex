@@ -81,20 +81,25 @@ Ved å benytte seg av responsivt design er det, i følge Google \cite{google2018
 
 Etter analysen gjort i dette kapittelet kan vi konkludere med at det finnes flere grunner til at nettstedet vårt bør være responsivt.
 
-
-\subsection{Søkemotoroptimalisering - mangler gode kilder}
+\subsection{Søkemotoroptimalisering (SEO) - mangler gode kilder}
 \label{sec:concepts-seo}
-Søkemotoroptimalisering (SEO) er sterkt knyttet til resultater i søk, som vi beskrev viktigheten av i avsnitt \ref{sec:search-results}. SEO går rett og slett ut på å oppnå gode plasseringer i de organiske søkeresulatene hos søkemotorer \cite[s.~16]{flensted10smg}. I praksis handler SEO om at en nettside blir optimalisert på en rekke områder, slik at søkemotoren finner akkurat dette nettstedet og presenterer den godt synlig i de organiske søkeresultatene ved å se på søkeordene ønsket målgruppe benytter \cite[s.~20]{flensted10smg}.
+SEO er sterkt knyttet til resultater i søk, som vi beskrev viktigheten av i avsnitt \ref{sec:search-results}. SEO går rett og slett ut på å oppnå gode plasseringer i de organiske søkeresulatene hos søkemotorer \cite[s.~16]{flensted10smg}. I praksis handler SEO om at en nettside blir optimalisert på en rekke områder, slik at søkemotoren finner akkurat dette nettstedet og presenterer den godt synlig i de organiske søkeresultatene ved å se på søkeordene ønsket målgruppe benytter \cite[s.~20]{flensted10smg}.
 
 Mer teoretisk fungerer søkemotoroptimalisering ved at de innsamlede dataene blir indeksert og lagret. Alle disse operasjonene utføres av søkemotorprogramvaren (crawler, edderkopp,
-bot). Disse programmene beveger seg ved å bruke hyperkoblingstruktur på nettet. De navigerer regelmessig gjennom nettsider og fanger endringer som har blitt gjort siden sist  \cite[s.~488]{yalccin2010search}.
+bot). Disse programmene \q{beveger} seg ved å bruke hyperkoblingstruktur på nettet. De navigerer regelmessig gjennom nettsider og fanger opp endringer som har blitt gjort siden sist  \cite[s.~488]{yalccin2010search}.
 
-Viktigheten av god SEO kommer tydlig frem etter karlegging av normale brukerbevegelser. I følge undersøkelser viser det seg at 75\% of Internet users never scroll past the first page of search results, TRENGER KILDE!! 
-Disse funnene underbygger påstanden om at SEO er viktig i dagens samfunn, og en god SEO-strategi er derfor på sin plass. 
-\url{https://www.searchenginepeople.com/blog/40-unbelievable-seo-statistics-need-know.html\#note-68961-5 }
+\begin{figure}[H]
+    \centering
+    \frame{\includegraphics[width=\textwidth]{bjornar/awr-google-ctr-jan2019.png}}
+    \caption{Diagrammet viser de organiske klikkfrekvensene (CTR) vs posisjon i Google for søk gjort i januar 2019, som kommer fra 10 120 806 søkeord for 84 533 nettsteder.}
+    \label{fig:analysis-awr-google-ctr}
+\end{figure}
+
+Viktigheten av god SEO kommer tydlig frem etter karlegging av normale brukerbevegelser. I følge en undersøkelse\footnote{Data fra \url{https://www.advancedwebranking.com/ctrstudy/} for januar 2019. Merk at førstesiden i søkemotorer er de 10 første resultatene.} viser det seg at nesten 90\% av internettbrukere aldri går forbi førstesiden av søkeresultatene i en søkemotor, se \ref{fig:analysis-awr-google-ctr} for diagram som viser dette.
+
+Dette underbygger påstanden om at SEO er viktig i dagens samfunn, og en god SEO-strategi er derfor på sin plass. 
 
 En faktor som er viktg å tenke på er at god SEO krever disiplin, planlegging og research før man setter i gang. Dette er ikke en oppgave som kun gjøres en gang, og krever konstant overvåking og optimalisering da algoritmene hele tiden endrer hvordan de evaluerer nettsider \cite[s.~1]{mitchell2012usb}. Derfor er det viktig å hele tiden ha SEO i fokus når man utvikler, når et av målene er god plassering hos søkemotorene for å gjøre bedriften synlig i søkeresultatene.
-
 
 \subsection{Brukeropplevelse}
 \label{sec:ux}
@@ -189,20 +194,18 @@ Vårt nettsted bør derfor inneha de fleste av disse punktene, slik at kundene e
 
 \subsection{Sikkerhet}
 \label{sec:analysis-security}
- passord kryptering/hashing/salting. https/tls, csrf, xss, ssh
- \cite{NattTomHeine2015Datasikkerhet}
  
- \subsubsection{Kryptering}
- \label{sec:analysis-security-encryption}
- Krypering er en prosess som gjør om data fra et leselig format til et uleslig format. For å kunne lese kryptert data trenger man nøkkelen/hemmeligheten som ble brukt til å kryptere dataene \cite[s.~117-118]{NattTomHeine2015Datasikkerhet}. Kryptering brukes for å forhindre at tredjeparter kan lese data som kommer på avveie.
+\subsubsection{Kryptering}
+\label{sec:analysis-security-encryption}
+Krypering er en prosess som gjør om data fra et leselig format til et uleslig format. For å kunne lese kryptert data trenger man nøkkelen/hemmeligheten som ble brukt til å kryptere dataene \cite[s.~117-118]{NattTomHeine2015Datasikkerhet}. Kryptering brukes for å forhindre at tredjeparter kan lese data som kommer på avveie.
  
- \subsubsection{Passord hashing}
- \label{sec:analysis-security-password-hashing}
- Det anses ikke som bra praksis å lagre passord i klartekst. Om filen/databasen som inneholder passordene kommer på avveie vil alle passordene kunne leses. Dette er ikke ønskelig. Det benyttes derfor ofte en enveis kryperingsteknikk som krypterer alle passord og gjør de om til en såkalt hash-kode \cite[s.~100-103]{NattTomHeine2015Datasikkerhet}. Om en database som inneholder krypterte passord skulle komme på avveie vil det være vannskelig å hente ut de faktiske passordene.
+\subsubsection{Passord hashing}
+\label{sec:analysis-security-password-hashing}
+Det anses ikke som bra praksis å lagre passord i klartekst. Om filen/databasen som inneholder passordene kommer på avveie vil alle passordene kunne leses. Dette er ikke ønskelig. Det benyttes derfor ofte en enveis kryperingsteknikk som krypterer alle passord og gjør de om til en såkalt hash-kode \cite[s.~100-103]{NattTomHeine2015Datasikkerhet}. Om en database som inneholder krypterte passord skulle komme på avveie vil det være vannskelig å hente ut de faktiske passordene.
  
- \subsubsection{Offentlig nøkkelkryptering}
- \label{sec:analysis-security-public_key-cryptography}
- Kryptering med offentlig/privat nøkkel er en krypteringsmetode som gjør det enkelt å kryptere data før man sender det til en motakker over en hvilken som helst kanal \cite[s.~58-60]{NattTomHeine2015Datasikkerhet}. Denne metoden funker ved at alle parter i en utveksling har et par med nøkkler; en offentlig og en privat. Data kan så krypteres med motakeren sin offentlige nøkkelen, og kan kun dekrypteres med motakeren sin private nøkkelen. Dette gjør at de offentlige nøkkelene kan deles med alle, og kan brukes av avsendere til å kryptere data.
+\subsubsection{Offentlig nøkkelkryptering}
+\label{sec:analysis-security-public_key-cryptography}
+Kryptering med offentlig/privat nøkkel er en krypteringsmetode som gjør det enkelt å kryptere data før man sender det til en motakker over en hvilken som helst kanal \cite[s.~58-60]{NattTomHeine2015Datasikkerhet}. Denne metoden funker ved at alle parter i en utveksling har et par med nøkkler; en offentlig og en privat. Data kan så krypteres med motakeren sin offentlige nøkkelen, og kan kun dekrypteres med motakeren sin private nøkkelen. Dette gjør at de offentlige nøkkelene kan deles med alle, og kan brukes av avsendere til å kryptere data.
  
 \subsubsection{Transport Layer Security (TLS)}
 \label{sec:analysis-security-tls}
@@ -259,7 +262,6 @@ For å forbedre sikkerheten på en web-server er det visse grep man bør ta.
 \item Man bør sette opp en brannmur som blokker alt bortsett fra SSH porten man har satt, port 80 for HTTP og port 443 for HTTPS \cite{virdo2016}.
 \item Man bør bruke rettighetene 755 på mapper og 644 på filer som serveres offentlig. \cite[s.~34]{barnettapache}
 \end{itemize}
-
 
 \section{Analyse av opprinnelig løsning}
 
@@ -740,7 +742,6 @@ SSL Server Test\footnote{\url{https://www.ssllabs.com/ssltest/}} er en tjeneste 
 \label{sec:google-transparency-report}
 Googles Safe Browsing-teknologi \cite{google2019sbs} undersøker milliarder nettadresser per dag på jakt etter usikre nettsteder. Hver dag oppdages tusenvis av nye usikre nettsteder, hvorav mange er legitime nettsteder som har blitt kompromittert. På tjenestens nettsted er det mulig å søke for å se om et nettsted for øyeblikket er farlig å besøke.
 
-
 \subsection{Verktøy til grafisk design}
 
 \subsubsection{Figma}
@@ -766,9 +767,7 @@ Laravel kommer med innebygde funksjoner for autentisering, modeller, visninger, 
 WordPress\cite{wordpress} er gratis programvare med åpen kildekode som kan brukes til å utvikle nettside, blogger eller apper. I Wordpress er det også mulig å legge til ekstra funksjonalitet via utvidelser, som gjør det mulig å for eksempel legge til gallerier, postlister og analyser.
 
 \subsubsection{PHP}
-PHP (rekursiv akronym for PHP Hypertext Pre-processor) er et skriptspråk som er spesielt egnet for webutvikling og kan legges inn i filer sammen med HTML. PHP er et serverside programmeringsspråk og kan brukes til å lage dynamiske og interaktive nettsteder. PHP er gratis og plattformuavhengig, samtidig som det er  er raskt og fleksibelt. Det kan installeres i pakker med webserver og database. Eksempelvis LAMP, LEMP, WAMP og XAMPP. PHP er også mulig å installere enkeltstående. 
-
-Kilde: \url{http://php.net/}
+PHP (rekursiv akronym for PHP Hypertext Pre-processor)\cite{McGrath2016pies} er et skriptspråk som er spesielt egnet for webutvikling og kan legges inn i filer sammen med HTML. PHP er et serverside programmeringsspråk og kan brukes til å lage dynamiske og interaktive nettsteder. PHP er gratis og plattformuavhengig, samtidig som det er  er raskt og fleksibelt. Det kan installeres i pakker med webserver og database. Eksempelvis LAMP, LEMP, WAMP og XAMPP. PHP er også mulig å installere enkeltstående. 
 
 \subsection{Verktøy til DevOps}
 
@@ -785,7 +784,7 @@ phpMyAdmin \cite{phpmyadmin2019bmt} er et gratis og webbasert administrasjonsver
 MariaDB \cite{mariadb2019amd} er et relasjonsdatabasesystem basert på MySQL og har åpen kildekode. Systemet funker som en \textit{drop-in} erstatning for MySQL.
 
 \subsubsection{Buddy}
-Buddy\cite{fsf2019gos} er en webbasert applikasjon for CI og CD. Applikasjonen lar utviklere bygge, teste og distribuere nettsider og programkode automatisk når kildekoden oppdateres. For eksempel er det mulig å koble Buddy til et nettsteds kildekode via Git. Når koden til nettstedet oppdateres, vil Buddy automatisk detektere endringer og starte en byggeprosess. Når byggeprosessen er ferdig kjøres det automatisk tester på koden, som verifiserer at alt fungerer. Deretter vil Buddy laste koden opp til en server og oppdatere nettstedet som ligger ute på nett. Dette skjer gjerne gjennom Docker\footnote{\url{https://www.docker.com/}} sammen med Kubernetes\footnote{\url{https://kubernetes.io/}}.
+Buddy \cite{fsf2019gos} er en webbasert applikasjon for CI og CD. Applikasjonen lar utviklere bygge, teste og distribuere nettsider og programkode automatisk når kildekoden oppdateres. For eksempel er det mulig å koble Buddy til et nettsteds kildekode via Git. Når koden til nettstedet oppdateres, vil Buddy automatisk detektere endringer og starte en byggeprosess. Når byggeprosessen er ferdig kjøres det automatisk tester på koden, som verifiserer at alt fungerer. Deretter vil Buddy laste koden opp til en server og oppdatere nettstedet som ligger ute på nett. Dette skjer gjerne gjennom Docker\footnote{\url{https://www.docker.com/}} sammen med Kubernetes\footnote{\url{https://kubernetes.io/}}.
 
 \subsubsection{Ottomatik.io}
 Ottomatik er en webbasert tjeneste for automatisk sikkerhetskopiering av filer og MySQL databaser \cite{barnes2016osb}.
@@ -794,18 +793,18 @@ Ottomatik er en webbasert tjeneste for automatisk sikkerhetskopiering av filer o
 Amazon Simple Storage Service er en webbasert tjeneste som tilbyr objekt-lagring \cite{aws2019as3}. Tjenesten tilbyr meget god skalerbarhet, datatilgjengelighet, sikkerhet og ytelse \cite{garfinkel2007aeagcs}.
 
 \subsubsection{Let’s Encrypt}
-Let’s Encrypt\cite{le2019ale} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
+Let’s Encrypt \cite{le2019ale} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
 
 \subsection{Verktøy til front-end}
 
 \subsubsection{HTML}
-Hypertext Markup Language\footnote{\url{https://www.w3.org/standards/webdesign/htmlcss}} er et markeringsspråk som brukes til å lage nettsidedokumenter. Det er et system som identifiserer og beskriver de forskjellige komponentene i et dokument som overskrifter, avsnitt og lister. HTML5 er den nyeste versjonen av HTML-standarden.
+Hypertext Markup Language \cite{w3c2016hc} er et markeringsspråk som brukes til å lage nettsidedokumenter. Det er et system som identifiserer og beskriver de forskjellige komponentene i et dokument som overskrifter, avsnitt og lister. HTML5 er den nyeste versjonen av HTML-standarden.
 
 \subsubsection{CSS}
-Casecading Style Sheet\footnote{https://www.w3.org/standards/webdesign/htmlcss} er et format for stilsett som beskriver utseendet i en applikasjon eller på et nettsted. CSS styrer blant annet fonter, farger, bakgrunnsbilder, linjeavstand og sidelayout. Formatet lar utviklere style innhold på en slik måte at brukere enklere kan identifisere hva det er, samt være i tråd med en bedrift eller person sin identitet.
+Casecading Style Sheet \cite{w3c2016hc} er et format for stilsett som beskriver utseendet i en applikasjon eller på et nettsted. CSS styrer blant annet fonter, farger, bakgrunnsbilder, linjeavstand og sidelayout. Formatet lar utviklere style innhold på en slik måte at brukere enklere kan identifisere hva det er, samt være i tråd med en bedrift eller person sin identitet.
 
 \subsubsection{SASS}
-Syntactically Awesome Style Sheets\footnote{\url{https://sass-lang.com/}} er en utvidelse av CSS. SASS gir mulighet til å bruke variabler, nestede regler, inline-import og mixins. Alt dette gjør det enklere å gjenbruke CSS syntaks. Med SASS er det mulig å lage stilark raskere. SASS er kompatibel med alle versjoner av CSS. Det er ingen nettlesere som kjører SASS, man må derfor kompilere SASS til CSS for å kunne bruke det på nettsider.
+Syntactically Awesome Style Sheets\cite{Catlin2006cws} er en utvidelse av CSS. SASS gir mulighet til å bruke variabler, nestede regler, inline-import og mixins. Alt dette gjør det enklere å gjenbruke CSS syntaks. Med SASS er det mulig å lage stilark raskere. SASS er kompatibel med alle versjoner av CSS. Det er ingen nettlesere som kjører SASS, man må derfor kompilere SASS til CSS for å kunne bruke det på nettsider.
 
 KILDE: Cederholm, D. (2013). Sass for web designers. A Book Apart.
 
@@ -813,20 +812,18 @@ KILDE: Cederholm, D. (2013). Sass for web designers. A Book Apart.
 JavaScript er et programmeringsspråk som følger ECMAScript-spesifikasjonen \cite{mdn2019jav}. Det er mye brukt til å utvikle webapplikasjoner. Språket støttes av de fleste moderne nettlesere, og brukes til å manipulere elementene på nettsiden og stilene som er brukt på dem. JavaScript støtter objektorientert- og funksjonell programmering.
 
 \subsubsection{Axios}
-Axios\footnote{\url{https://github.com/axios/axios}} et et JavaScript-bibliotek for en promise-basert\footnote{\url{https://leanpub.com/exploring-es6/}} HTTP-klient som kan kjøres i nettlesere og Node.Js. Biblioteket gjør det enklere å lage og behandle asynkrone forespørsler.
+Axios\cite{axios2019a} er et JavaScript-bibliotek for en promise-basert HTTP-klient som kan kjøres i nettlesere og Node.Js. Biblioteket gjør det enklere å lage og behandle asynkrone forespørsler.
 
 \subsubsection{Node.js}
 Node.js er et gratis åpen kildekode servermiljø, som kjører på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren \cite{w3schools2019win}. Node.js kan generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
 
 \subsubsection{React}
-React\footnote{\url{https://reactjs.org/}} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og brukes som visningslaget for webapplikasjoner som følger MVC. React har åpen kildekode og er utviklet av Facebook.
-
-Alternativ kilde: \url{https://www.fullstackreact.com/assets/media/sGEMe/MNzue/30-days-of-react-ebook-fullstackio.pdf}
+React\cite{facebook2019r} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og brukes som visningslaget for webapplikasjoner som følger MVC. React har åpen kildekode og er utviklet av Facebook.
 
 \subsection{Tilhørende teknologier og begreper}
 
 \subsubsection{CI \& CD}
-CI står for continuous integration og CD står for continuous delivery. CI/CD\footnote{\url{https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment}} er en metode som lar utviklere implementere og levere kodeendringer raskt og pålitelig.
+CI står for continuous integration og CD står for continuous delivery. CI/CD\cite{Pittet2019cd} er en metode som lar utviklere implementere og levere kodeendringer raskt og pålitelig.
 
 \subsubsection{Sesjoner}
 En sesjon\footnote{\url{https://ieeexplore.ieee.org/abstract/document/8392612}} (session) er en samling av data lagret på en webserver. En webserver tildeler en ID til hver bruker som sender forespørsler via en nettleser. ID-en lagres som en informasjonskapsel i nettlesern til brukeren. Alle nye forespørsel vil så identifiseres av ID-en som er lagret hos brukeren.
@@ -848,7 +845,6 @@ Github er et sentralisert punkt for å samle en brukers repositories. Ved siden 
 
 \subsubsection{HTTP/2}
 HTTP/2\footnote{\url{https://www.rfc-editor.org/rfc/pdfrfc/rfc7540.txt.pdf}} er en revisjon av HTTP-nettverksprotokollen. HTTP er et sett med regler for overføring av filer (tekst, grafiske bilder, lyd, video og andre mediefiler). Et av de store målene med HTTP/2 var å tillate multipleksing.
-
 
 \subsubsection{REST-API}
 Et API (programmeringsgrensesnitt) er et sett med funksjoner, prosedyrer, metoder eller klasser som brukes av dataprogrammer for å be om tjenester fra operativsystemet eller programvare som er på datamaskinen. En programmerer kan bruke API-er til å lage applikasjoner.
@@ -913,7 +909,6 @@ I introduksjonen ble det nevnt at studentgruppen enten skal utvikle et eget CMS 
 \end{itemize}
 
 Studengruppen har kommet frem til at fordelene trumfer ulempene når det kommer til Laravel. Derfor har vi valgt å bruke dette for å videreutvikle et eget CMS.
-
 
 % \section{Akademiske og tekniske dokumenter}
 
