@@ -137,8 +137,7 @@ Siden forholdene mellom modellene var ikke satt riktig, oppsto feil under testin
 \end{lstlisting}
 Løste ved å gå gjennom alle modellene og fikse forholdene mellom dem.
 
-\subsection {Roller og Permisjoner} \footnote{\url{https://github.com/spatie/laravel-permission#laravel}}
-
+\subsection{Roller og Permisjoner}\footnote{\url{https://github.com/spatie/laravel-permission#laravel}}
 Laravel permisjon er en pakke med tillatelser og roller. Dette hjelper brukere til å knytte seg til tillatelser og roller. Hver rolle er knyttet til flere tillatelser. En rolle og en tillatelse er vanlige Eloquent-modeller\footnote{\url{https://scotch.io/tutorials/user-authorization-in-laravel-54-with-spatie-laravel-permission}}.
 \subsubsection{Laravel permisjon pakke installasjon} 
 Laravel permisjon pakken er bygget ut over laravel autorisasjon funksjoner\footnote{\url{https://laravel-news.com/two-best-roles-permissions-packages}}.
@@ -179,24 +178,48 @@ Kjørte koden i kommandolinjen.
 \end{lstlisting}
 
 \subsection{Lage API}
-For å lage api opprettet det først controller via cmd terminalen.
+For å lage api opprettet det først controller\footnote{\url{https://laravel.com/docs/5.7/controllers}} via cmd terminalen.
 Gjøres slik:
 \begin{lstlisting}
     php artisan make:controller PageController --resource
 \end{lstlisting}
 Den siste parameteren "resource" er et alternativ og kan dropes.
-\url{https://laravel.com/docs/5.7/controllers}
 
-På api.php fil under routes gjøres slik
+På api.php i routes\footnote{\url{https://laravel.com/docs/5.7/routing}}  registrer det API-ruter.
+For alle pages:
 \begin{lstlisting}
     Route::get('/pages', 'PageController@index');
 \end{lstlisting} 
-For en enkel page
+For en enkel page:
 \begin{lstlisting}
     Route::get('pages/{page}', 'PageController@show');
 \end{lstlisting}
-\url{https://laravel.com/docs/5.7/routing}
 
+\subsection{API Test}
+Brukte en verktøy som heter Postman\footnote{\url{https://www.getpostman.com/product}} for api test. Postman er en HTTP-klient som sender en forespørsel og mottar et svar. Installerte postman på datamaskinen til å teste api-er.
+\subsubsection{Utfordring} 
+På mange til mange relasjoner ble  det laget egne modeller på pivot tabellene.
+Forholdene ble satt opp via pivot tabellene sine modeller. På kontroller ble det brukt  Apend til å få alle forholdene mellom tabellene. 
+\begin{lstlisting}
+    public function menu_links(){
+         return $this->hasMany('App\MenuLink')
+    }
+\end{lstlisting}
+Da det ble testet om for eksempel en page ble brukt i menu tabellen via fremmednøkkel, fikk ikke svar.
+Fikset ved å sette opp forholdene ved hjelp av ‘hasManyThrough’. Gjøres slik:
+\begin{lstlisting}
+    public function links(){
+         return $this->hasManyThrough(    
+            'App\Link',
+            'App\MenuLink',
+            'menu_id',
+            'id',
+            'id',
+            'link_id'
+         );
+      }
+\end{lstlisting}
+    
 
 
 

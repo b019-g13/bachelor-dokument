@@ -231,32 +231,33 @@ CSRF er angrep som tvinger brukere til å utføre uønskede handlinger på en ne
 \subsubsection{SQL injection}
 \label{sec:analysis-security-sql-injection}
 SQL injections klassifiseres av noen som en av de mest seriøse trusselene mot webapplikasjoner \cite[s.~1]{halfond2006classification}. Om et nettsted har en svakhet for SQL injections kan en angriper ende opp med full kontroll over databasen.
-
 En SQL injection funker ved at en agriper skriver inn SQL kode i et brukerinput, som da kjøres på serveren \cite[s.~2]{halfond2006classification}.
 For å unngå slike angrep kan man bruke \textit{prepared statements} eller \textit{escape} brukerinput \cite[s.~6]{halfond2006classification}.
 
 \subsubsection{MySQL}
 \label{sec:analysis-security-mysql}
-Bruk forskjellig brukernavn og passord på alle databaser.
-Skru av remote tilgang.
-Ikke gi en bruker tilgang til flere databaser.
+Ved bruk av MySQL databaser er det noen grep man bør ta med tanke 
+å på sikkerhet.
+Man bør lage èn bruker for hver applikasjon som skal bruke en database. \cite{ellingwood_2013}
+Man bør skru av fjerntilgang.
+Man bør kun godta tilkoblinger fra lokalmaskin.
+Man bør fjerne eller endre standardbrukere.
 
 \subsubsection{phpMyAdmin}
 \label{sec:analysis-security-phpmyadmin}
-Ikke bruk /phpmyadmin i linken. Gjør om til f.eks /pma, eller enda bedre; noe mindre åpenbart.
-Skift brukernavn vekk fra standard "root".
-Skru på HTTP Auth.
+Ved bruk av phpMyAdmin er det også grep man vil ta med tanke på sikkerhet. Man bør ikke bruke "phpmyadmin" i URL-en som går til login, f.eks: http://eksempel.com/phpmyadmin. Man bør gjøre om til f.eks /pma, eller enda bedre; noe mindre åpenbart.\cite{canepa2016}
+Man bør skru på HTTP Basic access authentication, som gjør at man må skrive inn et brukernavn og passord før man kan komme inn på login siden til phpMyAdmin \cite{drake_2018}.
 
 \subsubsection{Web-server med SSH tilkobling}
 \label{sec:analysis-security-web-server-ssh}
-Skru av remote root login og lag en egen bruker.
-Skru av passord login
-Bruk public/private key pair til login. Helst med passord
-Sett maks login attempts.
-Ban de som prøver for mye i en dag, så en uke, så en måned.
-Skift vekk fra standard port "22" til f.eks. 44
-Sett opp brannmur. Blokker alt bortsett fra SSH porten man har satt, 80 (http) og 443 (https)
-Web server Bruk 755 på mapper og 644 på filer.
+For å forbedre sikkerheten på en web-server er det visse grep man bør ta.
+Man bør skru av fjerntilgang for root brukeren og lage en egen bruker i sudo gruppen.
+Man bør skru av login med passord.
+Man bør skru på login med public/private key pair. Gjerne med passord på key-en.
+Man bør sette maks antall forsøk på login før man blir midlertidig utestengt via IP.
+Man bør skift vekk fra standard SSH port 22
+Man bør sette opp en brannmur som blokker alt bortsett fra SSH porten man har satt, samt port 80 for HTTP og port 443 for HTTPS
+Man bør bruke rettighetene 755 på mapper og 644 på filer som serveres offentlig.
 
 \section{Analyse av opprinnelig løsning}
 
@@ -691,7 +692,7 @@ SSL Server Test\footnote{\url{https://www.ssllabs.com/ssltest/}} er en tjeneste 
 
 \subsubsection{Google Transparency Report - Safe Browsing: malware and phishing}
 \label{sec:google-transparency-report}
-Googles Safe Browsing-teknologi\footnote{\url{https://transparencyreport.google.com/safe-browsing/search?url=https://sirkusmedia.no&hl=en-US}} undersøker milliarder nettadresser per dag på jakt etter usikre nettsteder. Hver dag oppdages tusenvis av nye usikre nettsteder, hvorav mange er legitime nettsteder som har blitt kompromittert. På tjenestens nettsted er det mulig å søke for å se om et nettsted for øyeblikket er farlig å besøke.
+Googles Safe Browsing-teknologi \cite{google2019sbs} undersøker milliarder nettadresser per dag på jakt etter usikre nettsteder. Hver dag oppdages tusenvis av nye usikre nettsteder, hvorav mange er legitime nettsteder som har blitt kompromittert. På tjenestens nettsted er det mulig å søke for å se om et nettsted for øyeblikket er farlig å besøke.
 
 
 \subsection{Verktøy til grafisk design}
@@ -701,36 +702,37 @@ Googles Safe Browsing-teknologi\footnote{\url{https://transparencyreport.google.
 \subsection{Tilhørende teknologier og begreper}
 \subsection{Verktøyanalyse}
 
+%% VI SER PÅ FORDELER OG ULEMPER SENERE %%%
+\textbf{Fordeler}
+\begin{itemize}
+    \item Laravel er veldig raskt i forhold til CMS (Content Management Systems).
+    \item Har funksjoner som autentisering og autorisasjon.
+    \item Alt kan tilpasses og styres hvordan tingene fungerer.
+    \item Databasen kan brukes eller utformes på egen måte.
+\end{itemize}
+
+\textbf{Ulemper}
+\begin{itemize}
+    \item I Laravel må SEO definere egne ruter, og det tar mye arbeid å utvikle et nettsted som hovedsakelig er avhengig av innhold.
+    \item Laravel rammeverk er litt komplisert og krever mer kunnskap.
+    \item Laravel er mindre fleksibel for å oppdatere innholdet.
+\end{itemize}
+
+Fordeler og Ulemper av laravel ble tatt i forhold til CMS.
+Kilde: \url{https://www.educba.com/laravel-vs-wordpress/}
+
 \subsubsection{Laravel}
-Laravel\footnote{\url{https://laravel.com/}} er et PHP-rammeverk, med åpen kildekode, som brukes til å lage webapplikasjoner og andre nettsteder. Rammeverket baserer seg på Symfony\footnote{Avsnitt \ref{sec:tools-symfony}} og følger Model-view-controller\footnote{Avsnitt \ref{sec:tools-mvc}} (MVC) designmønsteret.
-Laravel kommer med innebygde funksjoner for autentisering, modeller, visninger, sesjoner, ruting og andre funksjoner som en \textit{templating engine} kalt Blade\footnote{\url{https://laravel.com/docs/5.7/blade}}.
+Laravel \cite{cbcp2019lvw} er et PHP-rammeverk, med åpen kildekode, som brukes til å lage webapplikasjoner og andre nettsteder. Rammeverket baserer seg på Symfony\footnote{Avsnitt \ref{sec:tools-symfony}} og følger Model-view-controller\footnote{Avsnitt \ref{sec:tools-mvc}} (MVC) designmønsteret.
+Laravel kommer med innebygde funksjoner for autentisering, modeller, visninger, sesjoner, ruting og andre funksjoner som en \textit{templating engine} kalt Blade.
 
-%%% VI SER PÅ FORDELER OG ULEMPER SENERE %%%
-%\textbf{Fordeler}
-%\begin{itemize}
-%    \item Laravel er veldig raskt i forhold til CMS (Content Management Systems).
-%    \item Har funksjoner som autentisering og autorisasjon.
-%    \item Alt kan tilpasses og styres hvordan tingene fungerer.
-%    \item Databasen kan brukes eller utformes på egen måte.
-%\end{itemize}
-
-%\textbf{Ulemper}
-%\begin{itemize}
-%    \item I Laravel må SEO definere egne ruter, og det tar mye arbeid å utvikle et nettsted som hovedsakelig er avhengig av innhold.
-%    \item Laravel rammeverk er litt komplisert og krever mer kunnskap.
-%    \item Laravel er mindre fleksibel for å oppdatere innholdet.
-%\end{itemize}
-
-%Fordeler og Ulemper av laravel ble tatt i forhold til CMS.
-%Kilde: \url{https://www.educba.com/laravel-vs-wordpress/}
 
 \subsubsection{Symfony}
 \label{sec:tools-symfony}
-Symfony er et webapplikasjonsrammeverk og er et sett med gjenbrukbare komponenter og biblioteker skrevet i PHP. \cite{symfony19wis}
+Symfony er et webapplikasjonsrammeverk og er et sett med gjenbrukbare komponenter og biblioteker skrevet i PHP \cite{symfony19wis}. 
 
 \subsubsection{MVC}
 \label{sec:tools-mvc}
-Model-View-Controller (MVC)\footnote{\url{http://www.dgp.toronto.edu/~dwigdor/teaching/csc2524/2012_F/papers/mvc.pdf}} er et designmønster som deler et program inn i tre hovedkomponenter: modell, visning og kontroll.\cite{burbeck87aps} Oppbygningen kan enkelt forklares ved hjelp av et eksempel fra Matteo publisert på dev.to:
+Model-View-Controller (MVC)\footnote{\url{http://www.dgp.toronto.edu/~dwigdor/teaching/csc2524/2012_F/papers/mvc.pdf}} er et designmønster som deler et program inn i tre hovedkomponenter: modell, visning og kontroll \cite{burbeck87aps}. Oppbygningen kan enkelt forklares ved hjelp av et eksempel fra Matteo publisert på dev.to:
 Matteo J. (2018, Mars 16) Re: Explain MVC like I'm five [Blogg kommentar]\footnote{\url{https://dev.to/matteojoliveau/comment/2ikd}}
 \begin{quote}
     You walk in a McDonald and you order at the big interactive touchscreen.
@@ -840,7 +842,8 @@ REST (Representational State Transfer) er en arkitektonisk stil for programvare.
 KILDE: Masse, M. (2011). REST API Design Rulebook: Designing Consistent RESTful Web Service Interfaces. " O'Reilly Media, Inc.".
 side 5 og 6
 
-\subsubsection{NODE.JS ?????}
+\subsubsection{Node.js}
+Node.js \cite{w3schools2019win} er et gratis open source-servermiljø, som kjører på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren. Node.js kan generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
 
 \subsubsection{Figma}
 Figma\footnote{\url{https://www.figma.com/}} er et webbasert designverktøy som åpner muligheten for å samarbeide i sanntid. Med Figma er det også mulig å designe mockups og prototyper av applikasjoner og nettsider.
@@ -849,19 +852,7 @@ ekstra kilde: \url{https://www.xfive.co/blog/figma-best-designer-developer-coope
 
 \subsubsection{Google Analytics}
 \label{sec:google-analytics}
-Google Analytics\footnote{\url{https://analytics.google.com/analytics/web/}} er en gratis, webbasert tjeneste som gir statistikk og grunnleggende verktøy for analyse av bruksdata, søkemotoroptimalisering og markedsføring.
-
-\section{Testing}
-
-\subsection{Funksjonell testing}
-Funker nettstedet slik som Sirkus Media vil?
-
-\subsection{Ikke funksjonell testing}
-Funker nettstedet bra, teknisk sett?
-
-\subsection{Brukertesting}
-Hva syns brukere om nettstedet?
-
+Google Analytics \cite{google2019gtk} er en gratis, webbasert tjeneste som gir statistikk og grunnleggende verktøy for analyse av bruksdata, søkemotoroptimalisering og markedsføring.
 
 
 
