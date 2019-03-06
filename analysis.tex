@@ -649,7 +649,7 @@ Studentgruppen har satt som mål å få minst like bra score på testen til Goog
 Når det kommer til utvikling av nettsteder finnes det mange ulike teknologier, systemer og verktøy som kan benyttes for å få det samme resultatet. Derfor er det viktig å kartlegge brukerens behov og deretter sette ønskede kvalifikasjoner og krav, slik at de valgte verktøyene er tilpasset dette. Basert på de foregående analysene i dette kapittelet har studentgruppen kommet frem til et sett med minimumskrav. Videre blir passende verktøy og tilhørende teknologier presentert.
 
 \subsection{Krav til teknologier}
-Følgende sett med minimumskrav er satt med basis i den foregående analysen:
+Følgende sett med minimumskrav er satt med basis i de foregående analysene:
 
 \subsubsection{Generelle krav}
 
@@ -669,19 +669,20 @@ Følgende sett med minimumskrav er satt med basis i den foregående analysen:
 
 \subsubsection{Krav til front-end}
 \begin{compactdesc}
-\item [Versjonskontroll] Se "Versjonskontroll" under \ref{sec:analysis-tools-requirements-back-end}
+\item [Versjonskontroll] Se \q{Versjonskontroll} under \q{Krav til back-end} i avsnitt \ref{sec:analysis-tools-requirements-back-end}
 \item [Nettleserkompatibilitet] Verktøyene vi bruker burde fungere i alle moderne nettlesere.
 \end{compactdesc}
 
 \subsubsection{Krav til design}
 \begin{compactdesc}
-\item [Plattformuavhengighet] Lorem ipsum
+\item [Plattformuavhengighet] Det burde være mulig å benytte seg av verktøyene, uavhengig av plattform. Verktøyene burde derfor kunne brukes både på Windows, MacOs og Linux.
 \end{compactdesc}
 
 \subsubsection{Krav til DevOps}
 \begin{compactdesc}
-\item [Linux] Lorem ipsum
+\item [Linux] Verktøy vi bruker til DevOps bør funke på Linux distribusjoner, da planen er å benytte seg av en Linux-server fordi det anses som sikrere, mer stabilt og mer fleksibelt \cite{cabrera2009windows} enn en Windows-server.
 \end{compactdesc}
+
 
 
 \subsection{Designmønster}
@@ -759,7 +760,7 @@ Symfony er et webapplikasjonsrammeverk og er et sett med gjenbrukbare komponente
 
 \subsubsection{MVC}
 \label{sec:tools-mvc}
-Model-View-Controller (MVC)\footnote{\url{http://www.dgp.toronto.edu/~dwigdor/teaching/csc2524/2012_F/papers/mvc.pdf}} er et designmønster som deler et program inn i tre hovedkomponenter: modell, visning og kontroll \cite{burbeck87aps}. Oppbygningen kan enkelt forklares ved hjelp av et eksempel fra Matteo publisert på dev.to:
+Model-View-Controller (MVC)\cite{burbeck87aps} er et designmønster som deler et program inn i tre hovedkomponenter: modell, visning og kontroll \cite{burbeck87aps}. Oppbygningen kan enkelt forklares ved hjelp av et eksempel fra Matteo publisert på dev.to:
 Matteo J. (2018, Mars 16) Re: Explain MVC like I'm five [Blogg kommentar]\footnote{\url{https://dev.to/matteojoliveau/comment/2ikd}}
 \begin{quote}
     You walk in a McDonald and you order at the big interactive touchscreen.
