@@ -251,11 +251,11 @@ Man bør skru på HTTP Basic access authentication, som gjør at man må skrive 
 \subsubsection{Web-server med SSH tilkobling}
 \label{sec:analysis-security-web-server-ssh}
 For å forbedre sikkerheten på en web-server er det visse grep man bør ta.
-Man bør skru av fjerntilgang for root brukeren og lage en egen bruker i sudo gruppen.
-Man bør skru av login med passord.
-Man bør skru på login med public/private key pair. Gjerne med passord på key-en.
-Man bør sette maks antall forsøk på login før man blir midlertidig utestengt via IP.
-Man bør skift vekk fra standard SSH port 22
+Man bør skru av fjerntilgang for root brukeren og lage en egen bruker i sudo gruppen \cite{ellingwood_2014}.
+Man bør skru av login med passord \cite{jetha2018}.
+Man bør skru på login med public/private key pair. Gjerne med passord på key-en \cite{jetha2018}.
+Man bør sette maks antall forsøk på login før man blir midlertidig utestengt via IP \cite{ellingwood_2014_2}.
+Man bør skift vekk fra standard SSH port 22 til en annen under 1024 \cite{w3cports1995}
 Man bør sette opp en brannmur som blokker alt bortsett fra SSH porten man har satt, samt port 80 for HTTP og port 443 for HTTPS
 Man bør bruke rettighetene 755 på mapper og 644 på filer som serveres offentlig.
 
@@ -637,8 +637,7 @@ Figur \ref{fig:competitors-mobile} viser at alle konkurrentene har gått for sam
 Konkurrentene har gode løsninger, men også en del svakheter som har blitt påpekt i denne analysen. Konkurrentanalysen har vært nyttig fordi den både har ført til at gruppen har fått inspirasjon til deler av den løsningen som skal utvikles og samtidig gitt en pekepinn på hva som bør gjøres annerledes.
 
 Studentgruppen har satt som mål å få minst like bra score på testen til Google Lighthouse, som gjennomsnittsscoren til de utvalgte konkurrentene.
-
-\begin{figure}[bh]
+\begin{figure}[H]
     \begin{center}
         \includegraphics[width=0.3\textwidth]{line/tacticrealtime_com_(iPhone_6_7_8).png}
         \includegraphics[width=0.3\textwidth]{line/marketer_tech_(iPhone_6_7_8).png}
@@ -647,9 +646,6 @@ Studentgruppen har satt som mål å få minst like bra score på testen til Goog
         \label{fig:competitors-mobile}
     \end{center}
 \end{figure}
-
-
-
 
 \section{Teknologier}
 Når det kommer til utvikling av nettsteder finnes det mange ulike teknologier, systemer og verktøy som kan benyttes for å få det samme resultatet. Derfor er det viktig å kartlegge brukerens behov og deretter sette ønskede kvalifikasjoner og krav, slik at de valgte verktøyene er tilpasset dette. Basert på de foregående analysene i dette kapittelet har studentgruppen kommet frem til et sett med minimumskrav. Videre blir passende verktøy og tilhørende teknologier presentert.
@@ -766,12 +762,10 @@ Kilde: \url{http://php.net/}
 En sesjon\footnote{\url{https://ieeexplore.ieee.org/abstract/document/8392612}} (session) er en samling av data lagret på en webserver. En webserver tildeler en ID til hver bruker som sender forespørsler via en nettleser. ID-en lagres som en informasjonskapsel i nettlesern til brukeren. Alle nye forespørsel vil så identifiseres av ID-en som er lagret hos brukeren.
 
 \subsubsection{phpMyAdmin}
-phpMyAdmin\footnote{\url{https://www.phpmyadmin.net/}} er et gratis og webbasert administrasjonsverktøy for MySQL og MariaDB databaser. Verktøyet er skrevet i PHP og JavaScript. Med phpMyAdmin kan man lage, endre og slette databaser, tabeller og felter. Annen funksjonalitet kan være å utføre SQL-setninger, administrere nøkler og privilegier og eksportere data til ulike formater.
+phpMyAdmin \cite{phpmyadmin2019bmt} er et gratis og webbasert administrasjonsverktøy for MySQL og MariaDB databaser, skrevet i PHP. Med phpMyAdmin kan man lage, endre og slette databaser, tabeller og felter. Annen funksjonalitet kan være å utføre SQL-setninger, administrere nøkler og privilegier og eksportere data til ulike formater.
 
 \subsubsection{MariaDB}
-MariaDB er et relasjonsdatabasesystem basert på MySQL, som er gratis og har åpen kildekode. Systemet funker som en \textit{drop-in} erstatning for MySQL.
-
-Kilde \url{https://mariadb.org/}
+MariaDB \cite{mariadb2019amd} er et relasjonsdatabasesystem basert på MySQL og har åpen kildekode. Systemet funker som en \textit{drop-in} erstatning for MySQL.
 
 \subsubsection{CI \& CD}
 CI står for continuous integration og CD står for continuous delivery. CI/CD\footnote{\url{https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment}} er en metode som lar utviklere implementere og levere kodeendringer raskt og pålitelig.
@@ -846,9 +840,9 @@ side 5 og 6
 Node.js \cite{w3schools2019win} er et gratis open source-servermiljø, som kjører på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren. Node.js kan generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
 
 \subsubsection{Figma}
-Figma\footnote{\url{https://www.figma.com/}} er et webbasert designverktøy som åpner muligheten for å samarbeide i sanntid. Med Figma er det også mulig å designe mockups og prototyper av applikasjoner og nettsider.
+Figma \cite{figma2019abw} er et webbasert designverktøy som åpner muligheten for å samarbeide i sanntid. Med Figma er det også mulig å designe mockups og prototyper av applikasjoner og nettsider.
 
-ekstra kilde: \url{https://www.xfive.co/blog/figma-best-designer-developer-cooperation/}
+% ekstra kilde: \url{https://www.xfive.co/blog/figma-best-designer-developer-cooperation/}
 
 \subsubsection{Google Analytics}
 \label{sec:google-analytics}
