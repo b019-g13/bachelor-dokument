@@ -14,8 +14,6 @@ Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og 
 \section{Utdypning av oppgavebeskrivelse}
 Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en langt nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API. Videre ønsker oppdragsgiver at systemet skal ha mulighet for å legge til to sider, kundehistorier og blogg. Disse sidene skal ikke være en del av den ferdige løsningen, men systemet skal kunne ta høyde for og ha mulighet til å utvide.
 
-\section{Risikoanalyse}
-
 \section{Hvorfor et nettsted er viktig}
 Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. Undersøkelser gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} er med å underbygge denne påstanden. Den første undersøkelsen \cite{ssb17fim} kartla at hadde hele 98\% av Norges befolkning tilgang på internett hjemme i 2017. Videre viser en undersøkelse \cite{ssb17nat} at hele 9 av 10 nordmenn surfet på nettet hver dag i 2017. SSB har også kartlagt  at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 måneder i 2018 \cite{ssb18aup}. Disse foregående funnene er svært relevante og er med å bevise hvorfor det er så viktig for en bedrift å være på internett i dag.
 
@@ -171,9 +169,6 @@ Oppdragsgiver ønsker et kontaktskjema på nettstedet. Følgelig vil systemet vi
 
 I dette kapittelet skal vi se på hva som er beste praksis når det kommer til design, innhold og struktur. I tillegg skal vi se på hvorfor det er viktig at vi følger den beste praksisen.
 
-Obvious Always Wins:
-\url{https://www.lukew.com/ff/entry.asp?1945}
-
 \subsection{Design}
 \label{sec:design}
 I følge boken \q{The Principles of Beautiful Webdesign} \cite[s.~5]{beaird2014tpo} finnes det to hovedpunkter som er avgjørende når det gjelder hvordan de fleste bestemmer om designet til en nettside er bra eller dårlig. Det første punktet er brukbarheten, som fokuserer på funksjonaliteten, hvor effektivt informasjonen presenteres og effektiviteten til nettstedet. Hovedpunkt nummer to er det rent estetiske perspektivet, som kun fokuserer på artistisk verdi og visuell fremtoning av designet. For å nå ut til kunder og holde deres interesse, er det nødvendig og gjøre mest ut av begge punktene. Brukere blir nemlig fornøyde med god design, men trukket til innholdet.  Beste praksis når det gjelder design vil altså være å ha god brukeropplevelse\footnote{Se avsnitt \ref{sec:ux}} samtidig som nettsiden har et pent og innbydende design.
@@ -223,7 +218,7 @@ Et nettsted som tar imot brukerinput og viser det på siden vil være mottagelig
 Et XSS-angrep går ut på å sende inn kode via brukerinput som vil kjøre når det vises på siden \cite[s.~179-183]{NattTomHeine2015Datasikkerhet}. Konsekvensene av et slikt angrep kan være at brukere som kommer inn på siden med koden sendes til en annen nettside, eller at alt de skriver sendes til en tredjepart. En annen mulig konsekvens, om nettstedet har brukerautentisering, er at brukerens informasjonskapsler og sesjons-ID kan komme på avveie. Dette vil gjøre det mulig for en angriper å logge seg inn som brukeren.
 
 Mottiltak for XSS-angrep går ut på å validere og \textit{escape} brukerinput før det lagres og vises.
-Flere språk som kan prosessere brukerinput kommer med innebygd funksjonalitet for å \textit{escape} brukerinput, for eksempel PHP sin \lstinline{htmlspecialchars} funksjon. \url{http://php.net/manual/en/function.htmlspecialchars.php}
+Visse språk som kan prosessere brukerinput kommer med innebygd funksjonalitet for å \textit{escape} brukerinput, for eksempel PHP sin \lstinline{htmlspecialchars}-funksjon \cite{php_htmlspecialchars}.
 
 \subsubsection{Cross site request forgery (CSRF)}
 \label{sec:analysis-security-csrf}
@@ -322,13 +317,13 @@ Innlastningstiden til DOM beskriver hvor lang tid det tar for nettleseren å les
     \label{fig:analysis-current-lightouse-summary}
 \end{figure}
 
-Ikonet for \q{Progressive Web App} har en feil, slik at man ikke får sett scoren. Ved hjelp av en JSON-fil\footnote{Se JSON-fil, linje 3386} som inneholder resultatene, ser man at poengscoren er på 58\%.
+Ikonet for \q{Progressive Web App} har en feil, slik at man ikke får sett scoren. Ved hjelp av en JSON-fil\footnote{Se JSON-fil, linje 3386 (KOMMER)} som inneholder resultatene, ser man at poengscoren er på 58\%.
 
-Denne delen av testen er egentlig ikke relevant\footnote{Sirkus Media sitt nettsted er ikke, og kommer ikke til å bli en progressiv webapplikasjon. KILDE OM PWA}, og vi vil derfor ikke se på denne, eller nevne den i andre tekniske analysener som bruker Google Lighthouse.
+Denne delen av testen er egentlig ikke relevant\footnote{Sirkus Media sitt nettsted er ikke, og kommer ikke til å bli en progressiv webapplikasjon.}, og vi vil derfor ikke se på denne, eller nevne den i andre tekniske analysener som bruker Google Lighthouse.
 
-I rapporten kan vi se at Google laster inn nettsiden på 2,7 sekunder og at det tar 4,9 sekunder før siden blir beregnet som interaktiv. Hovedproblemet til siden er bruken av \q{render-blocking resources}\footnote{Hva er dette?}. Dette kan lett fikses og kan i følge Google spare 1,34 sekunder. Google påpeker også at det finnes 3 sikkerhetshull i JavaScript-biblioteker som blir brukt på nettsiden. Dette er ikke ønskelig, da dette øker risikoen for uønskede hendelser.
+I rapporten kan vi se at Google laster inn nettsiden på 2,7 sekunder og at det tar 4,9 sekunder før siden blir beregnet som interaktiv. Hovedproblemet til siden er bruken av \q{render-blocking resources}. Dette kan lett fikses og kan i følge Google spare 1,34 sekunder. Google påpeker også at det finnes 3 sikkerhetshull i JavaScript-biblioteker som blir brukt på nettsiden. Dette er ikke ønskelig, da dette øker risikoen for uønskede hendelser.
 
-Full rapport for Google Lighthouse testen kan leses i vedlegg X.
+Full rapport for Google Lighthouse testen kan leses i vedlegg X (KOMMER).
 
 \subsection{Checkbot}
 \begin{figure}[H]
@@ -338,11 +333,11 @@ Full rapport for Google Lighthouse testen kan leses i vedlegg X.
     \label{fig:analysis-current-checkbot-summary}
 \end{figure}
 
- Figur \ref{fig:analysis-current-checkbot-summary} viser en oppsummering av resultatene fra Checkbot\footnote{Se avsnitt \ref{sec:checkbot}}. En mer detaljert rapport kan leses under vedlegg X. Denne testen viser en god poengsum når det gjelder totalt for gjennomsnittet. Isolert sett ser vi at sikkerheten til nettstedet drar ned gjennomsnittet betydlig. Den fulle rapporten viser at dette kommer av at nettsiden ikke bruker HSTS, \q{content sniffing protection}, \q{clickjack protection}, \q{XSS protection} og at det ikke skjuler server-versjon data.
+ Figur \ref{fig:analysis-current-checkbot-summary} viser en oppsummering av resultatene fra Checkbot\footnote{Se avsnitt \ref{sec:checkbot}}. En mer detaljert rapport kan leses under vedlegg X (KOMMER). Denne testen viser en god poengsum når det gjelder totalt for gjennomsnittet. Isolert sett ser vi at sikkerheten til nettstedet drar ned gjennomsnittet betydlig. Den fulle rapporten viser at dette kommer av at nettsiden ikke bruker HSTS, \q{content sniffing protection}, \q{clickjack protection}, \q{XSS protection} og at det ikke skjuler server-versjon data.
 
 \subsection{Color Contrast Analyzer}
 \label{sec:analysis-current-color-contrast-analyzer}
-Videre presenteres resultatene fra Color Contrast Analyzer\footnote{\ref{sec:color-contrast-analyzer}}.
+Videre presenteres resultatene fra Color Contrast Analyzer\footnote{Se avsnitt \ref{sec:color-contrast-analyzer}}.
 
 \begin{figure}[H]
     \centering
@@ -378,7 +373,7 @@ Med verktøyet WAVE\footnote{Se avsnitt \ref{sec:wave}} kan vi videre verifisere
 \quad 5x: Redudante linker\\
 \vskip 1em Annet:\\
 \quad 8x: Bilder med tom alt-attributt.\\
-\vskip 1em Ved å skru på \q{No-styling} vil man oppdage at det er en skjult seksjon på siden (\q{THE COMPANIES THAT MAKE THEIR LIFE SIMPLE}). Dette blir plukket opp av noen skjermlesere og er derfor ikke ideelt.\\
+\vskip 1em Ved å skru på \q{No-styling} vil man oppdage at det er en skjult seksjon på siden \q{THE COMPANIES THAT MAKE THEIR LIFE SIMPLE}. Dette blir plukket opp av noen skjermlesere og er derfor ikke ideelt.\\
 WAVE viser også at nettstedet har bra stuktur på overskrifter og følger beste praksis.
 
 \subsection{Kontrastforhold mellom tekst og bakgrunnsbilder}
@@ -804,9 +799,7 @@ Hypertext Markup Language \cite{w3c2016hc} er et markeringsspråk som brukes til
 Casecading Style Sheet \cite{w3c2016hc} er et format for stilsett som beskriver utseendet i en applikasjon eller på et nettsted. CSS styrer blant annet fonter, farger, bakgrunnsbilder, linjeavstand og sidelayout. Formatet lar utviklere style innhold på en slik måte at brukere enklere kan identifisere hva det er, samt være i tråd med en bedrift eller person sin identitet.
 
 \subsubsection{SASS}
-Syntactically Awesome Style Sheets\cite{Catlin2006cws} er en utvidelse av CSS. SASS gir mulighet til å bruke variabler, nestede regler, inline-import og mixins. Alt dette gjør det enklere å gjenbruke CSS syntaks. Med SASS er det mulig å lage stilark raskere. SASS er kompatibel med alle versjoner av CSS. Det er ingen nettlesere som kjører SASS, man må derfor kompilere SASS til CSS for å kunne bruke det på nettsider.
-
-KILDE: Cederholm, D. (2013). Sass for web designers. A Book Apart.
+Syntactically Awesome Style Sheets \cite{Catlin2006cws} er en utvidelse av CSS. SASS gir mulighet til å bruke variabler, nestede regler, inline-import og mixins. Alt dette gjør det enklere å gjenbruke CSS syntaks. Med SASS er det mulig å lage stilark raskere. SASS er kompatibel med alle versjoner av CSS. Det er ingen nettlesere som kjører SASS, man må derfor kompilere SASS til CSS for å kunne bruke det på nettsider.
 
 \subsubsection{JavaScript}
 JavaScript er et programmeringsspråk som følger ECMAScript-spesifikasjonen \cite{mdn2019jav}. Det er mye brukt til å utvikle webapplikasjoner. Språket støttes av de fleste moderne nettlesere, og brukes til å manipulere elementene på nettsiden og stilene som er brukt på dem. JavaScript støtter objektorientert- og funksjonell programmering.
