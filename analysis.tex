@@ -12,7 +12,7 @@
 Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. I løpet av dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, design og funksjonalitet. I tillegg vil vi presentere en analyse av opprinnelig løsning, konkurrentanalyse, kravene som er satt til verktøy etterfulgt av en presentasjon av de verktøy vi mener er passende.
 
 \section{Utdypning av oppgavebeskrivelse}
-Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en langt nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API. Videre ønsker oppdragsgiver at systemet skal ha mulighet for å legge til to sider, kundehistorier og blogg. Disse sidene skal ikke være en del av den ferdige løsningen, men systemet skal kunne ta høyde for og ha mulighet til å utvide.
+Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en lang nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API. Videre ønsker oppdragsgiver at systemet skal ha mulighet for å legge til to sider, kundehistorier og blogg. Disse sidene skal ikke være en del av den ferdige løsningen, men systemet skal kunne ta høyde for og ha mulighet til å utvide.
 
 \section{Hvorfor et nettsted er viktig}
 Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. Undersøkelser gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} er med å underbygge denne påstanden. Den første undersøkelsen \cite{ssb17fim} kartla at hadde hele 98\% av Norges befolkning tilgang på internett hjemme i 2017. Videre viser en undersøkelse \cite{ssb17nat} at hele 9 av 10 nordmenn surfet på nettet hver dag i 2017. SSB har også kartlagt  at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 måneder i 2018 \cite{ssb18aup}. Disse foregående funnene er svært relevante og er med å bevise hvorfor det er så viktig for en bedrift å være på internett i dag.
@@ -23,7 +23,7 @@ I tillegg til disse funnene, er det også andre faktorer som bidrar til at et ne
 \label{sec:search-results}
 Når en bedrift har et nettsted blir det mulig å dukke opp i søkeresultatene hos søkemotorer\footnote{Se avsnitt \ref{sec:concepts-seo}}. Undersøkelser foretatt av Google viser hvorfor treff i søk er viktig for bedrifter i dag. Den første undersøkelsen \cite{google16hms} viser at hele 76\% av de som søker på smarttelefonene etter noe i nærheten, besøker en bedrift innen en dag. Uten et nettsted vil altså mange potensielle kunder ikke finne bedriften, ei heller foreta et besøk som kunne ført til fortjeneste. 
 
-I tillegg viser en annen undersøkelse \cite{google16mhc} at når et spørsmål eller behov oppstår er sannsynligheten minst dobbelt så stor for å benytte seg av søk, enn andre online og offline kilder som sosiale medier eller å besøke butikker. Ikke bare er søk den mest brukte ressursen, det er den tjenesten 87\% vender seg til først. I en ytterligere undersøkelse  \cite{google16scp} ble det også kartlagt at 51\% av brukere har oppdaget et nytt produkt eller bedrift når de har utført søk på deres telefon. For at en bedrift skal lykkes, er det altså helt avgjørende å være godt synlig hos søkemotorer.
+I tillegg viser en annen undersøkelse \cite{google16mhc} at når et spørsmål eller behov oppstår er sannsynligheten minst dobbelt så stor for å benytte seg av søk, enn andre online og offline kilder som sosiale medier eller å besøke butikker. Ikke bare er søk den mest brukte ressursen, det er den tjenesten 87\% vender seg til først. I en ytterligere undersøkelse  \cite{google16scp} ble det også kartlagt at 51\% av brukere har oppdaget et nytt produkt eller bedrift når de har utført søk på sin telefon. For at en bedrift skal lykkes, er det altså helt avgjørende å være godt synlig hos søkemotorer.
 
 
 \subsection{Troverdighet}
@@ -192,11 +192,11 @@ Vårt nettsted bør derfor inneha de fleste av disse punktene, slik at kundene e
  
 \subsubsection{Kryptering}
 \label{sec:analysis-security-encryption}
-Krypering er en prosess som gjør om data fra et leselig format til et uleslig format. For å kunne lese kryptert data trenger man nøkkelen/hemmeligheten som ble brukt til å kryptere dataene \cite[s.~117-118]{NattTomHeine2015Datasikkerhet}. Kryptering brukes for å forhindre at tredjeparter kan lese data som kommer på avveie.
+Kryptering er en prosess som gjør om data fra et leselig format til et uleslig format. For å kunne lese kryptert data trenger man nøkkelen/hemmeligheten som ble brukt til å kryptere dataene \cite[s.~117-118]{NattTomHeine2015Datasikkerhet}. Kryptering brukes for å forhindre at tredjeparter kan lese data som kommer på avveie.
  
 \subsubsection{Passord hashing}
 \label{sec:analysis-security-password-hashing}
-Det anses ikke som bra praksis å lagre passord i klartekst. Om filen/databasen som inneholder passordene kommer på avveie vil alle passordene kunne leses. Dette er ikke ønskelig. Det benyttes derfor ofte en enveis kryperingsteknikk som krypterer alle passord og gjør de om til en såkalt hash-kode \cite[s.~100-103]{NattTomHeine2015Datasikkerhet}. Om en database som inneholder krypterte passord skulle komme på avveie vil det være vannskelig å hente ut de faktiske passordene.
+Det anses ikke som bra praksis å lagre passord i klartekst. Om filen/databasen som inneholder passordene kommer på avveie vil alle passordene kunne leses. Dette er ikke ønskelig. Det benyttes derfor ofte en enveis krypteringsteknikk som krypterer alle passord og gjør de om til en såkalt hash-kode \cite[s.~100-103]{NattTomHeine2015Datasikkerhet}. Om en database som inneholder krypterte passord skulle komme på avveie vil det være vanskelig å hente ut de faktiske passordene.
  
 \subsubsection{Offentlig nøkkelkryptering}
 \label{sec:analysis-security-public_key-cryptography}
@@ -214,7 +214,7 @@ HTTPS er en sikker versjon av HTTP-protokollen som overfører data på nett \cit
 
 \subsubsection{Cross-site scripting (XSS)}
 \label{sec:analysis-security-xss}
-Et nettsted som tar imot brukerinput og viser det på siden vil være mottagelig for XSS-angrep.
+Et nettsted som tar imot brukerinput og viser det på siden vil ha høy risiko for XSS-angrep.
 Et XSS-angrep går ut på å sende inn kode via brukerinput som vil kjøre når det vises på siden \cite[s.~179-183]{NattTomHeine2015Datasikkerhet}. Konsekvensene av et slikt angrep kan være at brukere som kommer inn på siden med koden sendes til en annen nettside, eller at alt de skriver sendes til en tredjepart. En annen mulig konsekvens, om nettstedet har brukerautentisering, er at brukerens informasjonskapsler og sesjons-ID kan komme på avveie. Dette vil gjøre det mulig for en angriper å logge seg inn som brukeren.
 
 Mottiltak for XSS-angrep går ut på å validere og \textit{escape} brukerinput før det lagres og vises.
@@ -381,7 +381,7 @@ Etter å ha testet kontrasten til siden med verktøyet fra avsnitt \ref{sec:anal
 
 Dette er ikke mulig å sjekke med Chrome DevTools eller WAVE. Begge verktøyene vil gi negative resultater som ikke stemmer ettersom de ikke får en bakgrunnsfarge å se på, men et bakgrunnsbilde. Dette fører til at testen ikke blir utført korrekt.
 
-For å løse dette bruker vi Brandwood sin A11y-test\footnote{Se avsnitt \ref{sec:brandwoods-a11y-test}}. I figur \ref{fig:analysis-current-a11y_bg-example} kan man se eksempel på resultatet av en test. Her testet vi en hvit tekst mot et bilde av en regnbue. 
+For å løse dette bruker vi A11y-test til Brandwood \footnote{Se avsnitt \ref{sec:brandwoods-a11y-test}}. I figur \ref{fig:analysis-current-a11y_bg-example} kan man se eksempel på resultatet av en test. Her testet vi en hvit tekst mot et bilde av en regnbue. 
 
 \begin{figure}[H]
     \centering
@@ -552,7 +552,7 @@ Nettstedet består også av følgende undersider:
     \end{center}
 \end{figure}
 
-Figur \ref{fig:competitors-lighthouse-summary-marketer.tech} viser resultatene fra testen gjort med Google Lighthouse. Her kom Marketer dårligst ut. Testen påpeker flere feil på punkter vedrørende ytelse, tilgjengelighet og beste praksiser. Det tar Google 5,3 sekunder å laste inn nettstedet, noe som er relativt tregt, men det er raskere enn Inviso.no. Selv om Marketer sin side laster inn raskere, så får den en dårligere poengsum på ytelse. Dette fordi det tar hele 15,2 sekunder før siden blir beregnet som interaktiv \footnote{\q{Time to Interactive} i Google Lightouse rapporten}. Marketer burde ta samme grep som TACTIC, i tillegg til å fjerne ubrukt CSS, servere skalerte bilder og vurdere å redusere antall animasjoner.
+Figur \ref{fig:competitors-lighthouse-summary-marketer.tech} viser resultatene fra testen gjort med Google Lighthouse. Her kom Marketer dårligst ut. Testen påpeker flere feil på punkter vedrørende ytelse, tilgjengelighet og beste praksiser. Det tar Google 5,3 sekunder å laste inn nettstedet, noe som er relativt tregt, men det er raskere enn Inviso.no. Selv om siden til Marketer  laster inn raskere, så får den en dårligere poengsum på ytelse. Dette fordi det tar hele 15,2 sekunder før siden blir beregnet som interaktiv \footnote{\q{Time to Interactive} i Google Lightouse rapporten}. Marketer burde ta samme grep som TACTIC, i tillegg til å fjerne ubrukt CSS, servere skalerte bilder og vurdere å redusere antall animasjoner.
 Full rapport for Google Lighthouse kan leses i vedlegg X2.
 
 Figur \ref{fig:competitors-wave-summary-marketer.tech} viser WAVE-resultatene. Her kommer det frem at løsningen har 5 kontrastfeil og hele 147 feil når det kommer til universell utforming og tilgjengelighet. 135 av disse feilmeldingene er manglende bruk av alt-tekster.
@@ -723,7 +723,7 @@ Web Accessibility Evaluation Tool \cite{webaim2018wh} er et verktøy som tester 
 
 \subsubsection{Brandwoods A11y-test} 
 \label{sec:brandwoods-a11y-test}
-Brandwood sin A11y-test \cite{sl2009sst}. Verktøyet deler opp bilde i seksjoner og finner gjennomsnittsfargen i hver av disse seksjonene. Deretter sjekkes kontrastforholdet mellom teksten sin farge og fargen i de seksjonene som teksten er over.
+A11y-test til Brandwood  \cite{sl2009sst}. Verktøyet deler opp bilde i seksjoner og finner gjennomsnittsfargen i hver av disse seksjonene. Deretter sjekkes kontrastforholdet mellom teksten sin farge og fargen i de seksjonene som teksten er over.
 
 \subsubsection{NVDA}
 \label{sec:analysis-tools-nvda}

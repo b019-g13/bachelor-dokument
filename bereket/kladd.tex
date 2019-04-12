@@ -20,7 +20,7 @@ Oppretting av  attributter på tabellene gjøres slik:
     $table->type('atributtnavn');
 \end{lstlisting}
 
-Brukte UUID som primære nøkler på de fleste  tabellene.  UUID (Universally unique identifier) er en ID som kan gis til tabellrader for å identifisere dem på en måte som er litt finere enn et sekvensielt tabell-ID.\footnote{\url{https://medium.com/binary-cabin/automatically-generating-a-uuid-on-your-laravel-models-b8b9c3599e2b}} Dette hjelper å har større tabellrader enn å bruke increments.
+Brukte UUID som primære nøkler på de fleste  tabellene. UUID (Universally unique identifier) er en ID som kan gis til tabellrader for å identifisere dem på en måte som er litt finere enn et sekvensielt tabell-ID. \footnote{\url{https://medium.com/binary-cabin/automatically-generating-a-uuid-on-your-laravel-models-b8b9c3599e2b}} Dette hjelper å har større tabellrader enn å bruke increments.
 
 \subsection{Feil under migrasjon}
 Prøvde å ta migrasjon oppsto en feilmelding.
@@ -197,7 +197,7 @@ For en enkel page:
 
 \subsection{API Test}
 Brukte en verktøy som heter Postman\footnote{\url{https://www.getpostman.com/product}} for api test. Postman er en HTTP-klient som sender en forespørsel og mottar et svar. Installerte postman på datamaskinen til å teste api-er.
-\subsubsection{Utfordring} 
+\subsubsection{Utfordring under testing} 
 På mange til mange relasjoner ble  det laget egne modeller på pivot tabellene.
 Forholdene ble satt opp via pivot tabellene sine modeller. På kontroller ble det brukt  Apend til å få alle forholdene mellom tabellene. 
 \begin{lstlisting}
@@ -220,5 +220,196 @@ Fikset ved å sette opp forholdene ved hjelp av 'hasManyThrough'. Gjøres slik:
       }
 \end{lstlisting}
 
+\subsection{Sett opp autentisering}
+Autentisering brukes til å kontrollere tilgang til ressurser. For å kontrollere tilgang skal nettsiden ha logginn og registreringsside. Registrering siden skal være tilgjengelig for brukere som logget seg inn. 
+Lagte autenisering ved å kjøre koden i comandlijen.
+\begin{lstlisting}
+    php artisan make:auth 
+\end{lstlisting} 
+    
+I RegisterController kan det endres tilgangen for å opprette nye brukere.
+\begin{lstlisting}
+    $this->middleware('guest');
+\end{lstlisting}
+Endre guest med auth. Dette krever at bruker må logge seg inn for å kunne opprette nye brukere.
+\begin{lstlisting}
+    $this->middleware('auth');
+\end{lstlisting}
 
+\subsubsection{ Registrering av bruker}
+Etter autentiseringen er prøvde det å registrere ny bruker. Det oppsto en feilmelding under registrering av ny bruker
+\begin{lstlisting}
+    SQLSTATE[HY000]: General error: 1364 Field 'image_id' doesn't have a default value
+\end{lstlisting}  
+Løste feilen ved å endre standard verdien til "imageid" feltet i bruker database tabellen. Gjorde slik:
+
+\begin{lstlisting}
+    $table->uuid('image_id')->nullable()->default(null);
+\end{lstlisting} 
+
+\subsubsection{Mailtrap}
+For en bruker skal logge seg inn kreves det epost bekreftelse.
+Fikk feilmelding om mail bekreftelsen.
+\begin{lstlisting}
+    Swift_TransportException in AbstractSmtpTransport.php line 383: Expected response code 250 but got code "530", with message "530 5.7.1 Authentication required
+\end{lstlisting}
+    
+Løste feilen ved å lage midlertidig konto i mailtrap.io og fikk bekrefte inloggingen.
+Mailtrap\footnote{{https://mailtrap.io/}} er en SMTP-server for å teste, vise og dele e-postmeldinger sendt fra utviklings- og oppstartsmiljøene uten å spammere virkelige kunder.
+I mailtrap under SMTP instillinger finnes det bruker informasjonen og den bør kopieres og limes i .env filen i laravel.
+
+\begin{lstlisting}
+    MAIL_DRIVER=smtp
+    MAIL_HOST=smtp.mailtrap.io
+    MAIL_PORT=2525
+    MAIL_USERNAME=62338a10f2cd0f
+    MAIL_PASSWORD=b67a88da87aecc
+    MAIL_ENCRYPTION=tls
+\end{lstlisting}
+
+\subsection{SEEDS}
+For å lage forskjellige bruker roller lagte det RoleSeeder i databasen.
+Kjørte koden i kommandolinjen for å opprette det.
+\begin{lstlisting}
+    php artisan make:seeder RoleSeeder
+\end{lstlisting}
+Lagte forskjellige roller i RoleSeederen
+\begin{lstlisting}
+    $user = Role::create(['name' => 'user']);
+   $moderator = Role::create(['name' => 'moderator']);
+   $admin = Role::create(['name' => 'admin']);
+   $superadmin = Role::create(['name' => 'superadmin']);
+\end{lstlisting}
+\subsection{CRUD}       
+Opprettet CRUD (Creating, Reading, Updating and Deleting) filer for å opprette, lese oppdatere og slette ressurser. På ressurs kontroller kan skrives logikken om hvordan ressursene opprettes, lagres, leses, oppdateres og slettes. 
+
+\begin{lstlisting}
+    class PageController extends Controller
+    {   public function __construct()
+       {  $this->middleware('auth'); }
+       public function index()
+       {   $pages = Page::paginate(30);
+           return view('pages.index',compact('pages'));
+       }
+       public function create()
+       {   $pages = Page::All();
+           $images = Image::All();
+           return view('pages.create', compact('pages','images'));}
+       public function store(Request $request)
+       {      $request->validate(['title'=>'required|string',
+               'image_id'=> 'nullable' ]);
+           $page = new Page([
+               'title' => $request->get('title'),
+               'image_id'=> $request->get('image_id')]);
+             $page->save();
+             return redirect('/pages')->with('success', 'Page er opprettet'); }
+       public function show(Page $page)
+       {   $page->menu;
+           $components = $page->components;
+           foreach($components as $component){
+               $component->fields; }
+           return view('pages.show',compact('page'));  }
+        public function edit($id)
+       {   $page = Page::find($id);
+           $images = Image::All();
+           return view('pages.edit', compact('page', 'images'));
+       }
+       public function update(Request $request, $id)
+       {	   $request->validate(['title'=>'required|string',
+               'image_id'=> 'nullable']);
+             $page = Page::find($id);
+             $page->title = $request->get('title');
+             $page->image_id = $request->get('image_id');
+             $page->save();
+             return redirect('/pages')->with('success', 'Page er oppdatert'); }
+       public function destroy($id)
+       {   $page = Page::find($id);
+           $page->delete();
+        return redirect('/pages')->with('success', 'Page er slettet');}}
+\end{lstlisting}
+
+Etter det ble ferdig laget med CRUD, testet om det fungerer.
+I create.blade.php filen prøvde å lage nedtrekksmeny med komponenter.
+Fikk feilmeldingen:
+\begin{lstlisting}
+    "Property [component_id] does not exist on this collection instance.
+\end{lstlisting}
+
+Grunnen var at det ble hentet flere komponenter fra databasen og prøvde å sette de som en singel komponent.
+Løste feilen ved å bruke for løkke.
+\begin{lstlisting}
+    @foreach($components as $component)
+    <option value="{{$component->id}}" {{old('component_id',component->id)}}? selected> {{$component->name}} </option>
+     @endforeach
+\end{lstlisting} 
+
+\subsection{Route}
+Web.php fil i routes katalogen definerer  ruter  for webgrensesnitt\footnote{\url{https://laravel.com/docs/5.8/routing}}.
+Skrives for eksempel slik, hvis man har flere ressurser :
+\begin{lstlisting}
+    Route::resources([
+        'pages' => 'PageController',
+        'components' => 'ComponentController',
+        'links' => 'LinkController',
+        'fields' => 'FieldController',
+        'menus' => 'MenuController'
+        ]);
+\end{lstlisting}
+
+I tillegg ble det lagte php filer for grensesnitt til ressurser. index.blade.php, create.blade.php, edit.blade.php, og show.blade.php
+\footnote{\url{https://itsolutionstuff.com/post/laravel-57-crud-create-read-update-delete-tutorial-example-example.html}}
+
+Tilgangene til ressurser kan være forskjellige fra bruker til bruker og gis for eksempel slik via kontrolleren.
+\begin{lstlisting}
+    public function __contruct(){
+       $this->middleware('auth');
+       $this->middleware('role:superadmin');
+    }
+\end{lstlisting}
+
+Eksemplet viser at tilgangen er gitt bare til brukere med superadmin rolle.
+
+Har lagt linker for Menus og Pages til brukere som er logget seg inn.
+Etter linkene ble lagt og rollene blitt gitt fikk ikke det å åpne linkene eller registrere nye brukere. Fikk feilmelding om det ikke eksisterer rolle klasse. 
+\begin{lstlisting}
+    "Class App\Http\Spatie\Permission\Models\Role does not exist"
+\end{lstlisting}
+ 
+Prøvde å rette feilen ved å legge til rolle klasse i kernel.php slik:
+\begin{lstlisting}
+   protected $routeMiddleware = ['role'=>Spatie\Permission\Models\Role::class]; 
+\end{lstlisting}  
+Løsningen ga en annen feilmelding om klasse rolle ikke finnes
+ \begin{lstlisting}
+      "Class 'Role' not found
+ \end{lstlisting}
+
+Feilen var at det ble lagt Role modelle klasse istedet Middleware klasse og løste ved å sette riktig Middleware klasse. Middleware \footnote{\url{https://laravel.com/docs/5.8/middleware }} er en mekanisme som kan  filtrere http-forespørsler. Den kan for eksempel verifisere en bruker er autentisert. 
+\begin{lstlisting}
+   'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+\end{lstlisting}
+
+Registering av en ny bruker gikk men fikk feilmelding samtidig.
+\begin{lstlisting}
+   "Argument 1 passed to Illuminate\Auth\SessionGuard::login() must implement interface Illuminate\Contracts\Auth\Authenticatable, null given,
+\end{lstlisting}
+
+Feilen var at den prøver å sende den registrert brukeren til en side mens en annen  bruker er logget seg inn på siden. Registrering av en ny bruker gjennomføres av innlogget brukere med admin rettigheter.
+
+Løste ved å overskrive og slette koden som sender brukeren til siden. Slik:
+\begin{lstlisting}
+   public function register(Request $request)
+       {
+           $this->validator($request->all())->validate();
+    
+           event(new Registered($user = $this->create($request->all())));
+    
+        Sletter dette linje
+            $this->guard('web')->login($user);
+    
+           return $this->registered($request, $user)?: redirect($this->redirectPath());
+       }
+\end{lstlisting}
+  
+\footnote{\url{https://github.com/spatie/laravel-permission?fbclid=IwAR1mbxiD_XLmltOWsDu0TIIC-U1sBMp-SVxUgt27yLR745ZbPDaU9dvDpb4}}  
 \clearpage

@@ -8,7 +8,7 @@ På forhånd var det visse faktorer vi visste vi måtte ta hensyn til:
 
 \subsection{Oppsett av React og tilhørende verktøy}
 
-Det første som ble gjort i denne prosessen var å laste ned Node.js\footnote{\url{https://nodejs.org/en/}}. I dette prosjektet blir ikke Node brukt som en back-end tjenester eller server, men for å kunne kjøre alle verktøy som må til for å kunne utvikle lokalt på datamaskinen. Det var den nyeste versjonen (11.9.0) som ble lastet ned. Deretter ble nettleserutvidelsen React Developer Tools lagt til fra Google Chrome sin webstore. Det ble også opprettet et repository på Github og lastet ned på maskinen ved hjelp av GitKraken. 
+Det første som ble gjort i denne prosessen var å laste ned Node.js\footnote{\url{https://nodejs.org/en/}}. I dette prosjektet blir ikke Node brukt som en back-end tjenester eller server, men for å kunne kjøre alle verktøy som må til for å kunne utvikle lokalt på datamaskinen. Det var den nyeste versjonen (11.9.0) som ble lastet ned. Deretter ble nettleserutvidelsen React Developer Tools lagt til fra  webstoren til Google Chrome. Det ble også opprettet et repository på Github og lastet ned på maskinen ved hjelp av GitKraken. 
 Videre var det nødvendig med et kommandolinjevindu og en teksteditor, valget falt da på kommandolinjevinduet Powershell og teksteditoren Visual Studio Code.
 
 For å sette opp selve React, ble  guiden til react.org for å sette opp en ny React App\footnote{\url{https://reactjs.org/docs/create-a-new-react-app.html\#create-react-app}} fulgt. Her ble det oppgitt at følgende kommandoer må kjøres for å opprette et nytt prosjekt:
@@ -25,16 +25,17 @@ C:\\Users\Datahjelpen AS\AppData\Local\Yarn\bin
 \end{lstlisting}
 Etter dette fungerte alt, og jeg kunne fortsette på guiden og gjorden følgende:
 
-Kjørte npm install i mappen for prosjektet.
+\begin{itemize}
+\item Kjørte \q{npm install} i mappen for prosjektet.
+\item Kjørte \q{npm start} for å starte react serveren.
+\end{itemize}
 
-Kjørte npm start for å starte react serveren.
-
-Kunne da sette i gang  å planlegge components.
+Kunne da sette i gang med å planlegge components.
 
 \section{Planlegging av components}
 Må planlegge components. Hva er components? Hvorfor er det lurt?
 
-Er gjenbrukbare biter av kode. 
+Komponenter i React kan beskrives som gjenbrukbare biter av kode. Fordelen er altså at man kan gjenbruke en komponent, istedenfor å skrive den samme koden flere ganger. 
 
 Ved å se på den godkjente mockupen har vi kommet frem til at vi trenger følgende components: 
 \begin{itemize}
@@ -71,7 +72,8 @@ For å kunne snakke og bruke foreløpig backend, ble Axios\footnote{Se mer i avs
 Deretter ble det satt opp en dynamisk routing, ved hjelp av en løkke som går igjennom alle eksisterende sider og setter opp linker til disse.
 
 \subsection{Installerte Axios}
-Følgte denne guiden
+Axios brukes til å sende forespørsler til back-end.
+Fulgte denne guiden
 \url{https://github.com/axios/axios}
 Installerte ved å kjøre kommandoen under i kommandolinjevindu i pathen til mappa til prosjektet.
 \begin{lstlisting}
@@ -84,7 +86,7 @@ Startet med å lage en components mappe i src. Hvis forbindelsen er vellykket og
 
 \subsection{Page components}
 
-Det ble opprettet et objekt som inneholder alle komponentene som er definert i databasen. Ved å loope igjennom alle komponentene til en side, ble det da mulig å sjekke om navnene samsvarte. Hvis de gjorde dette vil det kjøres en løkke som går igjennom alle feltene en komponent inneholder. Til slutt blir alle komponentene til en side, med riktige props\footnote{Hva er dette?} skrevet ut.  
+Det ble opprettet et objekt som inneholder alle komponentene som er definert i databasen. Ved å loope igjennom alle komponentene til en side, ble det da mulig å sjekke om navnene samsvarte. Hvis de gjorde dette vil det kjøres en løkke som går igjennom alle feltene en komponent inneholder. Til slutt blir alle komponentene til en side, med riktige props\footnote{Props i React brukes til å sende med utvalgt data til en komponent} skrevet ut.  
 
 Før det ble opprettet et objekt som inneholdt alle eksisterende components, ble det forsøkt å kun hente ut angitt komponenter til siden i back-end og så opprette components ut av dette. Da fikk vi følgende feil:
 \begin{lstlisting}
@@ -98,25 +100,23 @@ I tillegg til å finne ut av hvilke komponenter som tilhører siden, må man i t
 \subsection{Header component}
 I komponenten for Header blir alle props/feltene man mottar fra page komponenten skrevet ut. Header ble også stylet slik at den ser ut som mockupen som ble laget.
 
-\subsection{Kompilere CSS til SCSS}
-\url{https://techcookbook.com/react/use-scss-with-create-react-app}
+\subsection{Kompilere SCSS til CSS}
+Gruppen har tidligere nevnt at det ble besluttet å bruke SASS til styling. Da er det nødvendig å ha noe som komilerer fra SCSS til CSS. Dette ble oppnådd ved å følge guiden hos TechCookbook\footnote{\url{https://techcookbook.com/react/use-scss-with-create-react-app}}
 
-Lastet inn node-sass ved å kjøre 
+Lastet først inn node-sass ved å kjøre :
 
 \begin{lstlisting}
 npm install --save node-sass
 \end{lstlisting}
 
-After the package is installed, in our package.json, we are going to create a script to compile .scss to .css:
+Etter at pakken er installert ble det laget et script som kompilerer fra .scss til .css:
 
 \begin{lstlisting}
  "build-css": "node-sass src/ -o src/"
 \end{lstlisting}
 \clearpage
 
-The script build-css takes the .scss files present within the src folder and subfolders and compiles them to .css files. The .css file will be present in the same location as the original .scss file. Without having to think about any other paths, it becomes easy to import the .css file in the components that we are styling.
-
-Next, we are going to create a script to run build-css to compile any existing files into .css but also to keep watching the src folder for changes — as in changes to the content of existing .scss files or the addition of new ones (also in packages.json):
+\q{Build-css} tar .scss-filene som finnes i source mappen samt undermapper og kompilerer dem til .css-filer. .css filen vil bli tilgjengelig i den samme lokasjonen som den originale .scss-filen. Deretter ble det laget et script som kjører \q{build-css} og kompilerer alle eksisterende filer til .css, samtidig som den ser etter forandringer i source mappen. Den vil altså detektere om det blir gjort endringer i eksisterende .scss filer, eller om det blir lagt til nye. 
 
 \begin{lstlisting}
  "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive"
