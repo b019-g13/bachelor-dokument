@@ -72,151 +72,7 @@ I felleskap begynte vi å planlegge hvilke linker som API-et skal ha, og hva de 
 I første omgang ble URL-er for Pages og Menus definerte. Dataene disse gir i svar vil være offentlig. 
 
 Slik så JSON filen ut når Pages og Menus var definert:
-\begin{lstlisting}[language=json]
-// GET: https://api.sirkusmedia.no/v1/pages
-// SVAR:
-{
-  "meta": {
-    "code": 200
-  },
-  "data": [
-    {
-      "id": 948755463496,
-      "title": "Forside",
-      "image_id": 568954698,
-      "created_at": "carbon dato objekt",
-      "updated_at": "carbon dato objekt"
-    },
-    {
-      "id": 9486504659845,
-      "title": "Kontakt oss",
-      "image_id": null,
-      "created_at": "carbon dato objekt",
-      "updated_at": "carbon dato objekt"
-    }
-  ]
-}
-
-// GET: https://api.sirkusmedia.no/v1/pages/:id
-// GET: https://api.sirkusmedia.no/v1/pages/c065ce2b-c541-4254-ac3e-c7c3bab9df9a
-// SVAR:
-{
-  "meta": {
-    "code": 200
-  },
-  "data": {
-    "id": "c065ce2b-c541-4254-ac3e-c7c3bab9df9a",
-    "title": "Forside",
-    "image_id": 568954698,
-    "created_at": "carbon dato objekt",
-    "updated_at": "carbon dato objekt",
-    "menu": null,
-    // ELLER: hvis en rad i menus har en page_id lik vår page
-    "menu": 095698946805,
-    "components": [
-      {
-        "id": 238492403,
-        "name": "Header component",
-        "slug": "header-component",
-        "order": 0,
-        "parent_id": null,
-        "fields": [
-          {
-            "id": 12388123129830,
-            "name": "Bilde",
-            "value": "https://localhost/mittbilde.jpg",
-            "link": null,
-            "image": 234234565
-          },
-          {
-            "id": 094650946509,
-            "name": "Overskrift",
-            "value": "Hei alle sammen",
-            "link": null,
-            "image": null
-          },
-          {
-            "id": 093450934,
-            "name": "Tekst",
-            "value": "Lorem ipsum dolor sit amet",
-            "link": null,
-            "image": null
-          },
-          {
-            "id": 09459039605,
-            "name": "Knapp",
-            "value": "Trykk på meg",
-            "link": "https://localhost/en-nettside-kult",
-            "image": null
-          }
-        ]
-      }
-    ]
-  }
-}
-
-// GET: https://api.sirkusmedia.no/v1/menus
-// Henter ut alle menus
-// SVAR:
-{
-  "meta": {
-    "code": 200
-  },
-  "data": [
-    {
-      "id": 94868656984685,
-      "name": "Main menu",
-      "global": true,
-      "location": 12,
-      "created_at": "carbon dato objekt",
-      "updated_at": "carbon dato objekt"
-    },
-    {
-      "id": 095698946805,
-      "name": "Kontakt oss sidebar",
-      "global": false,
-      "location": 3094,
-      "created_at": "carbon dato objekt",
-      "updated_at": "carbon dato objekt"
-    }
-  ]
-}
-
-// Henter ut en menu
-// GET: https://api.sirkusmedia.no/v1/menus/:id
-// GET: https://api.sirkusmedia.no/v1/menus/94868656984685
-// SVAR:
-{
-  "meta": {
-    "code": 200
-  },
-  "data": {
-    "id": 94868656984685,
-    "name": "Main menu",
-    "global": true,
-    "location": {
-      "name": "Top",
-      "slug": "top"
-    },
-    "created_at": "carbon dato objekt",
-    "updated_at": "carbon dato objekt",
-    "links": [
-      {
-        "name": "Forside",
-        "value": "http://localhost/"
-      },
-      {
-        "name": "Kontakt oss",
-        "value": "http://localhost/kontakt-oss"
-      },
-      {
-        "name": "Kul nettside",
-        "value": "https://vg.no"
-      }
-    ]
-  }
-}
-\end{lstlisting}
+--- PUTT JSON FIL HER ---
 
 Denne filen er altså kun eksempeldata. Den vil bli brukt til å se på at back-end sender svar på riktig måte. Front-end kan også se på filen for hvilke svar som kan forventes på de forskjellige forespørselene. Fordelen med dette er at det kan lages dummy responses som er mulig å jobbe med underveis i utviklingen.
 
@@ -228,40 +84,50 @@ Mockupene ble utarbeidet av Bjørnar.
 
 \subsection{Versjon 1}
 Figur \ref{fig:mockup-v1} viser forsøk nummer 1. Tilbakemeldingen her var...
-
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{mockup1-draft3.png}
+    \includegraphics[height=\textheight]{mockup1-draft3.png}
     \caption{Mockup - Versjon 1}
     \label{fig:mockup-v1}
 \end{figure}
 
 \subsection{Versjon 2}
-Figur \ref{fig:mockup-v2} viser forsøk nummer 2. Tilbakemeldingen her var de samme som på versjon 1.
-
+Figur \ref{fig:mockup-v2} viser forsøk nummer 2. Tilbakemeldingen her var den samme som på versjon 1.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{mockup2-draft3.png}
+    \includegraphics[height=.85\textheight]{mockup2-draft3.png}
     \caption{Mockup - Versjon 2}
     \label{fig:mockup-v2}
 \end{figure}
 
 \subsection{Versjon 3}
 Figur \ref{fig:mockup-v3-index} viser det tredje forsøket. Dette var skissen som ble godkjent.
-
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{mockup3-index.png}
-    \caption{Mockup - Versjon 3}
+    \includegraphics[height=.82\textheight]{mockup3-index.png}
+    \caption{Mockup - Versjon 3 - Forside}
     \label{fig:mockup-v3-index}
 \end{figure}
 
-Når designet til forsiden ble godkjent, startet planleggingen av designet til de andre sidene.
+Når designet til forsiden ble godkjent, startet planleggingen av designet til de andre planlagte sidene på front-end.
 
 \textbf{Om oss}
+Figur \ref{fig:mockup-v3-about} viser designet til den planlagte \q{Om oss}-siden.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=.9\textheight]{mockup3-about.png}
+    \caption{Mockup - Versjon 3 - Om oss}
+    \label{fig:mockup-v3-about}
+\end{figure}
 
 \textbf{Kontakt oss}
-
+Figur \ref{fig:mockup-v3-contact} viser designet til den planlagte \q{Kontakt oss}-siden.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{mockup3-contact.png}
+    \caption{Mockup - Versjon 3 - Kontakt oss}
+    \label{fig:mockup-v3-contact}
+\end{figure}
 
 
 % \section{Innhold}

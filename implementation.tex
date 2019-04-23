@@ -13,50 +13,31 @@ I dette kapittelet skal vi presentere resultatene i prosjektet og en beskrivelse
 Vi endte opp med å bruke en flere verktøy enn beskrevet i  \ref{sec:technologies}. 
 I tillegg til hovedverktøyene ble følgende verktøy og teknologier benyttet:
 
-\subsection{Symfony}
-\label{sec:tools-symfony}
-Symfony er et webapplikasjonsrammeverk og er et sett med gjenbrukbare komponenter og biblioteker skrevet i PHP \cite{symfony19wis}. 
-
-I dette prosjektet ble Symfony benyttet til...
-
 \subsection{GNU/Linux}
 GNU/Linux er en familie med Unix-lignende operativsystemer som baserer seg på Linux-kjernen \cite{kernel_org} og en del programvare fra GNU-prosjektet \cite{gnu_org}. I denne familien finner vi blant annet Ubuntu, Debian, Fedora, Red Hat Linux og Arch Linux.
 
-\subsection{Nginx}
-Nginx er en gratis HTTP-server med åpen kildekode \cite{nedelcu2010nginx}. Nginx har mulighet til å håndtere høy belastning av HTTP-forespørsler. Programmet er tilgjengelig på operativsystemer som Windows, Mac OS og Solaris. I tillegg er Nginx tilgjengelig på operativsystemer som er basert på GNU/Linux eller BSD.
+I dette prosjektet blir GNU/Linux benyttet som operativsystem på serveren som \q{hoster} back-end.
 
-\subsection{phpMyAdmin}
-phpMyAdmin \cite{phpmyadmin2019bmt} er et gratis og webbasert administrasjonsverktøy for MySQL og MariaDB databaser, skrevet i PHP. Med phpMyAdmin kan man lage, endre og slette databaser, tabeller og felter. Annen funksjonalitet kan være å utføre SQL-setninger, administrere nøkler og privilegier og eksportere data til ulike formater.
+\subsection{MySQL}
+MySQL \cite{oracle2019am} er et databasestyringssystem med åpen kildekode.
 
-\subsection{MariaDB}
-MariaDB \cite{mariadb2019amd} er et relasjonsdatabasesystem basert på MySQL og har åpen kildekode. Systemet funker som en \textit{drop-in} erstatning for MySQL.
-
-\subsection{Buddy}
-Buddy \cite{buddy2019das} er en webbasert applikasjon for CI og CD. Applikasjonen lar utviklere bygge, teste og distribuere nettsider og programkode automatisk når kildekoden oppdateres. For eksempel er det mulig å koble Buddy til et nettsteds kildekode via Git. Når koden til nettstedet oppdateres, vil Buddy automatisk detektere endringer og starte en byggeprosess. Når byggeprosessen er ferdig kjøres det automatisk tester på koden, som verifiserer at alt fungerer. Deretter vil Buddy laste koden opp til en server og oppdatere nettstedet som ligger ute på nett. Dette skjer gjerne gjennom Docker\footnote{\url{https://www.docker.com/}} sammen med Kubernetes\footnote{\url{https://kubernetes.io/}}.
-
-\subsection{Ottomatik.io}
-Ottomatik er en webbasert tjeneste for automatisk sikkerhetskopiering av filer og MySQL databaser \cite{barnes2016osb}.
-
-\subsection{Amazon S3}
-Amazon Simple Storage Service er en webbasert tjeneste som tilbyr objekt-lagring \cite{aws2019as3}. Tjenesten tilbyr meget god skalerbarhet, datatilgjengelighet, sikkerhet og ytelse \cite{garfinkel2007aeagcs}.
+Prosjektets database er en MySQL-database.
 
 \subsection{Let’s Encrypt}
 Let’s Encrypt \cite{le2019ale} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
 
+Studentgruppen har benyttet Let's Encrypt til å lage TLS-sertfikater.
+
 \subsection{Node.js}
 Node.js er et gratis åpen kildekode servermiljø, som kjører på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren \cite{w3schools2019win}. Node.js kan generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
 
+Vi har brukt Node.js for å kunne kjøre verktøy knyttet til utvikling av front-end.
+
 \section{Tilhørende teknologier og begreper}
-Ved å bruke disse verktøyene som har blitt presentert vil man i tillegg benytte seg av noen tilhørende teknologier. Disse blir presentert videre i dette kapittelet.
-
-\subsection{CI \& CD}
-CI står for continuous integration og CD står for continuous delivery. CI/CD\cite{Pittet2019cd} er en metode som lar utviklere implementere og levere kodeendringer raskt og pålitelig.
-
-\subsection{Sesjoner}
-En sesjon\cite{progress2017ohs}(session) er en samling av data lagret på en webserver. En webserver tildeler en ID til hver bruker som sender forespørsler via en nettleser. ID-en lagres som informasjonskapsler i nettleseren til brukeren. Alle nye forespørsel vil så identifiseres av ID-en som er lagret hos brukeren.
+Ved å bruke disse verktøyene som har blitt presentert vil man i tillegg benytte seg av noen tilhørende teknologier. Disse blir presentert videre i dette kapittelet. 
 
 \subsection{Git}
-Git\cite{TechTarget} er et system for versjonskontroll. Et versjonskontrollsystem blir hovedsaklig brukt under utvikling av software og nettsteder. Det kan også brukes til andre type prosjekter som grafisk design og skriving av dokumenter.
+Git \cite{TechTarget} er et system for versjonskontroll. Et versjonskontrollsystem blir hovedsaklig brukt under utvikling av software og nettsteder. Det kan også brukes til andre type prosjekter som grafisk design og skriving av dokumenter.
 
 Ved å bruke Git opprettes det historikk over alle endringer, samt en sikkerhetskopi av alle versjoner av filene.
 
@@ -65,15 +46,15 @@ En annen fordel ved å bruke Git er at det blir enklere å samarbeide med andre,
 \subsection{Github}
 GitHub.com er et nettsted for å hoste git repositories, og blir mye brukt for \q{Open Source}-prosjekter. 
 
-Github\cite{TechTarget} er et sentralisert punkt for å samle en brukers repositories. Ved siden av å hoste repositories, lar GitHub brukere dele repositories med hverandre, lage informasjonssider om prosjektet og opprette saker (issues).
+Github \cite{TechTarget} er et sentralisert punkt for å samle en brukers repositories. Ved siden av å hoste repositories, lar GitHub brukere dele repositories med hverandre, lage informasjonssider om prosjektet og opprette saker (issues).
 
 \subsection{HTTP/2}
-HTTP/2\cite{Belshe2015httpv} er en revisjon av HTTP-nettverksprotokollen. HTTP er et sett med regler for overføring av filer (tekst, grafiske bilder, lyd, video og andre mediefiler). Et av de store målene med HTTP/2 var å tillate multipleksing.
+HTTP/2 \cite{Belshe2015httpv} er en revisjon av HTTP-nettverksprotokollen. HTTP er et sett med regler for overføring av filer (tekst, grafiske bilder, lyd, video og andre mediefiler). Et av de store målene med HTTP/2 var å tillate multipleksing.
 
 \subsection{REST-API}
 Et API (programmeringsgrensesnitt) er et sett med funksjoner, prosedyrer, metoder eller klasser som brukes av dataprogrammer for å be om tjenester fra operativsystemet eller programvare som er på datamaskinen. En programmerer kan bruke API-er til å lage applikasjoner.
 
-REST (Representational State Transfer) er en arkitektonisk stil for programvare. Et REST-API\cite{Masse2011radr} er et API som følger REST-stilen og de begrensninger som REST definerer.
+REST (Representational State Transfer) er en arkitektonisk stil for programvare. Et REST-API \cite{Masse2011radr} er et API som følger REST-stilen og de begrensninger som REST definerer.
 
 \subsection{Google Analytics}
 \label{sec:google-analytics}
@@ -85,7 +66,7 @@ Det ble opprettet en \q{Branch protection rule} på back-end repository i Github
 Når koden skal commites må det opprettes en pull request, som må godkjennes. Da blir det mulig å luke ut kode som inneholder feil som potensielt kan ødelegge for eksisterende kode.
 
 \section{Back-end dokumentasjon}
-Utvikling av back-end ble gjennomført av Bereket og Bjørnar. 
+Utvikling av back-end ble gjennomført av Bereket og Bjørnar.
 
 \subsection{Installasjon}
 Hele prosessen ble startet ved å laste ned og sette opp Laravel.
@@ -116,14 +97,14 @@ Når migration blir kjørt vil alle tabellene og deres kolonner bli opprettet i 
 Under er et eksempel på en migration fil
 \lstinputlisting[caption={Laravel migration fil}, language=php]{laravel-code-examples/migration.php}
 
-% Brukte UUID som primærnøkler på de fleste tabellene. UUID (Universally unique identifier)\cite{kilroy2017agulm} er en ID som kan gis til tabellrader for å identifisere dem på en måte som er litt finere enn et sekvensielt tabell-ID. Dette gjør det mulig å ha større tabellrad enn å bruke integer increments.
+Brukte UUID som primærnøkler på de fleste tabellene. UUID (Universally unique identifier)\cite{kilroy2017agulm} er en ID som kan gis til tabellrader for å identifisere dem på en måte som er litt finere enn et sekvensielt tabell-ID. Dette gjør det mulig å ha større tabellrad enn å bruke integer increments.
 
-% \subsection{Feil under migrasjon}
-% Prøvde å ta migrasjon oppsto en feilmelding.
-% \begin{lstlisting}[language=PHP]
-% Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
-% \end{lstlisting}
-% Årsaken var at datamaskinen har gammel versjon av mysql som ikke støtter standard streng lengde på 255. Da måtte streng lengden endre til 191 og løste feilen.
+\subsection{Feil under migrasjon}
+Prøvde å ta migrasjon oppsto en feilmelding.
+\begin{lstlisting}[language=PHP]
+Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
+\end{lstlisting}
+Årsaken var at datamaskinen har gammel versjon av mysql som ikke støtter standard streng lengde på 255. Da måtte streng lengden endre til 191 og løste feilen.
 
 \subsubsection{Forhold mellom modellene}
 Opprettet relasjoner mellom modellene. 
@@ -457,9 +438,9 @@ Løste ved å overskrive og slette koden som sender brukeren til siden. Slik:
 \cite{spatie2019aupar}  
 \clearpage
 
-
-
+%--- Bjørnar kladd - start ---
 \input{bjornar/kladd}
+%--- Bjørnar kladd - slutt ---
 
 \section{Front-end}
 Front-end ble i hovedsak gjort av Line, med god hjelp av Bjørnar. 
@@ -470,7 +451,7 @@ Det første som ble gjort i denne prosessen var å laste ned Node.js\footnote{\u
 Videre var det nødvendig med et kommandolinjevindu og en teksteditor, valget falt da på kommandolinjevinduet Powershell og teksteditoren Visual Studio Code.
 
 For å sette opp selve React, ble  guiden til react.org for å sette opp en ny React App\footnote{\url{https://reactjs.org/docs/create-a-new-react-app.html\#create-react-app}} fulgt. Her ble det oppgitt at følgende kommandoer må kjøres for å opprette et nytt prosjekt:
-\begin{lstlisting}
+\begin{lstlisting}[caption={Oppretting av React App},language=bash]
 npx create-react-app my-app
 cd my-app
 npm start
@@ -514,13 +495,13 @@ Prosessen med oppretting av komponenter startet med å lage en samlemappe som bl
 \section{Ruting (Routing)}
 Ruting er et mønstergjenkjenningssystem som tar seg av innkommende forespørsler og sender de til spesifikke kontroller-funksjon. Ruting er ikke innebygd i React. Det ble derfor laget en Router.js-fil i components-mappa. Etter dette ble følgende kommando kjørt:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Installering av React ruting},language=bash]
 npm install react-router-dom
 \end{lstlisting}
 
 Importerte deretter react-router-dom i filen Router.js
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Importering av react-router-dom},language=bash]
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 \end{lstlisting}
 
@@ -530,14 +511,14 @@ For å kunne snakke og bruke foreløpig backend ble Axios\footnote{Se mer i avsn
 
 Deretter ble det satt opp en dynamisk ruting, ved hjelp av en løkke som går igjennom alle eksisterende sider og setter opp linker til disse.
 
-\subsection{Installering av Axios}
+\section{Installering av Axios}
 Axios blir i vårt system brukt til å sende forespørsler til back-end. Dette biblioteket ble installert ved å kjøre kommandoen under.  Kommandolinjevindu må åpnes i filstilen der mappa til prosjektet er plassert.
-\begin{lstlisting}
+\begin{lstlisting}[caption={Installering av Axios},language=bash]
 npm install axios
 \end{lstlisting}
 
 
-\subsection{Page components}
+\section{Page components}
 
 Det ble opprettet et objekt som inneholder alle komponentene som er definert i databasen. Ved å loope igjennom alle komponentene til en side, ble det da mulig å sjekke om navnene samsvarte. Hvis de gjorde dette vil det kjøres en løkke som går igjennom alle feltene en komponent inneholder. Til slutt blir alle komponentene til en side, med riktige props\footnote{Props i React brukes til å sende med utvalgt data til en komponent} skrevet ut.  
 
@@ -550,41 +531,41 @@ Feilmeldingen var at komponenten brukte feil casing, noe som ikke var riktig da 
 
 I tillegg til å finne ut av hvilke komponenter som tilhører siden, må man i tillegg finne ut av hvilke felter som tilhører hvilke komponenter. Dette blir satt i back-end. I løkka som går igjennom objektene ble det derfor lagt til en ny løkke, som går igjennom og lagrer alle tilhørende felter til en komponent i en array. Denne arrayen blir så sendt videre som props i de ulike komponentene.
 
-\subsection{Child components}
+\section{Child components}
 I systemet vårt kan et komponent ha flere \q{barn}. Det å ha komponenter som er barn av en komponent gjør at disse har et forhold til hverandre. Da blir det mulig å putte forskjellig innhold inn i en felles seksjon.
 
-\subsection{Felter med samme navn}
+\section{Felter med samme navn}
 Underveis i prosessen ble det oppdaget at hvis en komponent hadde den samme felttypen flere ganger, ville bare den siste verdien bli skrevet ut. En komponent vil ofte bestå av for eksempel flere tekstfelt, og derfor måtte vi finne en måte å løse dette på.
 
 Løsningen ble en betingelsetest der det blir sjekket om samme felttype er til stede flere ganger. Hvis denne blir sann, vil feltene med verdier bli lagt til i en array. 
 
-\subsection{Utskrift av tomme felter}
+\section{Utskrift av tomme felter}
 Videre i prosessen ble det oppdaget at hvis en prop ikke innholdt en verdi, ville feltet fortsatt bli skrevet ut. Dette førte til at nettstedet inneholdt mange tomme HTML-tagger. Brukervennligheten på for eksempel skjermlesere hadde blitt betraktelig dårligere, så derfor måtte dette gjøres om. Løsningen ble å gjøre en betingelse-test på hver prop, for å sjekke om den innholdt en verdi. Da ble det mulig å kun skrive ut om dette var oppfylt.
 
-\subsection{Testing}
+\section{Testing}
 For å teste systemet ble header-komponenten laget. Når denne ble opprettet både i objektet og back-end, ble alle props/feltene som blir mottatt fra komponenten skrevet ut. Dette betydde at Header-komponenten fungerte som den skulle, og vi kunne starte med å legge til resten av komponentene på den samme måten. 
 
 Da kunne vi også begynne å style slik komponentene slik at de ligner mockupen som ble laget.
 
-\subsection{Kompilere SCSS til CSS}
+\section{Kompilere SCSS til CSS}
 Gruppen har tidligere nevnt at det ble besluttet å bruke SASS til styling. Da er det nødvendig å ha noe som kompilerer fra SCSS til CSS. Dette ble oppnådd ved å følge guiden hos TechCookbook\footnote{\url{https://techcookbook.com/react/use-scss-with-create-react-app}}
 
-Lastet først inn node-sass ved å kjøre :
+Installerte først node-sass ved å kjøre :
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Installering av node-sass},language=bash]
 npm install --save node-sass
 \end{lstlisting}
 
 Etter at pakken ble installert, måtte det lages et script som kompilerer fra .scss til .css:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Kompliering fra .scss til .css}]
  "build-css": "node-sass src/ -o src/"
 \end{lstlisting}
 \clearpage
 
 \q{Build-css} tar .scss-filene som finnes i source-mappen samt undermapper og kompilerer dem til .css-filer. .css filen vil bli tilgjengelig i den samme lokasjonen som den originale .scss-filen. Deretter ble det laget et script som kjører \q{build-css} og kompilerer alle eksisterende filer til .css, samtidig som den ser etter forandringer i source-mappen. Den vil altså detektere om det blir gjort endringer i eksisterende .scss filer, eller om det blir lagt til nye. 
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Script som detekterer endringer}]
  "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive"
 \end{lstlisting}
 

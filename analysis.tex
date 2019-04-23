@@ -12,7 +12,7 @@
 Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. I løpet av dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, design og funksjonalitet. I tillegg vil vi presentere en analyse av opprinnelig løsning, konkurrentanalyse, kravene som er satt til verktøy etterfulgt av en presentasjon av de verktøy vi mener er passende.
 
 \section{Utdypning av oppgavebeskrivelse}
-Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en lang nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studengruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API. Videre ønsker oppdragsgiver at systemet skal ha mulighet for å legge til to sider, kundehistorier og blogg. Disse sidene skal ikke være en del av den ferdige løsningen, men systemet skal kunne ta høyde for og ha mulighet til å utvide.
+Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette vil si at nettstedet i hovedsak består av en lang nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer og at det finnes mulighet for innlogging slik at det er mulig å legge til, oppdatere og fjerne innhold. Studentgruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API. Videre ønsker oppdragsgiver at systemet skal ha mulighet for å legge til to sider, kundehistorier og blogg. Disse sidene skal ikke være en del av den ferdige løsningen, men systemet skal kunne ta høyde for og ha mulighet til å utvide.
 
 \section{Hvorfor et nettsted er viktig}
 Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. Undersøkelser gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} er med å underbygge denne påstanden. Den første undersøkelsen \cite{ssb17fim} kartla at hadde hele 98\% av Norges befolkning tilgang på internett hjemme i 2017. Videre viser en undersøkelse \cite{ssb17nat} at hele 9 av 10 nordmenn surfet på nettet hver dag i 2017. SSB har også kartlagt  at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 måneder i 2018 \cite{ssb18aup}. Disse foregående funnene er svært relevante og er med å bevise hvorfor det er så viktig for en bedrift å være på internett i dag.
@@ -40,7 +40,7 @@ Videre ble det, i en undersøkelse \cite{marchant18wdc} gjennomført av BrightLo
 \item 55+ – 22\%
 \end{itemize}
 
-I denne undersøkelsen svarte 40\% av aldergruppen mellom 18-34 og 35-54 at det er mer sannsynlig at de kontakter en lokal bedrift hvis de har en nettside. På spørsmål om en klar og smart nettside øker bedriftens troverdighet, svarte 43\% av respondendene over 55 at dette hadde noe å si.
+I denne undersøkelsen svarte 40\% av aldergruppen mellom 18-34 og 35-54 at det er mer sannsynlig at de kontakter en lokal bedrift hvis de har en nettside. På spørsmål om en klar og smart nettside øker bedriftens troverdighet, svarte 43\% av respondentene over 55 at dette hadde noe å si.
 
 Med utgangspunktet i disse studiene kan vi derfor konkludere med at en nettside med god troverdighet kan føre til at flere potensielle kunder tar kontakt. Troverdighet er derfor en viktig faktor for nettsider.
 
@@ -89,15 +89,15 @@ bot). Disse programmene \q{beveger} seg ved å bruke hyperkoblingstruktur på ne
 \begin{figure}[H]
     \centering
     \frame{\includegraphics[width=\textwidth]{bjornar/awr-google-ctr-jan2019.png}}
-    \caption{Diagrammet viser de organiske klikkfrekvensene (CTR) vs posisjon i Google for søk gjort i januar 2019, som kommer fra 10 120 806 søkeord for 84 533 nettsteder.}
+    \caption{CTR vs posisjon i Google}
     \label{fig:analysis-awr-google-ctr}
 \end{figure}
 
-Viktigheten av god SEO kommer tydlig frem etter karlegging av normale brukerbevegelser. I følge en undersøkelse\footnote{Data fra \url{https://www.advancedwebranking.com/ctrstudy/} for januar 2019. Merk at førstesiden i søkemotorer er de 10 første resultatene.} viser det seg at nesten 90\% av internettbrukere aldri går forbi førstesiden av søkeresultatene i en søkemotor, se \ref{fig:analysis-awr-google-ctr} for diagram som viser dette.
+Viktigheten av god SEO kommer tydelig frem etter karlegging av normale brukerbevegelser. I følge en undersøkelse\footnote{Data fra \url{https://www.advancedwebranking.com/ctrstudy/} for januar 2019. Merk at førstesiden i søkemotorer er de 10 første resultatene.} viser det seg at nesten 90\% av internettbrukere aldri går forbi førstesiden av søkeresultatene i en søkemotor. Diagrammet i figur \ref{fig:analysis-awr-google-ctr} viser dette. Ytterligere viser diagrammet de organiske klikkfrekvensene (CTR) vs posisjon i Google, for søk gjort i januar 2019. Disse resultatene kommer fra 10 120 806 søkeord for 84 533 nettsteder.
 
-Dette underbygger påstanden om at SEO er viktig i dagens samfunn, og en god SEO-strategi er derfor på sin plass. 
+Disse faktorene er med å underbygge påstanden om at SEO er viktig i dagens samfunn, og en god SEO-strategi er derfor på sin plass. 
 
-En faktor som er viktg å tenke på er at god SEO krever disiplin, planlegging og research før man setter i gang. Dette er ikke en oppgave som kun gjøres en gang, og krever konstant overvåking og optimalisering da algoritmene hele tiden endrer hvordan de evaluerer nettsider \cite[s.~1]{mitchell2012usb}. Derfor er det viktig å hele tiden ha SEO i fokus når man utvikler, når et av målene er god plassering hos søkemotorene for å gjøre bedriften synlig i søkeresultatene.
+En en faktor som er viktig å tenke på er at god SEO krever disiplin, planlegging og research før man setter i gang. Dette er ikke en oppgave som kun gjøres en gang, og krever konstant overvåking og optimalisering da algoritmene hele tiden endrer hvordan de evaluerer nettsider \cite[s.~1]{mitchell2012usb}. Derfor er det viktig å hele tiden ha SEO i fokus når man utvikler, når et av målene er god plassering hos søkemotorene for å gjøre bedriften synlig i søkeresultatene.
 
 \subsection{Brukeropplevelse}
 \label{sec:ux}
@@ -224,10 +224,10 @@ Visse språk som kan prosessere brukerinput kommer med innebygd funksjonalitet f
 \label{sec:analysis-security-csrf}
 CSRF er angrep som tvinger brukere til å utføre uønskede handlinger på en nettside der brukeren er logget inn, via en annen nettside \cite[s.~183-186]{NattTomHeine2015Datasikkerhet}. For eksempel: hvis brukeren er logget inn på Facebook.com, og går til Twitter.com. Da kan Twitter laste inn et bilde som dette: \lstinline{<img src="https://facebook.com/delete-my-account">}. Dette vil da sende en forespørsel til den linken, som kan føre til sletting av konto. Om Facebook ikke har implementert mottiltak for slike angrep, vil denne forespørselen tolkes som om den kommer direkte fra brukeren.
 
-\subsubsection{SQL injection}
+\subsubsection{SQL-injection}
 \label{sec:analysis-security-sql-injection}
-SQL injections klassifiseres av noen som en av de mest seriøse trusselene mot webapplikasjoner \cite[s.~1]{halfond2006classification}. Om et nettsted har en svakhet for SQL injections kan en angriper ende opp med full kontroll over databasen.
-En SQL injection funker ved at en agriper skriver inn SQL kode i et brukerinput, som da kjøres på serveren \cite[s.~2]{halfond2006classification}.
+SQL-injections klassifiseres av noen som en av de mest seriøse trusselene mot webapplikasjoner \cite[s.~1]{halfond2006classification}. Om et nettsted har en svakhet for SQL-injections kan en angriper ende opp med full kontroll over databasen.
+En SQL-injection funker ved at en angriper skriver inn SQL kode i et brukerinput, som da kjøres på serveren \cite[s.~2]{halfond2006classification}.
 For å unngå slike angrep kan man bruke \textit{prepared statements} eller \textit{escape} brukerinput \cite[s.~6]{halfond2006classification}.
 
 \subsubsection{MySQL}
@@ -235,7 +235,7 @@ For å unngå slike angrep kan man bruke \textit{prepared statements} eller \tex
 Ved bruk av MySQL databaser er det noen grep man bør ta med tanke 
 å på sikkerhet.
 \begin{itemize}
-\item Man bør lage èn bruker for hver applikasjon som skal bruke en database. \cite{ellingwood_2013}
+\item Man bør lage en bruker for hver applikasjon som skal bruke en database. \cite{ellingwood_2013}
 \item Man bør skru av fjerntilgang.
 \item Man bør kun godta tilkoblinger fra lokalmaskin.
 \item Man bør fjerne eller endre standardbrukere.
@@ -243,16 +243,16 @@ Ved bruk av MySQL databaser er det noen grep man bør ta med tanke
 
 \subsubsection{phpMyAdmin}
 \label{sec:analysis-security-phpmyadmin}
-Ved bruk av phpMyAdmin er det også grep man vil ta med tanke på sikkerhet. Man bør ikke bruke \q{phpmyadmin} i URL-en som går til login, f.eks: http://eksempel.com/phpmyadmin. Man bør gjøre om til f.eks /pma, eller enda bedre; noe mindre åpenbart \cite{canepa2016}.
-Man bør skru på HTTP Basic access authentication, som gjør at man må skrive inn et brukernavn og passord før man kan komme inn på login siden til phpMyAdmin \cite{drake_2018}.
+Ved bruk av phpMyAdmin er det også grep man vil ta med tanke på sikkerhet. Man bør ikke bruke \q{phpmyadmin} i URL-en som går til innlogging, f.eks: http://eksempel.com/phpmyadmin. Det er bedre å gjøre om til f.eks /pma, eller enda bedre; noe mindre åpenbart \cite{canepa2016}.
+Man bør skru på HTTP Basic access authentication, som gjør det nødvendig å skrive inn et brukernavn og passord før det er mulig å komme til innloggingssiden til phpMyAdmin \cite{drake_2018}.
 
 \subsubsection{Web-server med SSH tilkobling}
 \label{sec:analysis-security-web-server-ssh}
 For å forbedre sikkerheten på en web-server er det visse grep man bør ta.
 \begin{itemize}
 \item Man bør skru av fjerntilgang for root brukeren og lage en egen bruker i sudo gruppen \cite{ellingwood_2014}.
-\item Man bør skru av login med passord \cite{jetha2018} og heller bruke login med public/private nøkkelpar. Gjerne med passord på nøkkelen \cite{jetha2018}.
-\item Man bør sette maks antall forsøk på login før man blir midlertidig utestengt via IP \cite{ellingwood_2014_2}.
+\item Man bør skru av login med passord \cite{jetha2018} og heller bruke innlogging med public/private nøkkelpar. Gjerne med passord på nøkkelen \cite{jetha2018}.
+\item Man bør sette maks antall forsøk på innlogging før man blir midlertidig utestengt via IP \cite{ellingwood_2014_2}.
 \item Man bør skift vekk fra standard SSH port 22 \cite{miessler2019} til en annen port under 1024 \cite{w3cports1995}.
 \item Man bør sette opp en brannmur som blokker alt bortsett fra SSH porten man har satt, port 80 for HTTP og port 443 for HTTPS \cite{virdo2016}.
 \item Man bør bruke rettighetene 755 på mapper og 644 på filer som serveres offentlig. \cite[s.~34]{barnettapache}
@@ -303,7 +303,7 @@ Gjennomsnitt:\\
 - DOM: 308ms\\
 - Load: 614ms
 
-Innlastningstiden til DOM beskriver hvor lang tid det tar for nettleseren å lese gjennom og analysere HTML-koden til nettsiden. Load vil si hvor lang tid det tar å laste inn DOM sammen med alle bilder, stylesheets, scripts og iframes.
+Innlastningstiden til DOM beskriver hvor lang tid det tar for nettleseren å lese gjennom og analysere HTML-koden til nettsiden. Load vil si hvor lang tid det tar å laste inn DOM sammen med alle bilder, stilark, scripts og iframes.
 
 \subsection{Test med Google Lighthouse}
 \label{sec:analysis-current-lighthouse}
@@ -317,7 +317,7 @@ Innlastningstiden til DOM beskriver hvor lang tid det tar for nettleseren å les
     \label{fig:analysis-current-lightouse-summary}
 \end{figure}
 
-Ikonet for \q{Progressive Web App} har en feil, slik at man ikke får sett scoren. Ved hjelp av en JSON-fil\footnote{Se JSON-fil, linje 3386 (KOMMER)} som inneholder resultatene, ser man at poengscoren er på 58\%.
+Ikonet for \q{Progressive Web App} har en feil, slik at man ikke får sett scoren. Ved hjelp av en JSON-fil\footnote{Se JSON-fil, linje 3386 (KOMMER)} som inneholder resultatene, ser man at poengsummen er på 58\%.
 
 Denne delen av testen er egentlig ikke relevant\footnote{Sirkus Media sitt nettsted er ikke, og kommer ikke til å bli en progressiv webapplikasjon.}, og vi vil derfor ikke se på denne, eller nevne den i andre tekniske analysener som bruker Google Lighthouse.
 
@@ -333,7 +333,7 @@ Full rapport for Google Lighthouse testen kan leses i vedlegg X (KOMMER).
     \label{fig:analysis-current-checkbot-summary}
 \end{figure}
 
- Figur \ref{fig:analysis-current-checkbot-summary} viser en oppsummering av resultatene fra Checkbot\footnote{Se avsnitt \ref{sec:checkbot}}. En mer detaljert rapport kan leses under vedlegg X (KOMMER). Denne testen viser en god poengsum når det gjelder totalt for gjennomsnittet. Isolert sett ser vi at sikkerheten til nettstedet drar ned gjennomsnittet betydlig. Den fulle rapporten viser at dette kommer av at nettsiden ikke bruker HSTS, \q{content sniffing protection}, \q{clickjack protection}, \q{XSS protection} og at det ikke skjuler server-versjon data.
+ Figur \ref{fig:analysis-current-checkbot-summary} viser en oppsummering av resultatene fra Checkbot\footnote{Se avsnitt \ref{sec:checkbot}}. En mer detaljert rapport kan leses under vedlegg X (KOMMER). Denne testen viser en god poengsum når det gjelder totalt for gjennomsnittet. Isolert sett ser vi at sikkerheten til nettstedet drar ned gjennomsnittet betydelig. Den fulle rapporten viser at dette kommer av at nettsiden ikke bruker HSTS, \q{content sniffing protection}, \q{clickjack protection}, \q{XSS protection} og at det ikke skjuler server-versjon data.
 
 \subsection{Color Contrast Analyzer}
 \label{sec:analysis-current-color-contrast-analyzer}
@@ -368,7 +368,7 @@ Ved å kjøre testen \q{small non bold text} for nivå AA, som gjelder for skrif
 Resultatene etter å ha kjørt tester for nivå AAA viser at mesteparten av nettstedet ikke oppfyller kravet for kontrastnivå. Se figur \ref{fig:analysis-current-cca-aaa}. Her blir ingen av avsnittene med ordinær skriftstørrelse markert. Ved å kjøre en test med Chrome DevTools verifiseres påstanden om for dårlig kontrastnivå. Se figur \ref{fig:analysis-current-cdt-c}.
 
 \subsection{WAVE}
-Med verktøyet WAVE\footnote{Se avsnitt \ref{sec:wave}} kan vi videre verifisere funnene som ble gjort i avsnitt \ref{sec:analysis-current-color-contrast-analyzer}. WAVE raporterer om 20 kontrastfeil på nettsiden. \vskip 1em Det ble også oppdaget andre feil:\\ \quad 1x: Dokument språk mangler\\
+Med verktøyet WAVE\footnote{Se avsnitt \ref{sec:wave}} kan vi videre verifisere funnene som ble gjort i avsnitt \ref{sec:analysis-current-color-contrast-analyzer}. WAVE rapporterer om 20 kontrastfeil på nettsiden. \vskip 1em Det ble også oppdaget andre feil:\\ \quad 1x: Dokument språk mangler\\
 \quad 4x: Tomme linker\\
 \quad 5x: Redudante linker\\
 \vskip 1em Annet:\\
@@ -386,7 +386,7 @@ For å løse dette bruker vi A11y-test til Brandwood \footnote{Se avsnitt \ref{s
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{bjornar/bg-image-eksempel.png}
-    \caption{Eksempel}
+    \caption{Test av kontrastforhold - Eksempel}
     \label{fig:analysis-current-a11y_bg-example}
 \end{figure}
 
@@ -395,7 +395,7 @@ Vi gjenskapte headeren til Sirkus Media i verktøyet, og testet den store tekste
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{bjornar/bg-image-generator.png}
-    \caption{Stor tekst fra header i verktøyet}
+    \caption{Test av opprinnelig header til Sirkus media}
     \label{fig:analysis-current-a11y_bg-generator}
 \end{figure}
 
@@ -404,7 +404,7 @@ Vi gjenskapte headeren til Sirkus Media i verktøyet, og testet den store tekste
         \subfigure[Stor tekst]{\label{fig:analysis-current-a11y_bg-h1}\includegraphics[width=0.475\textwidth]{bjornar/bg-image-h1.png}}
         \subfigure[Liten tekst]{\label{fig:analysis-current-a11y_bg-p}\includegraphics[width=0.475\textwidth]{bjornar/bg-image-p.png}}
 
-        \caption{Testresultat}
+        \caption{Kontrastforhold - Testresultat}
         \label{fig:analysis-current-a11y_bg-h1_p}
     \end{center}
 \end{figure}
@@ -453,7 +453,7 @@ Førsteinntrykket er at nettstedet fremstår ryddig og profesjonelt. Det første
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{line/tacticrealtime_com_(1366x768).png}
-    \caption{tacticrealtime.com}
+    \caption{Skjermbilde - tacticrealtime.com}
     \label{fig:competitors-tacticrealtime.com}
 \end{figure}
 
@@ -489,9 +489,9 @@ Nettstedet består også av følgende undersider:
     \end{center}
 \end{figure}
 
-Etter å ha gjennomført testen til Google Lighthouse, viste det seg at TACTIC var den desidert beste på alle punkter av de 3 konkurrentene. Restultatene fra Google Lighthouse kan man se i figur \ref{fig:competitors-lighthouse-summary-tacticrealtime.com}. Bedriften gjør relativt få feil med tanke på ytelse. Feilene som gjelder \q{Eliminate render-blocking resources} og \q{Serve static assets with an efficient cache policy} burde rettes opp. Vi kan se at siden lastet inn på 2,7 sekunder. Fikser man de overnevnte feilene, vil man kunne mer enn halvere innlastningstiden i følge rapporten.
+Etter å ha gjennomført testen til Google Lighthouse, viste det seg at TACTIC var den desidert beste på alle punkter av de 3 konkurrentene. Resultatene fra Google Lighthouse kan man se i figur \ref{fig:competitors-lighthouse-summary-tacticrealtime.com}. Bedriften gjør relativt få feil med tanke på ytelse. Feilene som gjelder \q{Eliminate render-blocking resources} og \q{Serve static assets with an efficient cache policy} burde rettes opp. Vi kan se at siden lastet inn på 2,7 sekunder. Fikser man de overnevnte feilene, vil man kunne mer enn halvere innlastningstiden i følge rapporten.
 
-Når det kommer til \q{Best Pracices}, så er det et par forbedringer TACTIC burde gjort. De burde benytte HTTP2, i stedet for HTTP \footnote{HTTP2 er bakoverkompatibel, så ingen grunn til å ikke bruke det. Samt at det pleier å være 1 linje med kode for å skru på for de fleste web-servere.}. Det linkes også til et JavaScript-bibliotek med kjente sikkerhetshull. Dette burde man på ingen måte gjøre.
+Når det kommer til beste praksis, så er det et par forbedringer TACTIC burde gjort. De burde benytte HTTP2, i stedet for HTTP \footnote{HTTP2 er bakoverkompatibel, så ingen grunn til å ikke bruke det. Samt at det pleier å være 1 linje med kode for å skru på for de fleste web-servere.}. Det linkes også til et JavaScript-bibliotek med kjente sikkerhetshull. Dette burde man på ingen måte gjøre.
 
 På SEO-delen av testen fikk TACTIC 100 av 100 poeng og det er derfor ingenting å påpeke her.
 
@@ -515,13 +515,13 @@ Førsteinntrykket av nettstedet er positivt, fordi den fremstår som ryddig og p
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{line/marketer_tech_(1366x768).png}
-    \caption{marketer.tech}
+    \caption{Skjermbilde - marketer.tech}
     \label{fig:competitors-marketer.tech}
 \end{figure}
 
 \subsubsection{Forside og undersider}
 
-Forsiden, i tillegg til headeren, består av logo til noen utvalgre kunder, prosessen til Marketer, animasjoner, resultater fra tidligere prosjekter og en presentasjon av deres løsninger. Helt nederst på siden kommer bunnfeltet, der organisasjonsnummeret, kontaktinformasjon og adresse blir presentert.
+Forsiden, i tillegg til headeren, består av logo til noen utvalgte kunder, prosessen til Marketer, animasjoner, resultater fra tidligere prosjekter og en presentasjon av deres løsninger. Helt nederst på siden kommer bunnfeltet, der organisasjonsnummeret, kontaktinformasjon og adresse blir presentert.
 
 Nettstedet består også av følgende undersider:
 \begin{compactitem}
@@ -573,7 +573,7 @@ Førsteinntrykket av nettstedet er at den fremstår som rotete. Hovedgrunnen til
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{line/inviso_no_(1366x768).png}
-    \caption{inviso.no}
+    \caption{Skjermbilde - inviso.no}
     \label{fig:competitors-inviso.no}
 \end{figure}
 
@@ -605,7 +605,7 @@ Nettstedet består også av følgende undersider:
         }
         
         \label{fig:competitors-tech_analysis-inviso.no}
-        \caption{Resultat for teknisk analyse av inviso.no}
+        \caption{Resultat fra teknisk analyse av inviso.no}
     \end{center}
 \end{figure}
 
@@ -638,7 +638,7 @@ Studentgruppen har satt som mål å få minst like bra score på testen til Goog
         \includegraphics[width=0.3\textwidth]{line/tacticrealtime_com_(iPhone_6_7_8).png}
         \includegraphics[width=0.3\textwidth]{line/marketer_tech_(iPhone_6_7_8).png}
         \includegraphics[width=0.3\textwidth]{line/inviso_no_(iPhone_6_7_8).png}
-        \caption{Alle nettstedene er mobiltilpasset}
+        \caption{Skjermbilde av konkurrentenes mobildesign}
         \label{fig:competitors-mobile}
     \end{center}
 \end{figure}
@@ -715,7 +715,7 @@ Color Contrast Analyzer \cite{ncstate2013cca} er en Google Chrome-utvidelse som 
 
 \subsubsection{WAVE}
 \label{sec:wave}
-Web Accessibility Evaluation Tool \cite{webaim2018wh} er et verktøy som tester universell utforming hos nettsider og hvorvidt de følger visse punkter i WCAG 2.1-standarden og Section 508. Verktøyet er tilgjenglig som en nettleserutvidelse og som en webbasert tjeneste hos \url{https://wave.webaim.org/}.
+Web Accessibility Evaluation Tool \cite{webaim2018wh} er et verktøy som tester universell utforming hos nettsider og hvorvidt de følger visse punkter i WCAG 2.1-standarden og Section 508. Verktøyet er tilgjengelig som en nettleserutvidelse og som en webbasert tjeneste hos \url{https://wave.webaim.org/}.
 
 \subsubsection{Brandwoods A11y-test} 
 \label{sec:brandwoods-a11y-test}
@@ -747,7 +747,7 @@ Behance er et nettsted for deling av design verk. Det brukes ofte som en kilde f
 \subsection{Verktøy til utvikling}
 
 \subsubsection{Laravel}
-Laravel \cite{cbcp2019lvw} er et PHP-rammeverk, med åpen kildekode, som brukes til å lage webapplikasjoner og andre nettsteder. Rammeverket baserer seg på Symfony\footnote{Avsnitt \ref{sec:tools-symfony}} og følger Model-view-controller\footnote{Avsnitt \ref{sec:tools-mvc}} (MVC) designmønsteret.
+Laravel \cite{cbcp2019lvw} er et PHP-rammeverk, med åpen kildekode, som brukes til å lage webapplikasjoner og andre nettsteder. Rammeverket baserer seg på webapplikasjonsrammeverket Symfony og følger Model-view-controller\footnote{Avsnitt \ref{sec:tools-mvc}} (MVC) designmønsteret.
 Laravel kommer med innebygde funksjoner for autentisering, modeller, visninger, sesjoner, ruting og andre funksjoner som en \textit{templating engine} kalt Blade.
 
 \subsubsection{Wordpress}
@@ -774,7 +774,7 @@ Axios\cite{axios2019a} er et JavaScript-bibliotek for en promise-basert HTTP-kli
 
 
 \subsubsection{React}
-React\cite{facebook2019r} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og brukes som visningslaget for webapplikasjoner som følger MVC. React har åpen kildekode og er utviklet av Facebook.
+React\cite{facebook2019r} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og brukes som visningslaget for webapplikasjoner som følger designmønsteret MVC \footnote{Se avsnitt\ref{sec:tools-mvc}}. React har åpen kildekode og er utviklet av Facebook.
 
 \subsection{Valg av utviklingsverktøy}
 Denne oppgaven består i hovedsak av utviklingen av et nettsted, og det kan være avgjørende å benytte seg av gode utviklingsverktøy. I dette kapittelet forteller vi om hvilke verktøy studentgruppen har tenkt til å benytte til utviklingen og hvorfor.
@@ -800,7 +800,7 @@ Denne oppgaven består i hovedsak av utviklingen av et nettsted, og det kan vær
 % \item[Amazon S3] Ble valgt fordi det har godt omdømme og har god dokumentasjon.
 % \item[Let’s Encrypt] Ble valgt fordi det ikke finnes noen tilsvarende alternativer.
 \item[HTML] Ble valgt ettersom det er standard markeringsspråk for å lage nettsider og webapplikasjoner
-\item[CSS] Ble valgt ettersom det er standard stilsettspråk for å lage nettsider og webapplikasjoner.
+\item[CSS] Ble valgt ettersom det er standard stilsett-språk for å lage nettsider og webapplikasjoner.
 \item[SASS] Ble valgt fordi koden fremstod som ryddigere og mer strukturert, siden det er mulig med \textit{nesting}.
 \item[JavaScript] Ble valgt ettersom det er standard programmeringsspråk for å lage nettsider og webapplikasjoner.
 \item[Axios] Ble valgt fordi det er brukervennlig og intuitivt.
@@ -827,7 +827,7 @@ I introduksjonen ble det nevnt at studentgruppen enten skal utvikle et eget CMS 
     \item Tar lengre tid å sette opp og utvikle til et ferdig system, enn Wordpress som er et ferdigutviklet CMS.
 \end{itemize}
 
-Studengruppen har kommet frem til at fordelene trumfer ulempene når det kommer til Laravel. Derfor har vi valgt å bruke dette for å videreutvikle et eget CMS.
+Studentgruppen har kommet frem til at fordelene trumfer ulempene når det kommer til Laravel. Derfor har vi valgt å bruke dette for å videreutvikle et eget CMS.
 
 
 \section{Hvorfor et headless CMS?}
