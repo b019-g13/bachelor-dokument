@@ -5,5 +5,101 @@
 
 \clearpage
 
+\section{Back-end - Bjørnar}
+
+\subsection{Testing av forhold}
+
+Bereket er ferdig med å sette opp forhold mellom modellene. Det er derfor nødvendig å teste for å se at alt fungerer som det skal. Tester ved å gjøre følgende steg:
+
+\begin{itemize}
+\item Kjører en migration.
+\item Setter inn data inn i databasen.
+\end{itemize}
+
+Oppdager deretter at det oppstår noen feil. Det er flere felter som skal være nullable som ikke er det og omvendt.
+Det er også flere av modellene har feil med sine forhold. Herfra tar Bereket over testingen. Etter en stund ble han ferdig med testing og sier at alt fungerer. Da startet en ny runde med verifisering.
+
+\textbf{Hvordan ble verifiseringen gjort?}
+Eks:
+Page (app/page.php) klassen begynner som følger:
+
+\begin{lstlisting}[language=PHP]
+class Page extends Model
+{
+    public function page_components()
+    {
+        return $this->hasMany('App\PageComponent');
+    }
+}
+\end{lstlisting}
+
+Denne koden definerer et forhold mellom en Page og flere PageComponents. Dette gjør at hvis vi har en instanse av en Page, kan vi kan hente ut alle de PageComponent-ene som har en fremmednøkkel i databasen, som peker til den Page-en vi har.
+
+For å verifisere at dette forholdet funker, skrives følgende kode i web.php (routes fil):
+
+\begin{lstlisting}[language=PHP]
+Route::get('/', function () {
+    $page = Page::all()->first();
+    dump($page->page_components);
+});
+\end{lstlisting}
+
+Her hentes alle Page-ene som eksisterer. Velger å se på den første, og ser at den inneholder \lstinline{$page} variabelen en instanse av Page. Forsøker deretter å hente ut alle de PageComponent-ene som vår Page har forhold til. \lstinline{dump} er en funksjon som ligner på PHP sin innebygde \lstinline{var_dump}, men viser informasjonen på en mer lettleslig måte.
+
+Output fra \lstinline[language=PHP]{dump}:
+
+\begin{lstlisting}[language=PHP]
+Collection {#570 v
+  #items: array:1 [v
+    0 => PageComponent {#568 >}
+  ]
+}
+\end{lstlisting}
+
+Her kan vi se at vår Page har forhold til en PageComponent. Fordi vi klarte å hente ut en PageComponent og ikke fikk noen feilmeldinger, kan vi anta at forholdet er satt opp riktig og funker som det skal.
+
+Lignende tester ble utført for alle modellene:
+
+\begin{lstlisting}
+- Page
+  -> PageComponents
+  -> Menu
+  -> Image
+- PageComponent
+- Field
+- Image
+  -> User
+  -> ImageSize
+- ImageSize
+- Link
+- Menu
+  -> MenuLinks
+  -> MenuLocation
+  -> Page
+- MenuLink
+- MenuLocation
+\end{lstlisting}
+
+
+\subsection{2019.03.13 - Skal vi ha med dette?}
+
+Oppdaget at migrations ikke kjørte. Lagde Github issue #30. Fikset feilen i master.
+
+Ny pull-request fra Bereket (\#29).
+Kodeendringene setter angivelig opp alt vi trenger for CRUD for pages, components, pages, menus og links.
+Legges også inn en RoleSeeder og det blir satt opp autentisering.
+
+Jeg sjekker ut koden hans lokalt for å teste.
+Begynner med å teste autentisering. Når jeg starter den lokale serveren (php artisan serve), får jeg 404 når
+jeg går på forsiden. Sjekker derfor \lstinline{routes/web.php} filen, den er tom. Da har vi altså ingen fungerende autentisering.
+Legger inn de nødvendige rutene for autentisering. Prøver så å gå til \lstinline{/login}, men får da feilmeldingen: \q{View [layouts.app] not found}.
+
+Jeg ber om endringer på pull requesten og legger inn en kommentar for å si ifra til Bereket om hva som må endres før jeg kan teste videre.
+
+
+\subsection{Page og Component CRUD}
+
+Satt opp Page og Component CRUD
+
 
 \clearpage

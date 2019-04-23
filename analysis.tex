@@ -626,9 +626,9 @@ En svakhet er at det er for mye informasjon i headeren. Dette kan bidra til at f
 \subsection{Konklusjon}
 Felles for alle 3 konkurrentene er at ingen av de følger loven om universell utforming og tilgjengelighet. Universell utforming er lovpålagt i Norge\footnote{Se avsnitt \ref{sec:universal-design}}, og vår løsning kommer derfor til å følge disse kravene. 
 
-En annen faktor konkurrentene har til felles er at de presenterer sine kunder og/eller partnere. Dette bør også Sirkus Media gjøre. Presentasjon av kundeforhold med kjente firmaer er tillitsvekkende og kan skape bedre troverdighet blant brukerne \cite{vitaldesign_client_logos}.
+% En annen faktor konkurrentene har til felles er at de presenterer sine kunder og/eller partnere. Dette bør også Sirkus Media gjøre. Presentasjon av kundeforhold med kjente firmaer er tillitsvekkende og kan skape bedre troverdighet blant brukerne \cite{vitaldesign_client_logos}.
 
-Figur \ref{fig:competitors-mobile} viser at alle konkurrentene har gått for samme løsning når det kommer til design på mobil. Alle har bedriftens logo oppe til venstre og et meny ikon til høyre.
+Figur \ref{fig:competitors-mobile} viser at alle konkurrentene har gått for samme løsning når det kommer til design på mobil. Alle har bedriftens logo oppe til venstre og et meny ikon til høyre. Ved å ha et lignende design på vår løsning, er det lett for brukerne å forstå hvordan menyen fungerer, nettopp fordi denne løsningen er blitt ganske vanlig.
 
 Konkurrentene har gode løsninger, men også en del svakheter som har blitt påpekt i denne analysen. Konkurrentanalysen har vært nyttig fordi den både har ført til at gruppen har fått inspirasjon til deler av den løsningen som skal utvikles og samtidig gitt en pekepinn på hva som bør gjøres annerledes.
 
@@ -644,6 +644,7 @@ Studentgruppen har satt som mål å få minst like bra score på testen til Goog
 \end{figure}
 
 \section{Teknologier}
+\label{sec:technologies}
 Når det kommer til utvikling av nettsteder finnes det mange ulike teknologier, systemer og verktøy som kan benyttes for å få det samme resultatet. Derfor er det viktig å kartlegge brukerens behov og deretter sette ønskede kvalifikasjoner og krav, slik at de valgte verktøyene er tilpasset dette. Basert på de foregående analysene i dette kapittelet har studentgruppen kommet frem til et sett med minimumskrav. Videre blir passende verktøy og tilhørende teknologier presentert.
 
 \subsection{Krav til teknologier}
@@ -658,16 +659,11 @@ Følgende sett med minimumskrav er satt med basis i de foregående analysene:
 \item [Dokumentasjon] Verktøyene må være godt dokumentert, slik at det er lett å finne svar om det oppstår spørsmål.
 \end{compactdesc}
 
-\subsubsection{Krav til back-end}
+\subsubsection{Krav til utvikling}
 \label{sec:analysis-tools-requirements-back-end}
 \begin{compactdesc}
 \item [Versjonskontroll] Verktøyene vi bruker burde være mulig å sjekke inn i versjonskontroll, slik at studentgruppen alltid har historikk på kodeendringer. En annen fordel er at det vil opprettes en sikkerhetskopi.
 \item [Hastighet] Systemet på back-end må kunne svare raskt på forespørsler fra front-end slik at det blir minst mulig ventetid for klientene.
-\end{compactdesc}
-
-\subsubsection{Krav til front-end}
-\begin{compactdesc}
-\item [Versjonskontroll] Se \q{Versjonskontroll} under \q{Krav til back-end} i avsnitt \ref{sec:analysis-tools-requirements-back-end}
 \item [Nettleserkompatibilitet] Verktøyene vi bruker burde fungere i alle moderne nettlesere, slik at flest mulig kan benytte seg av dem.
 \end{compactdesc}
 
@@ -748,11 +744,7 @@ Dribbble er et nettsted for deling av design verk. Det brukes ofte som en kilde 
 \subsubsection{Adobe Behance}
 Behance er et nettsted for deling av design verk. Det brukes ofte som en kilde for inspirasjon \cite{Sloan_wib}.
 
-\subsection{Verktøy til back-end}
-
-\subsubsection{Symfony}
-\label{sec:tools-symfony}
-Symfony er et webapplikasjonsrammeverk og er et sett med gjenbrukbare komponenter og biblioteker skrevet i PHP \cite{symfony19wis}. 
+\subsection{Verktøy til utvikling}
 
 \subsubsection{Laravel}
 Laravel \cite{cbcp2019lvw} er et PHP-rammeverk, med åpen kildekode, som brukes til å lage webapplikasjoner og andre nettsteder. Rammeverket baserer seg på Symfony\footnote{Avsnitt \ref{sec:tools-symfony}} og følger Model-view-controller\footnote{Avsnitt \ref{sec:tools-mvc}} (MVC) designmønsteret.
@@ -763,34 +755,6 @@ WordPress\cite{wordpress} er gratis programvare med åpen kildekode som kan bruk
 
 \subsubsection{PHP}
 PHP (rekursiv akronym for PHP Hypertext Pre-processor)\cite{McGrath2016pies} er et skriptspråk som er spesielt egnet for webutvikling og kan legges inn i filer sammen med HTML. PHP er et serverside programmeringsspråk og kan brukes til å lage dynamiske og interaktive nettsteder. PHP er gratis og plattformuavhengig, samtidig som det er  er raskt og fleksibelt. Det kan installeres i pakker med webserver og database. Eksempelvis LAMP, LEMP, WAMP og XAMPP. PHP er også mulig å installere enkeltstående. 
-
-\subsection{Verktøy til DevOps}
-
-\subsubsection{GNU/Linux}
-GNU/Linux er en familie med Unix-lignende operativsystemer som baserer seg på Linux-kjernen \cite{kernel_org} og en del programvare fra GNU-prosjektet \cite{gnu_org}. I denne familien finner vi blant annet Ubuntu, Debian, Fedora, Red Hat Linux og Arch Linux.
-
-\subsubsection{Nginx}
-Nginx er en gratis HTTP-server med åpen kildekode \cite{nedelcu2010nginx}. Nginx har mulighet til å håndtere høy belastning av HTTP-forespørsler. Programmet er tilgjengelig på operativsystemer som Windows, Mac OS og Solaris. I tillegg er Nginx tilgjengelig på operativsystemer som er basert på GNU/Linux eller BSD.
-
-\subsubsection{phpMyAdmin}
-phpMyAdmin \cite{phpmyadmin2019bmt} er et gratis og webbasert administrasjonsverktøy for MySQL og MariaDB databaser, skrevet i PHP. Med phpMyAdmin kan man lage, endre og slette databaser, tabeller og felter. Annen funksjonalitet kan være å utføre SQL-setninger, administrere nøkler og privilegier og eksportere data til ulike formater.
-
-\subsubsection{MariaDB}
-MariaDB \cite{mariadb2019amd} er et relasjonsdatabasesystem basert på MySQL og har åpen kildekode. Systemet funker som en \textit{drop-in} erstatning for MySQL.
-
-\subsubsection{Buddy}
-Buddy \cite{buddy2019das} er en webbasert applikasjon for CI og CD. Applikasjonen lar utviklere bygge, teste og distribuere nettsider og programkode automatisk når kildekoden oppdateres. For eksempel er det mulig å koble Buddy til et nettsteds kildekode via Git. Når koden til nettstedet oppdateres, vil Buddy automatisk detektere endringer og starte en byggeprosess. Når byggeprosessen er ferdig kjøres det automatisk tester på koden, som verifiserer at alt fungerer. Deretter vil Buddy laste koden opp til en server og oppdatere nettstedet som ligger ute på nett. Dette skjer gjerne gjennom Docker\footnote{\url{https://www.docker.com/}} sammen med Kubernetes\footnote{\url{https://kubernetes.io/}}.
-
-\subsubsection{Ottomatik.io}
-Ottomatik er en webbasert tjeneste for automatisk sikkerhetskopiering av filer og MySQL databaser \cite{barnes2016osb}.
-
-\subsubsection{Amazon S3}
-Amazon Simple Storage Service er en webbasert tjeneste som tilbyr objekt-lagring \cite{aws2019as3}. Tjenesten tilbyr meget god skalerbarhet, datatilgjengelighet, sikkerhet og ytelse \cite{garfinkel2007aeagcs}.
-
-\subsubsection{Let’s Encrypt}
-Let’s Encrypt \cite{le2019ale} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
-
-\subsection{Verktøy til front-end}
 
 \subsubsection{HTML}
 Hypertext Markup Language \cite{w3c2016hc} er et markeringsspråk som brukes til å lage nettsidedokumenter. Det er et system som identifiserer og beskriver de forskjellige komponentene i et dokument som overskrifter, avsnitt og lister. HTML5 er den nyeste versjonen av HTML-standarden.
@@ -808,43 +772,9 @@ JavaScript er et programmeringsspråk som følger ECMAScript-spesifikasjonen \ci
 \label{sec:tool:axios}
 Axios\cite{axios2019a} er et JavaScript-bibliotek for en promise-basert HTTP-klient som kan kjøres i nettlesere og Node.Js. Biblioteket gjør det enklere å lage og behandle asynkrone forespørsler.
 
-\subsubsection{Node.js}
-Node.js er et gratis åpen kildekode servermiljø, som kjører på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren \cite{w3schools2019win}. Node.js kan generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
 
 \subsubsection{React}
 React\cite{facebook2019r} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og brukes som visningslaget for webapplikasjoner som følger MVC. React har åpen kildekode og er utviklet av Facebook.
-
-\subsection{Tilhørende teknologier og begreper}
-
-\subsubsection{CI \& CD}
-CI står for continuous integration og CD står for continuous delivery. CI/CD\cite{Pittet2019cd} er en metode som lar utviklere implementere og levere kodeendringer raskt og pålitelig.
-
-\subsubsection{Sesjoner}
-En sesjon\cite{progress2017ohs}(session) er en samling av data lagret på en webserver. En webserver tildeler en ID til hver bruker som sender forespørsler via en nettleser. ID-en lagres som informasjonskapsler i nettleseren til brukeren. Alle nye forespørsel vil så identifiseres av ID-en som er lagret hos brukeren.
-
-\subsubsection{Git}
-Git\cite{TechTarget} er et system for versjonskontroll. Et versjonskontrollsystem blir hovedsaklig brukt under utvikling av software og nettsteder. Det kan også brukes til andre type prosjekter som grafisk design og skriving av dokumenter.
-
-Ved å bruke Git opprettes det historikk over alle endringer, samt en sikkerhetskopi av alle versjoner av filene.
-
-En annen fordel ved å bruke Git er at det blir enklere å samarbeide med andre, uten å måtte tenke på at alle må sitte på nyeste versjon av filene.
-
-\subsubsection{Github}
-GitHub.com er et nettsted for å hoste git repositories, og blir mye brukt for \q{Open Source}-prosjekter. 
-
-Github\cite{TechTarget} er et sentralisert punkt for å samle en brukers repositories. Ved siden av å hoste repositories, lar GitHub brukere dele repositories med hverandre, lage informasjonssider om prosjektet og opprette saker (issues).
-
-\subsubsection{HTTP/2}
-HTTP/2\cite{Belshe2015httpv} er en revisjon av HTTP-nettverksprotokollen. HTTP er et sett med regler for overføring av filer (tekst, grafiske bilder, lyd, video og andre mediefiler). Et av de store målene med HTTP/2 var å tillate multipleksing.
-
-\subsubsection{REST-API}
-Et API (programmeringsgrensesnitt) er et sett med funksjoner, prosedyrer, metoder eller klasser som brukes av dataprogrammer for å be om tjenester fra operativsystemet eller programvare som er på datamaskinen. En programmerer kan bruke API-er til å lage applikasjoner.
-
-REST (Representational State Transfer) er en arkitektonisk stil for programvare. Et REST-API\cite{Masse2011radr} er et API som følger REST-stilen og de begrensninger som REST definerer.
-
-\subsubsection{Google Analytics}
-\label{sec:google-analytics}
-Google Analytics \cite{google2019gtk} er en gratis, webbasert tjeneste som gir statistikk og grunnleggende verktøy for analyse av bruksdata, søkemotoroptimalisering og markedsføring.
 
 \subsection{Valg av verktøy}
 I dette kapittelet forteller vi om hvilke verktøy studentgruppen har tenkt til å benytte seg av og hvorfor.

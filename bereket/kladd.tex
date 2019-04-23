@@ -5,18 +5,18 @@ Startet med å laste ned laravel, xampp og Gitkraken til datamaskinen. Gjorde cl
 
 \subsection{Database}
 Opprettet en database til prosjektet på phpMyAdmin og satt inn databasen og innloggingsinformasjonen i konfigurasjonsfilen .env. Så laget det modeller for databasen. Modellene lages ved å skrive koden nede i kommandolinjen. 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     Php artisan make:model Modelnavn -m
 \end{lstlisting}  
 Det siste “-m” brukes for å opprette migrasjon for modellen  samtidig. Dette dropes og opprettes etter på: 
- \begin{lstlisting}   
+ \begin{lstlisting}[language=PHP]
     Php artisan make:migration tabellnavn.
 \end{lstlisting}
 Etter modellene og migrasjonene er på plass kan det lages felter på tabellene og ta migrasjon for å legge til tabellene til phpMyAdmin. Legge til migrasjonene til phpMyAdmin ved å sette koden Php artisan migrate  i kommandolinjen.
 AppServiceProvider defualtlength satt til varchar(255). Dette gjøres for å bestemme lengden på strengen.
 Oppretting av  attributter på tabellene gjøres slik: 
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     $table->type('atributtnavn');
 \end{lstlisting}
 
@@ -24,7 +24,7 @@ Brukte UUID som primære nøkler på de fleste  tabellene. UUID (Universally uni
 
 \subsection{Feil under migrasjon}
 Prøvde å ta migrasjon oppsto en feilmelding.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
 Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
 \end{lstlisting}
 Årsaken var at datamaskinen har gammel versjon av mysql som ikke støtter standard streng lengde på 255. Da måtte streng lengden endre til 191 og løste feilen.
@@ -33,7 +33,7 @@ Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access vio
 Opprettet relasjoner mellom database-modellene. 
 Relasjoner  lages ved å bruke  manyToMany,(belongsToMany), One to One(hasOne), Many to One(belongsTo) og  One to Many (hasMany). Eks.  slik  
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     $this->hasMany('App\Model') og invers.
 \end{lstlisting}
 
@@ -44,7 +44,7 @@ Etter jeg opprettet ferdig koblingene mellom modellene, tok jeg test for å lagr
 \subsubsection{Felt har ikke  standardverdi}
 Fremmednøkkel feltet har ikke  standardverdi.
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value (SQL: insert into `fields` (`name`, `slug`, `updated_at`, `created_at`) values (HELLO WORLD, hello_world, 2019-02-06 08:57:48, 2019-02-06 08:57:48))
 \end{lstlisting}
 
@@ -52,7 +52,7 @@ Feilen oppsto da fremmednøkkel feltet ble satt til null. Dette løste ved å se
 
 \subsubsection{Data truncated for column}
 Vi bruker UUID i stedet increments og trenger å identifisere primærnøkkelen slik.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     $table->uuid('id')->primary();
 \end{lstlisting}
 
@@ -61,7 +61,7 @@ Denne filen brukes til å opprette UUID automatisk når du oppretter nye modelle
 \url{https://medium.com/@mamreezaa/use-uuid-in-lumen-d47ec02c330}}
 Siden det ikke opprettet UsesUuid.php trait i App/Trait dukket opp feilmelding. 
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
 SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value (SQL: insert into `fields` (`name`, `slug`, `updated_at`, `created_at`) values (HELLO WORLD, hello_world, 2019-02-06 08:57:48, 2019-02-06 08:57:48))
 \end{lstlisting}
 Dette betyr at det prøvde å sende UUID verdi i integer.
@@ -70,7 +70,7 @@ Dette ble løst med å lage en trait som automatisk lager en UUID når man lagre
 \subsubsection{Fremmednøkkel feil}
 Feilmeldingen oppsto da det ble prøvd å lagre en bruker på databasen. 
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sirkus-media`.`users`, CONSTRAINT `users_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`)) (SQL: insert into `users` (`name`, `phone`, `email`, `password`, `image_id`, `verified`, `email_token`, `id`, `updated_at`, `created_at`) values (Bere, 4578891, berg@gmail.com, 1234567r, 2432479, 1, e-token, 53f98032-f9bf-40a6-9d70-ca9c0785d7ee, 2019-02-08 10:11:16, 2019-02-08 10:11:16))
 \end{lstlisting}
 
@@ -82,19 +82,19 @@ Feilmelding oppsto da migrasjonen utføres.
 Dette betyr at primær nøkkelen blir satt på auto increments og den er unsignedInteger. Da det blir brukt som fremmed nøkkel på en annen tabell burde ha samme type. Dette var satt på integer.
 Løste ved å endre typen integer til unsigned integer til fremmednøkkelen. Slik:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     $table->integer('image_size_id')->unsigned();
     $table->foreign('image_size_id')->references('image_size_id')->on('image_sizes');
 \end{lstlisting}
 
 \subsubsection{Feilmelding om oppdatering og oppretting kolloner}
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     "SQLSTATE[42S22]: Column not found: 1054 Unknown column 'updated_at' in 'field list' (SQL: insert into `image_sizes` (`name`, `max_width`, `max_height`, `id`, `updated_at`, `created_at`) values (size-name, 10, 20, 879d1360-9a74-46f8-b383-ff6ec6e0f387, 2019-02-07 21:08:09, 2019-02-07 21:08:09))
 \end{lstlisting}
 Grunnen var at timestamps som oppretter opprettings- og oppdateringstiden er automatisk aktivert.
 Løste ved å deaktivere den. Slik: 
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     public $timestamps = false;
 \end{lstlisting}
 
@@ -103,7 +103,7 @@ Feilmeldingen sa at fremmednøkkel var ikke satt riktig.
 Dette var at auto increments er unsigned integer og brukte bare integer da jeg satte den som fremmednøkkel.
 Løste ved å endre integer til UnsignedInteger ved fremmednøkkelen. Slik:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     $table->integer('image_size_id')->unsigned();
     $table->foreign('image_size_id')->references('image_size_id')->on('image_sizes');
 \end{lstlisting}
@@ -112,7 +112,7 @@ Løste ved å endre integer til UnsignedInteger ved fremmednøkkelen. Slik:
 Fremmednøkkelen var satt på samme måte som i andre tabeller i et barn tabell. Problemet var at jeg prøvde å lage fremmednøkkel til en tabell som ikke er opprettet enda.
 Måtte bryte dette inn i to Schema-blokker, en skaper kolonnene, den andre legger til fremmednøkkel.\footnote{\url{https://stackoverflow.com/questions/18427391/laravel-migration-self-referencing-foreign-key-issue}}
 Løste ved å sette fremmednøkkelen på riktig måte. Slik
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
 Schema::create('components', function (Blueprint $table)
        {
            $table->uuid('id')->primary();
@@ -132,7 +132,7 @@ Flere fremmednøkkel-felter var satt til nullable som ikke skulle nullable. Star
 
 \subsubsection{Ukjent kolonne feilmelding}
 Siden forholdene mellom modellene var ikke satt riktig, oppsto feil under testingen.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
 "SQLSTATE[42S22]: Column not found: 1054 Unknown column 'links.menu_link_id' in 'where clause' (SQL: select * from links where links.`menu_link_id` = 3 and links.`menu_link_id` is not null) 
 \end{lstlisting}
 Løste ved å gå gjennom alle modellene og fikse forholdene mellom dem.
@@ -145,18 +145,18 @@ For installere permisjon pakken kjørte jeg composer require spatie/laravel-perm
 
 \subsubsection{Inkludere pakken på service provider listen}
 Inkluderte permisjon pakken på config/app.php. 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     Spatie\Permission\PermissionServiceProvider::class
 \end{lstlisting}
 
 \subsubsection{Publisere migrasjonen}
 Ved å kjøre koden på kommandolinjen publisere migrasjon filen for permisjon pakken.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
    php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations" 
 \end{lstlisting}
 
 Siden vi bruker uuid som primær nøkkel på user måtte det redigeres permisjon filen. På permisjon filen er satt 'unsignedBigInteger' som standard og burde det  endres  til uuid. Redigeringen gjøres ved å åpne permisjon filen  under 'database/migrations' og erstatte 'unsignedBigInteger' med 'uuid'.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
   $table->unsignedBigInteger($columnNames['model_morph_key'])
     Erstatter med 
  $table->uuid($columnNames['model_morph_key'])
@@ -166,32 +166,32 @@ Siden vi bruker uuid som primær nøkkel på user måtte det redigeres permisjon
 Konfigureringsfilen tillater oss å angi plasseringen av Eloquent-modellen til permisjon og rolle klasse.
 For å publisere konfigurasjonsfilen for pakken kjøres koden nede i kommandolinjen.
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
   php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
 \end{lstlisting}
 
 \subsubsection{Bygge opp tabeller}
 Tok migrasjon slik permisjon tabellene blir bygget på databasen.
 Kjørte koden i kommandolinjen.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
   php artisan migrate
 \end{lstlisting}
 
 \subsection{Lage API}
 For å lage api opprettet det først controller\footnote{\url{https://laravel.com/docs/5.7/controllers}} via cmd terminalen.
 Gjøres slik:
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     php artisan make:controller PageController --resource
 \end{lstlisting}
 Den siste parameteren "resource" er et alternativ og kan dropes.
 
 På api.php i routes\footnote{\url{https://laravel.com/docs/5.7/routing}}  registrer det API-ruter.
 For alle pages:
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     Route::get('/pages', 'PageController@index');
 \end{lstlisting} 
 For en enkel page:
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     Route::get('pages/{page}', 'PageController@show');
 \end{lstlisting}
 
@@ -200,14 +200,14 @@ Brukte en verktøy som heter Postman\footnote{\url{https://www.getpostman.com/pr
 \subsubsection{Utfordring under testing} 
 På mange til mange relasjoner ble  det laget egne modeller på pivot tabellene.
 Forholdene ble satt opp via pivot tabellene sine modeller. På kontroller ble det brukt  Apend til å få alle forholdene mellom tabellene. 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     public function menu_links(){
          return $this->hasMany('App\MenuLink')
     }
 \end{lstlisting}
 Da det ble testet om for eksempel en page ble brukt i menu tabellen via fremmednøkkel, fikk ikke svar.
 Fikset ved å sette opp forholdene ved hjelp av 'hasManyThrough'. Gjøres slik:
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     public function links(){
          return $this->hasManyThrough(    
             'App\Link',
@@ -223,34 +223,34 @@ Fikset ved å sette opp forholdene ved hjelp av 'hasManyThrough'. Gjøres slik:
 \subsection{Sett opp autentisering}
 Autentisering brukes til å kontrollere tilgang til ressurser. For å kontrollere tilgang skal nettsiden ha logginn og registreringsside. Registrering siden skal være tilgjengelig for brukere som logget seg inn. 
 Lagte autenisering ved å kjøre koden i comandlijen.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     php artisan make:auth 
 \end{lstlisting} 
     
 I RegisterController kan det endres tilgangen for å opprette nye brukere.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     $this->middleware('guest');
 \end{lstlisting}
 Endre guest med auth. Dette krever at bruker må logge seg inn for å kunne opprette nye brukere.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     $this->middleware('auth');
 \end{lstlisting}
 
 \subsubsection{ Registrering av bruker}
 Etter autentiseringen er prøvde det å registrere ny bruker. Det oppsto en feilmelding under registrering av ny bruker
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     SQLSTATE[HY000]: General error: 1364 Field 'image_id' doesn't have a default value
 \end{lstlisting}  
 Løste feilen ved å endre standard verdien til "imageid" feltet i bruker database tabellen. Gjorde slik:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     $table->uuid('image_id')->nullable()->default(null);
 \end{lstlisting} 
 
 \subsubsection{Mailtrap}
 For en bruker skal logge seg inn kreves det epost bekreftelse.
 Fikk feilmelding om mail bekreftelsen.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     Swift_TransportException in AbstractSmtpTransport.php line 383: Expected response code 250 but got code "530", with message "530 5.7.1 Authentication required
 \end{lstlisting}
     
@@ -258,7 +258,7 @@ Løste feilen ved å lage midlertidig konto i mailtrap.io og fikk bekrefte inlog
 Mailtrap\footnote{{https://mailtrap.io/}} er en SMTP-server for å teste, vise og dele e-postmeldinger sendt fra utviklings- og oppstartsmiljøene uten å spammere virkelige kunder.
 I mailtrap under SMTP instillinger finnes det bruker informasjonen og den bør kopieres og limes i .env filen i laravel.
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     MAIL_DRIVER=smtp
     MAIL_HOST=smtp.mailtrap.io
     MAIL_PORT=2525
@@ -270,11 +270,11 @@ I mailtrap under SMTP instillinger finnes det bruker informasjonen og den bør k
 \subsection{SEEDS}
 For å lage forskjellige bruker roller lagte det RoleSeeder i databasen.
 Kjørte koden i kommandolinjen for å opprette det.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     php artisan make:seeder RoleSeeder
 \end{lstlisting}
 Lagte forskjellige roller i RoleSeederen
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     $user = Role::create(['name' => 'user']);
    $moderator = Role::create(['name' => 'moderator']);
    $admin = Role::create(['name' => 'admin']);
@@ -283,7 +283,7 @@ Lagte forskjellige roller i RoleSeederen
 \subsection{CRUD}       
 Opprettet CRUD (Creating, Reading, Updating and Deleting) filer for å opprette, lese oppdatere og slette ressurser. På ressurs kontroller kan skrives logikken om hvordan ressursene opprettes, lagres, leses, oppdateres og slettes. 
 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     class PageController extends Controller
     {   public function __construct()
        {  $this->middleware('auth'); }
@@ -331,13 +331,13 @@ Opprettet CRUD (Creating, Reading, Updating and Deleting) filer for å opprette,
 Etter det ble ferdig laget med CRUD, testet om det fungerer.
 I create.blade.php filen prøvde å lage nedtrekksmeny med komponenter.
 Fikk feilmeldingen:
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     "Property [component_id] does not exist on this collection instance.
 \end{lstlisting}
 
 Grunnen var at det ble hentet flere komponenter fra databasen og prøvde å sette de som en singel komponent.
 Løste feilen ved å bruke for løkke.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     @foreach($components as $component)
     <option value="{{$component->id}}" {{old('component_id',component->id)}}? selected> {{$component->name}} </option>
      @endforeach
@@ -346,7 +346,7 @@ Løste feilen ved å bruke for løkke.
 \subsection{Route}
 Web.php fil i routes katalogen definerer  ruter  for webgrensesnitt\footnote{\url{https://laravel.com/docs/5.8/routing}}.
 Skrives for eksempel slik, hvis man har flere ressurser :
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     Route::resources([
         'pages' => 'PageController',
         'components' => 'ComponentController',
@@ -360,7 +360,7 @@ I tillegg ble det lagte php filer for grensesnitt til ressurser. index.blade.php
 \footnote{\url{https://itsolutionstuff.com/post/laravel-57-crud-create-read-update-delete-tutorial-example-example.html}}
 
 Tilgangene til ressurser kan være forskjellige fra bruker til bruker og gis for eksempel slik via kontrolleren.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     public function __contruct(){
        $this->middleware('auth');
        $this->middleware('role:superadmin');
@@ -371,33 +371,33 @@ Eksemplet viser at tilgangen er gitt bare til brukere med superadmin rolle.
 
 Har lagt linker for Menus og Pages til brukere som er logget seg inn.
 Etter linkene ble lagt og rollene blitt gitt fikk ikke det å åpne linkene eller registrere nye brukere. Fikk feilmelding om det ikke eksisterer rolle klasse. 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
     "Class App\Http\Spatie\Permission\Models\Role does not exist"
 \end{lstlisting}
  
 Prøvde å rette feilen ved å legge til rolle klasse i kernel.php slik:
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
    protected $routeMiddleware = ['role'=>Spatie\Permission\Models\Role::class]; 
 \end{lstlisting}  
 Løsningen ga en annen feilmelding om klasse rolle ikke finnes
- \begin{lstlisting}
+ \begin{lstlisting}[language=PHP]
       "Class 'Role' not found
  \end{lstlisting}
 
 Feilen var at det ble lagt Role modelle klasse istedet Middleware klasse og løste ved å sette riktig Middleware klasse. Middleware \footnote{\url{https://laravel.com/docs/5.8/middleware }} er en mekanisme som kan  filtrere http-forespørsler. Den kan for eksempel verifisere en bruker er autentisert. 
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
 \end{lstlisting}
 
 Registering av en ny bruker gikk men fikk feilmelding samtidig.
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
    "Argument 1 passed to Illuminate\Auth\SessionGuard::login() must implement interface Illuminate\Contracts\Auth\Authenticatable, null given,
 \end{lstlisting}
 
 Feilen var at den prøver å sende den registrert brukeren til en side mens en annen  bruker er logget seg inn på siden. Registrering av en ny bruker gjennomføres av innlogget brukere med admin rettigheter.
 
 Løste ved å overskrive og slette koden som sender brukeren til siden. Slik:
-\begin{lstlisting}
+\begin{lstlisting}[language=PHP]
    public function register(Request $request)
        {
            $this->validator($request->all())->validate();
