@@ -9,15 +9,15 @@
 
 \subsection{Testing av forhold}
 
-Bereket er ferdig med å sette opp forhold mellom modellene. Det er derfor nødvendig å teste for å se at alt fungerer som det skal. Tester ved å gjøre følgende steg:
+Etter at forhold mellom modellene var ferdig satt opp, var det nødvendig gjøre en test for å sjekke at alt fungerer. Testen ble gjort ved å gjøre følgende:
 
 \begin{itemize}
-\item Kjører en migration.
-\item Setter inn data inn i databasen.
+\item Kjøre en migration.
+\item Sette inn data inn i databasen.
 \end{itemize}
 
-Oppdager deretter at det oppstår noen feil. Det er flere felter som skal være nullable som ikke er det og omvendt.
-Det er også flere av modellene har feil med sine forhold. Herfra tar Bereket over testingen. Etter en stund ble han ferdig med testing og sier at alt fungerer. Da startet en ny runde med verifisering.
+Her ble det oppdaget noen feil. Det var flere felter som skal være nullable som ikke skulle være det og omvendt.
+I tillegg hadde flere av modellene feil med sine forhold. Etter at disse feilene ble rettet startet en ny runde med verifisering.
 
 \textbf{Hvordan ble verifiseringen gjort?}
 Eks:
@@ -35,7 +35,7 @@ class Page extends Model
 
 Denne koden definerer et forhold mellom en Page og flere PageComponents. Dette gjør at hvis vi har en instanse av en Page, kan vi kan hente ut alle de PageComponent-ene som har en fremmednøkkel i databasen, som peker til den Page-en vi har.
 
-For å verifisere at dette forholdet funker, skrives følgende kode i web.php (routes fil):
+For å verifisere at dette forholdet, ble følgende kode skrevet i web.php (routes fil):
 
 \begin{lstlisting}[language=PHP]
 Route::get('/', function () {
@@ -44,7 +44,7 @@ Route::get('/', function () {
 });
 \end{lstlisting}
 
-Her hentes alle Page-ene som eksisterer. Velger å se på den første, og ser at den inneholder \lstinline{$page} variabelen en instanse av Page. Forsøker deretter å hente ut alle de PageComponent-ene som vår Page har forhold til. \lstinline{dump} er en funksjon som ligner på PHP sin innebygde \lstinline{var_dump}, men viser informasjonen på en mer lettleslig måte.
+Her hentes alle Page-ene som eksisterer. Valgte å se på den første, og så at den inneholdt \lstinline{$page} variabelen en instanse av Page. Forsøker deretter å hente ut alle de PageComponent-ene som vår Page har forhold til. \lstinline{dump} er en funksjon som ligner på PHP sin innebygde \lstinline{var_dump}, men viser informasjonen på en mer lettleslig måte.
 
 Output fra \lstinline[language=PHP]{dump}:
 
@@ -56,9 +56,9 @@ Collection {#570 v
 }
 \end{lstlisting}
 
-Her kan vi se at vår Page har forhold til en PageComponent. Fordi vi klarte å hente ut en PageComponent og ikke fikk noen feilmeldinger, kan vi anta at forholdet er satt opp riktig og funker som det skal.
+Her kan vi se at vår Page har forhold til en PageComponent. Fordi vi klarte å hente ut en PageComponent og ikke fikk noen feilmeldinger, kunne vi anta at forholdet er satt opp riktig og funker som det skal.
 
-Lignende tester ble utført for alle modellene:
+Lignende tester ble utført på alle modellene:
 
 \begin{lstlisting}
 - Page

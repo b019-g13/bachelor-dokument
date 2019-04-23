@@ -11,11 +11,13 @@ I dette kapittelet skal vi presentere resultatene i prosjektet og en beskrivelse
 
 \section{Verktøy}
 Vi endte opp med å bruke en flere verktøy enn beskrevet i  \ref{sec:technologies}. 
-I tillegg til hovedverktøyene ble følgende verktøy og teknologier benyttet: 
+I tillegg til hovedverktøyene ble følgende verktøy og teknologier benyttet:
 
 \subsection{Symfony}
 \label{sec:tools-symfony}
 Symfony er et webapplikasjonsrammeverk og er et sett med gjenbrukbare komponenter og biblioteker skrevet i PHP \cite{symfony19wis}. 
+
+I dette prosjektet ble Symfony benyttet til...
 
 \subsection{GNU/Linux}
 GNU/Linux er en familie med Unix-lignende operativsystemer som baserer seg på Linux-kjernen \cite{kernel_org} og en del programvare fra GNU-prosjektet \cite{gnu_org}. I denne familien finner vi blant annet Ubuntu, Debian, Fedora, Red Hat Linux og Arch Linux.
@@ -41,104 +43,91 @@ Amazon Simple Storage Service er en webbasert tjeneste som tilbyr objekt-lagring
 \subsection{Let’s Encrypt}
 Let’s Encrypt \cite{le2019ale} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
 
-
 \subsection{Node.js}
 Node.js er et gratis åpen kildekode servermiljø, som kjører på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren \cite{w3schools2019win}. Node.js kan generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
-
 
 \section{Tilhørende teknologier og begreper}
 Ved å bruke disse verktøyene som har blitt presentert vil man i tillegg benytte seg av noen tilhørende teknologier. Disse blir presentert videre i dette kapittelet.
 
-\subsubsection{CI \& CD}
+\subsection{CI \& CD}
 CI står for continuous integration og CD står for continuous delivery. CI/CD\cite{Pittet2019cd} er en metode som lar utviklere implementere og levere kodeendringer raskt og pålitelig.
 
-\subsubsection{Sesjoner}
+\subsection{Sesjoner}
 En sesjon\cite{progress2017ohs}(session) er en samling av data lagret på en webserver. En webserver tildeler en ID til hver bruker som sender forespørsler via en nettleser. ID-en lagres som informasjonskapsler i nettleseren til brukeren. Alle nye forespørsel vil så identifiseres av ID-en som er lagret hos brukeren.
 
-\subsubsection{Git}
+\subsection{Git}
 Git\cite{TechTarget} er et system for versjonskontroll. Et versjonskontrollsystem blir hovedsaklig brukt under utvikling av software og nettsteder. Det kan også brukes til andre type prosjekter som grafisk design og skriving av dokumenter.
 
 Ved å bruke Git opprettes det historikk over alle endringer, samt en sikkerhetskopi av alle versjoner av filene.
 
 En annen fordel ved å bruke Git er at det blir enklere å samarbeide med andre, uten å måtte tenke på at alle må sitte på nyeste versjon av filene.
 
-\subsubsection{Github}
+\subsection{Github}
 GitHub.com er et nettsted for å hoste git repositories, og blir mye brukt for \q{Open Source}-prosjekter. 
 
 Github\cite{TechTarget} er et sentralisert punkt for å samle en brukers repositories. Ved siden av å hoste repositories, lar GitHub brukere dele repositories med hverandre, lage informasjonssider om prosjektet og opprette saker (issues).
 
-\subsubsection{HTTP/2}
+\subsection{HTTP/2}
 HTTP/2\cite{Belshe2015httpv} er en revisjon av HTTP-nettverksprotokollen. HTTP er et sett med regler for overføring av filer (tekst, grafiske bilder, lyd, video og andre mediefiler). Et av de store målene med HTTP/2 var å tillate multipleksing.
 
-\subsubsection{REST-API}
+\subsection{REST-API}
 Et API (programmeringsgrensesnitt) er et sett med funksjoner, prosedyrer, metoder eller klasser som brukes av dataprogrammer for å be om tjenester fra operativsystemet eller programvare som er på datamaskinen. En programmerer kan bruke API-er til å lage applikasjoner.
 
 REST (Representational State Transfer) er en arkitektonisk stil for programvare. Et REST-API\cite{Masse2011radr} er et API som følger REST-stilen og de begrensninger som REST definerer.
 
-\subsubsection{Google Analytics}
+\subsection{Google Analytics}
 \label{sec:google-analytics}
 Google Analytics \cite{google2019gtk} er en gratis, webbasert tjeneste som gir statistikk og grunnleggende verktøy for analyse av bruksdata, søkemotoroptimalisering og markedsføring.
 
 \section{Utviklingen}
 
-Det ble opprettet en \q{Branch protection rule} på front- og back-end repositoriene i Github. Dette gjør at det må kjøres en "Code review" før kode kan sendes inn til "Master" branch-en. Alle medlemmene på studengruppen har en egen branch.
-Når koden skal comittes må det opprettes en pull request, som må godkjennes. Da blir det mulig å luke ut kode som inneholder feil som potensielt kan ødelegge eksisterende kode.
+Det ble opprettet en \q{Branch protection rule} på back-end repository i Github. Dette gjør at det må kjøres en "Code review" før kode kan sendes inn til "Master" branch-en. Alle medlemmene på studengruppen har en egen branch.
+Når koden skal commites må det opprettes en pull request, som må godkjennes. Da blir det mulig å luke ut kode som inneholder feil som potensielt kan ødelegge for eksisterende kode.
 
 \section{Back-end dokumentasjon}
-Back-end har blitt gjennomført av Bereket og Bjørnar. 
+Utvikling av back-end ble gjennomført av Bereket og Bjørnar. 
 
 \subsection{Installasjon}
 Hele prosessen ble startet ved å laste ned Laravel, XAMPP og Gitkraken. Klonet deretter repositoren som ble opprettet tidligere i Github.
 
 \subsection{Database}
-Opprettet en database til prosjektet på phpMyAdmin og satt inn databasen og innloggings-informasjonen i konfigurasjonsfilen .env. Deretter ble det laget modeller for databasen. Modellene lages ved å skrive koden under i kommandolinjevindu: 
+Opprettet en database til prosjektet i MySQL og fylte ut innloggingsinformasjon i Laravel sin .env konfigurasjonsfil. Deretter ble det lagd modeller ved å skrive kommandoen under i terminalen: 
 \begin{lstlisting}[language=PHP]
-    Php artisan make:model Modelnavn -m
-\end{lstlisting}  
-Det siste “-m” brukes for å opprette migrasjon for modellen  samtidig som den opprettes. Det er også mulig å opprette migrasjon i ettertid: 
- \begin{lstlisting}[language=PHP]
-    Php artisan make:migration tabellnavn.
+    php artisan make:model Modelnavn -m
 \end{lstlisting}
-Etter at modellene og migrasjonene er på plass kan det lages felter på tabellene og deretter kjøre migrasjon for å legge til tabellene til phpMyAdmin. Det er mulig å legge til migrasjonene i phpMyAdmin ved å kjøre koden under i kommandolinjevindu:
+Parameteret \q{-m} brukes for å opprette en migration fil for modellen. Det er også mulig å opprette migration fil i ettertid: 
+\begin{lstlisting}[language=PHP]
+    php artisan make:migration migration_file_name
+\end{lstlisting}
+Etter at modellene og migration filene er opprettet kan man definere forhold mellom modellene (gjøres i modell filen), samt databasetabellen for hver modell (gjøres i migration filen).
+Når migration filene er ferdig definert kan man kjøre migration ved å skrive følgende kommando i terminalen:
 \begin{lstlisting}
- php artisan migrate 
+    php artisan migrate
 \end{lstlisting}
+Når migration blir kjørt vil alle tabellene og deres kolonner bli opprettet i MySQL.
+Under er et eksempel på en migration fil
+\lstinputlisting[caption={Laravel migration fil}, language=php]{laravel-code-examples/migration.php}
 
-AppServiceProvider defualtlength satt til varchar(255). Dette gjøres for å bestemme lengden på strengen.
+% Brukte UUID som primærnøkler på de fleste tabellene. UUID (Universally unique identifier)\cite{kilroy2017agulm} er en ID som kan gis til tabellrader for å identifisere dem på en måte som er litt finere enn et sekvensielt tabell-ID. Dette gjør det mulig å ha større tabellrad enn å bruke integer increments.
 
-Oppretting av  attributter på tabellene gjøres slik: 
-\begin{lstlisting}[language=PHP]
-    $table->type('atributtnavn');
-\end{lstlisting}
+% \subsection{Feil under migrasjon}
+% Prøvde å ta migrasjon oppsto en feilmelding.
+% \begin{lstlisting}[language=PHP]
+% Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
+% \end{lstlisting}
+% Årsaken var at datamaskinen har gammel versjon av mysql som ikke støtter standard streng lengde på 255. Da måtte streng lengden endre til 191 og løste feilen.
 
-Brukte UUID som primærnøkler på de fleste tabellene. UUID (Universally unique identifier)\cite{kilroy2017agulm} er en ID som kan gis til tabellrader for å identifisere dem på en måte som er litt finere enn et sekvensielt tabell-ID. Dette gjør det mulig å ha større tabellrad enn å bruke integer increments.
-
-\subsection{Feil under migrasjon}
-Prøvde å ta migrasjon oppsto en feilmelding.
-\begin{lstlisting}[language=PHP]
-Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
-\end{lstlisting}
-Årsaken var at datamaskinen har gammel versjon av mysql som ikke støtter standard streng lengde på 255. Da måtte streng lengden endre til 191 og løste feilen.
-
-\subsection{Lage forhold mellom modellene}
-Opprettet relasjoner mellom database-modellene. 
-Relasjoner  lages ved å bruke  manyToMany,(belongsToMany), One to One(hasOne), Many to One(belongsTo) og  One to Many (hasMany). Eks.  slik  
-
-\begin{lstlisting}[language=PHP]
-    $this->hasMany('App\Model') og invers.
-\end{lstlisting}
-
-\subsection{Lagringstest til DB}
-Etter jeg opprettet ferdig koblingene mellom modellene, tok jeg test for å lagre data på databasen.Testen gjorde på alle tabellene.
+\subsection{Forhold mellom modellene}
+Opprettet relasjoner mellom modellene. 
+Relasjoner lages ved å bruke manyToMany (belongsToMany), One to One (hasOne), Many to One (belongsTo) og One to Many (hasMany). Eks. slik
+\lstinputlisting[caption={Laravel modell med et forhold}, language=php]{laravel-code-examples/model-relationship.php}
 
 \subsection{Feilmeldinger}
-\subsubsection{Felt har ikke  standardverdi}
-Fremmednøkkel feltet har ikke  standardverdi.
-
+\subsubsection{Felt har ikke standardverdi}
+Fremmednøkkel feltet har ikke standardverdi.
 \begin{lstlisting}[language=PHP]
     SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value (SQL: insert into `fields` (`name`, `slug`, `updated_at`, `created_at`) values (HELLO WORLD, hello_world, 2019-02-06 08:57:48, 2019-02-06 08:57:48))
 \end{lstlisting}
-
 Feilen oppsto da fremmednøkkel feltet ble satt til null. Dette løste ved å sette riktig verdien til feltet eller sette fremmednøkkelen til nullable. 
 
 \subsubsection{Data truncated for column}
@@ -148,7 +137,7 @@ Vi bruker UUID i stedet increments og trenger å identifisere primærnøkkelen s
 \end{lstlisting}
 
 For å bruke UUID er det viktig å opprette UsesUuid.php trait i App / Trait.
-Denne filen brukes til å opprette UUID automatisk når du oppretter nye modeller, deaktivere automatisk increments id-er, sette primærnøkkel som uuid og sette primærnøkkeltype som streng.\cite{medium2019aut} Siden det ikke opprettet UsesUuid.php trait i App/Trait dukket opp feilmelding. 
+Denne filen brukes til å opprette UUID automatisk når du oppretter nye modeller, deaktivere automatisk increments id-er, sette primærnøkkel som uuid og sette primærnøkkeltype som string.\cite{medium2019aut} Siden det ikke opprettet UsesUuid.php trait i App/Trait dukket opp feilmelding. 
 
 \begin{lstlisting}[language=PHP]
 SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value (SQL: insert into `fields` (`name`, `slug`, `updated_at`, `created_at`) values (HELLO WORLD, hello_world, 2019-02-06 08:57:48, 2019-02-06 08:57:48))
@@ -643,7 +632,7 @@ En test ble gjort ved å lage en fil som het "header.scss" og satte bakgrunnsfar
 \end{lstlisting}
 
 \section{Styling}
-Designet til nettstedet ble stylet ved hjelp av SCSS, og er så lik den godkjente mockupen som mulig. Designet er også responsivt og fungerer derfor like godt på en stor skjem, laptop, nettbrett og mobil.
+Designet til nettstedet ble stylet ved hjelp av SCSS, og er så lik den godkjente mockupen som mulig. Designet er også responsivt og fungerer derfor like godt på en stor skjem, laptop, nettbrett og mobil. For stylingen ble prinsippet \q{mobil først} benyttet. Dette prinsippet går ut på at utviklingen først skjer for små skjermer, for deretter å skalere opp og gjøre designendringer når det er nødvendig. 
 
 
 % \section{Utredning}
