@@ -65,153 +65,199 @@ Google Analytics \cite{google2019gtk} er en gratis, webbasert tjeneste som gir s
 Det ble opprettet en \q{Branch protection rule} på back-end repository i Github. Dette gjør at det må kjøres en "Code review" før kode kan sendes inn til "Master" branch-en. Alle medlemmene på studengruppen har en egen branch.
 Når koden skal commites må det opprettes en pull request, som må godkjennes. Da blir det mulig å luke ut kode som inneholder feil som potensielt kan ødelegge for eksisterende kode.
 
-\section{Back-end dokumentasjon}
-Utvikling av back-end ble gjennomført av Bereket og Bjørnar.
+%--- Bjørnar - start ---
 
-\subsection{Installasjon}
-Hele prosessen ble startet ved å laste ned og sette opp Laravel.
-Dette ble enkelt gjort med Composer:
+\subsection{Installasjon og oppsett av Laravel og tilhørende verktøy}
+Første steg var å installere package manageren Composer.
+Neste steg er å installere og sette opp Laravel.
+Når vi har Composer er det trivielt å installere med et par kommandoer i terminalen:
 \begin{lstlisting}[caption={Installasjon av Laravel med Composer},language=bash]
     composer global require laravel/installer
     laravel new sirkus-media-back-end
 \end{lstlisting}
+Det var siste versjon av rammeverket som ble lastet ned, som for tiden var 5.7.
 
-\subsection{Database}
-Opprettet en database til prosjektet i MySQL og fylte ut innloggingsinformasjon i Laravel sin .env konfigurasjonsfil. 
+Til slutt måtte vi konfigurere rammeverket slik at det kunne håndtere databasetilkobling, sending av mail og lagring av opplastede og genererte filer.
+Laravel samler sine instillinger i php filer i \q{config} mappen, samt en .env fil som holder på passord og annen sensitiv informasjon vi ikke vil ha i git.
 
-\subsection{Modeller og migrations}
-Deretter ble det lagd modeller ved å skrive kommandoen under i terminalen: 
+\subsubsection{Database}
+Vi begynte med å sette opp tilkobling til databasen. Dette ble gjort ved å først logge inn i MySQL og opprette en bruker og en database. Informasjon for dette ble skrevet inn i .env filen. Se figur under for eksempel:
+\begin{lstlisting}[caption={Laravel .env database secrets},language=bash]
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=sirkusmedia
+    DB_USERNAME=bruker
+    DB_PASSWORD=passord
+\end{lstlisting}
+
+\subsubsection{Mail}
+Etter databasen var klar for bruk, begynte vi å sette instillingene for e-post.
+Vi bestemte oss for å bruke Mailtrap\footnote{\url{https://mailtrap.io/}} under utvikling av løsningen. Mailtrap\cite{mailtrap2019setfsad} er en fake SMTP server som kan brukes for testing av e-post.
+Etter å ha registrert bruker hos Mailtrap fyller vi ut informasjon i .env filen:
+\begin{lstlisting}[caption={Laravel .env mail secrets}, language=bash]
+    MAIL_DRIVER=smtp
+    MAIL_HOST=smtp.mailtrap.io
+    MAIL_PORT=2525
+    MAIL_USERNAME=bruker
+    MAIL_PASSWORD=passord
+    MAIL_ENCRYPTION=tls
+\end{lstlisting}
+
+Når løsningen skal ut i produksjon må det brukes noe annet enn Mailtrap. Sirkus Media kan selv bestemme hva de ønsker å bruke, men systemet er satt opp til bruk av Mailgun\footnote{\url{https://www.mailgun.com/}}.
+
+\subsubsection{Lagring}
+Lagring av opplastede og genererte filer foregår på samme server som back-end kjører på.
+For å sette dette opp kjørte vi bare en enkel Larvel Artisan kommando:
+\begin{lstlisting}[caption={Laravel Artisan kommando for å sette opp lagring av filer}, language=bash]
+    php artisan storage:link
+\end{lstlisting}
+Storage klassen til Larvel gjør at Sirkus Media enkelt kan benytte seg av andre løsninger, som for eksempel Amazon Web Servies S3.
+
+\subsubsection{Laravel Mix}
+Det siste som måtte settes opp før man kunne begynne med utviklingen er Laravel Mix\footnote{\url{https://laravel-mix.com/}}.
+Dette er en \textit{wrapper} rundt den populære module bundleren Webpack\footnote{\url{https://webpack.js.org/}}. For å bruke Laravel Mix måtte vi først installere Node.js. Etter Node.js ble installert trengte vi kun å kjøre et par enkle npm kommandoer:
+\begin{lstlisting}[caption={npm kommando for å sette opp front-end til Laravel}, language=bash]
+    npm install
+    npm run dev
+\end{lstlisting}
+
+For å konfigurere hvilke filer som skal brukes av front-end til Laravel fylte vi ut filen webpack.mix.js:
+\begin{lstlisting}[caption={Eksempel på oppsett av webpack.mix.js}]
+    const mix = require("laravel-mix");
+
+    mix.sass("resources/sass/app.scss", "public/css").version();
+    mix.js("resources/js/app.js", "public/js").version();
+    mix.copy("resources/images", "public/images").version();
+
+    mix.browserSync({ proxy: "localhost:8000", notify: false });
+\end{lstlisting}
+
+Når det nevnes \q{front-end til Laravel} så er det ikke snakk om front-end til nettsiden som lages for Sirkus Media, men front-enden til CMS-et.
+Laravel kommer med en del dependencies til front-end som vi ikke trenger. Alle dependencies defineres i package.json. Følgende dependencies ble fjernet: Bootstrap, jQuery, lodash, Popper, Vue. Det ble kun lagt til en dependency; Shopify sin \q{Draggable} pakke. BrowserSync ble også lagt til som en devDependency.
+
+\begin{lstlisting}[caption={Orginal package.json}]
+    "devDependencies": {
+        "axios": "^0.18",
+        "bootstrap": "^4.0.0",
+        "cross-env": "^5.1",
+        "jquery": "^3.2",
+        "laravel-mix": "^4.0.7",
+        "lodash": "^4.17.5",
+        "popper.js": "^1.12",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.15.2",
+        "sass-loader": "^7.1.0",
+        "vue": "^2.5.17"
+    },
+    "dependencies": {}
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Siste package.json}]
+    "devDependencies": {
+        "browser-sync": "^2.26.3",
+        "browser-sync-webpack-plugin": "^2.0.1",
+        "cross-env": "^5.1",
+        "laravel-mix": "^4.0.7",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.15.2",
+        "sass-loader": "^7.1.0",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "@shopify/draggable": "^1.0.0-beta.8",
+        "axios": "^0.18.0"
+    }
+\end{lstlisting}
+Merk at vue-template-compiler ligger som en dependency her kun fordi siste versjon av Laravel Mix ikke kjører uten.
+
+\subsection{Modeller og database migrations}
+Definering av modeller og migration filer til databasetabellene var det første som ble gjort etter konfigurering av rammeverket.
+Modeller lagde vi ved å skrive følgende Larvel Artisan kommando i terminalen:
 \begin{lstlisting}[caption={Laravel Artisan kommando for oppretting av modell og migration},language=php]
     php artisan make:model Modelnavn -m
 \end{lstlisting}
-Parameteret \q{-m} brukes for å opprette en migration fil for modellen. Det er også mulig å opprette migration fil etter å ha lagd modell: 
+Parameteret \q{-m} i kommandoen over brukes for å opprette en migration fil for modellen. Det er også mulig å opprette migration fil etter å ha lagd modell:
 \begin{lstlisting}[caption={Laravel Artisan kommando for oppretting av migration fil},language=php]
     php artisan make:migration migration_file_name
 \end{lstlisting}
-Etter at modellene og migration filene er opprettet kan man definere forhold mellom modellene (gjøres i modell filen), samt databasetabellen for hver modell (gjøres i migration filen).
+Etter at modellene og migration filene er opprettet kan man definere forhold mellom modellene (gjøres i modell filen), samt databasetabell for hver modell (gjøres i migration filen).
 Når migration filene er ferdig definert kan man kjøre migration ved å skrive følgende kommando i terminalen:
 \begin{lstlisting}[caption={Laravel Artisan kommando for å kjøre migration},language=php]
     php artisan migrate
 \end{lstlisting}
-Når migration blir kjørt vil alle tabellene og deres kolonner bli opprettet i MySQL.
+Etter migration blir kjørt vil alle tabellene og deres kolonner bli opprettet i MySQL.
 Under er et eksempel på en migration fil
 \lstinputlisting[caption={Laravel migration fil}, language=php]{laravel-code-examples/migration.php}
 
-Brukte UUID som primærnøkler på de fleste tabellene. UUID (Universally unique identifier)\cite{kilroy2017agulm} er en ID som kan gis til tabellrader for å identifisere dem på en måte som er litt finere enn et sekvensielt tabell-ID. Dette gjør det mulig å ha større tabellrad enn å bruke integer increments.
+\subsubsection{Eloquent forhold mellom modellene}
+Eloquent\footnote{\url{https://laravel.com/docs/5.8/eloquent}} er Laravel sitt ORM, det lar oss enkelt definere forhold mellom de forskjellige modellene. Det er ønskelig å definere forhold som f.eks: en forfatter har mange bøker. Når et slikt forhold er definert i modellene til Larvel lar Eloquent oss enkelt hente alle bøkene til forfatteren med kode som dette: \lstinline[language=PHP]{$author->books}.
 
-\subsection{Feil under migrasjon}
-Prøvde å ta migrasjon oppsto en feilmelding.
-\begin{lstlisting}[language=PHP]
-Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
-\end{lstlisting}
-Årsaken var at datamaskinen har gammel versjon av mysql som ikke støtter standard streng lengde på 255. Da måtte streng lengden endre til 191 og løste feilen.
-
-\subsubsection{Forhold mellom modellene}
-Opprettet relasjoner mellom modellene. 
-Relasjoner lages ved å bruke mange til mange (belongsToMany), en til en (hasOne), mange til en (belongsTo) og en til mange (hasMany). For eks. slik:
+For å definere slike forhold brukte vi de innebygd metodene til Laravel som: belongsToMany, hasOne, belongsTo og hasMany. For eksempel av bruk, se følgende kode:
 \lstinputlisting[caption={Laravel modell med et forhold}, language=php]{laravel-code-examples/model-relationship.php}
 
-\subsection{Feilmeldinger}
-\subsubsection{Felt har ikke standardverdi}
-Fremmednøkkel feltet har ikke standardverdi.
+\subsubsection{Testing av migration filer}
+Første gang vi kjørte migration dukket det opp en feil:
+\begin{lstlisting}[caption={Feilmelding i Laravel ved kjøring av migration} language=PHP]
+Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
+\end{lstlisting}
+Denne feilen viste seg å være relativt vanlig og kom av at vi kjørte en eldre versjon (5.7) av MySQL som ikke støtter datatypen varchar med lengde på 255 når databasen sin collation er satt til UTF8MB4. Løsningen her ble å sette standard varchar lengde til 191.
+\begin{lstlisting}[caption={Definering av standard varchar lengde i AppServiceProvider.php} language=PHP]
+    <?php
+
+    class AppServiceProvider extends ServiceProvider
+    {
+        public function boot()
+        {
+            Schema::defaultStringLength(191);
+        }
+    }
+\end{lstlisting}
+
+\subsubsection{Testing av forhold mellom modellene}
+Når alle forhold var ferdig definert og migration filene kjørte uten feil, fylte vi databasen med data for å teste at alle forhold var riktig satt opp.
+En av de første feilene vi møtte på var da felter som manglet standardverdi.
+Eksempel på feilmelding
 \begin{lstlisting}[language=PHP]
-    SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value (SQL: insert into `fields` (`name`, `slug`, `updated_at`, `created_at`) values (HELLO WORLD, hello_world, 2019-02-06 08:57:48, 2019-02-06 08:57:48))
+    SQLSTATE[HY000]: General error: 1364 Field 'phone' doesn't have a default value (SQL: insert into `users` (`name`, `email`, `phone`, ...
 \end{lstlisting}
-Feilen oppsto da fremmednøkkel feltet ble satt til null. Dette løste ved å sette riktig verdien til feltet eller sette fremmednøkkelen til nullable. 
+Dette ble enkelt fikset ved å definere standardverdier på alle databasetabellkolonner som trengte det.
 
-\subsubsection{Data truncated for column}
-Vi bruker UUID i stedet increments og trenger å identifisere primærnøkkelen slik.
-\begin{lstlisting}
-    $table->uuid('id')->primary();
-\end{lstlisting}
-
-For å bruke UUID er det viktig å opprette UsesUuid.php trait i App / Trait.
-Denne filen brukes til å opprette UUID automatisk når du oppretter nye modeller, deaktivere automatisk increments id-er, sette primærnøkkel som uuid og sette primærnøkkeltype som string.\cite{medium2019aut} Siden det ikke opprettet UsesUuid.php trait i App/Trait dukket opp feilmelding. 
-
+Neste feil vi støtte på er relatert til vår bruk av UUID i stedet for en inkrementerende integer i flere av modellene. Når vi forsøkte å lagre en modell til databasen fikk vi denne feilen:
 \begin{lstlisting}[language=PHP]
-SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value (SQL: insert into `fields` (`name`, `slug`, `updated_at`, `created_at`) values (HELLO WORLD, hello_world, 2019-02-06 08:57:48, 2019-02-06 08:57:48))
-\end{lstlisting}
-Dette betyr at det prøvde å sende UUID verdi i integer.
-Dette ble løst med å lage en trait som automatisk lager en UUID når man lagrer modell til DB. (Filsti: /App/Traits/UsesUUID.php).\cite{powery2018euil}
- 
-\subsubsection{Fremmednøkkel feil}
-Feilmeldingen oppsto da det ble prøvd å lagre en bruker på databasen. 
-
-\begin{lstlisting}[language=PHP]
-    SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sirkus-media`.`users`, CONSTRAINT `users_image_id_foreign` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`)) (SQL: insert into `users` (`name`, `phone`, `email`, `password`, `image_id`, `verified`, `email_token`, `id`, `updated_at`, `created_at`) values (Bere, 4578891, berg@gmail.com, 1234567r, 2432479, 1, e-token, 53f98032-f9bf-40a6-9d70-ca9c0785d7ee, 2019-02-08 10:11:16, 2019-02-08 10:11:16))
+    SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value (SQL: insert into `users` (`name`, `email`, `phone`, ...
 \end{lstlisting}
 
-Grunnen var at det ikke går an å sette verdi på en fremmednøkkel felt som verdien ikke finnes på referanse tabellen. Løste ved å sette riktig verdi.
+Feilen kommer av hvordan Laravel har satt opp standard modellen som alle modeller baserer seg på.
+Vi måtte finne en måte å si at alle modeller som brukte UUID har primary key av typen string, skal ikke inkrementeres og skal automatisk generere en UUID ved lagring.
+Den beste måten vi fant å gjøre dette på var ved å lage en Trait. Følgende fil ble opprettet:
+\lstinputlisting[caption={Trait for å håndtere UUID for Larvel modeller}, language=php]{laravel-code-examples/trait-uuid.php}
 
-\subsubsection{Fremmednøkkel er ikke satt riktig}
-Feilmelding oppsto da migrasjonen utføres. 
-Årsaken var at primær og fremmed nøklene satt på ulike type.
-Dette betyr at primær nøkkelen blir satt på auto increments og den er unsignedInteger. Da det blir brukt som fremmed nøkkel på en annen tabell burde ha samme type. Dette var satt på integer.
-Løste ved å endre typen integer til unsigned integer til fremmednøkkelen. Slik:
+\begin{lstlisting}[caption={Bruk av UUID trait i modell} language=PHP]
+    <?php
 
-\begin{lstlisting}[language=PHP]
-    $table->integer('image_size_id')->unsigned();
-    $table->foreign('image_size_id')->references('image_size_id')->on('image_sizes');
+    use App\Traits\UsesUuid;
+
+    class User ...
+    {
+        use UsesUuid;
+
+        ...
+    }
 \end{lstlisting}
 
-\subsubsection{Feilmelding om oppdatering og oppretting kolloner}
-\begin{lstlisting}[language=PHP]
-    "SQLSTATE[42S22]: Column not found: 1054 Unknown column 'updated_at' in 'field list' (SQL: insert into `image_sizes` (`name`, `max_width`, `max_height`, `id`, `updated_at`, `created_at`) values (size-name, 10, 20, 879d1360-9a74-46f8-b383-ff6ec6e0f387, 2019-02-07 21:08:09, 2019-02-07 21:08:09))
-\end{lstlisting}
-Grunnen var at timestamps som oppretter opprettings- og oppdateringstiden er automatisk aktivert.
-Løste ved å deaktivere den. Slik: 
+%--- Bjørnar - slutt ---
 
-\begin{lstlisting}[language=PHP]
-    public $timestamps = false;
-\end{lstlisting}
-
-\subsubsection{Auto Increments feil}
-Feilmeldingen sa at fremmednøkkel var ikke satt riktig.
-Dette var at auto increments er unsigned integer og brukte bare integer da jeg satte den som fremmednøkkel.
-Løste ved å endre integer til UnsignedInteger ved fremmednøkkelen. Slik:
-
-\begin{lstlisting}[language=PHP]
-    $table->integer('image_size_id')->unsigned();
-    $table->foreign('image_size_id')->references('image_size_id')->on('image_sizes');
-\end{lstlisting}
-
-\subsubsection{Forelder/barn fremmednøkkel feil}
-Fremmednøkkelen var satt på samme måte som i andre tabeller i et barn tabell. Problemet var at jeg prøvde å lage fremmednøkkel til en tabell som ikke er opprettet enda.
-Måtte bryte dette inn i to Schema-blokker, en skaper kolonnene, den andre legger til fremmednøkkel.\cite{meroje2013lmsrfki}
-Løste ved å sette fremmednøkkelen på riktig måte. Slik
-\begin{lstlisting}[language=PHP]
-Schema::create('components', function (Blueprint $table)
-       {
-           $table->uuid('id')->primary();
-           $table->string('name');
-           $table->string('slug');
-           $table->integer('order');
-           $table->uuid('parent_id')->nullable();
-           $table->timestamps();
-       });
-       Schema::table('components', function(Blueprint $table){
-           $table->foreign('parent_id')->references('id')->on('components');
-       });
-\end{lstlisting}
-
-\subsection{Modelkobling test}
-Flere fremmednøkkel-felter var satt til nullable som ikke skulle nullable. Startet med å fikse de feltene som skulle ikke ha nullable fremmednøkler.
-
-\subsubsection{Ukjent kolonne feilmelding}
-Siden forholdene mellom modellene var ikke satt riktig, oppsto feil under testingen.
-\begin{lstlisting}[language=PHP]
-"SQLSTATE[42S22]: Column not found: 1054 Unknown column 'links.menu_link_id' in 'where clause' (SQL: select * from links where links.`menu_link_id` = 3 and links.`menu_link_id` is not null) 
-\end{lstlisting}
-Løste ved å gå gjennom alle modellene og fikse forholdene mellom dem.
+%--- Bereket - start ---
 
 \subsection{Roller og Permisjoner}\cite{spatie2019aupar}
 Laravel permisjon er en pakke med tillatelser og roller. Dette hjelper brukere til å knytte seg til tillatelser og roller. Hver rolle er knyttet til flere tillatelser. En rolle og en tillatelse er vanlige Eloquent-modeller\cite{oki2017uail}.
-\subsubsection{Laravel permisjon pakke installasjon} 
+\subsubsection{Laravel permisjon pakke installasjon}
 Laravel permisjon pakken er bygget ut over laravel autorisasjon funksjoner\cite{laravelnewsn2017tblp}.
 For installere permisjon pakken kjørte composer require spatie/laravel-permission i kommando linje.
 
 \subsubsection{Inkludere pakken på service provider listen}
-Inkluderte permisjon pakken på config/app.php. 
+Inkluderte permisjon pakken på config/app.php.
 \begin{lstlisting}[language=PHP]
     Spatie\Permission\PermissionServiceProvider::class
 \end{lstlisting}
@@ -219,13 +265,13 @@ Inkluderte permisjon pakken på config/app.php.
 \subsubsection{Publisere migrasjonen}
 Ved å kjøre koden på kommandolinjen publisere migrasjon filen for permisjon pakken.
 \begin{lstlisting}[language=PHP]
-   php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations" 
+   php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
 \end{lstlisting}
 
 Siden vi bruker uuid som primær nøkkel på user måtte det redigeres permisjon filen. På permisjon filen er satt \q{unsignedBigInteger} som standard og burde det endres til uuid. Redigeringen gjøres ved å åpne permisjon filen  under \q{database/migrations} og erstatte \q{unsignedBigInteger} med \q{uuid}.
 \begin{lstlisting}[language=PHP]
   $table->unsignedBigInteger($columnNames['model_morph_key'])
-    Erstatter med 
+    Erstatter med
  $table->uuid($columnNames['model_morph_key'])
 \end{lstlisting}
 
@@ -244,6 +290,12 @@ Kjørte koden i kommandolinjen.
   php artisan migrate
 \end{lstlisting}
 
+For en bruker skal logge seg inn kreves det epost bekreftelse.
+Fikk feilmelding om mail bekreftelsen.
+\begin{lstlisting}[language=PHP]
+    Swift_TransportException in AbstractSmtpTransport.php line 383: Expected response code 250 but got code "530", with message "530 5.7.1 Authentication required
+\end{lstlisting}
+
 \subsection{Lage API}
 For å lage api opprettet det først controller\cite{laravel2019c} via cmd terminalen.
 Gjøres slik:
@@ -256,7 +308,7 @@ På api.php i routes\cite{laravel2019r} registrer det API-ruter.
 For alle pages:
 \begin{lstlisting}[language=PHP]
     Route::get('/pages', 'PageController@index');
-\end{lstlisting} 
+\end{lstlisting}
 For en enkel page:
 \begin{lstlisting}[language=PHP]
     Route::get('pages/{page}', 'PageController@show');
@@ -264,9 +316,9 @@ For en enkel page:
 
 \subsection{API Test}
 Brukte en verktøy som heter Postman for api test. Postman er en funksjonsrik REST-klient\cite{Rathod2017ITP}. Installerte postman på datamaskinen til å teste api-er. Postman kan installeres her\cite{postman2019tocap}
-\subsubsection{Utfordring under testing} 
+\subsubsection{Utfordring under testing}
 På mange til mange relasjoner ble  det laget egne modeller på pivot tabellene.
-Forholdene ble satt opp via pivot tabellene sine modeller. På kontroller ble det brukt  Apend til å få alle forholdene mellom tabellene. 
+Forholdene ble satt opp via pivot tabellene sine modeller. På kontroller ble det brukt  Apend til å få alle forholdene mellom tabellene.
 \begin{lstlisting}[language=PHP]
     public function menu_links(){
          return $this->hasMany('App\MenuLink')
@@ -276,7 +328,7 @@ Da det ble testet om for eksempel en page ble brukt i menu tabellen via fremmedn
 Fikset ved å sette opp forholdene ved hjelp av 'hasManyThrough'. Gjøres slik:
 \begin{lstlisting}[language=PHP]
     public function links(){
-         return $this->hasManyThrough(    
+         return $this->hasManyThrough(
             'App\Link',
             'App\MenuLink',
             'menu_id',
@@ -288,12 +340,12 @@ Fikset ved å sette opp forholdene ved hjelp av 'hasManyThrough'. Gjøres slik:
 \end{lstlisting}
 
 \subsection{Sett opp autentisering}
-Autentisering brukes til å kontrollere tilgang til ressurser. For å kontrollere tilgang skal nettsiden ha logginn og registreringsside. Registrering siden skal være tilgjengelig for brukere som logget seg inn. 
+Autentisering brukes til å kontrollere tilgang til ressurser. For å kontrollere tilgang skal nettsiden ha logginn og registreringsside. Registrering siden skal være tilgjengelig for brukere som logget seg inn.
 Lagte autenisering ved å kjøre koden i comandlijen.
 \begin{lstlisting}[language=PHP]
-    php artisan make:auth 
-\end{lstlisting} 
-    
+    php artisan make:auth
+\end{lstlisting}
+
 I RegisterController kan det endres tilgangen for å opprette nye brukere.
 \begin{lstlisting}[language=PHP]
     $this->middleware('guest');
@@ -307,31 +359,11 @@ Endre guest med auth. Dette krever at bruker må logge seg inn for å kunne oppr
 Etter autentiseringen er prøvde det å registrere ny bruker. Det oppsto en feilmelding under registrering av ny bruker
 \begin{lstlisting}[language=PHP]
     SQLSTATE[HY000]: General error: 1364 Field 'image_id' doesn't have a default value
-\end{lstlisting}  
+\end{lstlisting}
 Løste feilen ved å endre standard verdien til "imageid" feltet i bruker database tabellen. Gjorde slik:
 
 \begin{lstlisting}[language=PHP]
     $table->uuid('image_id')->nullable()->default(null);
-\end{lstlisting} 
-
-\subsubsection{Mailtrap}
-For en bruker skal logge seg inn kreves det epost bekreftelse.
-Fikk feilmelding om mail bekreftelsen.
-\begin{lstlisting}[language=PHP]
-    Swift_TransportException in AbstractSmtpTransport.php line 383: Expected response code 250 but got code "530", with message "530 5.7.1 Authentication required
-\end{lstlisting}
-    
-Løste feilen ved å lage midlertidig konto i mailtrap.io og fikk bekrefte inloggingen.
-Mailtrap\cite{mailtrap2019setfsad} er en falsk SMTP-server for å teste, vise og dele e-postmeldinger sendt fra utviklings- og oppstartsmiljøene uten å spammere virkelige kunder.
-I mailtrap under SMTP instillinger finnes det bruker informasjonen og den bør kopieres og limes i .env filen i laravel.
-
-\begin{lstlisting}[language=PHP]
-    MAIL_DRIVER=smtp
-    MAIL_HOST=smtp.mailtrap.io
-    MAIL_PORT=2525
-    MAIL_USERNAME=62338a10f2cd0f
-    MAIL_PASSWORD=b67a88da87aecc
-    MAIL_ENCRYPTION=tls
 \end{lstlisting}
 
 \subsection{Seeds}
@@ -347,8 +379,8 @@ Lagte forskjellige roller i RoleSeederen
    $admin = Role::create(['name' => 'admin']);
    $superadmin = Role::create(['name' => 'superadmin']);
 \end{lstlisting}
-\subsection{CRUD}       
-Opprettet CRUD (Create, Read, Update and Delete) filer for å opprette, lese oppdatere og slette ressurser. På ressurs kontroller kan skrives logikken om hvordan ressursene opprettes, lagres, leses, oppdateres og slettes. 
+\subsection{CRUD}
+Opprettet CRUD (Create, Read, Update and Delete) filer for å opprette, lese oppdatere og slette ressurser. På ressurs kontroller kan skrives logikken om hvordan ressursene opprettes, lagres, leses, oppdateres og slettes.
 
 \lstinputlisting[caption={Laravel controller}, language=php]{laravel-code-examples/controller.php}
 
@@ -365,7 +397,7 @@ Løste feilen ved å bruke for løkke.
     @foreach($components as $component)
     <option value="{{$component->id}}" {{old('component_id',component->id)}}? selected> {{$component->name}} </option>
      @endforeach
-\end{lstlisting} 
+\end{lstlisting}
 
 \subsection{Route}
 Web.php fil i routes katalogen definerer  ruter  for webgrensesnitt\footnote{\url{https://laravel.com/docs/5.8/routing}}.
@@ -394,21 +426,21 @@ Tilgangene til ressurser kan være forskjellige fra bruker til bruker og gis for
 Eksemplet viser at tilgangen er gitt bare til brukere med superadmin rolle.
 
 Har lagt linker for Menus og Pages til brukere som er logget seg inn.
-Etter linkene ble lagt og rollene blitt gitt fikk ikke det å åpne linkene eller registrere nye brukere. Fikk feilmelding om det ikke eksisterer rolle klasse. 
+Etter linkene ble lagt og rollene blitt gitt fikk ikke det å åpne linkene eller registrere nye brukere. Fikk feilmelding om det ikke eksisterer rolle klasse.
 \begin{lstlisting}[language=PHP]
     "Class App\Http\Spatie\Permission\Models\Role does not exist"
 \end{lstlisting}
- 
+
 Prøvde å rette feilen ved å legge til rolle klasse i kernel.php slik:
 \begin{lstlisting}[language=PHP]
-   protected $routeMiddleware = ['role'=>Spatie\Permission\Models\Role::class]; 
-\end{lstlisting}  
+   protected $routeMiddleware = ['role'=>Spatie\Permission\Models\Role::class];
+\end{lstlisting}
 Løsningen ga en annen feilmelding om klasse rolle ikke finnes
  \begin{lstlisting}[language=PHP]
       "Class 'Role' not found
  \end{lstlisting}
 
-Feilen var at det ble lagt Role modelle klasse istedet Middleware klasse og løste ved å sette riktig Middleware klasse. Middleware \cite{laravel2019mw} er en mekanisme som kan  filtrere http-forespørsler. Den kan for eksempel verifisere en bruker er autentisert. 
+Feilen var at det ble lagt Role modelle klasse istedet Middleware klasse og løste ved å sette riktig Middleware klasse. Middleware \cite{laravel2019mw} er en mekanisme som kan  filtrere http-forespørsler. Den kan for eksempel verifisere en bruker er autentisert.
 \begin{lstlisting}[language=PHP]
    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
 \end{lstlisting}
@@ -425,17 +457,19 @@ Løste ved å overskrive og slette koden som sender brukeren til siden. Slik:
    public function register(Request $request)
        {
            $this->validator($request->all())->validate();
-    
+
            event(new Registered($user = $this->create($request->all())));
-    
+
         Sletter dette linje
             $this->guard('web')->login($user);
-    
+
            return $this->registered($request, $user)?: redirect($this->redirectPath());
        }
 \end{lstlisting}
-  
-\cite{spatie2019aupar}  
+
+\cite{spatie2019aupar}
+
+%--- Bereket - slutt ---  
 \clearpage
 
 %--- Bjørnar kladd - start ---
