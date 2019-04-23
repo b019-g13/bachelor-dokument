@@ -88,20 +88,28 @@ Når koden skal commites må det opprettes en pull request, som må godkjennes. 
 Utvikling av back-end ble gjennomført av Bereket og Bjørnar. 
 
 \subsection{Installasjon}
-Hele prosessen ble startet ved å laste ned Laravel, XAMPP og Gitkraken. Klonet deretter repositoren som ble opprettet tidligere i Github.
+Hele prosessen ble startet ved å laste ned og sette opp Laravel.
+Dette ble enkelt gjort med Composer:
+\begin{lstlisting}[caption={Installasjon av Laravel med Composer},language=bash]
+    composer global require laravel/installer
+    laravel new sirkus-media-back-end
+\end{lstlisting}
 
 \subsection{Database}
-Opprettet en database til prosjektet i MySQL og fylte ut innloggingsinformasjon i Laravel sin .env konfigurasjonsfil. Deretter ble det lagd modeller ved å skrive kommandoen under i terminalen: 
-\begin{lstlisting}[language=PHP]
+Opprettet en database til prosjektet i MySQL og fylte ut innloggingsinformasjon i Laravel sin .env konfigurasjonsfil. 
+
+\subsection{Modeller og migrations}
+Deretter ble det lagd modeller ved å skrive kommandoen under i terminalen: 
+\begin{lstlisting}[caption={Laravel Artisan kommando for oppretting av modell og migration},language=php]
     php artisan make:model Modelnavn -m
 \end{lstlisting}
-Parameteret \q{-m} brukes for å opprette en migration fil for modellen. Det er også mulig å opprette migration fil i ettertid: 
-\begin{lstlisting}[language=PHP]
+Parameteret \q{-m} brukes for å opprette en migration fil for modellen. Det er også mulig å opprette migration fil etter å ha lagd modell: 
+\begin{lstlisting}[caption={Laravel Artisan kommando for oppretting av migration fil},language=php]
     php artisan make:migration migration_file_name
 \end{lstlisting}
 Etter at modellene og migration filene er opprettet kan man definere forhold mellom modellene (gjøres i modell filen), samt databasetabellen for hver modell (gjøres i migration filen).
 Når migration filene er ferdig definert kan man kjøre migration ved å skrive følgende kommando i terminalen:
-\begin{lstlisting}
+\begin{lstlisting}[caption={Laravel Artisan kommando for å kjøre migration},language=php]
     php artisan migrate
 \end{lstlisting}
 Når migration blir kjørt vil alle tabellene og deres kolonner bli opprettet i MySQL.
@@ -117,9 +125,9 @@ Under er et eksempel på en migration fil
 % \end{lstlisting}
 % Årsaken var at datamaskinen har gammel versjon av mysql som ikke støtter standard streng lengde på 255. Da måtte streng lengden endre til 191 og løste feilen.
 
-\subsection{Forhold mellom modellene}
+\subsubsection{Forhold mellom modellene}
 Opprettet relasjoner mellom modellene. 
-Relasjoner lages ved å bruke manyToMany (belongsToMany), One to One (hasOne), Many to One (belongsTo) og One to Many (hasMany). Eks. slik
+Relasjoner lages ved å bruke mange til mange (belongsToMany), en til en (hasOne), mange til en (belongsTo) og en til mange (hasMany). For eks. slik:
 \lstinputlisting[caption={Laravel modell med et forhold}, language=php]{laravel-code-examples/model-relationship.php}
 
 \subsection{Feilmeldinger}
@@ -233,7 +241,7 @@ Ved å kjøre koden på kommandolinjen publisere migrasjon filen for permisjon p
    php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations" 
 \end{lstlisting}
 
-Siden vi bruker uuid som primær nøkkel på user måtte det redigeres permisjon filen. På permisjon filen er satt 'unsignedBigInteger' som standard og burde det  endres  til uuid. Redigeringen gjøres ved å åpne permisjon filen  under 'database/migrations' og erstatte 'unsignedBigInteger' med 'uuid'.
+Siden vi bruker uuid som primær nøkkel på user måtte det redigeres permisjon filen. På permisjon filen er satt \q{unsignedBigInteger} som standard og burde det endres til uuid. Redigeringen gjøres ved å åpne permisjon filen  under \q{database/migrations} og erstatte \q{unsignedBigInteger} med \q{uuid}.
 \begin{lstlisting}[language=PHP]
   $table->unsignedBigInteger($columnNames['model_morph_key'])
     Erstatter med 
@@ -261,9 +269,9 @@ Gjøres slik:
 \begin{lstlisting}[language=PHP]
     php artisan make:controller PageController --resource
 \end{lstlisting}
-Den siste parameteren "resource" er et alternativ og kan dropes.
+Den siste parameteren \q{resource} er et alternativ og kan dropes.
 
-På api.php i routes\cite{laravel2019r}  registrer det API-ruter.
+På api.php i routes\cite{laravel2019r} registrer det API-ruter.
 For alle pages:
 \begin{lstlisting}[language=PHP]
     Route::get('/pages', 'PageController@index');
@@ -345,7 +353,7 @@ I mailtrap under SMTP instillinger finnes det bruker informasjonen og den bør k
     MAIL_ENCRYPTION=tls
 \end{lstlisting}
 
-\subsection{SEEDS}
+\subsection{Seeds}
 For å lage forskjellige bruker roller lagte det RoleSeeder i databasen.
 Kjørte koden i kommandolinjen for å opprette det.
 \begin{lstlisting}[language=PHP]
@@ -359,52 +367,9 @@ Lagte forskjellige roller i RoleSeederen
    $superadmin = Role::create(['name' => 'superadmin']);
 \end{lstlisting}
 \subsection{CRUD}       
-Opprettet CRUD (Creating, Reading, Updating and Deleting) filer for å opprette, lese oppdatere og slette ressurser. På ressurs kontroller kan skrives logikken om hvordan ressursene opprettes, lagres, leses, oppdateres og slettes. 
+Opprettet CRUD (Create, Read, Update and Delete) filer for å opprette, lese oppdatere og slette ressurser. På ressurs kontroller kan skrives logikken om hvordan ressursene opprettes, lagres, leses, oppdateres og slettes. 
 
-\begin{lstlisting}[language=PHP]
-    class PageController extends Controller
-    {   public function __construct()
-       {  $this->middleware('auth'); }
-       public function index()
-       {   $pages = Page::paginate(30);
-           return view('pages.index',compact('pages'));
-       }
-       public function create()
-       {   $pages = Page::All();
-           $images = Image::All();
-           return view('pages.create', compact('pages','images'));}
-       public function store(Request $request)
-       {      $request->validate(['title'=>'required|string',
-               'image_id'=> 'nullable' ]);
-           $page = new Page([
-               'title' => $request->get('title'),
-               'image_id'=> $request->get('image_id')]);
-             $page->save();
-             return redirect('/pages')->with('success', 'Page er opprettet'); }
-       public function show(Page $page)
-       {   $page->menu;
-           $components = $page->components;
-           foreach($components as $component){
-               $component->fields; }
-           return view('pages.show',compact('page'));  }
-        public function edit($id)
-       {   $page = Page::find($id);
-           $images = Image::All();
-           return view('pages.edit', compact('page', 'images'));
-       }
-       public function update(Request $request, $id)
-       {	   $request->validate(['title'=>'required|string',
-               'image_id'=> 'nullable']);
-             $page = Page::find($id);
-             $page->title = $request->get('title');
-             $page->image_id = $request->get('image_id');
-             $page->save();
-             return redirect('/pages')->with('success', 'Page er oppdatert'); }
-       public function destroy($id)
-       {   $page = Page::find($id);
-           $page->delete();
-        return redirect('/pages')->with('success', 'Page er slettet');}}
-\end{lstlisting}
+\lstinputlisting[caption={Laravel controller}, language=php]{laravel-code-examples/controller.php}
 
 Etter det ble ferdig laget med CRUD, testet om det fungerer.
 I create.blade.php filen prøvde å lage nedtrekksmeny med komponenter.
