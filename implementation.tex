@@ -10,7 +10,7 @@
 I dette kapittelet skal vi presentere resultatene i prosjektet og en beskrivelse av nettstedet. Her vil vi også presentere hvilke verktøy vi endte opp med å bruke og hvordan selve produksjonen foregikk.
 
 \section{Verktøy}
-Vi endte opp med å bruke en flere verktøy enn beskrevet i  \ref{sec:technologies}. 
+Vi endte opp med å bruke flere verktøy enn beskrevet i  \ref{sec:technologies}. 
 I tillegg til hovedverktøyene ble følgende verktøy og teknologier benyttet:
 
 \subsection{GNU/Linux}
@@ -26,15 +26,15 @@ Prosjektets database er en MySQL-database.
 \subsection{Let’s Encrypt}
 Let’s Encrypt \cite{le2019ale} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
 
-Studentgruppen har benyttet Let's Encrypt til å lage TLS-sertfikater.
+Studentgruppen har benyttet Let's Encrypt til å lage TLS-sertfikater\footnote{Se avsnitt \ref{sec:analysis-security-tls}}.
 
 \subsection{Node.js}
-Node.js er et gratis åpen kildekode servermiljø, som kjører på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren \cite{w3schools2019win}. Node.js kan generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
+Node.js er et servermiljø med åpen og gratis kildekode. Node.js kan kjøre på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren \cite{w3schools2019win}. I tillegg kan Node.js generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
 
 Vi har brukt Node.js for å kunne kjøre verktøy knyttet til utvikling av front-end.
 
 \section{Tilhørende teknologier og begreper}
-Ved å bruke disse verktøyene som har blitt presentert vil man i tillegg benytte seg av noen tilhørende teknologier. Disse blir presentert videre i dette kapittelet. 
+Ved å bruke verktøyene som har blitt presentert benyttes også noen tilhørende teknologier. Disse blir presentert videre i dette kapittelet. 
 
 \subsection{Git}
 Git \cite{TechTarget} er et system for versjonskontroll. Et versjonskontrollsystem blir hovedsaklig brukt under utvikling av software og nettsteder. Det kan også brukes til andre type prosjekter som grafisk design og skriving av dokumenter.
@@ -62,23 +62,23 @@ Google Analytics \cite{google2019gtk} er en gratis, webbasert tjeneste som gir s
 
 \section{Utviklingen}
 
-Det ble opprettet en \q{Branch protection rule} på back-end repository i Github. Dette gjør at det må kjøres en "Code review" før kode kan sendes inn til "Master" branch-en. Alle medlemmene på studengruppen har en egen branch.
+Det ble opprettet en \q{Branch protection rule} på back-end repository i Github. Dette gjør at det må kjøres en \q{Code review} før kode kan sendes inn til \q{Master branch}-en. Alle medlemmene på studentgruppen har en egen branch.
 Når koden skal commites må det opprettes en pull request, som må godkjennes. Da blir det mulig å luke ut kode som inneholder feil som potensielt kan ødelegge for eksisterende kode.
+
+\section{Back-end}
+Back-end har blitt utviklet av Bereket og Bjørnar.
 
 %--- Bjørnar - start ---
 
 \subsection{Installasjon og oppsett av Laravel og tilhørende verktøy}
-Første steg var å installere package manageren Composer.
-Neste steg er å installere og sette opp Laravel.
-Når vi har Composer er det trivielt å installere med et par kommandoer i terminalen:
+Første steg var å installere package manageren Composer. Deretter kunne Laravel settes opp og installeres. Fordi vi benyttet oss av Composer ble det mulig å installere Laravel med et par kommandoer i terminalen:
 \begin{lstlisting}[caption={Installasjon av Laravel med Composer},language=bash]
     composer global require laravel/installer
     laravel new sirkus-media-back-end
 \end{lstlisting}
-Det var siste versjon av rammeverket som ble lastet ned, som for tiden var 5.7.
+Det var siste versjon av rammeverket som ble lastet ned (5.7).
 
-Til slutt måtte vi konfigurere rammeverket slik at det kunne håndtere databasetilkobling, sending av mail og lagring av opplastede og genererte filer.
-Laravel samler sine instillinger i php filer i \q{config} mappen, samt en .env fil som holder på passord og annen sensitiv informasjon vi ikke vil ha i git.
+Til slutt måtte vi konfigurere rammeverket slik at det kunne håndtere databasetilkobling, sending av mail og lagring av opplastede og genererte filer. Laravel samler sine innstillinger i PHP-filer i \q{config} mappen, samt en .env fil som holder på passord og annen sensitiv informasjon vi ikke vil ha i git.
 
 \subsubsection{Database}
 Vi begynte med å sette opp tilkobling til databasen. Dette ble gjort ved å først logge inn i MySQL og opprette en bruker og en database. Informasjon for dette ble skrevet inn i .env filen. Se figur under for eksempel:
@@ -92,9 +92,7 @@ Vi begynte med å sette opp tilkobling til databasen. Dette ble gjort ved å fø
 \end{lstlisting}
 
 \subsubsection{Mail}
-Etter databasen var klar for bruk, begynte vi å sette instillingene for e-post.
-Vi bestemte oss for å bruke Mailtrap\footnote{\url{https://mailtrap.io/}} under utvikling av løsningen. Mailtrap\cite{mailtrap2019setfsad} er en fake SMTP server som kan brukes for testing av e-post.
-Etter å ha registrert bruker hos Mailtrap fyller vi ut informasjon i .env filen:
+Etter at databasen var klar for bruk, begynte vi å sette innstillingene for e-post. Vi bestemte oss for å bruke Mailtrap\footnote{\url{https://mailtrap.io/}} under utvikling av løsningen. Mailtrap\cite{mailtrap2019setfsad} er en uekte SMTP-server som kan brukes for testing av e-post. Etter å ha registrert bruker hos Mailtrap fylte vi ut følgende informasjon i .env filen:
 \begin{lstlisting}[caption={Laravel .env mail secrets}, language=bash]
     MAIL_DRIVER=smtp
     MAIL_HOST=smtp.mailtrap.io
@@ -107,17 +105,15 @@ Etter å ha registrert bruker hos Mailtrap fyller vi ut informasjon i .env filen
 Når løsningen skal ut i produksjon må det brukes noe annet enn Mailtrap. Sirkus Media kan selv bestemme hva de ønsker å bruke, men systemet er satt opp til bruk av Mailgun\footnote{\url{https://www.mailgun.com/}}.
 
 \subsubsection{Lagring}
-Lagring av opplastede og genererte filer foregår på samme server som back-end kjører på.
-For å sette dette opp kjørte vi bare en enkel Larvel Artisan kommando:
+Lagring av opplastede og genererte filer foregår på samme server som back-end kjører på. For å sette opp dette kjørte vi en Larvel Artisan kommando:
 \begin{lstlisting}[caption={Laravel Artisan kommando for å sette opp lagring av filer}, language=bash]
     php artisan storage:link
 \end{lstlisting}
 Storage klassen til Larvel gjør at Sirkus Media enkelt kan benytte seg av andre løsninger, som for eksempel Amazon Web Servies S3.
 
 \subsubsection{Laravel Mix}
-Det siste som måtte settes opp før man kunne begynne med utviklingen er Laravel Mix\footnote{\url{https://laravel-mix.com/}}.
-Dette er en \textit{wrapper} rundt den populære module bundleren Webpack\footnote{\url{https://webpack.js.org/}}. For å bruke Laravel Mix måtte vi først installere Node.js. Etter Node.js ble installert trengte vi kun å kjøre et par enkle npm kommandoer:
-\begin{lstlisting}[caption={npm kommando for å sette opp front-end til Laravel}, language=bash]
+Laravel Mix\footnote{\url{https://laravel-mix.com/}} var det siste som måtte settes opp før utviklingen kunne starte. Dette er en \textit{wrapper} rundt den populære module bundleren Webpack\footnote{\url{https://webpack.js.org/}}. For å bruke Laravel Mix måtte vi først installere Node.js. Etter Node.js ble installert trengte vi kun å kjøre et par npm-kommandoer:
+\begin{lstlisting}[caption={npm-kommando for å sette opp front-end til Laravel}, language=bash]
     npm install
     npm run dev
 \end{lstlisting}
@@ -134,7 +130,7 @@ For å konfigurere hvilke filer som skal brukes av front-end til Laravel fylte v
 \end{lstlisting}
 
 Når det nevnes \q{front-end til Laravel} så er det ikke snakk om front-end til nettsiden som lages for Sirkus Media, men front-enden til CMS-et.
-Laravel kommer med en del dependencies til front-end som vi ikke trenger. Alle dependencies defineres i package.json. Følgende dependencies ble fjernet: Bootstrap, jQuery, lodash, Popper, Vue. Det ble kun lagt til en dependency; Shopify sin \q{Draggable} pakke. BrowserSync ble også lagt til som en devDependency.
+Laravel kommer med en del dependencies til front-end som vi ikke trenger. Alle dependencies defineres i package.json. Følgende dependencies ble fjernet: Bootstrap, jQuery, lodash, Popper, Vue. Det ble kun lagt til en dependency; Shopify sin Draggable pakke. BrowserSync ble også lagt til som en devDependency.
 
 \begin{lstlisting}[caption={Orginal package.json}]
     "devDependencies": {
@@ -172,7 +168,7 @@ Laravel kommer med en del dependencies til front-end som vi ikke trenger. Alle d
 Merk at vue-template-compiler ligger som en dependency her kun fordi siste versjon av Laravel Mix ikke kjører uten.
 
 \subsection{Modeller og database migrations}
-Definering av modeller og migration filer til databasetabellene var det første som ble gjort etter konfigurering av rammeverket.
+Definering av modeller og migrasjon filer til databasetabellene var det første som ble gjort etter konfigurering av rammeverket.
 Modeller lagde vi ved å skrive følgende Larvel Artisan kommando i terminalen:
 \begin{lstlisting}[caption={Laravel Artisan kommando for oppretting av modell og migration},language=php]
     php artisan make:model Modelnavn -m
@@ -186,23 +182,23 @@ Når migration filene er ferdig definert kan man kjøre migration ved å skrive 
 \begin{lstlisting}[caption={Laravel Artisan kommando for å kjøre migration},language=php]
     php artisan migrate
 \end{lstlisting}
-Etter migration blir kjørt vil alle tabellene og deres kolonner bli opprettet i MySQL.
+Etter at migration blir kjørt vil alle tabellene og deres kolonner bli opprettet i MySQL.
 Under er et eksempel på en migration fil
 \lstinputlisting[caption={Laravel migration fil}, language=php]{laravel-code-examples/migration.php}
 
 \subsubsection{Eloquent forhold mellom modellene}
-Eloquent\footnote{\url{https://laravel.com/docs/5.8/eloquent}} er Laravel sitt ORM, det lar oss enkelt definere forhold mellom de forskjellige modellene. Det er ønskelig å definere forhold som f.eks: en forfatter har mange bøker. Når et slikt forhold er definert i modellene til Larvel lar Eloquent oss enkelt hente alle bøkene til forfatteren med kode som dette: \lstinline[language=PHP]{$author->books}.
+Eloquent\footnote{\url{https://laravel.com/docs/5.8/eloquent}} er Laravel sitt ORM, det lar oss definere forhold mellom de forskjellige modellene. Det er ønskelig å definere forhold som f.eks: en forfatter har mange bøker. Når et slikt forhold er definert i modellene til Larvel lar Eloquent oss hente alle bøkene til forfatteren med kode som dette: \lstinline[language=PHP]{$author->books}.
 
 For å definere slike forhold brukte vi de innebygd metodene til Laravel som: belongsToMany, hasOne, belongsTo og hasMany. For eksempel av bruk, se følgende kode:
 \lstinputlisting[caption={Laravel modell med et forhold}, language=php]{laravel-code-examples/model-relationship.php}
 
 \subsubsection{Testing av migration filer}
 Første gang vi kjørte migration dukket det opp en feil:
-\begin{lstlisting}[caption={Feilmelding i Laravel ved kjøring av migration} language=PHP]
+\begin{lstlisting}[caption={Feilmelding i Laravel ved kjøring av migration},language=PHP]
 Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
 \end{lstlisting}
 Denne feilen viste seg å være relativt vanlig og kom av at vi kjørte en eldre versjon (5.7) av MySQL som ikke støtter datatypen varchar med lengde på 255 når databasen sin collation er satt til UTF8MB4. Løsningen her ble å sette standard varchar lengde til 191.
-\begin{lstlisting}[caption={Definering av standard varchar lengde i AppServiceProvider.php} language=PHP]
+\begin{lstlisting}[language=PHP, caption={Definering av standard varchar lengde i AppServiceProvider.php}]
     <?php
 
     class AppServiceProvider extends ServiceProvider
@@ -215,25 +211,17 @@ Denne feilen viste seg å være relativt vanlig og kom av at vi kjørte en eldre
 \end{lstlisting}
 
 \subsubsection{Testing av forhold mellom modellene}
-Når alle forhold var ferdig definert og migration filene kjørte uten feil, fylte vi databasen med data for å teste at alle forhold var riktig satt opp.
-En av de første feilene vi møtte på var da felter som manglet standardverdi.
-Eksempel på feilmelding
+Når alle forhold var ferdig definert og migration filene kjørte uten feil, fylte vi databasen med data for å teste at alle forhold var riktig satt opp. En interessant feil vi støtte på er relatert til vår bruk av UUID som primary key i stedet for en inkrementerende integer i flere av modellene. Når vi forsøkte å lagre en modell til databasen fikk vi denne feilen:
 \begin{lstlisting}[language=PHP]
-    SQLSTATE[HY000]: General error: 1364 Field 'phone' doesn't have a default value (SQL: insert into `users` (`name`, `email`, `phone`, ...
-\end{lstlisting}
-Dette ble enkelt fikset ved å definere standardverdier på alle databasetabellkolonner som trengte det.
-
-Neste feil vi støtte på er relatert til vår bruk av UUID i stedet for en inkrementerende integer i flere av modellene. Når vi forsøkte å lagre en modell til databasen fikk vi denne feilen:
-\begin{lstlisting}[language=PHP]
-    SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value (SQL: insert into `users` (`name`, `email`, `phone`, ...
+    SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value ...
 \end{lstlisting}
 
-Feilen kommer av hvordan Laravel har satt opp standard modellen som alle modeller baserer seg på.
-Vi måtte finne en måte å si at alle modeller som brukte UUID har primary key av typen string, skal ikke inkrementeres og skal automatisk generere en UUID ved lagring.
-Den beste måten vi fant å gjøre dette på var ved å lage en Trait. Følgende fil ble opprettet:
-\lstinputlisting[caption={Trait for å håndtere UUID for Larvel modeller}, language=php]{laravel-code-examples/trait-uuid.php}
+Feilen kom av hvordan Laravel har satt opp standardmodell alle modeller baserer seg på.
+Vi måtte finne en måte å si at alle modeller som brukte UUID har primary key av typen string, ikke skal inkrementeres og samtidig automatisk generere en UUID ved lagring. Den beste måten vi fant å gjøre dette på var ved å lage en trait. Følgende fil ble opprettet:
+\lstinputlisting[caption={Trait for å håndtere UUID for Larvel-modeller}, language=php]{laravel-code-examples/trait-uuid.php}
 
-\begin{lstlisting}[caption={Bruk av UUID trait i modell} language=PHP]
+Når trait-en var definert, kunne vi bare inkludere den i alle modeller som brukte UUID som primary key, som vist i figur under, så var problemet løst.
+\begin{lstlisting}[caption={Bruk av UUID trait i modell}, language=PHP]
     <?php
 
     use App\Traits\UsesUuid;
@@ -246,234 +234,246 @@ Den beste måten vi fant å gjøre dette på var ved å lage en Trait. Følgende
     }
 \end{lstlisting}
 
+Etter de overnevnte problemene ble løst, støtte vi ikke på noen flere nevneverdige problemer rundt forhold mellom modeller.
+
+\subsection{Oppsett av autentisering}
+Med databasen og forhold mellom modeller på plass var vi klare for å begynne utviklingen av selve CMS-et, men vi bestemte oss for å først sette opp autentisering da dette er enklere å implementere fra starten av, fremfor å gjøre det til slutt.
+Laravel gir oss veldig mye gratis på dette området, ved å kjøre en kommando settes opp alt vi trenger:
+\begin{lstlisting}[language=PHP]
+    php artisan make:auth
+\end{lstlisting}
+Etter å ha kjørt kommandoen over får vi nødvendige controllere og views for login og registrering av brukere, samt system for tilbakestilling av passord.
+
+
+
+
+% Autentisering brukes til å kontrollere tilgang til ressurser. For å kontrollere tilgang skal nettsiden ha logginn og registreringsside. Registrering siden skal være tilgjengelig for brukere som logget seg inn.
+% Lagte autenisering ved å kjøre koden i comandlijen.
+% \begin{lstlisting}[language=PHP]
+%     php artisan make:auth
+% \end{lstlisting}
+
+% I RegisterController kan det endres tilgangen for å opprette nye brukere.
+% \begin{lstlisting}[language=PHP]
+%     $this->middleware('guest');
+% \end{lstlisting}
+% Endre guest med auth. Dette krever at bruker må logge seg inn for å kunne opprette nye brukere.
+% \begin{lstlisting}[language=PHP]
+%     $this->middleware('auth');
+% \end{lstlisting}
+
+% \subsubsection{ Registrering av bruker}
+% Etter autentiseringen er prøvde det å registrere ny bruker. Det oppsto en feilmelding under registrering av ny bruker
+% \begin{lstlisting}[language=PHP]
+%     SQLSTATE[HY000]: General error: 1364 Field 'image_id' doesn't have a default value
+% \end{lstlisting}
+% Løste feilen ved å endre standard verdien til "imageid" feltet i bruker database tabellen. Gjorde slik:
+
+% \begin{lstlisting}[language=PHP]
+%     $table->uuid('image_id')->nullable()->default(null);
+% \end{lstlisting}
+
 %--- Bjørnar - slutt ---
 
 %--- Bereket - start ---
 
-\subsection{Roller og Permisjoner}\cite{spatie2019aupar}
-Laravel permisjon er en pakke med tillatelser og roller. Dette hjelper brukere til å knytte seg til tillatelser og roller. Hver rolle er knyttet til flere tillatelser. En rolle og en tillatelse er vanlige Eloquent-modeller\cite{oki2017uail}.
-\subsubsection{Laravel permisjon pakke installasjon}
-Laravel permisjon pakken er bygget ut over laravel autorisasjon funksjoner\cite{laravelnewsn2017tblp}.
-For installere permisjon pakken kjørte composer require spatie/laravel-permission i kommando linje.
+% \subsection{Roller og Permisjoner}\cite{spatie2019aupar}
+% Laravel permisjon er en pakke med tillatelser og roller. Dette hjelper brukere til å knytte seg til tillatelser og roller. Hver rolle er knyttet til flere tillatelser. En rolle og en tillatelse er vanlige Eloquent-modeller\cite{oki2017uail}.
+% \subsubsection{Laravel permisjon pakke installasjon}
+% Laravel permisjon pakken er bygget ut over Laravel autorisasjon funksjoner\cite{laravelnews2017tblp}.
+% For installere permisjon pakken kjørte composer require spatie/laravel-permission i kommando linje.
 
-\subsubsection{Inkludere pakken på service provider listen}
-Inkluderte permisjon pakken på config/app.php.
-\begin{lstlisting}[language=PHP]
-    Spatie\Permission\PermissionServiceProvider::class
-\end{lstlisting}
+% \subsubsection{Inkludere pakken på service provider listen}
+% Inkluderte permisjon pakken på config/app.php.
+% \begin{lstlisting}[language=PHP]
+%     Spatie\Permission\PermissionServiceProvider::class
+% \end{lstlisting}
 
-\subsubsection{Publisere migrasjonen}
-Ved å kjøre koden på kommandolinjen publisere migrasjon filen for permisjon pakken.
-\begin{lstlisting}[language=PHP]
-   php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
-\end{lstlisting}
+% \subsubsection{Publisere migrasjonen}
+% Ved å kjøre koden på kommandolinjen publisere migrasjon filen for permisjon pakken.
+% \begin{lstlisting}[language=PHP]
+%   php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
+% \end{lstlisting}
 
-Siden vi bruker uuid som primær nøkkel på user måtte det redigeres permisjon filen. På permisjon filen er satt \q{unsignedBigInteger} som standard og burde det endres til uuid. Redigeringen gjøres ved å åpne permisjon filen  under \q{database/migrations} og erstatte \q{unsignedBigInteger} med \q{uuid}.
-\begin{lstlisting}[language=PHP]
-  $table->unsignedBigInteger($columnNames['model_morph_key'])
-    Erstatter med
- $table->uuid($columnNames['model_morph_key'])
-\end{lstlisting}
+% Siden vi bruker uuid som primær nøkkel på user måtte det redigeres permisjon filen. På permisjon filen er satt \q{unsignedBigInteger} som standard og burde det endres til uuid. Redigeringen gjøres ved å åpne permisjon filen  under \q{database/migrations} og erstatte \q{unsignedBigInteger} med \q{uuid}.
+% \begin{lstlisting}[language=PHP]
+%   $table->unsignedBigInteger($columnNames['model_morph_key'])
+%     Erstatter med
+%  $table->uuid($columnNames['model_morph_key'])
+% \end{lstlisting}
 
-\subsubsection{Publisere konfigurasjonen}
-Konfigureringsfilen tillater oss å angi plasseringen av Eloquent-modellen til permisjon og rolle klasse.
-For å publisere konfigurasjonsfilen for pakken kjøres koden nede i kommandolinjen.
+% \subsubsection{Publisere konfigurasjonen}
+% Konfigureringsfilen tillater oss å angi plasseringen av Eloquent-modellen til permisjon og rolle klasse.
+% For å publisere konfigurasjonsfilen for pakken kjøres koden nede i kommandolinjen.
 
-\begin{lstlisting}[language=PHP]
-  php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
-\end{lstlisting}
+% \begin{lstlisting}[language=PHP]
+%   php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
+% \end{lstlisting}
 
-\subsubsection{Bygge opp tabeller}
-Tok migrasjon slik permisjon tabellene blir bygget på databasen.
-Kjørte koden i kommandolinjen.
-\begin{lstlisting}[language=PHP]
-  php artisan migrate
-\end{lstlisting}
+% \subsubsection{Bygge opp tabeller}
+% Tok migrasjon slik permisjon tabellene blir bygget på databasen.
+% Kjørte koden i kommandolinjen.
+% \begin{lstlisting}[language=PHP]
+%   php artisan migrate
+% \end{lstlisting}
 
-For en bruker skal logge seg inn kreves det epost bekreftelse.
-Fikk feilmelding om mail bekreftelsen.
-\begin{lstlisting}[language=PHP]
-    Swift_TransportException in AbstractSmtpTransport.php line 383: Expected response code 250 but got code "530", with message "530 5.7.1 Authentication required
-\end{lstlisting}
+% For en bruker skal logge seg inn kreves det epost bekreftelse.
+% Fikk feilmelding om mail bekreftelsen.
+% \begin{lstlisting}[language=PHP]
+%     Swift_TransportException in AbstractSmtpTransport.php line 383: Expected response code 250 but got code "530", with message "530 5.7.1 Authentication required
+% \end{lstlisting}
 
-\subsection{Lage API}
-For å lage api opprettet det først controller\cite{laravel2019c} via cmd terminalen.
-Gjøres slik:
-\begin{lstlisting}[language=PHP]
-    php artisan make:controller PageController --resource
-\end{lstlisting}
-Den siste parameteren \q{resource} er et alternativ og kan dropes.
+% \subsection{Lage API}
+% For å lage api opprettet det først controller\cite{laravel2019c} via cmd terminalen.
+% Gjøres slik:
+% \begin{lstlisting}[language=PHP]
+%     php artisan make:controller PageController --resource
+% \end{lstlisting}
+% Den siste parameteren \q{resource} er et alternativ og kan dropes.
 
-På api.php i routes\cite{laravel2019r} registrer det API-ruter.
-For alle pages:
-\begin{lstlisting}[language=PHP]
-    Route::get('/pages', 'PageController@index');
-\end{lstlisting}
-For en enkel page:
-\begin{lstlisting}[language=PHP]
-    Route::get('pages/{page}', 'PageController@show');
-\end{lstlisting}
+% På api.php i routes\cite{laravel2019r} registrer det API-ruter.
+% For alle pages:
+% \begin{lstlisting}[language=PHP]
+%     Route::get('/pages', 'PageController@index');
+% \end{lstlisting}
+% For en enkel page:
+% \begin{lstlisting}[language=PHP]
+%     Route::get('pages/{page}', 'PageController@show');
+% \end{lstlisting}
 
-\subsection{API Test}
-Brukte en verktøy som heter Postman for api test. Postman er en funksjonsrik REST-klient\cite{Rathod2017ITP}. Installerte postman på datamaskinen til å teste api-er. Postman kan installeres her\cite{postman2019tocap}
-\subsubsection{Utfordring under testing}
-På mange til mange relasjoner ble  det laget egne modeller på pivot tabellene.
-Forholdene ble satt opp via pivot tabellene sine modeller. På kontroller ble det brukt  Apend til å få alle forholdene mellom tabellene.
-\begin{lstlisting}[language=PHP]
-    public function menu_links(){
-         return $this->hasMany('App\MenuLink')
-    }
-\end{lstlisting}
-Da det ble testet om for eksempel en page ble brukt i menu tabellen via fremmednøkkel, fikk ikke svar.
-Fikset ved å sette opp forholdene ved hjelp av 'hasManyThrough'. Gjøres slik:
-\begin{lstlisting}[language=PHP]
-    public function links(){
-         return $this->hasManyThrough(
-            'App\Link',
-            'App\MenuLink',
-            'menu_id',
-            'id',
-            'id',
-            'link_id'
-         );
-      }
-\end{lstlisting}
+% \subsection{API Test}
+% Brukte en verktøy som heter Postman for api test. Postman er en funksjonsrik REST-klient\cite{Rathod2017ITP}. Installerte postman på datamaskinen til å teste api-er. Postman kan installeres her\cite{postman2019tocap}
+% \subsubsection{Utfordring under testing}
+% På mange til mange relasjoner ble  det laget egne modeller på pivot tabellene.
+% Forholdene ble satt opp via pivot tabellene sine modeller. På kontroller ble det brukt  Apend til å få alle forholdene mellom tabellene.
+% \begin{lstlisting}[language=PHP]
+%     public function menu_links(){
+%          return $this->hasMany('App\MenuLink')
+%     }
+% \end{lstlisting}
+% Da det ble testet om for eksempel en page ble brukt i menu tabellen via fremmednøkkel, fikk ikke svar.
+% Fikset ved å sette opp forholdene ved hjelp av 'hasManyThrough'. Gjøres slik:
+% \begin{lstlisting}[language=PHP]
+%     public function links(){
+%          return $this->hasManyThrough(
+%             'App\Link',
+%             'App\MenuLink',
+%             'menu_id',
+%             'id',
+%             'id',
+%             'link_id'
+%          );
+%       }
+% \end{lstlisting}
 
-\subsection{Sett opp autentisering}
-Autentisering brukes til å kontrollere tilgang til ressurser. For å kontrollere tilgang skal nettsiden ha logginn og registreringsside. Registrering siden skal være tilgjengelig for brukere som logget seg inn.
-Lagte autenisering ved å kjøre koden i comandlijen.
-\begin{lstlisting}[language=PHP]
-    php artisan make:auth
-\end{lstlisting}
+% \subsection{Seeds}
+% For å lage forskjellige bruker roller lagte det RoleSeeder i databasen.
+% Kjørte koden i kommandolinjen for å opprette det.
+% \begin{lstlisting}[language=PHP]
+%     php artisan make:seeder RoleSeeder
+% \end{lstlisting}
+% Lagte forskjellige roller i RoleSeederen
+% \begin{lstlisting}[language=PHP]
+%     $user = Role::create(['name' => 'user']);
+%   $moderator = Role::create(['name' => 'moderator']);
+%   $admin = Role::create(['name' => 'admin']);
+%   $superadmin = Role::create(['name' => 'superadmin']);
+% \end{lstlisting}
+% \subsection{CRUD}
+% Opprettet CRUD (Create, Read, Update and Delete) filer for å opprette, lese oppdatere og slette ressurser. På ressurs kontroller kan skrives logikken om hvordan ressursene opprettes, lagres, leses, oppdateres og slettes.
 
-I RegisterController kan det endres tilgangen for å opprette nye brukere.
-\begin{lstlisting}[language=PHP]
-    $this->middleware('guest');
-\end{lstlisting}
-Endre guest med auth. Dette krever at bruker må logge seg inn for å kunne opprette nye brukere.
-\begin{lstlisting}[language=PHP]
-    $this->middleware('auth');
-\end{lstlisting}
+% \lstinputlisting[caption={Laravel controller}, language=php]{laravel-code-examples/controller.php}
 
-\subsubsection{ Registrering av bruker}
-Etter autentiseringen er prøvde det å registrere ny bruker. Det oppsto en feilmelding under registrering av ny bruker
-\begin{lstlisting}[language=PHP]
-    SQLSTATE[HY000]: General error: 1364 Field 'image_id' doesn't have a default value
-\end{lstlisting}
-Løste feilen ved å endre standard verdien til "imageid" feltet i bruker database tabellen. Gjorde slik:
+% Etter det ble ferdig laget med CRUD, testet om det fungerer.
+% I create.blade.php filen prøvde å lage nedtrekksmeny med komponenter.
+% Fikk feilmeldingen:
+% \begin{lstlisting}[language=PHP]
+%     "Property [component_id] does not exist on this collection instance.
+% \end{lstlisting}
 
-\begin{lstlisting}[language=PHP]
-    $table->uuid('image_id')->nullable()->default(null);
-\end{lstlisting}
+% Grunnen var at det ble hentet flere komponenter fra databasen og prøvde å sette de som en singel komponent.
+% Løste feilen ved å bruke for løkke.
+% \begin{lstlisting}[language=PHP]
+%     @foreach($components as $component)
+%     <option value="{{$component->id}}" {{old('component_id',component->id)}}? selected> {{$component->name}} </option>
+%      @endforeach
+% \end{lstlisting}
 
-\subsection{Seeds}
-For å lage forskjellige bruker roller lagte det RoleSeeder i databasen.
-Kjørte koden i kommandolinjen for å opprette det.
-\begin{lstlisting}[language=PHP]
-    php artisan make:seeder RoleSeeder
-\end{lstlisting}
-Lagte forskjellige roller i RoleSeederen
-\begin{lstlisting}[language=PHP]
-    $user = Role::create(['name' => 'user']);
-   $moderator = Role::create(['name' => 'moderator']);
-   $admin = Role::create(['name' => 'admin']);
-   $superadmin = Role::create(['name' => 'superadmin']);
-\end{lstlisting}
-\subsection{CRUD}
-Opprettet CRUD (Create, Read, Update and Delete) filer for å opprette, lese oppdatere og slette ressurser. På ressurs kontroller kan skrives logikken om hvordan ressursene opprettes, lagres, leses, oppdateres og slettes.
+% \subsection{Route}
+% Web.php fil i routes katalogen definerer  ruter  for webgrensesnitt\footnote{\url{https://laravel.com/docs/5.8/routing}}.
+% Skrives for eksempel slik, hvis man har flere ressurser :
+% \begin{lstlisting}[language=PHP]
+%     Route::resources([
+%         'pages' => 'PageController',
+%         'components' => 'ComponentController',
+%         'links' => 'LinkController',
+%         'fields' => 'FieldController',
+%         'menus' => 'MenuController'
+%         ]);
+% \end{lstlisting}
 
-\lstinputlisting[caption={Laravel controller}, language=php]{laravel-code-examples/controller.php}
+% I tillegg ble det lagte php filer for grensesnitt til ressurser. index.blade.php, create.blade.php, edit.blade.php, og show.blade.php
+% \cite{savani2018lcrud}
 
-Etter det ble ferdig laget med CRUD, testet om det fungerer.
-I create.blade.php filen prøvde å lage nedtrekksmeny med komponenter.
-Fikk feilmeldingen:
-\begin{lstlisting}[language=PHP]
-    "Property [component_id] does not exist on this collection instance.
-\end{lstlisting}
+% Tilgangene til ressurser kan være forskjellige fra bruker til bruker og gis for eksempel slik via kontrolleren.
+% \begin{lstlisting}[language=PHP]
+%     public function __contruct(){
+%       $this->middleware('auth');
+%       $this->middleware('role:superadmin');
+%     }
+% \end{lstlisting}
 
-Grunnen var at det ble hentet flere komponenter fra databasen og prøvde å sette de som en singel komponent.
-Løste feilen ved å bruke for løkke.
-\begin{lstlisting}[language=PHP]
-    @foreach($components as $component)
-    <option value="{{$component->id}}" {{old('component_id',component->id)}}? selected> {{$component->name}} </option>
-     @endforeach
-\end{lstlisting}
+% Eksemplet viser at tilgangen er gitt bare til brukere med superadmin rolle.
 
-\subsection{Route}
-Web.php fil i routes katalogen definerer  ruter  for webgrensesnitt\footnote{\url{https://laravel.com/docs/5.8/routing}}.
-Skrives for eksempel slik, hvis man har flere ressurser :
-\begin{lstlisting}[language=PHP]
-    Route::resources([
-        'pages' => 'PageController',
-        'components' => 'ComponentController',
-        'links' => 'LinkController',
-        'fields' => 'FieldController',
-        'menus' => 'MenuController'
-        ]);
-\end{lstlisting}
+% Har lagt linker for Menus og Pages til brukere som er logget seg inn.
+% Etter linkene ble lagt og rollene blitt gitt fikk ikke det å åpne linkene eller registrere nye brukere. Fikk feilmelding om det ikke eksisterer rolle klasse.
+% \begin{lstlisting}[language=PHP]
+%     "Class App\Http\Spatie\Permission\Models\Role does not exist"
+% \end{lstlisting}
 
-I tillegg ble det lagte php filer for grensesnitt til ressurser. index.blade.php, create.blade.php, edit.blade.php, og show.blade.php
-\cite{savani2018lcrud}
+% Prøvde å rette feilen ved å legge til rolle klasse i kernel.php slik:
+% \begin{lstlisting}[language=PHP]
+%   protected $routeMiddleware = ['role'=>Spatie\Permission\Models\Role::class];
+% \end{lstlisting}
+% Løsningen ga en annen feilmelding om klasse rolle ikke finnes
+%  \begin{lstlisting}[language=PHP]
+%       "Class 'Role' not found
+%  \end{lstlisting}
 
-Tilgangene til ressurser kan være forskjellige fra bruker til bruker og gis for eksempel slik via kontrolleren.
-\begin{lstlisting}[language=PHP]
-    public function __contruct(){
-       $this->middleware('auth');
-       $this->middleware('role:superadmin');
-    }
-\end{lstlisting}
+% Feilen var at det ble lagt Role modelle klasse istedet Middleware klasse og løste ved å sette riktig Middleware klasse. Middleware \cite{laravel2019mw} er en mekanisme som kan  filtrere http-forespørsler. Den kan for eksempel verifisere en bruker er autentisert.
+% \begin{lstlisting}[language=PHP]
+%   'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+% \end{lstlisting}
 
-Eksemplet viser at tilgangen er gitt bare til brukere med superadmin rolle.
+% Registering av en ny bruker gikk men fikk feilmelding samtidig.
+% \begin{lstlisting}[language=PHP]
+%   "Argument 1 passed to Illuminate\Auth\SessionGuard::login() must implement interface Illuminate\Contracts\Auth\Authenticatable, null given,
+% \end{lstlisting}
 
-Har lagt linker for Menus og Pages til brukere som er logget seg inn.
-Etter linkene ble lagt og rollene blitt gitt fikk ikke det å åpne linkene eller registrere nye brukere. Fikk feilmelding om det ikke eksisterer rolle klasse.
-\begin{lstlisting}[language=PHP]
-    "Class App\Http\Spatie\Permission\Models\Role does not exist"
-\end{lstlisting}
+% Feilen var at den prøver å sende den registrert brukeren til en side mens en annen  bruker er logget seg inn på siden. Registrering av en ny bruker gjennomføres av innlogget brukere med admin rettigheter.
 
-Prøvde å rette feilen ved å legge til rolle klasse i kernel.php slik:
-\begin{lstlisting}[language=PHP]
-   protected $routeMiddleware = ['role'=>Spatie\Permission\Models\Role::class];
-\end{lstlisting}
-Løsningen ga en annen feilmelding om klasse rolle ikke finnes
- \begin{lstlisting}[language=PHP]
-      "Class 'Role' not found
- \end{lstlisting}
+% Løste ved å overskrive og slette koden som sender brukeren til siden. Slik:
+% \begin{lstlisting}[language=PHP]
+%   public function register(Request $request)
+%       {
+%           $this->validator($request->all())->validate();
 
-Feilen var at det ble lagt Role modelle klasse istedet Middleware klasse og løste ved å sette riktig Middleware klasse. Middleware \cite{laravel2019mw} er en mekanisme som kan  filtrere http-forespørsler. Den kan for eksempel verifisere en bruker er autentisert.
-\begin{lstlisting}[language=PHP]
-   'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
-\end{lstlisting}
+%           event(new Registered($user = $this->create($request->all())));
 
-Registering av en ny bruker gikk men fikk feilmelding samtidig.
-\begin{lstlisting}[language=PHP]
-   "Argument 1 passed to Illuminate\Auth\SessionGuard::login() must implement interface Illuminate\Contracts\Auth\Authenticatable, null given,
-\end{lstlisting}
+%         Sletter dette linje
+%             $this->guard('web')->login($user);
 
-Feilen var at den prøver å sende den registrert brukeren til en side mens en annen  bruker er logget seg inn på siden. Registrering av en ny bruker gjennomføres av innlogget brukere med admin rettigheter.
+%           return $this->registered($request, $user)?: redirect($this->redirectPath());
+%       }
+% \end{lstlisting}
 
-Løste ved å overskrive og slette koden som sender brukeren til siden. Slik:
-\begin{lstlisting}[language=PHP]
-   public function register(Request $request)
-       {
-           $this->validator($request->all())->validate();
-
-           event(new Registered($user = $this->create($request->all())));
-
-        Sletter dette linje
-            $this->guard('web')->login($user);
-
-           return $this->registered($request, $user)?: redirect($this->redirectPath());
-       }
-\end{lstlisting}
-
-\cite{spatie2019aupar}
+% \cite{spatie2019aupar}
 
 %--- Bereket - slutt ---  
 \clearpage
 
 %--- Bjørnar kladd - start ---
-\input{bjornar/kladd}
+%\input{bjornar/kladd}
 %--- Bjørnar kladd - slutt ---
 
 \section{Front-end}
@@ -481,7 +481,7 @@ Front-end ble i hovedsak gjort av Line, med god hjelp av Bjørnar.
 
 \subsection{Oppsett av React og tilhørende verktøy}
 
-Det første som ble gjort i denne prosessen var å laste ned Node.js\footnote{\url{https://nodejs.org/en/}}. I dette prosjektet blir ikke Node brukt som en back-end tjenester eller server, men for å kunne kjøre alle verktøy som må til for å kunne utvikle lokalt på datamaskinen. Det var den nyeste versjonen (11.9.0) som ble lastet ned. Deretter ble nettleserutvidelsen React Developer Tools lagt til fra  webstoren til Google Chrome. Det ble også opprettet et repository på Github og lastet ned på maskinen ved hjelp av GitKraken. 
+Det første som ble gjort i denne prosessen var å laste ned Node.js\footnote{\url{https://nodejs.org/en/}}. I dette prosjektet blir ikke Node brukt som en back-end tjeneste eller server, men for å kunne kjøre alle verktøy som må til for å kunne utvikle lokalt på datamaskinen. Det var den nyeste versjonen (11.9.0) som ble lastet ned. Deretter ble nettleserutvidelsen React Developer Tools lagt til fra  webstoren til Google Chrome. Det ble også opprettet et repository på Github og lastet ned på maskinen ved hjelp av GitKraken. 
 Videre var det nødvendig med et kommandolinjevindu og en teksteditor, valget falt da på kommandolinjevinduet Powershell og teksteditoren Visual Studio Code.
 
 For å sette opp selve React, ble  guiden til react.org for å sette opp en ny React App\footnote{\url{https://reactjs.org/docs/create-a-new-react-app.html\#create-react-app}} fulgt. Her ble det oppgitt at følgende kommandoer må kjøres for å opprette et nytt prosjekt:
@@ -527,7 +527,7 @@ Ved å se på den godkjente mockupen ble følgende komponenter fastsatt:
 Prosessen med oppretting av komponenter startet med å lage en samlemappe som ble kalt \q{components}, som ligger i mappen src. For hver komponent ble det laget en ny undermappe som inneholdt koden til selve komponenten og eventuelt tilhørende stilark.
 
 \section{Ruting (Routing)}
-Ruting er et mønstergjenkjenningssystem som tar seg av innkommende forespørsler og sender de til spesifikke kontroller-funksjon. Ruting er ikke innebygd i React. Det ble derfor laget en Router.js-fil i components-mappa. Etter dette ble følgende kommando kjørt:
+Ruting er et mønstergjenkjenningssystem som tar seg av innkommende forespørsler og sender de til spesifikke kontroller-funksjoner. Ruting er ikke innebygd i React. Det ble derfor laget en Router.js-fil i components-mappa. Etter dette ble følgende kommando kjørt:
 
 \begin{lstlisting}[caption={Installering av React ruting},language=bash]
 npm install react-router-dom
@@ -541,7 +541,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 Den foreløpige versjonen av back-end ble lastet ned og lagret lokalt, slik at det ble mulig å teste underveis.
 
-For å kunne snakke og bruke foreløpig backend ble Axios\footnote{Se mer i avsnitt \ref{sec:tool:axios}} benyttet. Hvis etableringen av forbindelsen er vellykket, slik at det har blitt opprettet kontakt med databasen via Axios, vil alle svar som ble gitt av back-end bli lagret i en array. 
+For å kunne snakke og bruke foreløpig backend ble Axios\footnote{Se mer i avsnitt \ref{sec:tool:axios}} benyttet. Hvis etableringen av forbindelsen er vellykket, slik at det har blitt opprettet kontakt med API via Axios, vil alle svar som ble gitt av back-end bli lagret i en array. 
 
 Deretter ble det satt opp en dynamisk ruting, ved hjelp av en løkke som går igjennom alle eksisterende sider og setter opp linker til disse.
 
@@ -599,7 +599,7 @@ Etter at pakken ble installert, måtte det lages et script som kompilerer fra .s
 
 \q{Build-css} tar .scss-filene som finnes i source-mappen samt undermapper og kompilerer dem til .css-filer. .css filen vil bli tilgjengelig i den samme lokasjonen som den originale .scss-filen. Deretter ble det laget et script som kjører \q{build-css} og kompilerer alle eksisterende filer til .css, samtidig som den ser etter forandringer i source-mappen. Den vil altså detektere om det blir gjort endringer i eksisterende .scss filer, eller om det blir lagt til nye. 
 
-\begin{lstlisting}[caption={Script som detekterer endringer}]
+\begin{lstlisting}[caption={Script som detekterer scss endringer}]
  "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive"
 \end{lstlisting}
 
@@ -612,7 +612,7 @@ En test ble gjort ved å lage en fil som het "header.scss" og satte bakgrunnsfar
 \end{lstlisting}
 
 \section{Styling}
-Designet til nettstedet ble stylet ved hjelp av SCSS, og er så lik den godkjente mockupen som mulig. Designet er også responsivt og fungerer derfor like godt på en stor skjem, laptop, nettbrett og mobil. For stylingen ble prinsippet \q{mobil først} benyttet. Dette prinsippet går ut på at utviklingen først skjer for små skjermer, for deretter å skalere opp og gjøre designendringer når det er nødvendig. 
+Designet til nettstedet ble stylet ved hjelp av SCSS, og er så lik den godkjente mockupen som mulig. Designet er også responsivt og fungerer derfor like godt på en stor skjerm, laptop, nettbrett og mobil. For stylingen ble prinsippet \q{mobil først} benyttet. Dette prinsippet går ut på at utviklingen først skjer for små skjermer, for deretter å skalere opp og gjøre designendringer når det er nødvendig. 
 
 
 % \section{Utredning}

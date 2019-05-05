@@ -412,4 +412,13 @@ Løste ved å overskrive og slette koden som sender brukeren til siden. Slik:
 \end{lstlisting}
   
 \footnote{\url{https://github.com/spatie/laravel-permission?fbclid=IwAR1mbxiD_XLmltOWsDu0TIIC-U1sBMp-SVxUgt27yLR745ZbPDaU9dvDpb4}}  
+
+\subsection{Send epost fra kontakt-oss skjema}
+
+Kunder får mulighet til å sende informasjon via kontakt skjema for å bli kontaktet av bedriften.
+Lagte kontroller som heter SendEmailController.
+For å lage kontrolleren ble det kjørte koden 
+php artisan make:controller SendEmailController i komandolinjen.
+Lagte kontakt skjema og skrev kode i kontrolleren som sender epost fra kontakt skjemaet til epost. I routes/web.php defineres det ruter for webgrensesnitt.
+
 \clearpage
