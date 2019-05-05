@@ -68,8 +68,6 @@ Når koden skal commites må det opprettes en pull request, som må godkjennes. 
 \section{Back-end}
 Back-end har blitt utviklet av Bereket og Bjørnar.
 
-%--- Bjørnar - start ---
-
 \subsection{Installasjon og oppsett av Laravel og tilhørende verktøy}
 Første steg var å installere package manageren Composer. Deretter kunne Laravel settes opp og installeres. Fordi vi benyttet oss av Composer ble det mulig å installere Laravel med et par kommandoer i terminalen:
 \begin{lstlisting}[caption={Installasjon av Laravel med Composer},language=bash]
@@ -244,237 +242,37 @@ Laravel gir oss veldig mye gratis på dette området, ved å kjøre en kommando 
 \end{lstlisting}
 Etter å ha kjørt kommandoen over får vi nødvendige controllere og views for login og registrering av brukere, samt system for tilbakestilling av passord.
 
+\subsubsection{Brukerroller}
+Autentisering var nå klart, men vi hadde ingen måte å skille rettighetene til de forskjellige brukerene på, dette er ikke funksjonalitet som følger med Laravel. Vi fant derfor en PHP pakke: Laravel-Permission\footnote{\url{https://github.com/spatie/laravel-permission}} fra Spatie. Denne pakken utvider Laravel til å støtte brukerroller og kan installeres med Composer. Laravel-Permission gjør det mulig å opprette roller og knytte rettigheter til hver rolle, vi benytter oss kun av roller og har definert de følgende rollene: superadmin, admin, moderator og user.
+* User endte opp med å ikke brukt, ligger forsatt tilgjenglig for å gjøre det enklere å utvide systemet videre.
+* Moderator har tilgang til å opprette, redigere og slette sider og menyer.
+* Admin har samme tilgang som moderator og kan i tilleg registrere nye brukere.
+* Superadmin har tilgang til alt. Det vil si at de i tilleg til å kunne gjøre alt det overnevnte, kan lage komponenter, felter og meny lokasjoner, samt at de kan definere hvilke felter en komponent skal ha.
 
+\subsection{API}
+Vi definerte et API som lot oss hente ut data fra CMS-et og bygge en front-end.
+Det ble satt opp en prefix for alle API forespørsler, slik at man kan videreutvikle systemet uten å ødelegge for eksisterende løsninger. Alle forespørsler til API-et som vi har lagd må starte med /api/v1.
 
+API-et krever ingen autenisering, men forespørsler tillates kun fra spesefikke \textit{origins}. Når prosjektet settes ut i produksjonsmiljø vil forespørsler kun tillates fra \url{https://sirkusmedia.no} og \url{https://www.sirkusmedia.no}. Dette definers i .env filen.
 
-% Autentisering brukes til å kontrollere tilgang til ressurser. For å kontrollere tilgang skal nettsiden ha logginn og registreringsside. Registrering siden skal være tilgjengelig for brukere som logget seg inn.
-% Lagte autenisering ved å kjøre koden i comandlijen.
-% \begin{lstlisting}[language=PHP]
-%     php artisan make:auth
-% \end{lstlisting}
+Man hente ut data fra følgende lenker:
+\begin{itemize}
+  \item pages - Henter ut en liste med alle sider. Hver side i listen holder følgende: id, slug, link, tittel, bilde, dato opprettet og dato sist redigert.
+  \item pages/\{\{ID\}\} - Henter ut en spesefikk side. Inneholder data om alle komponentene som er på siden og verdien til feltene til komponentene.
+  \item menus - Henter ut en liste med alle menyer og deres lokasjon.
+  \item menus/\{\{ID\}\} - Henter ut en spesefikk meny. Her følger med alle linker som menyen har.
+\end{itemize}
 
-% I RegisterController kan det endres tilgangen for å opprette nye brukere.
-% \begin{lstlisting}[language=PHP]
-%     $this->middleware('guest');
-% \end{lstlisting}
-% Endre guest med auth. Dette krever at bruker må logge seg inn for å kunne opprette nye brukere.
-% \begin{lstlisting}[language=PHP]
-%     $this->middleware('auth');
-% \end{lstlisting}
+\subsection{Utvikling av Content Managment System}
+CMS-et endte opp å bli som planlagt, det var kun en ting som ble lagt til som ikke var planlagt. Vi endte opp med å legge til muligheten til å gi kallenavn til felter som tilhører komponenter. Dette ble gjort for å gjøre det enklere for sluttbruker å redigere sider.
 
-% \subsubsection{ Registrering av bruker}
-% Etter autentiseringen er prøvde det å registrere ny bruker. Det oppsto en feilmelding under registrering av ny bruker
-% \begin{lstlisting}[language=PHP]
-%     SQLSTATE[HY000]: General error: 1364 Field 'image_id' doesn't have a default value
-% \end{lstlisting}
-% Løste feilen ved å endre standard verdien til "imageid" feltet i bruker database tabellen. Gjorde slik:
+En ekstra ting som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image modellen. For å sette verdien til dette feltet på riktig måte trenger man en ID til et bilde i \q{images} tabellen. Alt dette tar bildevelgeren seg av, samt at den gjør det enkelt å laste opp nye bilder.
 
-% \begin{lstlisting}[language=PHP]
-%     $table->uuid('image_id')->nullable()->default(null);
-% \end{lstlisting}
-
-%--- Bjørnar - slutt ---
-
-%--- Bereket - start ---
-
-% \subsection{Roller og Permisjoner}\cite{spatie2019aupar}
-% Laravel permisjon er en pakke med tillatelser og roller. Dette hjelper brukere til å knytte seg til tillatelser og roller. Hver rolle er knyttet til flere tillatelser. En rolle og en tillatelse er vanlige Eloquent-modeller\cite{oki2017uail}.
-% \subsubsection{Laravel permisjon pakke installasjon}
-% Laravel permisjon pakken er bygget ut over Laravel autorisasjon funksjoner\cite{laravelnews2017tblp}.
-% For installere permisjon pakken kjørte composer require spatie/laravel-permission i kommando linje.
-
-% \subsubsection{Inkludere pakken på service provider listen}
-% Inkluderte permisjon pakken på config/app.php.
-% \begin{lstlisting}[language=PHP]
-%     Spatie\Permission\PermissionServiceProvider::class
-% \end{lstlisting}
-
-% \subsubsection{Publisere migrasjonen}
-% Ved å kjøre koden på kommandolinjen publisere migrasjon filen for permisjon pakken.
-% \begin{lstlisting}[language=PHP]
-%   php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
-% \end{lstlisting}
-
-% Siden vi bruker uuid som primær nøkkel på user måtte det redigeres permisjon filen. På permisjon filen er satt \q{unsignedBigInteger} som standard og burde det endres til uuid. Redigeringen gjøres ved å åpne permisjon filen  under \q{database/migrations} og erstatte \q{unsignedBigInteger} med \q{uuid}.
-% \begin{lstlisting}[language=PHP]
-%   $table->unsignedBigInteger($columnNames['model_morph_key'])
-%     Erstatter med
-%  $table->uuid($columnNames['model_morph_key'])
-% \end{lstlisting}
-
-% \subsubsection{Publisere konfigurasjonen}
-% Konfigureringsfilen tillater oss å angi plasseringen av Eloquent-modellen til permisjon og rolle klasse.
-% For å publisere konfigurasjonsfilen for pakken kjøres koden nede i kommandolinjen.
-
-% \begin{lstlisting}[language=PHP]
-%   php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
-% \end{lstlisting}
-
-% \subsubsection{Bygge opp tabeller}
-% Tok migrasjon slik permisjon tabellene blir bygget på databasen.
-% Kjørte koden i kommandolinjen.
-% \begin{lstlisting}[language=PHP]
-%   php artisan migrate
-% \end{lstlisting}
-
-% For en bruker skal logge seg inn kreves det epost bekreftelse.
-% Fikk feilmelding om mail bekreftelsen.
-% \begin{lstlisting}[language=PHP]
-%     Swift_TransportException in AbstractSmtpTransport.php line 383: Expected response code 250 but got code "530", with message "530 5.7.1 Authentication required
-% \end{lstlisting}
-
-% \subsection{Lage API}
-% For å lage api opprettet det først controller\cite{laravel2019c} via cmd terminalen.
-% Gjøres slik:
-% \begin{lstlisting}[language=PHP]
-%     php artisan make:controller PageController --resource
-% \end{lstlisting}
-% Den siste parameteren \q{resource} er et alternativ og kan dropes.
-
-% På api.php i routes\cite{laravel2019r} registrer det API-ruter.
-% For alle pages:
-% \begin{lstlisting}[language=PHP]
-%     Route::get('/pages', 'PageController@index');
-% \end{lstlisting}
-% For en enkel page:
-% \begin{lstlisting}[language=PHP]
-%     Route::get('pages/{page}', 'PageController@show');
-% \end{lstlisting}
-
-% \subsection{API Test}
-% Brukte en verktøy som heter Postman for api test. Postman er en funksjonsrik REST-klient\cite{Rathod2017ITP}. Installerte postman på datamaskinen til å teste api-er. Postman kan installeres her\cite{postman2019tocap}
-% \subsubsection{Utfordring under testing}
-% På mange til mange relasjoner ble  det laget egne modeller på pivot tabellene.
-% Forholdene ble satt opp via pivot tabellene sine modeller. På kontroller ble det brukt  Apend til å få alle forholdene mellom tabellene.
-% \begin{lstlisting}[language=PHP]
-%     public function menu_links(){
-%          return $this->hasMany('App\MenuLink')
-%     }
-% \end{lstlisting}
-% Da det ble testet om for eksempel en page ble brukt i menu tabellen via fremmednøkkel, fikk ikke svar.
-% Fikset ved å sette opp forholdene ved hjelp av 'hasManyThrough'. Gjøres slik:
-% \begin{lstlisting}[language=PHP]
-%     public function links(){
-%          return $this->hasManyThrough(
-%             'App\Link',
-%             'App\MenuLink',
-%             'menu_id',
-%             'id',
-%             'id',
-%             'link_id'
-%          );
-%       }
-% \end{lstlisting}
-
-% \subsection{Seeds}
-% For å lage forskjellige bruker roller lagte det RoleSeeder i databasen.
-% Kjørte koden i kommandolinjen for å opprette det.
-% \begin{lstlisting}[language=PHP]
-%     php artisan make:seeder RoleSeeder
-% \end{lstlisting}
-% Lagte forskjellige roller i RoleSeederen
-% \begin{lstlisting}[language=PHP]
-%     $user = Role::create(['name' => 'user']);
-%   $moderator = Role::create(['name' => 'moderator']);
-%   $admin = Role::create(['name' => 'admin']);
-%   $superadmin = Role::create(['name' => 'superadmin']);
-% \end{lstlisting}
-% \subsection{CRUD}
-% Opprettet CRUD (Create, Read, Update and Delete) filer for å opprette, lese oppdatere og slette ressurser. På ressurs kontroller kan skrives logikken om hvordan ressursene opprettes, lagres, leses, oppdateres og slettes.
-
-% \lstinputlisting[caption={Laravel controller}, language=php]{laravel-code-examples/controller.php}
-
-% Etter det ble ferdig laget med CRUD, testet om det fungerer.
-% I create.blade.php filen prøvde å lage nedtrekksmeny med komponenter.
-% Fikk feilmeldingen:
-% \begin{lstlisting}[language=PHP]
-%     "Property [component_id] does not exist on this collection instance.
-% \end{lstlisting}
-
-% Grunnen var at det ble hentet flere komponenter fra databasen og prøvde å sette de som en singel komponent.
-% Løste feilen ved å bruke for løkke.
-% \begin{lstlisting}[language=PHP]
-%     @foreach($components as $component)
-%     <option value="{{$component->id}}" {{old('component_id',component->id)}}? selected> {{$component->name}} </option>
-%      @endforeach
-% \end{lstlisting}
-
-% \subsection{Route}
-% Web.php fil i routes katalogen definerer  ruter  for webgrensesnitt\footnote{\url{https://laravel.com/docs/5.8/routing}}.
-% Skrives for eksempel slik, hvis man har flere ressurser :
-% \begin{lstlisting}[language=PHP]
-%     Route::resources([
-%         'pages' => 'PageController',
-%         'components' => 'ComponentController',
-%         'links' => 'LinkController',
-%         'fields' => 'FieldController',
-%         'menus' => 'MenuController'
-%         ]);
-% \end{lstlisting}
-
-% I tillegg ble det lagte php filer for grensesnitt til ressurser. index.blade.php, create.blade.php, edit.blade.php, og show.blade.php
-% \cite{savani2018lcrud}
-
-% Tilgangene til ressurser kan være forskjellige fra bruker til bruker og gis for eksempel slik via kontrolleren.
-% \begin{lstlisting}[language=PHP]
-%     public function __contruct(){
-%       $this->middleware('auth');
-%       $this->middleware('role:superadmin');
-%     }
-% \end{lstlisting}
-
-% Eksemplet viser at tilgangen er gitt bare til brukere med superadmin rolle.
-
-% Har lagt linker for Menus og Pages til brukere som er logget seg inn.
-% Etter linkene ble lagt og rollene blitt gitt fikk ikke det å åpne linkene eller registrere nye brukere. Fikk feilmelding om det ikke eksisterer rolle klasse.
-% \begin{lstlisting}[language=PHP]
-%     "Class App\Http\Spatie\Permission\Models\Role does not exist"
-% \end{lstlisting}
-
-% Prøvde å rette feilen ved å legge til rolle klasse i kernel.php slik:
-% \begin{lstlisting}[language=PHP]
-%   protected $routeMiddleware = ['role'=>Spatie\Permission\Models\Role::class];
-% \end{lstlisting}
-% Løsningen ga en annen feilmelding om klasse rolle ikke finnes
-%  \begin{lstlisting}[language=PHP]
-%       "Class 'Role' not found
-%  \end{lstlisting}
-
-% Feilen var at det ble lagt Role modelle klasse istedet Middleware klasse og løste ved å sette riktig Middleware klasse. Middleware \cite{laravel2019mw} er en mekanisme som kan  filtrere http-forespørsler. Den kan for eksempel verifisere en bruker er autentisert.
-% \begin{lstlisting}[language=PHP]
-%   'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
-% \end{lstlisting}
-
-% Registering av en ny bruker gikk men fikk feilmelding samtidig.
-% \begin{lstlisting}[language=PHP]
-%   "Argument 1 passed to Illuminate\Auth\SessionGuard::login() must implement interface Illuminate\Contracts\Auth\Authenticatable, null given,
-% \end{lstlisting}
-
-% Feilen var at den prøver å sende den registrert brukeren til en side mens en annen  bruker er logget seg inn på siden. Registrering av en ny bruker gjennomføres av innlogget brukere med admin rettigheter.
-
-% Løste ved å overskrive og slette koden som sender brukeren til siden. Slik:
-% \begin{lstlisting}[language=PHP]
-%   public function register(Request $request)
-%       {
-%           $this->validator($request->all())->validate();
-
-%           event(new Registered($user = $this->create($request->all())));
-
-%         Sletter dette linje
-%             $this->guard('web')->login($user);
-
-%           return $this->registered($request, $user)?: redirect($this->redirectPath());
-%       }
-% \end{lstlisting}
-
-% \cite{spatie2019aupar}
-
-%--- Bereket - slutt ---  
+%--- BILDE AV MEDIA PICKER HER ---
 \clearpage
 
-%--- Bjørnar kladd - start ---
+%--- Bjørnar kladd ---
 %\input{bjornar/kladd}
-%--- Bjørnar kladd - slutt ---
 
 \section{Front-end}
 Front-end ble i hovedsak gjort av Line, med god hjelp av Bjørnar. 
