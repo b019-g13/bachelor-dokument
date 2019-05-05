@@ -69,14 +69,13 @@ Når koden skal commites må det opprettes en pull request, som må godkjennes. 
 Back-end har blitt utviklet av Bereket og Bjørnar.
 
 \subsection{Installasjon og oppsett av Laravel og tilhørende verktøy}
-Første steg var å installere package manageren Composer. Deretter kunne Laravel settes opp og installeres. Fordi vi benyttet oss av Composer ble det mulig å installere Laravel med et par kommandoer i terminalen:
+Første steg var å installere package manageren Composer. Deretter kunne siste versjon av Laravel (5.7) settes opp og installeres. Fordi vi benyttet oss av Composer ble det mulig å installere Laravel med et par kommandoer i terminalen:
 \begin{lstlisting}[caption={Installasjon av Laravel med Composer},language=bash]
     composer global require laravel/installer
     laravel new sirkus-media-back-end
 \end{lstlisting}
-Det var siste versjon av rammeverket som ble lastet ned (5.7).
 
-Til slutt måtte vi konfigurere rammeverket slik at det kunne håndtere databasetilkobling, sending av mail og lagring av opplastede og genererte filer. Laravel samler sine innstillinger i PHP-filer i \q{config} mappen, samt en .env fil som holder på passord og annen sensitiv informasjon vi ikke vil ha i git.
+Til slutt måtte vi konfigurere rammeverket slik at det kunne håndtere databasetilkobling, sending av e-post og lagring av opplastede og genererte filer. Laravel samler sine innstillinger i PHP-filer i \q{config} mappen, samt en .env fil som holder på passord og annen sensitiv informasjon vi ikke vil ha i git.
 
 \subsubsection{Database}
 Vi begynte med å sette opp tilkobling til databasen. Dette ble gjort ved å først logge inn i MySQL og opprette en bruker og en database. Informasjon for dette ble skrevet inn i .env filen. Se figur under for eksempel:
@@ -90,7 +89,7 @@ Vi begynte med å sette opp tilkobling til databasen. Dette ble gjort ved å fø
 \end{lstlisting}
 
 \subsubsection{Mail}
-Etter at databasen var klar for bruk, begynte vi å sette innstillingene for e-post. Vi bestemte oss for å bruke Mailtrap\footnote{\url{https://mailtrap.io/}} under utvikling av løsningen. Mailtrap\cite{mailtrap2019setfsad} er en uekte SMTP-server som kan brukes for testing av e-post. Etter å ha registrert bruker hos Mailtrap fylte vi ut følgende informasjon i .env filen:
+Etter at databasen var klar for bruk begynte vi å sette innstillingene for e-post. Vi bestemte oss for å bruke Mailtrap\footnote{\url{https://mailtrap.io/}} under utvikling av løsningen. Mailtrap\cite{mailtrap2019setfsad} er en uekte SMTP-server som kan brukes for testing av e-post. Etter å ha registrert bruker hos Mailtrap fylte vi ut følgende informasjon i .env filen:
 \begin{lstlisting}[caption={Laravel .env mail secrets}, language=bash]
     MAIL_DRIVER=smtp
     MAIL_HOST=smtp.mailtrap.io
@@ -127,7 +126,7 @@ For å konfigurere hvilke filer som skal brukes av front-end til Laravel fylte v
     mix.browserSync({ proxy: "localhost:8000", notify: false });
 \end{lstlisting}
 
-Når det nevnes \q{front-end til Laravel} så er det ikke snakk om front-end til nettsiden som lages for Sirkus Media, men front-enden til CMS-et.
+Når det nevnes \q{front-end til Laravel} så er det ikke snakk om front-end til nettsiden som lages for Sirkus Media, men front-end til CMS-et.
 Laravel kommer med en del dependencies til front-end som vi ikke trenger. Alle dependencies defineres i package.json. Følgende dependencies ble fjernet: Bootstrap, jQuery, lodash, Popper, Vue. Det ble kun lagt til en dependency; Shopify sin Draggable pakke. BrowserSync ble også lagt til som en devDependency.
 
 \begin{lstlisting}[caption={Orginal package.json}]
@@ -163,7 +162,7 @@ Laravel kommer med en del dependencies til front-end som vi ikke trenger. Alle d
         "axios": "^0.18.0"
     }
 \end{lstlisting}
-Merk at vue-template-compiler ligger som en dependency her kun fordi siste versjon av Laravel Mix ikke kjører uten.
+Den eneste grunnen til at vue-template-compiler ligger som en dependency her, er fordi siste versjon av Laravel Mix ikke kjører uten.
 
 \subsection{Modeller og database migrations}
 Definering av modeller og migrasjon filer til databasetabellene var det første som ble gjort etter konfigurering av rammeverket.
@@ -171,7 +170,7 @@ Modeller lagde vi ved å skrive følgende Larvel Artisan kommando i terminalen:
 \begin{lstlisting}[caption={Laravel Artisan kommando for oppretting av modell og migration},language=php]
     php artisan make:model Modelnavn -m
 \end{lstlisting}
-Parameteret \q{-m} i kommandoen over brukes for å opprette en migration fil for modellen. Det er også mulig å opprette migration fil etter å ha lagd modell:
+Parameteret \q{-m} i kommandoen over brukes for å opprette en migration-fil for modellen. Det er også mulig å opprette migration-fil etter å ha lagd en modell:
 \begin{lstlisting}[caption={Laravel Artisan kommando for oppretting av migration fil},language=php]
     php artisan make:migration migration_file_name
 \end{lstlisting}
@@ -185,7 +184,7 @@ Under er et eksempel på en migration fil
 \lstinputlisting[caption={Laravel migration fil}, language=php]{laravel-code-examples/migration.php}
 
 \subsubsection{Eloquent forhold mellom modellene}
-Eloquent\footnote{\url{https://laravel.com/docs/5.8/eloquent}} er Laravel sitt ORM, det lar oss definere forhold mellom de forskjellige modellene. Det er ønskelig å definere forhold som f.eks: en forfatter har mange bøker. Når et slikt forhold er definert i modellene til Larvel lar Eloquent oss hente alle bøkene til forfatteren med kode som dette: \lstinline[language=PHP]{$author->books}.
+Eloquent\footnote{\url{https://laravel.com/docs/5.8/eloquent}} er Laravel sitt ORM, det lar oss definere forhold mellom de forskjellige modellene. Det er ønskelig å definere forhold som f.eks: en forfatter har mange bøker. Når et slikt forhold er definert i modellene til Larvel, lar Eloquent oss hente alle bøkene til forfatteren med kode som dette: \lstinline[language=PHP]{$author->books}.
 
 For å definere slike forhold brukte vi de innebygd metodene til Laravel som: belongsToMany, hasOne, belongsTo og hasMany. For eksempel av bruk, se følgende kode:
 \lstinputlisting[caption={Laravel modell med et forhold}, language=php]{laravel-code-examples/model-relationship.php}
@@ -195,7 +194,7 @@ Første gang vi kjørte migration dukket det opp en feil:
 \begin{lstlisting}[caption={Feilmelding i Laravel ved kjøring av migration},language=PHP]
 Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
 \end{lstlisting}
-Denne feilen viste seg å være relativt vanlig og kom av at vi kjørte en eldre versjon (5.7) av MySQL som ikke støtter datatypen varchar med lengde på 255 når databasen sin collation er satt til UTF8MB4. Løsningen her ble å sette standard varchar lengde til 191.
+Denne feilen viste seg å være relativt vanlig og kom av at vi kjørte en eldre versjon (5.7) av MySQL som ikke støtter datatypen varchar med lengde på 255, når collation til databasen er satt til UTF8MB4. Løsningen her ble å sette standard varchar lengde til 191.
 \begin{lstlisting}[language=PHP, caption={Definering av standard varchar lengde i AppServiceProvider.php}]
     <?php
 
@@ -209,7 +208,7 @@ Denne feilen viste seg å være relativt vanlig og kom av at vi kjørte en eldre
 \end{lstlisting}
 
 \subsubsection{Testing av forhold mellom modellene}
-Når alle forhold var ferdig definert og migration filene kjørte uten feil, fylte vi databasen med data for å teste at alle forhold var riktig satt opp. En interessant feil vi støtte på er relatert til vår bruk av UUID som primary key i stedet for en inkrementerende integer i flere av modellene. Når vi forsøkte å lagre en modell til databasen fikk vi denne feilen:
+Når alle forhold var ferdig definert og migration filene kjørte uten feil, fylte vi databasen med data for å teste at alle forhold var riktig satt opp. Da støtte vi på en feil relatert til vår bruk av UUID som primary key i stedet for en inkrementerende integer i flere av modellene. Når vi forsøkte å lagre en modell til databasen fikk vi denne feilen:
 \begin{lstlisting}[language=PHP]
     SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value ...
 \end{lstlisting}
@@ -218,7 +217,7 @@ Feilen kom av hvordan Laravel har satt opp standardmodell alle modeller baserer 
 Vi måtte finne en måte å si at alle modeller som brukte UUID har primary key av typen string, ikke skal inkrementeres og samtidig automatisk generere en UUID ved lagring. Den beste måten vi fant å gjøre dette på var ved å lage en trait. Følgende fil ble opprettet:
 \lstinputlisting[caption={Trait for å håndtere UUID for Larvel-modeller}, language=php]{laravel-code-examples/trait-uuid.php}
 
-Når trait-en var definert, kunne vi bare inkludere den i alle modeller som brukte UUID som primary key, som vist i figur under, så var problemet løst.
+Når trait-en var definert, kunne vi inkludere den i alle modeller som brukte UUID som primærnøkkel, som vist i figur under, så var problemet løst.
 \begin{lstlisting}[caption={Bruk av UUID trait i modell}, language=PHP]
     <?php
 
@@ -236,7 +235,7 @@ Etter de overnevnte problemene ble løst, støtte vi ikke på noen flere nevneve
 
 \subsection{Oppsett av autentisering}
 Med databasen og forhold mellom modeller på plass var vi klare for å begynne utviklingen av selve CMS-et, men vi bestemte oss for å først sette opp autentisering da dette er enklere å implementere fra starten av, fremfor å gjøre det til slutt.
-Laravel gir oss veldig mye gratis på dette området, ved å kjøre en kommando settes opp alt vi trenger:
+Laravel gir oss veldig mye gratis på dette området, ved å kjøre en kommando settes alt vi trenger opp:
 \begin{lstlisting}[language=PHP]
     php artisan make:auth
 \end{lstlisting}
@@ -266,9 +265,11 @@ Man hente ut data fra følgende lenker:
 \subsection{Utvikling av Content Managment System}
 CMS-et endte opp å bli som planlagt, det var kun en ting som ble lagt til som ikke var planlagt. Vi endte opp med å legge til muligheten til å gi kallenavn til felter som tilhører komponenter. Dette ble gjort for å gjøre det enklere for sluttbruker å redigere sider.
 
-En ekstra ting som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image modellen. For å sette verdien til dette feltet på riktig måte trenger man en ID til et bilde i \q{images} tabellen. Alt dette tar bildevelgeren seg av, samt at den gjør det enkelt å laste opp nye bilder.
+En ekstra ting som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image modellen. For å sette verdien til dette feltet på riktig måte trenger man en ID til
+et bilde i \q{images} tabellen. Alt dette tar bildevelgeren seg av, samt at den gjør det enkelt å laste opp nye bilder.
 
-%--- BILDE AV MEDIA PICKER HER ---
+--- BILDE AV MEDIA PICKER HER ---
+
 \clearpage
 
 %--- Bjørnar kladd ---
