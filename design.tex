@@ -21,7 +21,7 @@
 
 % ---
 
-I dette kapittelet vil vi ta for oss hvordan vi har tenkt til å utforme nettstedet. Vi vil presentere forslag til innhold, struktur, design, utforming av CMS og databaser. Dette vil være grunnlaget for resten av oppgaven.
+I dette kapittelet vil vi ta for oss hvordan vi har tenkt å utforme nettstedet. Vi vil presentere forslag til innhold, struktur, design, utforming av CMS og databaser. Dette vil være grunnlaget for resten av oppgaven.
 
 % Sirkus Media "Vi vet ikke helt hva vi vil ha før vi ser det". Samtale 27.02.2019.
 
@@ -43,27 +43,29 @@ I dette kapittelet vil vi ta for oss hvordan vi har tenkt til å utforme nettste
 
 
 \section{Planlegging av struktur og innhold}
+\label{sec:planning-website}
 
 Etter analysen gjort i kapittel \ref{chap:analysis} har studentgruppen kommet frem til at struktur og innhold burde være som følgende: 
 
-\textbf{Forside} Tanken er at hele nettstedet i hovedsak skal bestå av en lang forside. Fordi dette ikke er beste praksis for søkemotoroptimalisering vil vi forbedre SEO ved å lenke til nye sider som er mer detaljert. Høyt oppe på siden skal det være en knapp til et kontaktskjema. Telefonnummeret til bedriften skal også være lett tilgjengelig. I tillegg skal forsiden bestå av en beskrivelse av bedriften, presentasjon av hva de tilbyr og steg for steg om prosessessen med animasjoner. Videre skal nettstedet også ha et kart som er integrert med Google Maps og viser lokasjonen til bedriften. Nederst på nettstedet skal det være organisasjonsnummer, link til personvern og logg inn.
+\textbf{Forside} Tanken er at hele nettstedet i hovedsak skal bestå av en lang forside. Da dette ikke er beste praksis for søkemotoroptimalisering, vil vi forbedre SEO ved å lenke til nye sider som er mer detaljert. Høyt oppe på siden skal det være en knapp til et kontaktskjema. Telefonnummeret til bedriften skal også være lett tilgjengelig. I tillegg skal forsiden bestå av en beskrivelse av bedriften, presentasjon av hva de tilbyr og steg for steg om prosessen. Videre skal nettstedet ha et kart som er integrert med Google Maps og viser lokasjonen til bedriften. Nederst på nettstedet skal organisasjonsnummer, link til personvern og logg inn til CMS-et bli presentert.
 
 \textbf{Meny} Nettstedets meny skal være tilgjengelig uavhengig av hvilken side brukeren står på. Her skal alltid forside, om oss og kontakt oss være tilgjengelig. 
 
-\textbf{Om oss} Det vil også bli opprettet en egen \q{Om oss}-side som man kommer til ved å trykke \q{Les mer} på forsiden. Denne siden inneholder en mer detaljert presentasjon av Sirkus Media og deres historie.
+\textbf{Om oss} Det vil også bli opprettet en egen \q{Om oss}-side som er tilgjengelig via menypunktet \q{Om oss}. Denne siden inneholder en mer detaljert presentasjon av Sirkus Media og deres visjon.
 
-\textbf{Kontakt oss} Nettstedet vil i tillegg til kontaktskjema på forsiden, bestå av en egen side med kontaktinformasjon. Her presenteres også relevant informasjon som bedriftens adresse, e-post, mobilnummer og kart. Vi lager en dedikert side for kontaktinformasjon fordi det er positivt med tanke på søkemotoroptimalisering. For eksempel: Hvis en bruker søker på Google etter Sirkus Media og det ikke er en egen side for kontakt oss, vil brukeren kun få treff på forsiden og undersidene med andre irrelevant temaer. Siden brukeren ønsker å kontakt Sirkus Media,  hadde det vært mer brukervennlig å ha en link til kontakt siden i Google.
+\textbf{Kontakt oss} Nettstedet vil i tillegg til kontaktskjema på forsiden, bestå av en egen side med kontaktinformasjon. Her presenteres også relevant informasjon som bedriftens adresse, e-post, mobilnummer og kart. Vi lager en dedikert side for kontaktinformasjon fordi det er positivt med tanke på søkemotoroptimalisering. For eksempel: Hvis en bruker søker på Google etter Sirkus Media og det ikke er en egen side for kontakt oss, vil brukeren kun få treff på forsiden og undersidene med andre irrelevant temaer. Siden brukeren ønsker å kontakte Sirkus Media, er det mer brukervennlig å ha en link til kontakt siden i Google.
 
-\textbf{Logg inn} Egen side der de ansatte kan logge inn for å komme til brukergrensesnittet for oppdatering og endring av innhold.
+\textbf{Logg inn} Dette er en egen side der de ansatte kan logge inn for å komme til brukergrensesnittet for oppdatering og endring av innhold.
 
 \textbf{Administrasjonsside}  På administrasjonssiden kan de ansatte endre og legge til innhold gjennom et brukergrensesnitt.
 
-\textbf{Informasjon om personvern og informasjonskapsler} Personvernsiden skal inneholde en personvernserklæring. Denner forteller hvordan Sirkus Media samler inn og bruker personopplysninger. Målet er å gi brukerne overordnet informasjon om deres behandling av personopplysninger. I tillegg skal den fortelle brukeren hvilke informasjonskapsler som blir brukt på nettstedet.
+\textbf{Informasjon om personvern og informasjonskapsler} Personvernsiden skal inneholde en personvernserklæring. Denne forteller hvordan Sirkus Media samler inn og bruker personopplysninger. Målet er å gi brukerne overordnet informasjon om deres behandling av personopplysninger. I tillegg skal den fortelle brukeren hvilke informasjonskapsler som blir brukt på nettstedet.
 
-\textbf{Annet} Alle sidene skal ha tilgang til en chat, der man kan ta direkte kontakt med oppdragsgiver.
+\textbf{Annet} Alle sidene skal ha tilgang til en chat, der det er mulig å ta direkte kontakt med bedriften.
 
 \section{Definering av CMS}
-Etter å ha planlagt innholdet måtte studentgruppen sette seg ned og bestemme hvordan systemet skulle fungere. I felleskap kom vi frem til følgende:
+\label{sec-planning-cms}
+Etter å ha planlagt innholdet måtte gruppen sette seg ned og bestemme hvordan systemet skulle fungere. I felleskap kom vi frem til følgende:
 
 \begin{itemize}
 \item CMS-et skal bestå av flere sider (pages).
@@ -85,15 +87,14 @@ Figur \ref{fig:database} viser databasen som ble planlagt for prosjektet:
 
 
 \subsection{Planlegging av API URL-er}
-I felleskap begynte vi å planlegge hvilke linker som API-et skal ha, og hva de skal sende i svar. Det ble derfor utarbeidet en JSON-fil som beskriver strukturen og hvordan data den skal gi i svar for forskjellige forespørsler.
+I felleskap begynte vi å planlegge hvilke linker som API-et skal ha, og hva de skal sende i svar. Det ble derfor utarbeidet en JSON-fil som beskriver strukturen og hvilke data den skal gi i svar for forskjellige forespørsler.
 
-I første omgang ble URL-er for Pages og Menus definerte. Dataene disse gir i svar vil være offentlig. 
+I første omgang ble URL-er for Pages og Menus definerte. Dataene disse gir i svar, vil være offentlig. 
 
 Slik så JSON filen ut når Pages og Menus var definert:
 --- PUTT JSON FIL HER ---
 
 Denne filen er altså kun eksempeldata. Den vil bli brukt til å se på at back-end sender svar på riktig måte. Front-end kan også se på filen for hvilke svar som kan forventes på de forskjellige forespørselene. Fordelen med dette er at det kan lages dummy responses som er mulig å jobbe med underveis i utviklingen.
-
 
 \section{Mockups}
 En del av planleggingsfasen var å lage mockups/skisser av nettstedet. Dette ble laget for forsiden, slik at skissene kunne sendes for å få godkjenning av oppdragsgiver.
@@ -147,6 +148,18 @@ Figur \ref{fig:mockup-v3-contact} viser designet til den planlagte \q{Kontakt os
     \label{fig:mockup-v3-contact}
 \end{figure}
 
+
+\section{Visuell profil}
+Videre ble det opprettet en enkel visuell profil for den godkjente skissen.
+
+\subsection{Logo}
+Figur .. viser logoen som ble utarbeidet.
+
+\subsection{Farger}
+Figur ... viser de utvalgte fargene til oppdragsgiver. Disse fargene ble valgt ut med tanke på å få selskapet til å fremstå som moderne og innovative.
+
+\subsection{Fonter}
+Figur ... viser de utvalgte fontene til oppdragsgiver.
 
 % \section{Innhold}
 

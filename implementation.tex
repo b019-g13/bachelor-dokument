@@ -1,13 +1,12 @@
 \cleardoublepage
-\chapter{Implementasjon / Produksjon / Gjennomføring (Generisk tittel)}
+\chapter{Produksjon av CMS og nettsted}
 \label{chap:implementation} 
-\clearpage
 
 % \meta{
 % Her skal det beskrives hvordan man faktisk produserte resultatene i prosjektet, og viktigst, beskrive selve produktet. Hvilke verktøy brukte man, hvordan foregikk produksjonen, etc. Utformingen av dette kapittelet avhenger helt klart av type prosjekt.
 % }
 
-I dette kapittelet skal vi presentere resultatene i prosjektet og en beskrivelse av nettstedet. Her vil vi også presentere hvilke verktøy vi endte opp med å bruke og hvordan selve produksjonen foregikk.
+I dette kapittelet skal vi presentere resultatene i prosjektet og beskrive CMS og nettstedet. Her vil vi også presentere hvilke verktøy vi endte opp med å bruke og hvordan selve produksjonen foregikk.
 
 \section{Verktøy}
 Vi endte opp med å bruke flere verktøy enn beskrevet i  \ref{sec:technologies}. 
@@ -23,10 +22,10 @@ MySQL \cite{oracle2019am} er et databasestyringssystem med åpen kildekode.
 
 Prosjektets database er en MySQL-database.
 
-\subsection{Let’s Encrypt}
-Let’s Encrypt \cite{le2019ale} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
+% \subsection{Let’s Encrypt}
+% Let’s Encrypt \cite{le2019ale} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
 
-Studentgruppen har benyttet Let's Encrypt til å lage TLS-sertfikater\footnote{Se avsnitt \ref{sec:analysis-security-tls}}.
+% Studentgruppen har benyttet Let's Encrypt til å lage TLS-sertfikater\footnote{Se avsnitt \ref{sec:analysis-security-tls}}.
 
 \subsection{Node.js}
 Node.js er et servermiljø med åpen og gratis kildekode. Node.js kan kjøre på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren \cite{w3schools2019win}. I tillegg kan Node.js generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
@@ -39,17 +38,15 @@ Ved å bruke verktøyene som har blitt presentert benyttes også noen tilhørend
 \subsection{Git}
 Git \cite{TechTarget} er et system for versjonskontroll. Et versjonskontrollsystem blir hovedsaklig brukt under utvikling av software og nettsteder. Det kan også brukes til andre type prosjekter som grafisk design og skriving av dokumenter.
 
-Ved å bruke Git opprettes det historikk over alle endringer, samt en sikkerhetskopi av alle versjoner av filene.
+Ved å bruke Git har vi fått en historikk over alle endringer, samt en sikkerhetskopi av alle versjoner av filene. En annen fordel ved å bruke Git er at det blir enklere å samarbeide med hverandre, uten å måtte tenke på at alle må sitte på nyeste versjon av filene.
 
-En annen fordel ved å bruke Git er at det blir enklere å samarbeide med andre, uten å måtte tenke på at alle må sitte på nyeste versjon av filene.
+% \subsection{Github}
+% GitHub.com er et nettsted for å hoste git repositories, og blir mye brukt for \q{Open Source}-prosjekter. 
 
-\subsection{Github}
-GitHub.com er et nettsted for å hoste git repositories, og blir mye brukt for \q{Open Source}-prosjekter. 
+% Github \cite{TechTarget} er et sentralisert punkt for å samle en brukers repositories. Ved siden av å hoste repositories, lar GitHub brukere dele repositories med hverandre, lage informasjonssider om prosjektet og opprette saker (issues).
 
-Github \cite{TechTarget} er et sentralisert punkt for å samle en brukers repositories. Ved siden av å hoste repositories, lar GitHub brukere dele repositories med hverandre, lage informasjonssider om prosjektet og opprette saker (issues).
-
-\subsection{HTTP/2}
-HTTP/2 \cite{Belshe2015httpv} er en revisjon av HTTP-nettverksprotokollen. HTTP er et sett med regler for overføring av filer (tekst, grafiske bilder, lyd, video og andre mediefiler). Et av de store målene med HTTP/2 var å tillate multipleksing.
+% \subsection{HTTP/2}
+% HTTP/2 \cite{Belshe2015httpv} er en revisjon av HTTP-nettverksprotokollen. HTTP er et sett med regler for overføring av filer (tekst, grafiske bilder, lyd, video og andre mediefiler). Et av de store målene med HTTP/2 var å tillate multipleksing.
 
 \subsection{REST-API}
 Et API (programmeringsgrensesnitt) er et sett med funksjoner, prosedyrer, metoder eller klasser som brukes av dataprogrammer for å be om tjenester fra operativsystemet eller programvare som er på datamaskinen. En programmerer kan bruke API-er til å lage applikasjoner.
@@ -60,16 +57,16 @@ REST (Representational State Transfer) er en arkitektonisk stil for programvare.
 \label{sec:google-analytics}
 Google Analytics \cite{google2019gtk} er en gratis, webbasert tjeneste som gir statistikk og grunnleggende verktøy for analyse av bruksdata, søkemotoroptimalisering og markedsføring.
 
+Dette verktøyet blir av oss brukt til å overvåke hvordan brukerne på nettsiden oppfører seg.
+
 \section{Utviklingen}
 
 Det ble opprettet en \q{Branch protection rule} på back-end repository i Github. Dette gjør at det må kjøres en \q{Code review} før kode kan sendes inn til \q{Master branch}-en. Alle medlemmene på studentgruppen har en egen branch.
 Når koden skal commites må det opprettes en pull request, som må godkjennes. Da blir det mulig å luke ut kode som inneholder feil som potensielt kan ødelegge for eksisterende kode.
 
 \section{Back-end}
-Back-end har blitt utviklet av Bereket og Bjørnar.
-
 \subsection{Installasjon og oppsett av Laravel og tilhørende verktøy}
-Første steg var å installere package manageren Composer. Deretter kunne siste versjon av Laravel (5.7) settes opp og installeres. Fordi vi benyttet oss av Composer ble det mulig å installere Laravel med et par kommandoer i terminalen:
+Første steg var å installere package manageren Composer. Deretter kunne siste versjon av Laravel (5.7) settes opp og installeres. Da vi benyttet oss av Composer ble det mulig å installere Laravel med et par kommandoer i terminalen:
 \begin{lstlisting}[caption={Installasjon av Laravel med Composer},language=bash]
     composer global require laravel/installer
     laravel new sirkus-media-back-end
@@ -126,7 +123,7 @@ For å konfigurere hvilke filer som skal brukes av front-end til Laravel fylte v
     mix.browserSync({ proxy: "localhost:8000", notify: false });
 \end{lstlisting}
 
-Når det nevnes \q{front-end til Laravel} så er det ikke snakk om front-end til nettsiden som lages for Sirkus Media, men front-end til CMS-et.
+Når vi snakker om \q{front-end til Laravel}, er det ikke snakk om front-end til nettsiden som lages for Sirkus Media, men front-end til CMS-et.
 Laravel kommer med en del dependencies til front-end som vi ikke trenger. Alle dependencies defineres i package.json. Følgende dependencies ble fjernet: Bootstrap, jQuery, lodash, Popper, Vue. Det ble kun lagt til en dependency; Shopify sin Draggable pakke. BrowserSync ble også lagt til som en devDependency.
 
 \begin{lstlisting}[caption={Orginal package.json}]
@@ -189,7 +186,7 @@ Eloquent\footnote{\url{https://laravel.com/docs/5.8/eloquent}} er Laravel sitt O
 For å definere slike forhold brukte vi de innebygd metodene til Laravel som: belongsToMany, hasOne, belongsTo og hasMany. For eksempel av bruk, se følgende kode:
 \lstinputlisting[caption={Laravel modell med et forhold}, language=php]{laravel-code-examples/model-relationship.php}
 
-\subsubsection{Testing av migration filer}
+\subsubsection{Test av migration filer}
 Første gang vi kjørte migration dukket det opp en feil:
 \begin{lstlisting}[caption={Feilmelding i Laravel ved kjøring av migration},language=PHP]
 Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
@@ -207,17 +204,16 @@ Denne feilen viste seg å være relativt vanlig og kom av at vi kjørte en eldre
     }
 \end{lstlisting}
 
-\subsubsection{Testing av forhold mellom modellene}
-Når alle forhold var ferdig definert og migration filene kjørte uten feil, fylte vi databasen med data for å teste at alle forhold var riktig satt opp. Da støtte vi på en feil relatert til vår bruk av UUID som primary key i stedet for en inkrementerende integer i flere av modellene. Når vi forsøkte å lagre en modell til databasen fikk vi denne feilen:
+\subsubsection{Test av forhold mellom modellene}
+Når alle forhold var ferdig definert og migration-filene kjørte uten feil, fylte vi databasen med data for å teste at alle forhold var riktig satt opp. Da støtte vi på en feil relatert til vår bruk av UUID som primærnøkkel i stedet for en inkrementerende integer i flere av modellene. Når vi forsøkte å lagre en modell til databasen fikk vi denne feilen:
 \begin{lstlisting}[language=PHP]
     SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value ...
 \end{lstlisting}
 
-Feilen kom av hvordan Laravel har satt opp standardmodell alle modeller baserer seg på.
-Vi måtte finne en måte å si at alle modeller som brukte UUID har primary key av typen string, ikke skal inkrementeres og samtidig automatisk generere en UUID ved lagring. Den beste måten vi fant å gjøre dette på var ved å lage en trait. Følgende fil ble opprettet:
+Feilen kom av hvordan Laravel har satt opp standardmodellen alle modeller baserer seg på. Vi måtte derfor finne en måte å si at alle modeller som brukte UUID har primærnøkkel av typen string, ikke skal inkrementeres. Samtidig skal det genereres en UUID automatisk ved lagring. Den beste måten vi fant å gjøre dette på var ved å lage en trait. Følgende fil ble opprettet:
 \lstinputlisting[caption={Trait for å håndtere UUID for Larvel-modeller}, language=php]{laravel-code-examples/trait-uuid.php}
 
-Når trait-en var definert, kunne vi inkludere den i alle modeller som brukte UUID som primærnøkkel, som vist i figur under, så var problemet løst.
+Nå som trait-en var definert, kunne vi inkludere den i alle modeller som brukte UUID som primærnøkkel. Dette blir vist i koden under. Problemet var dermed løst.
 \begin{lstlisting}[caption={Bruk av UUID trait i modell}, language=PHP]
     <?php
 
@@ -234,50 +230,44 @@ Når trait-en var definert, kunne vi inkludere den i alle modeller som brukte UU
 Etter de overnevnte problemene ble løst, støtte vi ikke på noen flere nevneverdige problemer rundt forhold mellom modeller.
 
 \subsection{Oppsett av autentisering}
-Med databasen og forhold mellom modeller på plass var vi klare for å begynne utviklingen av selve CMS-et, men vi bestemte oss for å først sette opp autentisering da dette er enklere å implementere fra starten av, fremfor å gjøre det til slutt.
-Laravel gir oss veldig mye gratis på dette området, ved å kjøre en kommando settes alt vi trenger opp:
+Med databasen og forhold mellom modeller på plass, var vi klare for å begynne utviklingen av selve CMS-et. Vi bestemte oss for å først sette opp autentisering da dette er enklere å implementere fra starten av, fremfor å gjøre det til slutt.
+Laravel gir oss mye hjelp på dette området. Ved å kjøre en kommando settes alt vi trenger opp:
 \begin{lstlisting}[language=PHP]
     php artisan make:auth
 \end{lstlisting}
-Etter å ha kjørt kommandoen over får vi nødvendige controllere og views for login og registrering av brukere, samt system for tilbakestilling av passord.
+Etter å ha kjørt kommandoen over, fikk vi de nødvendige controllere og views for innlogging og registrering av brukere, samt system for tilbakestilling av passord.
 
 \subsubsection{Brukerroller}
-Autentisering var nå klart, men vi hadde ingen måte å skille rettighetene til de forskjellige brukerene på, dette er ikke funksjonalitet som følger med Laravel. Vi fant derfor en PHP pakke: Laravel-Permission\footnote{\url{https://github.com/spatie/laravel-permission}} fra Spatie. Denne pakken utvider Laravel til å støtte brukerroller og kan installeres med Composer. Laravel-Permission gjør det mulig å opprette roller og knytte rettigheter til hver rolle, vi benytter oss kun av roller og har definert de følgende rollene: superadmin, admin, moderator og user.
-* User endte opp med å ikke brukt, ligger forsatt tilgjenglig for å gjøre det enklere å utvide systemet videre.
-* Moderator har tilgang til å opprette, redigere og slette sider og menyer.
-* Admin har samme tilgang som moderator og kan i tilleg registrere nye brukere.
-* Superadmin har tilgang til alt. Det vil si at de i tilleg til å kunne gjøre alt det overnevnte, kan lage komponenter, felter og meny lokasjoner, samt at de kan definere hvilke felter en komponent skal ha.
-
-\subsection{API}
-Vi definerte et API som lot oss hente ut data fra CMS-et og bygge en front-end.
-Det ble satt opp en prefix for alle API forespørsler, slik at man kan videreutvikle systemet uten å ødelegge for eksisterende løsninger. Alle forespørsler til API-et som vi har lagd må starte med /api/v1.
-
-API-et krever ingen autenisering, men forespørsler tillates kun fra spesefikke \textit{origins}. Når prosjektet settes ut i produksjonsmiljø vil forespørsler kun tillates fra \url{https://sirkusmedia.no} og \url{https://www.sirkusmedia.no}. Dette definers i .env filen.
-
-Man hente ut data fra følgende lenker:
+Selv om autentiseringen var klar, hadde vi ingen måte å skille rettighetene til de forskjellige brukerene på. Dette er heller ikke funksjonalitet som følger med Laravel. Vi fant derfor en PHP pakke: Laravel-Permission\footnote{\url{https://github.com/spatie/laravel-permission}} fra Spatie. Denne pakken utvider Laravel til å støtte brukerroller og kan installeres med Composer. Laravel-Permission gjør det mulig å opprette roller og knytte rettigheter til hver rolle. Vi definerte kun roller og satte følgende: superadmin, admin, moderator og user.
 \begin{itemize}
-  \item pages - Henter ut en liste med alle sider. Hver side i listen holder følgende: id, slug, link, tittel, bilde, dato opprettet og dato sist redigert.
-  \item pages/\{\{ID\}\} - Henter ut en spesefikk side. Inneholder data om alle komponentene som er på siden og verdien til feltene til komponentene.
-  \item menus - Henter ut en liste med alle menyer og deres lokasjon.
-  \item menus/\{\{ID\}\} - Henter ut en spesefikk meny. Her følger med alle linker som menyen har.
+\item User endte opp med å ikke bli brukt, ligger forsatt tilgjengelig for å gjøre det enklere å utvide systemet videre.
+\item Moderator har tilgang til å opprette, redigere og slette sider og menyer.
+\item Admin har samme tilgang som moderator og kan i tilleg registrere nye brukere.
+\item Superadmin har tilgang til alt. Det vil si at de i tillegg til å kunne gjøre alt det overnevnte, kan lage komponenter, felter og meny lokasjoner, samt at de kan definere hvilke felter en komponent skal ha.
 \end{itemize}
 
-\subsection{Utvikling av Content Managment System}
-CMS-et endte opp å bli som planlagt, det var kun en ting som ble lagt til som ikke var planlagt. Vi endte opp med å legge til muligheten til å gi kallenavn til felter som tilhører komponenter. Dette ble gjort for å gjøre det enklere for sluttbruker å redigere sider.
 
-En ekstra ting som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image modellen. For å sette verdien til dette feltet på riktig måte trenger man en ID til
-et bilde i \q{images} tabellen. Alt dette tar bildevelgeren seg av, samt at den gjør det enkelt å laste opp nye bilder.
+\subsection{API}
+Vi definerte et API som lot oss hente data fra CMS-et og bygge front-end. Det ble satt opp en prefix for alle API-forespørsler, slik at systemet kan videreutvikles uten å ødelegge for eksisterende løsninger. Alle forespørsler til API-et må starte med /api/v1.
 
---- BILDE AV MEDIA PICKER HER ---
+API-et krever ingen autentisering, men forespørsler tillates kun fra spesifikke \textit{origins}. Når prosjektet settes ut i produksjonsmiljø vil forespørsler kun tillates fra \url{https://sirkusmedia.no} og \url{https://www.sirkusmedia.no}. Dette defineres i .env filen.
 
-\clearpage
+Følgende lenker kan hentes ut:
+\begin{itemize}
+  \item pages - Henter ut en liste med alle sider. Hver side i listen holder følgende: id, slug, link, tittel, bilde, dato den ble opprettet og dato som den sist ble redigert.
+  \item pages/\{\{ID\}\} - Henter ut en spesifikk side. Inneholder data om alle komponentene som er på siden og verdien til feltene til komponentene.
+  \item menus - Henter ut en liste med alle menyer og deres lokasjon.
+  \item menus/\{\{ID\}\} - Henter ut en spesifikk meny. Her følger med alle linker som menyen har.
+\end{itemize}
+
+\section{Oppsett av chat}
+
+\section{Oppsett av kontaktskjema}
 
 %--- Bjørnar kladd ---
 %\input{bjornar/kladd}
 
 \section{Front-end}
-Front-end ble i hovedsak gjort av Line, med god hjelp av Bjørnar. 
-
 \subsection{Oppsett av React og tilhørende verktøy}
 
 Det første som ble gjort i denne prosessen var å laste ned Node.js\footnote{\url{https://nodejs.org/en/}}. I dette prosjektet blir ikke Node brukt som en back-end tjeneste eller server, men for å kunne kjøre alle verktøy som må til for å kunne utvikle lokalt på datamaskinen. Det var den nyeste versjonen (11.9.0) som ble lastet ned. Deretter ble nettleserutvidelsen React Developer Tools lagt til fra  webstoren til Google Chrome. Det ble også opprettet et repository på Github og lastet ned på maskinen ved hjelp av GitKraken. 
@@ -291,7 +281,7 @@ npm start
 \end{lstlisting}
 
 Det oppstod problemer når kommandoen \q{npx create-react-app my-app} skulle kjøres, og det kom flere og lange feilmeldinger. Dette måtte undersøkes nærmere, og etter et Google-søk på deler av feilmeldingen ble det oppdaget en sak på Github som omhandlet samme problem\footnote{\url{https://github.com/facebook/react/issues/11933}}.
-Løsningen var å installere yarn og create-react-app globalt med yarn. La så til følgende i windows PATH så kommandoen kunne kjøres:
+Løsningen var å installere yarn og create-react-app globalt med yarn. Vi la så til følgende i windows PATH, så kommandoen kunne kjøres:
 \begin{lstlisting}
 C:\\Users\Datahjelpen AS\AppData\Local\Yarn\bin
 \end{lstlisting}
@@ -304,7 +294,7 @@ Dette løste problemet og prosessen kunne fortsette. Da ble følgende gjort:
 
 Etter disse stegene begynte planleggingen av de forskjellige komponentene.
 
-\section{Planlegging av komponenter}
+\subsection{Planlegging av komponenter}
 Komponenter i React kan beskrives som gjenbrukbare biter av kode. En stor fordel med komponenter er at de er mulig å gjenbruke, slik at det ikke lenger er nødvendig å skrive den samme koden flere ganger. 
 
 Ved å se på den godkjente mockupen ble følgende komponenter fastsatt: 
@@ -322,17 +312,17 @@ Ved å se på den godkjente mockupen ble følgende komponenter fastsatt:
 \item Actions til actionsbox
 \end{itemize}
 
-\section{Oppretting av components}
+\subsection{Oppretting av components}
 Prosessen med oppretting av komponenter startet med å lage en samlemappe som ble kalt \q{components}, som ligger i mappen src. For hver komponent ble det laget en ny undermappe som inneholdt koden til selve komponenten og eventuelt tilhørende stilark.
 
-\section{Ruting (Routing)}
+\subsection{Ruting (Routing)}
 Ruting er et mønstergjenkjenningssystem som tar seg av innkommende forespørsler og sender de til spesifikke kontroller-funksjoner. Ruting er ikke innebygd i React. Det ble derfor laget en Router.js-fil i components-mappa. Etter dette ble følgende kommando kjørt:
 
 \begin{lstlisting}[caption={Installering av React ruting},language=bash]
 npm install react-router-dom
 \end{lstlisting}
 
-Importerte deretter react-router-dom i filen Router.js
+Deretter kunne vi importere react-router-dom i filen Router.js:
 
 \begin{lstlisting}[caption={Importering av react-router-dom},language=bash]
 import {BrowserRouter, Route, Switch} from "react-router-dom";
@@ -344,43 +334,43 @@ For å kunne snakke og bruke foreløpig backend ble Axios\footnote{Se mer i avsn
 
 Deretter ble det satt opp en dynamisk ruting, ved hjelp av en løkke som går igjennom alle eksisterende sider og setter opp linker til disse.
 
-\section{Installering av Axios}
+\subsection{Installering av Axios}
 Axios blir i vårt system brukt til å sende forespørsler til back-end. Dette biblioteket ble installert ved å kjøre kommandoen under.  Kommandolinjevindu må åpnes i filstilen der mappa til prosjektet er plassert.
 \begin{lstlisting}[caption={Installering av Axios},language=bash]
 npm install axios
 \end{lstlisting}
 
 
-\section{Page components}
+\subsection{Page components}
 
-Det ble opprettet et objekt som inneholder alle komponentene som er definert i databasen. Ved å loope igjennom alle komponentene til en side, ble det da mulig å sjekke om navnene samsvarte. Hvis de gjorde dette vil det kjøres en løkke som går igjennom alle feltene en komponent inneholder. Til slutt blir alle komponentene til en side, med riktige props\footnote{Props i React brukes til å sende med utvalgt data til en komponent} skrevet ut.  
+Det ble opprettet et objekt som inneholder alle komponentene som er definert i databasen. Ved å loope igjennom alle komponentene til en side, ble det da mulig å sjekke om navnene samsvarte. Hvis de gjør dette, vil det kjøres en løkke som går igjennom alle feltene en komponent inneholder. Til slutt blir alle komponentene til en side, med riktige props\footnote{Props i React brukes til å sende med utvalgt data til en komponent} skrevet ut.  
 
 Før det ble opprettet et objekt som inneholdt alle eksisterende components, ble det forsøkt å kun hente ut angitt komponenter til siden i back-end og så opprette components ut av dette. Da fikk vi følgende feil:
 \begin{lstlisting}
 <HeaderComponent /> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements.
 \end{lstlisting}
 
-Feilmeldingen var at komponenten brukte feil casing, noe som ikke var riktig da man i feilmeldingen også kunne se at \q{\textless HeaderComponent /\textgreater} er skrevet på riktig måte. Etter en del feilsøking, fant vi ingen som hadde løst dette problemet tidligere. Endte derfor opp med å opprette objektet som inneholder alle komponentene. 
+Feilmeldingen var at komponenten brukte feil casing, noe som ikke var riktig da feilmeldingen viste at \q{\textless HeaderComponent /\textgreater} var skrevet på riktig måte. Etter en del feilsøking, fant vi ingen som hadde løst dette problemet tidligere. Vi endte derfor opp med å opprette objektet som inneholder alle komponentene. 
 
 I tillegg til å finne ut av hvilke komponenter som tilhører siden, må man i tillegg finne ut av hvilke felter som tilhører hvilke komponenter. Dette blir satt i back-end. I løkka som går igjennom objektene ble det derfor lagt til en ny løkke, som går igjennom og lagrer alle tilhørende felter til en komponent i en array. Denne arrayen blir så sendt videre som props i de ulike komponentene.
 
-\section{Child components}
-I systemet vårt kan et komponent ha flere \q{barn}. Det å ha komponenter som er barn av en komponent gjør at disse har et forhold til hverandre. Da blir det mulig å putte forskjellig innhold inn i en felles seksjon.
+\subsection{Child components}
+I systemet vårt kan en komponent ha flere \q{barn}. Det å ha komponenter som er barn av en komponent gjør at disse har et forhold til hverandre. Da blir det mulig å putte forskjellig innhold inn i en felles seksjon.
 
-\section{Felter med samme navn}
+\subsection{Felter med samme navn}
 Underveis i prosessen ble det oppdaget at hvis en komponent hadde den samme felttypen flere ganger, ville bare den siste verdien bli skrevet ut. En komponent vil ofte bestå av for eksempel flere tekstfelt, og derfor måtte vi finne en måte å løse dette på.
 
 Løsningen ble en betingelsetest der det blir sjekket om samme felttype er til stede flere ganger. Hvis denne blir sann, vil feltene med verdier bli lagt til i en array. 
 
-\section{Utskrift av tomme felter}
+\subsection{Utskrift av tomme felter}
 Videre i prosessen ble det oppdaget at hvis en prop ikke innholdt en verdi, ville feltet fortsatt bli skrevet ut. Dette førte til at nettstedet inneholdt mange tomme HTML-tagger. Brukervennligheten på for eksempel skjermlesere hadde blitt betraktelig dårligere, så derfor måtte dette gjøres om. Løsningen ble å gjøre en betingelse-test på hver prop, for å sjekke om den innholdt en verdi. Da ble det mulig å kun skrive ut om dette var oppfylt.
 
-\section{Testing}
-For å teste systemet ble header-komponenten laget. Når denne ble opprettet både i objektet og back-end, ble alle props/feltene som blir mottatt fra komponenten skrevet ut. Dette betydde at Header-komponenten fungerte som den skulle, og vi kunne starte med å legge til resten av komponentene på den samme måten. 
+\subsection{Testing}
+For å teste systemet, ble header-komponenten laget. Når denne ble opprettet både i objektet og back-end, ble alle props/feltene som blir mottatt fra komponenten skrevet ut. Dette betydde at Header-komponenten fungerte som den skulle, og vi kunne starte med å legge til resten av komponentene på samme måte. 
 
-Da kunne vi også begynne å style slik komponentene slik at de ligner mockupen som ble laget.
+Da kunne vi også begynne å style komponentene slik at de ligner mockupen som ble laget.
 
-\section{Kompilere SCSS til CSS}
+\subsection{Kompilere SCSS til CSS}
 Gruppen har tidligere nevnt at det ble besluttet å bruke SASS til styling. Da er det nødvendig å ha noe som kompilerer fra SCSS til CSS. Dette ble oppnådd ved å følge guiden hos TechCookbook\footnote{\url{https://techcookbook.com/react/use-scss-with-create-react-app}}
 
 Installerte først node-sass ved å kjøre :
@@ -410,10 +400,35 @@ En test ble gjort ved å lage en fil som het "header.scss" og satte bakgrunnsfar
 }
 \end{lstlisting}
 
-\section{Styling}
-Designet til nettstedet ble stylet ved hjelp av SCSS, og er så lik den godkjente mockupen som mulig. Designet er også responsivt og fungerer derfor like godt på en stor skjerm, laptop, nettbrett og mobil. For stylingen ble prinsippet \q{mobil først} benyttet. Dette prinsippet går ut på at utviklingen først skjer for små skjermer, for deretter å skalere opp og gjøre designendringer når det er nødvendig. 
+\subsection{Styling}
+Designet til nettstedet ble stylet ved hjelp av SCSS, og er så lik den godkjente mockupen som mulig. Designet er også responsivt og fungerer derfor like godt på stor skjerm, laptop, nettbrett og mobil. For stylingen ble prinsippet \q{mobil først} benyttet. Dette prinsippet går ut på at utviklingen først skjer for små skjermer, for deretter å skalere opp og gjøre designendringer når det er nødvendig. 
+
+\subsection{Ikoner og illustrasjoner}
+Alle ikoner er hentet fra Feather\footnote{\url{https://feathericons.com/}}, som er en ikonpakke med åpen kildekode. Alle illustrasjoner er hentet fra unDraw. På nettsiden til unDraw oppgir de at både private og kommersielle kan bruke og modifisere illustrasjonene gratis\footnote{\url{https://undraw.co/license}}. Siden disse er av filtypen SVG har vi hatt muligheten til å tilpasse fargene på illustrasjonene til å passe designet til nettstedet.
+
+\section{Første versjon av CMS og nettsted}
+Figur \ref{fig:first-version-cms} viser første versjon av CMS-et og figur \ref{fig:first-version-website} viser første versjon av nettstedet.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{first-version-cms.png}
+    \caption{Screenshot - første versjon av CMS-et}
+    \label{fig:first-version-cms}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{versjon-1-nettsted.png}
+    \caption{Screenshot - første versjon av nettstedet}
+    \label{fig:first-version-website}
+\end{figure}
+
+CMS-et endte opp med å bli som planlagt i avsnitt \ref{sec-planning-cms}. Det var kun en ekstra funksjonalitet som ble lagt til, muligheten til å gi kallenavn til felter som tilhører komponenter. Dette gjør det enklere for sluttbruker å redigere sider. En funksjonalitet som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image-modellen. For å sette verdien til dette feltet på riktig måte, trenger man en ID til et bilde i \q{images}-tabellen. Alt dette tar bildevelgeren seg av, samt at den gjør det enkelt å laste opp nye bilder.
+
+--- BILDE AV MEDIA PICKER HER ---
 
 
+Nettstedet endte også opp som vi planla i avsnitt \ref{sec:planning-website}. Både forsiden, menyen, om- og kontakt oss siden ble utviklet uten avvik. Videre innholder footeren en link som fører til logg inn til administrasjonsgrensesnittet. Det har også blitt opprettet sider for personvern og informasjonskapsler. Disse innholder tekst fra den opprinnelige nettsiden til oppdragsgiver. Nettstedet består i tillegg av en chat, der meldingene blir sendt direkte til en e-postadresse.
 % \section{Utredning}
 
 % \meta{

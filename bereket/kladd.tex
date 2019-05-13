@@ -421,4 +421,120 @@ For å lage kontrolleren ble det kjørte koden
 php artisan make:controller SendEmailController i komandolinjen.
 Lagte kontakt skjema og skrev kode i kontrolleren som sender epost fra kontakt skjemaet til epost. I routes/web.php defineres det ruter for webgrensesnitt.
 
+Kunder kan velge å sende kontaktinformasjonen sin via kontaktskjema som ligger både på forsiden og \q{Kontakt oss}-siden, slik at Sirkus Media kan ta kontakt med dem. Dette ble gjort ved å opprette en kontroller med navn SendEmailController. For å lage kontrolleren ble følgende kode kjørt i kommandolinjevindu:
+\begin{lstlisting}[language=bash]
+php artisan make:controller SendEmailController
+\end{lstlisting}
+
+\subsection{Testing av ferdig nettside}
+Den nye ferdig nettsiden ble testet på samme måte og verktøy som  vi testet på nåværende nettsiden. 
+
+Bildet viser nettsiden på pc og mobil
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bereket/Nettsted-i-pc-og-mobil.png}
+    \caption{Nettstedet i pc og mobil}
+    \label{fig:analysis-current-lightouse-summary}
+\end{figure}
+\subsubsection{Google chrome Devtools}
+Med Google Chrome DevTools testet det hastigheten til siden. Brukte trådløs nettverk med hastighet 19.1Mbps download og 8.3 upload målt med telenor sin hastighetsmåler. 
+Resultatene måles i millisekunder.
+\begin{lstlisting}
+    Test    DOMContentLoad	Load
+    1	    172			    171
+    2   	177			    176
+    3   	158			    162
+    4	    182			    182
+    5	    181			    180
+    6	    199			    205
+    7	    179			    179
+    8	    185			    188
+    9	    188			    187
+    10	    165			    164
+
+    Gjennomsnitt 
+    DOM 178,6 ms 
+    Load  179,4 ms
+\end{lstlisting}
+
+Innlastningstiden til DOM beskriver hvor lang tid det tar for nettleseren a lese gjennom og å analysere HTML-koden til nettsiden. Load vil si hvor lang tid det tar å laste inn DOM sammen med alle bilder, stilark, scripts og iframes.
+
+\subsubsection{Test med Google Lighthouse}
+Har tatt test ved hjelp av Google Lighthouse verktøy. Skjermbildet viser oppsummering av resultatene etter å ha kjørt testen og viser at nettstedet får gode poengsummer på områdene tilgjengelighet, ytelse, beste praksis og SEO.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bereket/Lighthouse-rapport-ny-nettsted.png}
+    \caption{Resultater fra Google Lighthouse}
+    \label{fig:analysis-current-lightouse-summary}
+\end{figure}
+
+\subsubsection{Checkbot}
+Oppsummering av resultatene etter testing med  Checkbot viser en god poengsum i gjennomsnitt. Den tester SEO, hastighet og sikkerhet.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bereket/Checkbot-test-ny-nettsted.png}
+    \caption{Resultater fra checkbot}
+    \label{fig:analysis-current-lightouse-summary}
+\end{figure}
+
+\subsubsection{Color Contrast Analyser}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bereket/contrast-wcag-aa-small.png}
+    \caption{Small non bold text for nivå AA}
+    \label{fig:analysis-current-lightouse-summary}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bereket/contrast-wcag-aaa-small.png}
+    \caption{Small non bold text for nivå AAA}
+    \label{fig:analysis-current-lightouse-summary}
+\end{figure}
+
+\subsubsection{WAVE}
+Ved testing med wave ble det ingen feil. Det er bare to varslinger. Den ene varsler om det ikke finnes header-tag (h1-h6) og den andre handler om  javascript.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bereket/Wave-test-ny-nettsted.png}
+    \caption{Resultat fra WAVE}
+    \label{fig:analysis-current-lightouse-summary}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bereket/Wave-test-varsel-ny-nettsted.png}
+    \caption{Varslinger fra WAVE}
+    \label{fig:analysis-current-lightouse-summary}
+\end{figure}
+
+\subsubsection{Kontrastforhold mellom tekst og bakgrunn}
+Brukte Google Chrome DevTools for å teste kontastforhold mellom tekst og bakgrunn og viser resultatet på bildet. Noen av tekstene er  ikke oppfyller kontrast kravet for AA og AAA. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bereket/Kontrast-test.png}
+    \caption{Varslinger fra WAVE}
+    \label{fig:analysis-current-lightouse-summary}
+\end{figure}
+
+\subsubsection{Qualys SSL Server Test}
+Resultatet etter testing med Qualys SSL Server viser en A+. Nåværende nettsiden viser A og blir forbedret til A++. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bereket/QSST-test.png}
+    \caption{Sertifikat score}
+    \label{fig:analysis-current-lightouse-summary}
+\end{figure}
+\subsubsection{Test med skjermleser}
+Nettsiden ble testet med skjermleser (Ease of Access). Det er enkelt  å navigere seg rundt på nettsiden og innholdet kommer i en logisk rekkefølge. (Skip til innhold?) 
+
+\subsubsection{Konklusjon}
+Etter at vi tok en test med Google Chrome DevTools, Google Lighthouse og Checkbot og så resultatet, kan vi si at nettsiden er rask. Når vi sammenligner testresultatet fra nåværende nettsiden og den nye nettsiden, har den nye nettsiden fått bedre score i de fleste tilfeller. Ved testing med Google Lighthouse får den nye nettsiden fikk bedre resultat på ytelse, beste praksis og tilgjengelighet. I SEO fikk nåværende nettsiden bedre resultat. Grunnen til dette er at dagens nettsted består av kun en forside og lite informasjon. Dette begrenser muligheten for feil. 
+Checkbot testresultatet viser at 77\% i gjennomsnitt på den nye nettsted, mens dagens nettsted scoret 70\%. 
+WAVE rapporterer om 20 kontrastfeil, 1 dokument språk mangler, 4 tomme linker og 5 redudante linker på dagens nettsiden og ingen feil på den nye.
+Qualys SSL Server Test viser A på dagens nettsted og A+ på den nye nettsted.
+
+Full rapport for Google Lighthouse testen kan leses i vedlegg X (KOMMER).
+
 \clearpage

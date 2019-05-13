@@ -8,6 +8,7 @@
 \usepackage{hiofreport}
 \usepackage{makeidx}
 \usepackage{pdfpages}
+%\usepackage{subfiles}
 
 \usepackage{float}
 
@@ -40,7 +41,7 @@
     %\includegraphics[width=\paperwidth]{titlepage.png}
     \maketitle
     %\input{preface} % TO BE REMOVED IN FINAL REPORT
-    \cleardoublepage % TO BE REMOVED IN FINAL REPORT
+    % \cleardoublepage % TO BE REMOVED IN FINAL REPORT
     \input{abstract}
     \addcontentsline{toc}{chapter}{Sammendrag}
     %-------------------------------------------------
@@ -68,7 +69,7 @@
     \addcontentsline{toc}{chapter}{Kodeliste}
     \cleardoublepage
     %-------------------------------------------------
-       
+
     \pagenumbering{arabic} % DO NOT CHANGE, OR REMOVE IF CHANGING STYLE
     \setcounter{page}{1}       % DO NOT CHANGE, OR REMOVE IF CHANGING STYLE 		
 	
@@ -77,13 +78,15 @@
     %-------------------------------------------------
     % \input{bereket/kladd}
     % \input{line/kladd}
-    \input{introduction}
-    \input{analysis}
-    \input{design}
-    \input{implementation}
-    \input{evaluation}
-    \input{discussion}
-    \input{conclusion}
+    
+    \include{introduction}
+    \include{analysis}
+    \include{design}
+    \include{implementation}
+    \include{evaluation}
+    \include{discussion}
+    \include{conclusion}
+
     %-------------------------------------------------
 
 
@@ -100,10 +103,11 @@
     \cleardoublepage    
     %To make a good index is quite laborsome, and perhaps a bit outside the scope in this context    
     \printindex
-    \addcontentsline{toc}{chapter}{Register}
+    % \addcontentsline{toc}{chapter}{Register}
     \cleardoublepage    
     \appendix
-    %\input{how-to}
+    \include{brukerveiledning/brukerveiledning-cms}
+    %\include{discussion}
     %-------------------------------------------------
     
     \cleardoublepage %DO NOT CHANGE
