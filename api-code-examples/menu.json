@@ -1,0 +1,32 @@
+{
+  "id": "282fa63f-4675-414b-9fd6-97c371b76f08",
+  "name": "FooterMenu",
+  "global": 1,
+  "page_id": null,
+  "menu_location": {
+    "id": 2,
+    "name": "Footer 1",
+    "slug": "footer-1"
+  },
+  "links": [
+    {
+      "id": "0ca8cc7c-52b5-4e0c-ace0-a73ea8cd90de",
+      "name": "Om oss",
+      "value": "/om-oss",
+      "page_id": "2c8c3bb0-35c2-4cf3-81b2-de86fde7d0bf",
+      "page": {
+        "id": "2c8c3bb0-35c2-4cf3-81b2-de86fde7d0bf",
+        "title": "Om oss",
+        "image_id": null,
+        "slug": "om-oss",
+        "url": "/om-oss"
+      }
+    },
+    {
+      "id": "44c19043-db33-4b24-8636-a8b54ddfbc79",
+      "name": "VG",
+      "value": "/vg.no",
+      "page_id": null
+    }
+  ]
+}

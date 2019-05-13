@@ -1,0 +1,29 @@
+{
+  "current_page": 1,
+  "data": [
+    {
+      "id": "6027b954-c163-4d88-ba5b-7a9de0b79c12",
+      "title": "Eksempelside",
+      "image_id": null,
+      "slug": "eksempelside",
+      "url": "/eksempelside"
+    },
+    {
+      "id": "7cc7764d-9ba5-4264-9081-3a09716422c1",
+      "title": "Eksempelside 2",
+      "image_id": "5aceeebb-b446-4a2c-a73d-c34eaac2bba6",
+      "slug": "eksempelside-2",
+      "url": "/eksempelside-2"
+    }
+  ],
+  "first_page_url": "https://api.sirkusmedia/v1/pages?page=1",
+  "from": 1,
+  "last_page": 1,
+  "last_page_url": "https://api.sirkusmedia/v1/pages?page=1",
+  "next_page_url": null,
+  "path": "https://api.sirkusmedia/v1/pages",
+  "per_page": 30,
+  "prev_page_url": null,
+  "to": 6,
+  "total": 6
+}

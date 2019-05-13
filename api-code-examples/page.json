@@ -1,0 +1,71 @@
+{
+  "id": "70b45425-df0b-4785-bba1-dce2142339a4",
+  "title": "Eksempelside",
+  "slug": "eksempelside",
+  "image_id": null,
+  "menu": null,
+  "components": [
+    {
+      "order": 0,
+      "slug": "header",
+      "children": [
+        {
+          "order": 0,
+          "slug": "icon-text",
+          "fields": [
+            {
+              "order": 0,
+              "slug": "img",
+              "value": {
+                "attribute_alt": "ikon alt attr",
+                "url": "https://api.sirkusmedia.no/images/ikon.svg"
+              }
+            },
+            {
+              "order": 1,
+              "slug": "p",
+              "value": "Ikon med tekst"
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "order": 0,
+          "slug": "img",
+          "value": {
+            "attribute_alt": "",
+            "url": "https://api.sirkusmedia.no/images/header-bilde.jpg"
+          }
+        },
+        {
+          "order": 1,
+          "slug": "h1",
+          "value": "En overskrift"
+        },
+        {
+          "order": 2,
+          "slug": "p",
+          "value": "Lorem ipsum dolor sit amet."
+        },
+        {
+          "order": 3,
+          "slug": "p",
+          "value": "Consectetur adipiscing elit. Nulla molestie, diam vel consectetur!"
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "slug": "cards",
+      "children": [],
+      "fields": []
+    },
+    {
+      "order": 2,
+      "slug": "list",
+      "children": [],
+      "fields": []
+    }
+  ]
+}

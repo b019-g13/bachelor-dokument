@@ -321,13 +321,11 @@ Figur \ref{fig:analysis-current-lightouse-summary} viser oppsummering av resulta
     \label{fig:analysis-current-lightouse-summary}
 \end{figure}
 
-Ikonet for \q{Progressive Web App} har en feil, slik at man ikke får sett scoren. Ved hjelp av en JSON-fil\footnote{Se JSON-fil, linje 3386 (KOMMER)} som inneholder resultatene, ser man at poengsummen er på 58\%.
+Ikonet for \q{Progressive Web App} har en feil, slik at man ikke får sett scoren. Ved hjelp av en JSON-fil som inneholder resultatene, ser man at poengsummen er på 58\%.
 
 Denne delen av testen er ikke relevant\footnote{Nettstedet til Sirks Media er ikke, og kommer ikke til å bli en progressiv webapplikasjon.}, og vi vil derfor ikke se på eller nevne den i de andre tekniske analysene som bruker Google Lighthouse.
 
 I rapporten kan vi se at Google laster inn nettsiden på 2,7 sekunder og at det tar 4,9 sekunder før siden blir beregnet som interaktiv. Hovedproblemet til siden er bruken av \q{render-blocking resources}. Dette kan lett fikses og kan i følge Google spare 1,34 sekunder. Google påpeker også at det finnes 3 sikkerhetshull i JavaScript-biblioteker som blir brukt på nettsiden. Dette er ikke ønskelig, da dette øker risikoen for uønskede hendelser.
-
-Full rapport for Google Lighthouse testen kan leses i vedlegg X (KOMMER).
 
 \subsection{Checkbot}
 Checkbot \cite{checkbot2019cth} tester sikkerheten, hastigheten og søkemotoroptimalisering for en nettside. Checkbot kan sjekke hundrevis av sider på minutter for å se etter ødelagte koblinger, duplikat innhold, ugyldig HTML og usikre skjemaer.
@@ -339,7 +337,7 @@ Checkbot \cite{checkbot2019cth} tester sikkerheten, hastigheten og søkemotoropt
     \label{fig:analysis-current-checkbot-summary}
 \end{figure}
 
- Figur \ref{fig:analysis-current-checkbot-summary} viser en oppsummering av resultatene fra Checkbot. En mer detaljert rapport kan leses under vedlegg X (KOMMER). Denne testen viser en god poengsum når det gjelder totalt for gjennomsnittet. Isolert sett ser vi at sikkerheten til nettstedet drar ned gjennomsnittet betydelig. Den fulle rapporten viser at dette kommer av at nettsiden ikke bruker HSTS, \q{content sniffing protection}, \q{clickjack protection}, \q{XSS protection} og at den ikke skjuler server-versjon data.
+ Figur \ref{fig:analysis-current-checkbot-summary} viser en oppsummering av resultatene fra Checkbot. Denne testen viser en god poengsum når det gjelder totalt for gjennomsnittet. Isolert sett ser vi at sikkerheten til nettstedet drar ned gjennomsnittet betydelig. Den fulle rapporten viser at dette kommer av at nettsiden ikke bruker HSTS, \q{content sniffing protection}, \q{clickjack protection}, \q{XSS protection} og at den ikke skjuler server-versjon data.
 
 \subsection{Color Contrast Analyzer}
 \label{sec:analysis-current-color-contrast-analyzer}
@@ -512,8 +510,6 @@ Når det kommer til beste praksis, så er det et par forbedringer TACTIC burde g
 
 På SEO-delen av testen fikk TACTIC 100 av 100 poeng og det er derfor ingenting å påpeke her.
 
-Full rapport for Google Lighthouse kan leses i vedlegg X1. Kommer
-
 Figur \ref{fig:competitors-wave-summary-tacticrealtime.com} viser resultatene fra WAVE. Fra resultatene ser man at Tactic fikk 6 feilmeldinger når det kommer til universell utforming. I tillegg har nettsiden deres 22 kontrastfeil. 
 
 \subsubsection{Styrker}
@@ -570,7 +566,6 @@ Nettstedet består også av følgende undersider:
 \end{figure}
 
 Figur \ref{fig:competitors-lighthouse-summary-marketer.tech} viser resultatene fra testen gjort med Google Lighthouse. Her kom Marketer dårligst ut. Testen påpeker flere feil på punkter vedrørende ytelse, tilgjengelighet og beste praksiser. Det tar Google 5,3 sekunder å laste inn nettstedet, noe som er relativt tregt, men raskere enn Inviso.no. Selv om siden til Marketer laster inn raskere, får den en dårligere poengsum på ytelse. Dette fordi det tar hele 15,2 sekunder før siden blir beregnet som interaktiv\footnote{\q{Time to Interactive} i Google Lightouse rapporten}. Marketer burde ta samme grep som TACTIC, i tillegg til å fjerne ubrukt CSS, servere skalerte bilder og vurdere å redusere antall animasjoner.
-Full rapport for Google Lighthouse kan leses i vedlegg X2.
 
 Figur \ref{fig:competitors-wave-summary-marketer.tech} viser WAVE-resultatene. Her kommer det frem at løsningen har 5 kontrastfeil og hele 147 feil når det kommer til universell utforming og tilgjengelighet. 135 av disse feilmeldingene er manglende bruk av alt-tekster.
 
@@ -630,7 +625,7 @@ Figur \ref{fig:competitors-lighthouse-summary-inviso.no} viser resultatene fra t
 
 På testen vedrørende tilgjengelighet kommer det frem at Inviso burde forbedre kontrastforhold på deler av siden.
 
-Når det kommer til SEO er det ingenting å påpeke. Noe som derimot kan være lurt å ta en titt på er hvilke JavaScript-biblioteker som blir brukt, ettersom Google kan melde at hele 5 kjente sikkerhetshull er tilgjengelig på siden. Full rapport for Google Lighthouse kan leses i vedlegg X3.
+Når det kommer til SEO er det ingenting å påpeke. Noe som derimot kan være lurt å ta en titt på er hvilke JavaScript-biblioteker som blir brukt, ettersom Google kan melde at hele 5 kjente sikkerhetshull er tilgjengelig på siden. 
 
 Ved å kjøre test via WAVE oppgir resultatet at nettstedet har 4 kontrastfeil. Nettstedet får også 37 feilmeldinger når det gjelder universell utforming. Figur \ref{fig:competitors-wave-summary-inviso.no} viser resultatene fra WAVE-testen.
 

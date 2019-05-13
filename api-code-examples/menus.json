@@ -1,0 +1,48 @@
+{
+  "current_page": 1,
+  "data": [
+    {
+      "id": "5431b449-0ff3-4409-8f4a-5c8149fc0f78",
+      "name": "HeaderMenu",
+      "global": 1,
+      "page_id": null,
+      "menu_location": {
+        "id": 1,
+        "name": "Topp",
+        "slug": "top"
+      }
+    },
+    {
+      "id": "282fa63f-4675-414b-9fd6-97c371b76f08",
+      "name": "FooterMenu",
+      "global": 1,
+      "page_id": null,
+      "menu_location": {
+        "id": 2,
+        "name": "Footer 1",
+        "slug": "footer-1"
+      }
+    },
+    {
+      "id": "d6f44f8f-86c6-4fe4-ae10-eafc71dc8975",
+      "name": "FooterMenu for om oss",
+      "global": 0,
+      "page_id": "70b45425-df0b-4785-bba1-dce2142339a4",
+      "menu_location": {
+        "id": 2,
+        "name": "Footer 1",
+        "slug": "footer-1"
+      }
+    }
+  ],
+  "first_page_url": "https://api.sirkusmedia.no/api/v1/menus?page=1",
+  "from": 1,
+  "last_page": 1,
+  "last_page_url": "https://api.sirkusmedia.no/api/v1/menus?page=1",
+  "next_page_url": null,
+  "path": "https://api.sirkusmedia.no/api/v1/menus",
+  "per_page": 30,
+  "prev_page_url": null,
+  "to": 2,
+  "total": 2
+}

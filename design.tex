@@ -75,7 +75,6 @@ Etter å ha planlagt innholdet måtte gruppen sette seg ned og bestemme hvordan 
 
 Videre ble det bestemt at studentgruppen, eller en fremtidig superadmin, ferdigdefinerer komponenter og felter. I brukergrensesnittet til back-end vil oppdragsgiver få mulighet til å opprette sider med ønsket komponenter og felter.  
 
-
 \section{UML-diagram}
 Figur \ref{fig:database} viser databasen som ble planlagt for prosjektet:
 \begin{figure}[H]
@@ -85,27 +84,26 @@ Figur \ref{fig:database} viser databasen som ble planlagt for prosjektet:
     \label{fig:database}
 \end{figure}
 
-
-\subsection{Planlegging av API URL-er}
+\section{Planlegging av API}
 I felleskap begynte vi å planlegge hvilke linker som API-et skal ha, og hva de skal sende i svar. Det ble derfor utarbeidet en JSON-fil som beskriver strukturen og hvilke data den skal gi i svar for forskjellige forespørsler.
 
 I første omgang ble URL-er for Pages og Menus definerte. Dataene disse gir i svar, vil være offentlig. 
 
-Slik så JSON filen ut når Pages og Menus var definert:
---- PUTT JSON FIL HER ---
+\lstinputlisting[caption={JSON eksempel for sider (api.sirkusmedia.no/api/v1/pages)}]{api-code-examples/pages.json}
+\lstinputlisting[caption={JSON eksempel for en side (api.sirkusmedia.no/api/v1/pages/slug)}]{api-code-examples/page.json}
+\lstinputlisting[caption={JSON eksempel for menyer (api.sirkusmedia.no/api/v1/menus)}]{api-code-examples/menus.json}
+\lstinputlisting[caption={JSON eksempel for en meny (api.sirkusmedia.no/api/v1/menus/id)}]{api-code-examples/menu.json}
 
 Denne filen er altså kun eksempeldata. Den vil bli brukt til å se på at back-end sender svar på riktig måte. Front-end kan også se på filen for hvilke svar som kan forventes på de forskjellige forespørselene. Fordelen med dette er at det kan lages dummy responses som er mulig å jobbe med underveis i utviklingen.
 
 \section{Mockups}
 En del av planleggingsfasen var å lage mockups/skisser av nettstedet. Dette ble laget for forsiden, slik at skissene kunne sendes for å få godkjenning av oppdragsgiver.
 
-Mockupene ble utarbeidet av Bjørnar. 
-
 \subsection{Versjon 1}
 Figur \ref{fig:mockup-v1} viser forsøk nummer 1. Tilbakemeldingen her var oppdragsgiver syns det var et kult design, men ikke helt den stilen de ønsket seg.
 \begin{figure}[H]
     \centering
-    \includegraphics[height=\textheight]{mockup1-draft3.png}
+    \includegraphics[height=\textheight]{design/mockup1-draft3.png}
     \caption{Mockup - Versjon 1}
     \label{fig:mockup-v1}
 \end{figure}
@@ -114,7 +112,7 @@ Figur \ref{fig:mockup-v1} viser forsøk nummer 1. Tilbakemeldingen her var oppdr
 Figur \ref{fig:mockup-v2} viser forsøk nummer 2. Tilbakemeldingen her var den samme som på versjon 1.
 \begin{figure}[H]
     \centering
-    \includegraphics[height=.85\textheight]{mockup2-draft3.png}
+    \includegraphics[height=.85\textheight]{design/mockup2-draft3.png}
     \caption{Mockup - Versjon 2}
     \label{fig:mockup-v2}
 \end{figure}
@@ -123,7 +121,7 @@ Figur \ref{fig:mockup-v2} viser forsøk nummer 2. Tilbakemeldingen her var den s
 Figur \ref{fig:mockup-v3-index} viser det tredje forsøket. Dette var skissen som ble godkjent.
 \begin{figure}[H]
     \centering
-    \includegraphics[height=.82\textheight]{mockup3-index.png}
+    \includegraphics[height=.82\textheight]{design/mockup3-index.png}
     \caption{Mockup - Versjon 3 - Forside}
     \label{fig:mockup-v3-index}
 \end{figure}
@@ -134,7 +132,7 @@ Når designet til forsiden ble godkjent, startet utarbeidingen av designet til d
 Figur \ref{fig:mockup-v3-about} viser designet til den planlagte \q{Om oss}-siden.
 \begin{figure}[H]
     \centering
-    \includegraphics[height=.9\textheight]{mockup3-about.png}
+    \includegraphics[height=.9\textheight]{design/mockup3-about.png}
     \caption{Mockup - Versjon 3 - Om oss}
     \label{fig:mockup-v3-about}
 \end{figure}
@@ -143,34 +141,67 @@ Figur \ref{fig:mockup-v3-about} viser designet til den planlagte \q{Om oss}-side
 Figur \ref{fig:mockup-v3-contact} viser designet til den planlagte \q{Kontakt oss}-siden.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{mockup3-contact.png}
+    \includegraphics[width=\textwidth]{design/mockup3-contact.png}
     \caption{Mockup - Versjon 3 - Kontakt oss}
     \label{fig:mockup-v3-contact}
 \end{figure}
 
-
 \section{Visuell profil}
-Videre ble det opprettet en enkel visuell profil for den godkjente skissen.
+Videre ble det opprettet en enkel visuell profil for nettstedet, basert på den godkjente skissen.
 
 \subsection{Logo}
-Figur .. viser logoen som ble utarbeidet.
-
-\subsection{Farger}
-Figur \ref{fig:colors} viser de utvalgte fargene til oppdragsgiver. Disse fargene ble valgt ut med tanke på å få selskapet til å fremstå som moderne og innovative.
+Figur \ref{fig:logo-default} viser logoen som ble utarbeidet. Det ble også laget en lys versjon, se figur \ref{fig:logo-light}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.5\textwidth]{colors.png}
+    \includegraphics[width=.5\textwidth]{design/logo.png}
+    \caption{Visuell profil - logo}
+    \label{fig:logo-default}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{design/logo-light.png}
+    \caption{Visuell profil - logo (lys versjon)}
+    \label{fig:logo-light}
+\end{figure}
+
+\subsection{Ikon}
+Figur \ref{fig:icon} viser ikonet som ble utarbeidet.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.25\textwidth]{design/logo-icon.png}
+    \caption{Visuell profil - ikon}
+    \label{fig:icon}
+\end{figure}
+
+\subsection{Farger}
+Figur \ref{fig:colors} viser de utvalgte fargene til oppdragsgiver. Disse fargene ble valgt med tanke på å få selskapet til å fremstå som moderne og innovative.
+Den midterste kolonnen med farger er standardfargene, de kolonnene til venstre og høyre for midten er lysere og mørkere versjoner av disse.
+\begin{itemize}
+    \item Rad en er de forskjellige gråfargene, disse blir brukt til tekst og bakgrunnsfarger.
+    \item Rad to (blå) er primærfargen.
+    \item Rad tre (cyan) er sekundærfargen.
+    \item Rad fire (grønn) brukes til positive meldinger og handlinger.
+    \item Rad fem (gul) brukes til middels negative og handlinger.
+    \item Rad seks (oransje) er aksentfargen.
+    \item Rad syv (rød) brukes til sterkt negative meldinger og handlinger.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\textwidth]{design/colors.png}
     \caption{Visuell profil - farger}
     \label{fig:colors}
 \end{figure}
 
 \subsection{Fonter}
-Figur \ref{fig:typography} viser de utvalgte fontene til oppdragsgiver.
+Figur \ref{fig:typography} viser fontene som ble valgt til oppdragsgiver.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{typography.png}
+    \includegraphics[width=\textwidth]{design/typography.png}
     \caption{Visuell profil - fonter}
     \label{fig:typography}
 \end{figure}
