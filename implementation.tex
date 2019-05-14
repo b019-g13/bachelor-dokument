@@ -439,25 +439,23 @@ I forbindelse med prosjektet skulle gruppen ha et eget nettsted der det er infor
 Front-end ble lastet opp og kan styres via Netlify\footnote{\url{https://www.netlify.com/}}. Back-end skulle i utgangspunktet settes opp på en virtuell server hos DigitalOcean\footnote{\url{https://www.digitalocean.com/}}, som vi selv satt opp med LEMP. Vi endte opp med en litt annen løsning, der alt settes opp og styres gjennom Laravel Forge\footnote{https://forge.laravel.com/} og oppdateres med Envoyer\footnote{\url{https://envoyer.io/}}. Oppsettet kjører forsatt på en VPS hos DigitalOcean, men vi trengte ikke lenger å sette opp LEMP.
 
 \section{Første versjon av database, CMS og nettsted}
-I figur \ref{fig:first-version-db} presenteres første versjon av databasen. Figur \ref{fig:first-version-cms} viser første versjon av CMS-et og figur \ref{fig:first-version-website} viser første versjon av nettstedet.
-
-% --- DB ---
-
-Det ble noen avvik fra den planlagte databasen. Databasen ble mer optimalisert og bedre tilpasset det oppsettet vi ønsket.
-
-
-
-
+Det ble noen avvik fra den planlagte databasen. Databasen ble derfor mer optimalisert og bedre tilpasset det oppsettet vi ønsket, se figur \ref{fig:first-version-db} og \ref{fig:first-version-db-other}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{first-version-db.png}
-    \caption{Screenshot - første versjon av databasen}
+    \includegraphics[width=\textwidth]{bjornar/db-endelig.png}
+    \caption{Screenshot - første versjon av databasen - hovedtabeller}
     \label{fig:first-version-db}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{bjornar/db-endelig-annet.png}
+    \caption{Screenshot - første versjon av databasen - andre tabeller}
+    \label{fig:first-version-db-other}
+\end{figure}
 
-CMS-et endte opp med å bli som vi planla i avsnitt \ref{sec-planning-cms}. Det var kun en ekstra funksjonalitet som ble lagt til, muligheten til å gi kallenavn til felter som tilhører komponenter. Dette gjør det enklere for sluttbruker å redigere sider. En funksjonalitet som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image-modellen. For å sette verdien til dette feltet på riktig måte, trenger man en ID til et bilde i \q{images}-tabellen. Alt dette tar bildevelgeren seg av, samt at den gjør det enkelt å laste opp nye bilder. Figur \ref{fig:media-picker-cms} viser bildevelgeren til CMS-et.
+CMS-et endte opp med å bli som vi planla i avsnitt \ref{sec-planning-cms}. Det var kun en ekstra funksjonalitet som ble lagt til, muligheten til å gi kallenavn til felter som tilhører komponenter. Dette gjør det enklere for sluttbruker å redigere sider. En funksjonalitet som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image-modellen. For å sette verdien til dette feltet på riktig måte, trenger man en ID til et bilde i \q{images}-tabellen. Alt dette tar bildevelgeren seg av, samt at den gjør det enkelt å laste opp nye bilder. Figur \ref{fig:first-version-cms} viser første versjon av CMS-et, og \ref{fig:media-picker-cms} viser bildevelgeren til CMS-et.
 
 \begin{figure}[H]
     \centering
@@ -473,7 +471,7 @@ CMS-et endte opp med å bli som vi planla i avsnitt \ref{sec-planning-cms}. Det 
     \label{fig:media-picker-cms}
 \end{figure}
 
-Nettstedet endte også opp som vi planla i avsnitt \ref{sec:planning-website}. Både forsiden, menyen, om- og kontakt oss siden ble utviklet uten avvik. Videre innholder footeren en link som fører til logg inn til administrasjonsgrensesnittet. Det har også blitt opprettet sider for personvern og informasjonskapsler. Disse innholder tekst fra den opprinnelige nettsiden til oppdragsgiver. Nettstedet består i tillegg av en chat, der meldingene blir sendt direkte til en e-postadresse.
+Nettstedet endte også opp som vi planla i avsnitt \ref{sec:planning-website}. Både forsiden, menyen, om- og kontakt oss siden ble utviklet uten avvik. Videre innholder footeren en link som fører til logg inn til administrasjonsgrensesnittet. Det har også blitt opprettet sider for personvern og informasjonskapsler. Disse innholder tekst fra den opprinnelige nettsiden til oppdragsgiver. Nettstedet består i tillegg av en chat, der meldingene blir sendt direkte til en e-postadresse. Figur \ref{fig:first-version-website} viser første versjon av nettstedet.
 
 \begin{figure}[H]
     \centering

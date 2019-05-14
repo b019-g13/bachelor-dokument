@@ -69,7 +69,7 @@ Vi besluttet også å oppdatere brukerveiledningen, slik at den inneholdt en ove
 Oppdragsgiver fremstod som veldig fornøyd, og vi kan dermed konkludere med at akseptansetesten er godkjent.
 
 \section{Teknisk test}
-I dette avsnittet vil vi gjennomføre den samme testen som ble utført i konkurrentanalysen i kapittel \ref{sec:competitor-analysis}. Videre vil vi sammenligne resultatene fra den nye og gamle løsningen. Til slutt vil vi også sammenligne resultatene fra den nye løsningen med konkurrentenes resultater.
+I dette avsnittet vil vi gjennomføre den samme testen som ble utført i konkurrentanalysen i kapittel \ref{sec:competitor-analysis}. Videre vil vi sammenligne resultatene fra den nye og gamle løsningen. Til slutt vil vi sammenligne resultatene fra den nye løsningen med konkurrentenes resultater. Testene ble gjennomført før chatten ble implementert, og kan derfor avvike noe om de blir kjørt igjen.
 
 \subsection{Testing av ferdig nettsted}
 Figur \ref{fig:analysis-new-website} viser det nye nettsted på pc og mobil.
@@ -82,37 +82,37 @@ Figur \ref{fig:analysis-new-website} viser det nye nettsted på pc og mobil.
 \end{figure}
 
 \subsubsection{Google chrome Devtools}
-Med Google Chrome DevTools testet vi hastigheten til siden. Det ble benyttet et trådløst nettverk med hastighet på 19.1 Mbps nedlasting og 8.3 opplasting, målt med Telenor sin hastighetsmåler. Resultatene måles i millisekunder.
+Med Google Chrome DevTools testet vi hastigheten til siden. Det ble benyttet et kablet nettverk med hastighet på 100 Mbps. Resultatene måles i millisekunder.
 
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{lllll}
 Test & DOM & Load &  &  \\
-1 & 172 & 171 &  &  \\
+1 & 177 & 176 &  &  \\
 2 & 177 & 176 &  &  \\
-3 & 158 & 162 &  &  \\
-4 & 182 & 182 &  &  \\
-5 & 181 & 180 &  &  \\
-6 & 199 & 205 &  &  \\
-7 & 179 & 179 &  &  \\
-8 & 185 & 188 &  &  \\
-9 & 188 & 187 &  &  \\
-10 & 165 & 164 &  &  \\
+3 & 182 & 182 &  &  \\
+4 & 185 & 184 &  &  \\
+5 & 179 & 178 &  &  \\
+6 & 183 & 182 &  &  \\
+7 & 185 & 184 &  &  \\
+8 & 181 & 180 &  &  \\
+9 & 173 & 173 &  &  \\
+10 & 178 & 178 &  &  \\
 \end{tabular}
 \end{center}
 \caption{\label{tab:table-analysis-new-website}Resultater fra hastighetstest med Google Chrome DevTools - Ny løsning}
 \end{table}
 
 Gjennomsnitt:\\
-- DOM: 178,6 ms\\
-- Load: 179,4 ms
+- DOM: 180,0 ms\\
+- Load: 179,3 ms
 
 \subsubsection{Test med Google Lighthouse}
-Videre ble det utført en test ved hjelp verktøyet Google Lighthouse. Figur \ref{fig:analysis-new-lightouse-summary} viser en oppsummering av resultatene. Etter å ha kjørt testen viser det seg at nettstedet får gode poengsummer på alle områdene. 
+Videre ble det utført en test ved hjelp verktøyet Google Lighthouse. Figur \ref{fig:analysis-new-lightouse-summary} viser en oppsummering av resultatene. Etter å ha kjørt testen viser det seg at nettstedet får meget gode poengsummer på alle områder. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{bereket/Lighthouse-rapport-ny-nettsted.png}
+    \includegraphics[width=\textwidth]{bjornar/Lighthouse-Report-mobile-new.png}
     \caption{Resultater fra Google Lighthouse - Nytt nettsted}
     \label{fig:analysis-new-lightouse-summary}
 \end{figure}
@@ -122,7 +122,7 @@ Resultatene fra Checkbot viser også en god poengsum i gjennomsnitt. Se figur \r
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{bereket/Checkbot-test-ny-nettsted.png}
+    \includegraphics[width=\textwidth]{bjornar/checkbotio-summary-new.png}
     \caption{Resultater fra checkbot - Nytt nettsted}
     \label{fig:analysis-new-checkbot-summary}
 \end{figure}
@@ -141,30 +141,21 @@ Resultatene fra Checkbot viser også en god poengsum i gjennomsnitt. Se figur \r
 %     \label{fig:analysis-new-checkbot-summary}
 % \end{figure}
 
-\subsubsection{WAVE}
-Ved testing med Wave ble det ikke funnet noen feil, kun to advarsler. Den ene varslet om at det magler heading-tag (h1-h6) i alle seksjoner og den andre handlet om bruken av Javascript. Se figur \ref{fig:analysis-new-wave-summary} for resultater og figur \ref{fig:analysis-new-wave-warnings} for advarslene.
+\subsubsection{WAVE \& kontrastforhold}
+Ved testing med Wave ble det ikke funnet noen feil, kun advarsler. De fleste av kontrastfeilene som blir presentert er ikke reelle, da testen ikke tar hensyn til tekstskygge. Vi har benyttet oss av tekstskygge for å få bedre kontrast. Se figur \ref{fig:analysis-new-wave-summary} for resultater. I figur \ref{fig:analysis-new-contrast} ser vi at kontrasten er god nok.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.5\textwidth]{bereket/Wave-test-ny-nettsted.png}
+    \includegraphics[width=.3\textwidth]{bjornar/wave-new.png}
     \caption{Resultat fra WAVE}
     \label{fig:analysis-new-wave-summary}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{bereket/Wave-test-varsel-ny-nettsted.png}
-    \caption{Varslinger fra WAVE}
-    \label{fig:analysis-new-wave-warnings}
-\end{figure}
-
-\subsubsection{Kontrastforhold mellom tekst og bakgrunn}
-Igjen ble Google Chrome DevTools brukt for å teste kontrastforhold mellom tekst og bakgrunn. Figur \ref{fig:analysis-new-chrome-devtools} viser resultatet. Som vi kan se er det ikke alle tekstene som oppfyller kontrastkravet for AA og AAA. 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{bereket/Kontrast-test.png}
-    \caption{Resultater fra Google Chrome DevTools - Nytt nettsted}
-    \label{fig:analysis-new-chrome-devtools}
+    \includegraphics[width=\textwidth]{bjornar/contrast-new.png}
+    \caption{Resultat fra kontrast scan med Color Contrast Analyzer}
+    \label{fig:analysis-new-contrast}
 \end{figure}
 
 \subsubsection{Qualys SSL Server Test}
@@ -178,25 +169,25 @@ Resultatet, se figur \ref{fig:analysis-new-ssl-test}, hos Qualys SSL Server ble 
 \end{figure}
 
 \subsubsection{Test med skjermleser}
-Nettsiden ble også testet med skjermleser. Vi kan konkludere med at det var enkelt  å navigere seg rundt på nettsiden fordi innholdet kommer i en logisk rekkefølge. Det har i tillegg blitt lagt til en \q{Hopp til innhold}-knapp som gjør det mulig å hoppe over menyen, som også gjør navigeringen enklere.
+Nettsiden ble også testet med skjermleser. Vi kan konkludere med at det var enkelt å navigere seg rundt på nettsiden fordi innholdet kommer i en logisk rekkefølge. Det har i tillegg blitt lagt til en \q{Hopp til innhold}-knapp som gjør det mulig å hoppe over menyen, som også gjør navigeringen enklere.
 
 \subsection{Sammenligning av ny og gammel løsning}
-I avsnitt \ref{sec:analysis-original-website}, der vi analyserte den opprinnelige nettsiden til Sirkus Media, kom det frem via testresultatene at nettsiden var rask. På testen som ble utført på nettet ved høgskolen lastet siden inn på under 1 sekund i gjennomsnitt, noe som var meget bra. Løsningen fikk også over 70\% i poengsum hos Checkbot, og jevnt gode resultater i testen gjort med Google Lighthouse.  Vi beskrev også hvorfor resultatene ble så gode som de ble. Hovedgrunnen til de gode resultatene var at nettstedet kun bestod av en forside og lite informasjon. Dette begrenset muligheten for feil. Vi hevdet også at det kom til å bli en utfordring å gjøre det like bra i disse testene med et nettsted som består av flere sider, mer innhold og kompleks funksjonalitet.
+I avsnitt \ref{sec:analysis-original-website}, der vi analyserte den opprinnelige nettsiden til Sirkus Media, kom det frem via testresultatene at nettsiden var rask. På testen som ble utført på nettet ved høgskolen lastet siden inn på under 1 sekund i gjennomsnitt, noe som var meget bra. Løsningen fikk også 70\% i poengsum hos Checkbot, og jevnt gode resultater i testen gjort med Google Lighthouse. Vi beskrev også hvorfor resultatene ble så gode som de ble. Hovedgrunnen til de gode resultatene var at nettstedet kun bestod av en forside og lite informasjon. Dette begrenset muligheten for feil. Vi hevdet også at det kom til å bli en utfordring å gjøre det like bra i disse testene med et nettsted som består av flere sider, mer innhold og kompleks funksjonalitet.
 
 Når vi nå sammenligner de to løsningene ser vi at nettsiden faktisk har blitt raskere både når det gjelder DOM og Load. Videre ser vi at:
 
 \begin{itemize}
-\item Checkbot fikk 77\% i gjennomsnitt på den nye nettsted, mens det gamle nettsted scoret 70\%. 
-\item WAVE kunne ikke rapporterte om noen feil på det nye nettstedet, mens hos det gamle fant den 20 kontrastfeil, 1 mangel, 4 tomme linker og 5 redundante linker.
-\item Qualys SSL Server Test viser A på dagens nettsted og A+ på den nye nettsted.
+    \item Checkbot fikk 87\% i gjennomsnitt på det nye nettstedet, mens det gamle nettstedet scoret 70\%. 
+    \item WAVE kunne ikke rapporterte om noen mangler på det nye nettstedet, men 10 kontrastfeil. Til sammenligning fikk det gamle nettstedet 20 kontrastfeil, 1 mangel, 4 tomme linker og 5 redundante linker.
+    \item Qualys SSL Server Test viser A+ på det nye nettstedet og A på det gamle nettstedet.
 \end{itemize}
 
-Etter å ha sammenlignet testresultatene mellom den nye og gamle nettsiden, ser vi at den nye nettsiden scorer bedre på nesten alle punkter. Ved testing med Google Lighthouse fikk den nye nettsiden bedre resultat både på ytelse, best praksis og tilgjengelighet. Det eneste den gamle nettsiden slår oss på er SEO, og det er noe som burde jobbes med videre slik at det forbedres. Kontrastforholdet der elementene ikke bestod testen bør også forbedres.
+Etter å ha sammenlignet testresultatene mellom den nye og gamle nettsiden, ser vi at den nye nettsiden scorer bedre på alle punkter. Ved testing med Google Lighthouse fikk den nye nettsiden bedre resultat både på ytelse, best praksis, SEO og tilgjengelighet. Kontrastforholdet der elementene ikke bestod testen bør derimot forbedres.
 
 \subsection{Sammenligning av vår løsning mot konkurrentene sine}
 I konklusjonen av konkurrentanalysen, avsnitt \ref{sec:analysis-competitors-conclusion}, ble det nevnt at alle konkurrentene hadde bedriftens logo oppe til venstre og et meny ikon til høyre. Vi mente at ved å ha et lignende design på vår løsning, ble det enkelt for brukerne å forstå hvordan menyen fungerer, da denne løsningen er blitt ganske vanlig. Vår løsning endte følgelig opp med et slikt design.
 
-Videre i konklusjonen satte studentgruppen som mål å få minst like bra poengsum på testen til Google Lighthouse som gjennomsnittsscoren til de utvalgte konkurrentene. Den totale gjennomsnittscoren lå på 74,25. Vår løsning har en total gjennomsnittscore på... 
+Videre i konklusjonen satte studentgruppen som mål å få minst like bra poengsum på testen til Google Lighthouse som gjennomsnittsscoren til de utvalgte konkurrentene. Den totale gjennomsnittscoren lå på 74,25 av 100 poeng. Vår løsning har en total gjennomsnittscore på 97,75.
 
 
 % Testingen av de to verktøyene er utført på en uformell og ikke særlig vitenskapelig basert måte, og resultatene baserer seg hovedsakelig på forfatterens egne vurderinger\footnote{I et reelt prosjekt ville denne metoden være litt for tynn \smiley}.
