@@ -26,7 +26,6 @@ Du ønsker å komme i kontakt med Sirkus Media. Hva gjør du for å løse dette?
 \subsection{Valg av testpersoner }
 Oppdragsgiver har en ganske bred målgruppe, da de fleste bedrifter i dag ønsker å gjøre markedsføring på nett. Vi ønsket at brukertestene skulle gjenspeile dette. Derfor har vi valgt ut 3 personer i ulike aldersgrupper og med forskjellige forutsetninger når det gjelder til surfing på nettet.
 
-
 \subsection{Testing av nettstedet}
 Alle testpersonene gjennomgikk de samme 3 casene i gitt rekkfølge, mens et gruppemedlem observerte.
 
@@ -46,7 +45,6 @@ Et annet funn vi gjorde, var at ikke alle klarte å komme seg tilbake til forsid
 
 Videre fikk vi også noen tilbakemeldinger på designet. Alle testpersonene mente at siden fremstod som pen og imøtekommende, og at den var generelt var lett å finne frem på. Alt i alt syns studentgruppen at resultatene fra brukertestene var meget positive og samtidig lærerikt.
 
-
 \section{Akseptansetest}
 Etter at første versjonen av nettsted og CMS var ferdig, kunne oppdragsgiver teste systemet. Målet med denne testen var å kartlegge hvor fornøyd oppdragsgiver var med produktet, samt hvilke endringer som burde foretas. I akseptansetesten blir det mulig for oppdragsgiver å verifisere at leveransen er i henhold til bestillingen. 
 Etter at versjon 1 ble lastet opp fikk oppdragsgiver beskjed om å teste å prøve å lage en ny side med komponenter og innhold, endre innholdet på eksisterende sider og slette den nyopprettede siden. Før testingen ble det sendt ut brukerveiledning på e-post\footnote{Se vedlegg \ref{appendix:user-manual}}. Oppdragsgiver fikk også beskjed om å gå igjennom de forskjellige sidene og komme med tilbakemelding på designet. 
@@ -62,7 +60,13 @@ Ellers syns jeg dere har gjort en veldig god jobb, siden ser fresh ut, og vi har
 \end{quote}
 
 \subsection{Konklusjon av akseptansetest}
-Studentgruppen syns tilbakemeldingen fra oppdragsgiver var meget positiv. Det var et par punkter de ønsket å forbedre på nettstedet, men slikt må regnes med i en slik utviklingsprosess. Alle punktene var også enkle å rette opp i, slik at det ferdige produktet nå er helt etter ønskene til oppdragsgiver. Vi endret fontene på overskrifter og gjorde overskriftene større. I tillegg gjorde vi footeren mindre.
+Studentgruppen syns tilbakemeldingen fra oppdragsgiver var meget positiv. Det var et par punkter de ønsket å forbedre på nettstedet, men slikt må regnes med i en slik utviklingsprosess. Alle punktene var også enkle å rette opp i, slik at det ferdige produktet nå er helt etter ønskene til oppdragsgiver. Vi endret fonten til overskrifter og gjorde de større, se figur \ref{fig:typography-new}. I tillegg gjorde vi footeren mer kompakt.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{design/typography-headings.png}
+    \caption{Den nye fonten; Playfair Display}
+    \label{fig:typography-new}
+\end{figure}
 
 Vi besluttet også å oppdatere brukerveiledningen, slik at den inneholdt en oversikt over hva de forskjellige komponentene inneholdt. Her la vi også inn noen tips for hvordan en side kunne opprettes, slik at designet fulgte samme stil som de andre sidene.
 
@@ -72,13 +76,21 @@ Oppdragsgiver fremstod som veldig fornøyd, og vi kan dermed konkludere med at a
 I dette avsnittet vil vi gjennomføre den samme testen som ble utført i konkurrentanalysen i kapittel \ref{sec:competitor-analysis}. Videre vil vi sammenligne resultatene fra den nye og gamle løsningen. Til slutt vil vi sammenligne resultatene fra den nye løsningen med konkurrentenes resultater. Testene ble gjennomført før chatten ble implementert, og kan derfor avvike noe om de blir kjørt igjen.
 
 \subsection{Testing av ferdig nettsted}
-Figur \ref{fig:analysis-new-website} viser det nye nettsted på pc og mobil.
+Figur \ref{fig:analysis-new-website} viser det nye nettsted på PC og mobil.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{bereket/Nettsted-i-pc-og-mobil.png}
-    \caption{Ferdig nettsted på pc og mobil}
-    \label{fig:analysis-new-website}
+    \begin{center}
+        \subfigure[PC]{
+            \label{fig:analysis-new-website-desktop}
+            \frame{\includegraphics[width=0.71\textwidth]{bjornar/website-new-desktop.png}}
+        }
+        \subfigure[Mobil]{
+            \label{fig:analysis-new-website-mobile}
+            \frame{\includegraphics[width=0.24\textwidth]{bjornar/website-new-mobile.png}}
+        }
+        \label{fig:analysis-new-website}
+        \caption{Nye sirkusmedia.no}
+    \end{center}
 \end{figure}
 
 \subsubsection{Google chrome Devtools}
@@ -127,20 +139,6 @@ Resultatene fra Checkbot viser også en god poengsum i gjennomsnitt. Se figur \r
     \label{fig:analysis-new-checkbot-summary}
 \end{figure}
 
-% \subsubsection{Color Contrast Analyser}
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=\textwidth]{bereket/contrast-wcag-aa-small.png}
-%     \caption{Small non bold text for nivå AA - Nytt nettsted}
-%     \label{fig:analysis-current-lightouse-summary}
-% \end{figure}
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=\textwidth]{bereket/contrast-wcag-aaa-small.png}
-%     \caption{Small non bold text for nivå AAA - Nytt nettsted}
-%     \label{fig:analysis-new-checkbot-summary}
-% \end{figure}
-
 \subsubsection{WAVE \& kontrastforhold}
 Ved testing med Wave ble det ikke funnet noen feil, kun advarsler. De fleste av kontrastfeilene som blir presentert er ikke reelle, da testen ikke tar hensyn til tekstskygge. Vi har benyttet oss av tekstskygge for å få bedre kontrast. Se figur \ref{fig:analysis-new-wave-summary} for resultater. I figur \ref{fig:analysis-new-contrast} ser vi at kontrasten er god nok.
 
@@ -187,69 +185,4 @@ Etter å ha sammenlignet testresultatene mellom den nye og gamle nettsiden, ser 
 \subsection{Sammenligning av vår løsning mot konkurrentene sine}
 I konklusjonen av konkurrentanalysen, avsnitt \ref{sec:analysis-competitors-conclusion}, ble det nevnt at alle konkurrentene hadde bedriftens logo oppe til venstre og et meny ikon til høyre. Vi mente at ved å ha et lignende design på vår løsning, ble det enkelt for brukerne å forstå hvordan menyen fungerer, da denne løsningen er blitt ganske vanlig. Vår løsning endte følgelig opp med et slikt design.
 
-Videre i konklusjonen satte studentgruppen som mål å få minst like bra poengsum på testen til Google Lighthouse som gjennomsnittsscoren til de utvalgte konkurrentene. Den totale gjennomsnittscoren lå på 74,25 av 100 poeng. Vår løsning har en total gjennomsnittscore på 97,75.
-
-
-% Testingen av de to verktøyene er utført på en uformell og ikke særlig vitenskapelig basert måte, og resultatene baserer seg hovedsakelig på forfatterens egne vurderinger\footnote{I et reelt prosjekt ville denne metoden være litt for tynn \smiley}.
-
-% I Tabell \ref{tab:comparison} er det foretatt en summarisk sammenlikning mellom OpenOffice og \LaTeX~ med hensyn på kravene i Kapittel \ref{sec:generelle-krav}.
-
-
-% \begin {table}[h!]
-
-% \begin{center}
-% \begin{longtable}{|l|p{0.332\textwidth}|p{0.33\textwidth}|}
-% \hline
-%  {\bf Krav} & {\bf OpenOffice} & {\bf \LaTeX} \\ 
-% \hline
-% Robusthet & Tildels betapreget. Man har av og til følelsen av å bevege seg på  tynn is. & Bunnsolid, Gigabyte type dokumenter ingen problemer.\\ 
-% \hline
-% Åpne formater &
-% Ja. En ODF fil er en zipfil som inneholder en rekke skjemadefinerte XML filer. &
-% Ren, ``lettlest'' ASCII.\\ 
-% \hline
-% Maler/stiler &
-% Ja, men noe rotete, lett å overstyre lokalt uten at du merker det. &
-% LaTex ``oppfant'' prinsippet med å skille innhold, struktur og presentasjon. Enormt tilfang av maler og stiler for det meste.\\ 
-% \hline
-% Oppsplitting &
-% Mulig, men ikke trivielt/robust. &
-% Trivielt. Modus Operandi for store dokumenter, f.eks. Proceedings som samler ``stand-alone''-artikler fra mange forfattere.\\ 
-% \hline
-% Kryssreferanser &
-% Går greit, men ikke helt intuitivt. &
-% Konsistent og enkelt.\\ 
-% \hline
-% Bibliografi &
-% Greit med bruk plugins/extensions, f. eks, Zotero. &
-% BibTex innførte prinsippet om å referere til eksterne bibliografisamlinger. En mengde ulike stiler.\\ 
-% \hline
-% Brukermasse &
-% Stadig økende, men med stort innslag av entusiaster og ``pionerer''. &
-% Stor og kompetent, særlig innen den naturvitenskapelige og tekniske delen av akademia.\\ 
-% \hline
-% Dokumentasjon &
-% Relativt god, men bærer preg av at produktet er ``ferskt''. &
-% Meget omfattende, men godt spredt i ulike fora.\\ 
-% \hline
-% Versjonering &
-% En odf-fil er en binærfil (zippet og komprimert samling XML-dokumenter), og egner seg dårlig for tradisjonell versjonskontroll. Det finnes en innebygget versjonerings-mekanisme, men det er usikkert hvor hensiktsmessig denne er.&
-% Filene er ren ASCII, og håndteres derfor trivielt i alle typer versjoneringssystemer.\\ 
-% \hline
-% Framtidssikker &
-% Uklart, siden det er et ``ferskt'' verktøy, men potensialet er der.&
-% Kan ikke bli bedre? Egen erfaring med komplekse og store dokumenter fra tidlig 90-tall som problemløst kan  behandles i dagens verktøy.\\ 
-% \hline
-% Staving/grammatikk &
-% Innebygget, mulig å laste inn ulike typer eksterne ordlister etc.&
-% Mange vektøy, fordi filene er ren ASCII.\\ 
-% \hline
-% \end {longtable}
-% \caption {Summarisk vurdering av sentrale aspekter i OpenOffice og \LaTeX~\label{tab:comparison} }
-% \end{center}
-% \end {table}
-
-
-
-
-
+Videre i konklusjonen satte studentgruppen som mål å få minst like bra poengsum på testen til Google Lighthouse som gjennomsnittsscoren til de utvalgte konkurrentene. Den totale gjennomsnittscoren lå på 74,25 av 100 poeng. Vår løsning har en total gjennomsnittscore på 97,75. Vi oppnådde derfor målet vi hadde satt oss.
