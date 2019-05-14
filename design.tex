@@ -68,9 +68,9 @@ Etter analysen gjort i kapittel \ref{chap:analysis} har studentgruppen kommet fr
 Etter å ha planlagt innholdet måtte gruppen sette seg ned og bestemme hvordan systemet skulle fungere. I felleskap kom vi frem til følgende:
 
 \begin{itemize}
-\item CMS-et skal bestå av flere sider (pages).
-\item Hver side inneholder en eller flere komponenter (components), som er gjenbrukbare biter av kode, og kan tilhøre flere sider.
-\item Hver komponent inneholder felter (fields), som holder på innholdet som vises på siden. Det er forskjellige type felter, for eksempel kan et felt være et bilde, et tekstområde eller en lenke. 
+    \item CMS-et skal bestå av flere sider (pages).
+    \item Hver side inneholder en eller flere komponenter (components), som er gjenbrukbare biter av kode, og kan tilhøre flere sider.
+    \item Hver komponent inneholder felter (fields), som holder på innholdet som vises på siden. Det er forskjellige type felter, for eksempel kan et felt være et bilde, et tekstområde eller en lenke. 
 \end{itemize}
 
 Videre ble det bestemt at studentgruppen, eller en fremtidig superadmin, ferdigdefinerer komponenter og felter. I brukergrensesnittet til back-end vil oppdragsgiver få mulighet til å opprette sider med ønsket komponenter og felter.  
@@ -90,14 +90,14 @@ I felleskap begynte vi å planlegge hvilke linker som API-et skal ha, og hva de 
 I første omgang ble URL-er for Pages og Menus definerte. Dataene disse gir i svar, vil være offentlig. 
 
 \lstinputlisting[caption={JSON-eksempel for sider (api.sirkusmedia.no/api/v1/pages)}]{api-code-examples/pages.json}
-\lstinputlisting[caption={JSON eksempel for en side (api.sirkusmedia.no/api/v1/pages/slug)}]{api-code-examples/page.json}
-\lstinputlisting[caption={JSON eksempel for menyer (api.sirkusmedia.no/api/v1/menus)}]{api-code-examples/menus.json}
-\lstinputlisting[caption={JSON eksempel for en meny (api.sirkusmedia.no/api/v1/menus/id)}]{api-code-examples/menu.json}
+\lstinputlisting[caption={JSON-eksempel for en side (api.sirkusmedia.no/api/v1/pages/slug)}]{api-code-examples/page.json}
+\lstinputlisting[caption={JSON-eksempel for menyer (api.sirkusmedia.no/api/v1/menus)}]{api-code-examples/menus.json}
+\lstinputlisting[caption={JSON-eksempel for en meny (api.sirkusmedia.no/api/v1/menus/id)}]{api-code-examples/menu.json}
 
 Denne filen er altså kun eksempeldata. Den vil bli brukt til å se på at back-end sender svar på riktig måte. Front-end kan også se på filen for hvilke svar som kan forventes på de forskjellige forespørselene. Fordelen med dette er at det kan lages \q{dummy responses} som er mulig å jobbe med underveis i utviklingen.
 
 \section{Mockups}
-En del av planleggingsfasen var å lage mockups/skisser av nettstedet. Dette ble laget for forsiden, slik at skissene kunne sendes for å få godkjenning av oppdragsgiver.
+En del av planleggingsfasen var å lage mockups/skisser av nettstedet. Det ble utarbeidet en skisse for forsiden, slik at den kunne sendes til oppdragsgiver for godkjenning.
 
 \subsection{Versjon 1}
 Figur \ref{fig:mockup-v1} viser forsøk nummer 1. Tilbakemeldingen her var oppdragsgiver syns det var et kult design, men ikke helt den stilen de ønsket seg.
@@ -178,13 +178,13 @@ Figur \ref{fig:icon} viser ikonet som ble utarbeidet.
 
 \subsection{Farger}
 Figur \ref{fig:colors} viser de utvalgte fargene til oppdragsgiver. Disse fargene ble valgt med tanke på å få selskapet til å fremstå som moderne og innovative.
-Den midterste kolonnen med farger er standardfargene, de kolonnene til venstre og høyre for midten er lysere og mørkere versjoner av disse.
+Den midterste kolonnen med farger er standardfargene. Kolonnene til venstre og høyre for midten, er lysere og mørkere versjoner av disse.
 \begin{itemize}
     \item Rad en er de forskjellige gråfargene, disse blir brukt til tekst og bakgrunnsfarger.
     \item Rad to (blå) er primærfargen.
     \item Rad tre (cyan) er sekundærfargen.
     \item Rad fire (grønn) brukes til positive meldinger og handlinger.
-    \item Rad fem (gul) brukes til middels negative og handlinger.
+    \item Rad fem (gul) brukes til middels negative meldinger og handlinger.
     \item Rad seks (oransje) er aksentfargen.
     \item Rad syv (rød) brukes til sterkt negative meldinger og handlinger.
 \end{itemize}
