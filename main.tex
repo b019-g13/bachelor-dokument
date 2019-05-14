@@ -8,7 +8,7 @@
 \usepackage{hiofreport}
 \usepackage{makeidx}
 \usepackage{pdfpages}
-%\usepackage{subfiles}
+\usepackage{tocloft}
 
 \usepackage{float}
 
@@ -28,6 +28,7 @@
 %%% CUSTOM STYLING - Start %%%
 
 \input{code-style}
+\input{vedlegg-listing}
 
 %%% CUSTOM STYLING - End %%%
 \makeindex
@@ -37,7 +38,7 @@
 % FRONT MATTER
     % DO NOT CHANGE
     %-------------------------------------------------    
-    \includepdf[pages={1, {}}] {titlepage.pdf} % Make your own catchy PDF title page, named titlepage.pdf
+    \includepdf[pages=1]{titlepage.pdf} % Make your own catchy PDF title page, named titlepage.pdf
     %\includegraphics[width=\paperwidth]{titlepage.png}
     \maketitle
     %\input{preface} % TO BE REMOVED IN FINAL REPORT
@@ -55,6 +56,10 @@
 	\cleardoublepage % DO NOT CHANGE    
 	\setcounter{tocdepth}{2}
     \tableofcontents  % DO NOT CHANGE    
+    
+    
+    \listofvedleggs
+    
     \cleardoublepage % DO NOT CHANGE    
     
     % OPTIONAL
@@ -105,14 +110,17 @@
     \printindex
     % \addcontentsline{toc}{chapter}{Register}
     \cleardoublepage    
+
     \appendix
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+
     \include{vedlegg/innlogging}
     \include{brukerveiledning/brukerveiledning-cms}
     
     \includepdf[pages=1, scale=0.8, offset=0 -6cm, pagecommand=\chapter{Sidekart for CMS}\thispagestyle{empty}]{vedlegg/sitemap-cms.pdf}
     \includepdf[pages=2-, scale=0.80, pagecommand={}]{vedlegg/sitemap-cms.pdf}
 
-    \includepdf[pages=1, scale=0.8, offset=0 -6cm, pagecommand=\chapter{Sidekart for sirkusmedia.no}\thispagestyle{empty}]{vedlegg/sitemap-website.pdf}
+    \includepdf[pages=1, scale=0.8, offset=0 -6cm, pagecommand=\chapter{Sidekart for sirkusmedia.no}]{vedlegg/sitemap-website.pdf}
     
     \include{vedlegg/1-veiledermote}
     \include{vedlegg/2-veiledermote}
@@ -121,10 +129,15 @@
     \include{vedlegg/5-veiledermote}
     \include{vedlegg/6-veiledermote}
     \include{vedlegg/7-veiledermote}
+
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+    
+    %\setcounter{tocdepth}{0}
+    %\addtocontents{toc}{\protect\setcounter{tocdepth}{0}} % Adjust TOC depth for appendix docs
     
     %-------------------------------------------------
     
     \cleardoublepage %DO NOT CHANGE
-    \blankpage          %DO NOT CHANGE
-    \blankpage          %DO NOT CHANGE
+    \blankpage       %DO NOT CHANGE
+    \blankpage       %DO NOT CHANGE
 \end{document}

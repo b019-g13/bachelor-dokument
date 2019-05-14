@@ -15,11 +15,11 @@ I dette kapittelet vil vi se på om metoden vi beskrev i introduksjonen fungerte
 I avsnitt \ref{sec:maal} definerte vi noen mål for prosjektperioden. Disse var som følger:
 
 \begin{compactitem}
-\item [{\bf Hovedmål}] Forbedre profilen til Sirkus Media på nett, slik at potensielle kunder får en bedre forståelse av deres produkter og tjenester og dermed tar kontakt gjennom nettstedet. På et overordnet plan vil dette bidra til å øke omsetningen til oppdragsgiver.
-\begin{compactitem}
-\item [{\bf  Delmål 1} ] Generere mer trafikk, som fører til at flere kunder tar kontakt med bedriften. 
-\item [{\bf  Delmål 2} ] Måle trafikken på nettstedet, slik at man ser hva som fungerer og deretter kan tilpasse informasjonen til brukerne som besøker siden.
-\end{compactitem}
+    \item [{\bf Hovedmål}] Forbedre profilen til Sirkus Media på nett, slik at potensielle kunder får en bedre forståelse av deres produkter og tjenester og dermed tar kontakt gjennom nettstedet. På et overordnet plan vil dette bidra til å øke omsetningen til oppdragsgiver.
+    \begin{compactitem}
+        \item [{\bf  Delmål 1} ] Generere mer trafikk, som fører til at flere kunder tar kontakt med bedriften. 
+        \item [{\bf  Delmål 2} ] Måle trafikken på nettstedet, slik at man ser hva som fungerer og deretter kan tilpasse informasjonen til brukerne som besøker siden.
+    \end{compactitem}
 \end{compactitem}
 
 Vi ser i ettertid at det ikke er mulig for oss å sjekke at delmålene har blitt oppfylt før etter endt bachelor, og de burde derfor blitt definert annerledes. Eventuelt burde vi fått tilgang til domenet til oppdragsgiver tidligere, slik at vi hadde fått tid til å analysere trafikken. Planen var å benytte oss av verktøyet Google Analytics for å måle både trafikken og observere hvordan brukere benytter nettstedet. Da vi ikke fikk tilgang til oppdragsgiver domene, vet vi ikke om delmål 1 er oppfylt. Delmål 2 er ikke oppfylt, da vi ikke har satt opp noe verktøy for måling på nettstedet.
@@ -37,7 +37,7 @@ For å oppnå delmålet om å generere mer trafikk til nettstedet, skulle vi ha 
 \section{Prosjektets resultat}
 Resultatet til prosjektet endte opp med å bli både et headless CMS og nettsted, og vi føler derfor at vi har levert utover forventet resultatet. Oppgaven gikk i hovedsak ut på å utvikle et nettsted, men vi har endt opp med å utvikle et eget headless CMS i tillegg til selve nettstedet. Vi ønsket å utfordre oss selv og sørge for at alle gruppemedlemmene fikk nok å gjøre, derfor ble oppgaven såpass stor. I tillegg har vi lagt stor vekt på at både CMS-et og nettsiden er responsivt, brukervennlig og at de følger beste praksiser nevnt i kapittel \ref{chap:analysis}. Videre har vi sørget for at nettstedet får gode resultater i de forskjellige testene vi har utført.
 
-Planen var at vi skulle utvikle en visuell profil med både protype og designsystem. Vi skjønte etterhvert at vi ikke kom til å rekke alt vi hadde nevnt i leveransen, og valgte derfor å gå bort fra dette siden det ble ansett som det minst viktige. Utover dette har vi kommet i mål med alle leveransene som ble nevnt i forprosjektrapporten. Sitemap og brukerveiledning ligger vedlagt. Analyse av gammelt nettsted, konkurrent- og verktøyanalysen befinner seg i kapittel \ref{chap:analysis}. Mockups ligger i kapittel \ref{chap:design}, mens analysen av nytt nettsted befinner seg i kapittel \ref{chap:evaluation}. Videre ligger nettstedet og databaser med modeller/tabeller vedlagt på minnepenn.
+Planen var at vi skulle utvikle en visuell profil med både protype og designsystem. Vi skjønte etterhvert at vi ikke kom til å rekke alt vi hadde nevnt i leveransen, og valgte derfor å gå bort fra dette siden det ble ansett som det minst viktige. Utover dette har vi kommet i mål med alle leveransene som ble nevnt i forprosjektrapporten. Sitemap og brukerveiledning ligger vedlagt. Analyse av gammelt nettsted, konkurrent- og verktøyanalysen befinner seg i kapittel \ref{chap:analysis}. Visuell profil og mockups ligger i kapittel \ref{chap:design}, mens analysen av nytt nettsted befinner seg i kapittel \ref{chap:evaluation}. Videre ligger nettstedet og databaser med modeller/tabeller vedlagt på minnepenn. Nettstedet er også tilgjengelig på \url{https://sirkusmedia.b019-g13.group/}. CMS'et er tilgjengelig på \url{https://api.b019-g13.group/}.
 
 \section{Det som ble bra}
 Samtlige i gruppen er stolte over det ferdige produktet, og mener at resultatet både for CMS og nettstedet ble bra. Det er flere grunner til dette. Først og fremst syns vi syns at designet og brukervennligheten er god for back- og front-end. Resultatene fra brukertestene er med på å støtte vår påstand om at brukervennligheten for nettstedet er god. I brukertestene fikk vi også tilbakemeldinger på designet til nettstedet, som er med å støtter vårt utsagn om at designet er bra. I tillegg syns vi det meste av funksjonaliteten vi har lagt til i CMS-et er gjennomført og intuitivt. Vi har også fulgt best praksis på de områdene vi presenterte i kapittel \ref{chap:analysis}. Videre legger vi til rette for lover som universell utforming og GDPR. 
@@ -52,7 +52,7 @@ I CMS-et er vi mindre fornøyd med noe av funksjonaliteten. Det første er at om
 Videre fungerer ikke systemet helt optimalt når en link opprettes. Når en ny link har blitt lagt til, vil den ikke vises med en gang. Brukeren må oppdatere siden før den nye linken vises.
 
 \section{Problemer vi har støtt på}
-Det har oppstått problemer i utviklingsprosessen for både CMS-et og nettstedet. Disse blir beskrevet nærmere i kapittel \ref{chap:implementation}.  Mot slutten av prosessen oppdaget vi at nettsiden ikke fungerte i Internet Explorer (IE). Grunnen til dette er at IE ikke støtter biblioteket Axios, som vi har benyttet til API. Vi hadde fra før testet nettstedet i Edge, og antok da at det også kom til å fungere i IE. Dette stemte dessverrre ikke.
+Det har oppstått problemer i utviklingsprosessen for både CMS-et og nettstedet. Disse blir beskrevet nærmere i kapittel \ref{chap:implementation}. Mot slutten av prosessen oppdaget vi at nettsiden ikke fungerte i Internet Explorer (IE). Grunnen til dette er at IE ikke støtter en del av JavaScript funksjonaliteten React krever\footnote{\url{https://facebook.github.io/create-react-app/docs/supported-browsers-features}}, samt biblioteket Axios, som vi har benyttet til API. Vi hadde fra før testet nettstedet i Edge, og antok da at det også kom til å fungere i IE. Dette stemte dessverre ikke.
 
 \section{Dette burde ha blitt gjort annerledes}
 Hvis vi skulle gjennomført dette prosjektet på nytt, hadde vi utarbeidet en mer realistisk prosjektplan. Vi hadde også fulgt denne planen tettere. I tillegg hadde vi sørget for å oppdatere planen, når leveransene ikke ble ferdig til tiden vi hadde planlagt.

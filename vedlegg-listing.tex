@@ -1,0 +1,7 @@
+\newcommand{\listvedleggtitle}{Vedleggsliste}
+\newlistof{vedleggs}{tod}{\listvedleggtitle}
+\newcommand{\vedlegglist}[1]{%
+\refstepcounter{vedleggs}
+\addcontentsline{tod}{vedleggs}
+{\protect\numberline{Vedlegg \thevedleggs} #1}}
+\newcommand{\vedlegg}[1]{\vedlegglist{#1}}
