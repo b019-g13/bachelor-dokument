@@ -39,10 +39,10 @@
     % DO NOT CHANGE
     %-------------------------------------------------    
     \includepdf[pages=1]{titlepage.pdf} % Make your own catchy PDF title page, named titlepage.pdf
-    %\includegraphics[width=\paperwidth]{titlepage.png}
+
+    \cleardoublepage
     \maketitle
-    %\input{preface} % TO BE REMOVED IN FINAL REPORT
-    % \cleardoublepage % TO BE REMOVED IN FINAL REPORT
+    
     \input{abstract}
     \addcontentsline{toc}{chapter}{Sammendrag}
     %-------------------------------------------------
@@ -111,6 +111,7 @@
     \addcontentsline{toc}{chapter}{Vedleggsliste}
     \listofvedleggs
 
+    % Adjust TOC depth for appendix docs
     \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 
     \include{vedlegg/innlogging}
@@ -132,10 +133,8 @@
     \include{vedlegg/6-veiledermote}
     \include{vedlegg/7-veiledermote}
 
+    % Adjust TOC depth back to normal
     \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
-    
-    %\setcounter{tocdepth}{0}
-    %\addtocontents{toc}{\protect\setcounter{tocdepth}{0}} % Adjust TOC depth for appendix docs
     
     %-------------------------------------------------
     
