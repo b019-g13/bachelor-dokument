@@ -173,9 +173,9 @@ Under er et eksempel på en migration-fil
 \lstinputlisting[caption={Laravel migration-fil}, language=php]{laravel-code-examples/migration.php}
 
 \subsubsection{Eloquent forhold mellom modellene}
-Eloquent\footnote{\url{https://laravel.com/docs/5.8/eloquent}} er Laravel sitt ORM, det lar oss definere forhold mellom de forskjellige modellene. Det er ønskelig å definere forhold som f.eks: en forfatter har mange bøker. Når et slikt forhold er definert i modellene til Larvel, lar Eloquent oss hente alle bøkene til forfatteren med kode som dette: \lstinline[language=PHP]{$author->books}.
+Eloquent\footnote{\url{https://laravel.com/docs/5.8/eloquent}} er Laravel sitt ORM. Det lar oss definere forhold mellom de forskjellige modellene. Det er ønskelig å definere forhold som f.eks: en forfatter har mange bøker. Når et slikt forhold er definert i modellene til Larvel, lar Eloquent oss hente alle bøkene til forfatteren med kode som dette: \lstinline[language=PHP]{$author->books}.
 
-For å definere slike forhold brukte vi de innebygd metodene til Laravel som: belongsToMany, hasOne, belongsTo og hasMany. For eksempel av bruk, se følgende kode:
+For å definere slike forhold brukte vi de innebygd metodene til Laravel som: belongsToMany, hasOne, belongsTo og hasMany. Koden under viser eksempel av bruk:
 \lstinputlisting[caption={Laravel modell med et forhold}, language=php]{laravel-code-examples/model-relationship.php}
 
 \subsubsection{Test av migration filer}
@@ -197,7 +197,7 @@ Denne feilen viste seg å være relativt vanlig og kom av at vi kjørte en eldre
 \end{lstlisting}
 
 \subsubsection{Test av forhold mellom modellene}
-Når alle forhold var ferdig definert og migration-filene kjørte uten feil, fylte vi databasen med data for å teste at alle forhold var riktig satt opp. Da støtte vi på en feil relatert til vår bruk av UUID som primærnøkkel i stedet for en inkrementerende integer i flere av modellene. Når vi forsøkte å lagre en modell til databasen fikk vi denne feilen:
+Når alle forhold var ferdig definert og migration-filene kjørte uten feil, fylte vi databasen med data for å teste at alle forhold var riktig satt opp. Da støtte vi på en feil relatert til vår bruk av UUID som primærnøkkel, i stedet for en inkrementerende integer, i flere av modellene. Når vi forsøkte å lagre en modell til databasen fikk vi denne feilen:
 \begin{lstlisting}[language=PHP]
     SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value ...
 \end{lstlisting}
@@ -219,7 +219,7 @@ Nå som trait-en var definert, kunne vi inkludere den i alle modeller som brukte
     }
 \end{lstlisting}
 
-Etter de overnevnte problemene ble løst, støtte vi ikke på noen flere nevneverdige problemer rundt forhold mellom modeller.
+Etter at de overnevnte problemene ble løst, støtte vi ikke på noen flere nevneverdige problemer rundt forhold mellom modeller.
 
 \subsection{Oppsett av autentisering}
 Med databasen og forhold mellom modeller på plass, var vi klare for å begynne utviklingen av selve CMS-et. Vi bestemte oss for å først sette opp autentisering da dette er enklere å implementere fra starten av, fremfor å gjøre det til slutt.
@@ -227,20 +227,19 @@ Laravel gir oss mye hjelp på dette området. Ved å kjøre en kommando settes a
 \begin{lstlisting}[language=PHP]
     php artisan make:auth
 \end{lstlisting}
-Etter å ha kjørt kommandoen over, fikk vi de nødvendige controllere og views for innlogging og registrering av brukere, samt system for tilbakestilling av passord.
+Etter å ha kjørt kommandoen over, fikk vi de nødvendige controllere og views for innlogging og registrering av brukere. Vi fikk også et system for tilbakestilling av passord.
 
 \subsubsection{Brukerroller}
 Selv om autentiseringen var klar, hadde vi ingen måte å skille rettighetene til de forskjellige brukerene på. Dette er heller ikke funksjonalitet som følger med Laravel. Vi fant derfor en PHP pakke: Laravel-Permission\footnote{\url{https://github.com/spatie/laravel-permission}} fra Spatie. Denne pakken utvider Laravel til å støtte brukerroller og kan installeres med Composer. Laravel-Permission gjør det mulig å opprette roller og knytte rettigheter til hver rolle. Vi definerte kun roller og satte følgende: superadmin, admin, moderator og user.
 \begin{itemize}
-    \item User endte opp med å ikke bli brukt, ligger forsatt tilgjengelig for å gjøre det enklere å utvide systemet videre.
-    \item Moderator har tilgang til å opprette, redigere og slette sider og menyer.
-    \item Admin har samme tilgang som moderator og kan i tilleg registrere nye brukere.
-    \item Superadmin har tilgang til alt. Det vil si at de i tillegg til å kunne gjøre alt det overnevnte, kan lage komponenter, felter og meny lokasjoner, samt at de kan definere hvilke felter en komponent skal ha.
+    \item User endte opp med å ikke bli brukt, men ligger forsatt tilgjengelig for å gjøre det enklere å utvide systemet videre.
+    \item Moderator har tilgang til å opprette, redigere og slette sider, menyer og linker, samt laste opp og slette bilder.
+    \item Admin har samme tilgang som moderator og kan i tillegg registrere nye brukere og endre på innstillinger.
+    \item Superadmin har tilgang til alt. Det vil si at de i tillegg til å kunne gjøre alt det overnevnte, kan lage komponenter, felter og meny-lokasjoner. Superadmin kan også definere hvilke felter en komponent skal ha.
 \end{itemize}
 
-
 \subsection{API}
-Vi definerte et API som lot oss hente data fra CMS-et og bygge front-end. Det ble satt opp en prefix for alle API-forespørsler, slik at systemet kan videreutvikles uten å ødelegge for eksisterende løsninger. Alle forespørsler til API-et må starte med /api/v1.
+Vi definerte et API som lot oss hente data fra CMS-et og bygge front-end til nettstedet. Det ble satt opp en prefix for alle API-forespørsler, slik at systemet kan videreutvikles uten å ødelegge for eksisterende løsninger. Alle forespørsler til API-et må starte med /api/v1.
 
 API-et krever ingen autentisering, men forespørsler tillates kun fra spesifikke \textit{origins}. Når prosjektet settes ut i produksjonsmiljø vil forespørsler kun tillates fra \url{https://sirkusmedia.no} og \url{https://www.sirkusmedia.no}. Dette defineres i .env filen.
 
@@ -253,7 +252,7 @@ Følgende lenker kan hentes ut:
 \end{itemize}
 
 \section{Oppsett av chat}
-Vi bestemte oss for å sette opp en livechat løsning fra Hubspot\footnote{\url{https://www.hubspot.com/products/crm/live-chat}}. Figur \ref{fig:chat-user} viser hvordan det ser ut for sluttbruker. Figur \ref{fig:chat-admin} viser hvordan det ser ut for administrator.
+Vi bestemte oss for å sette opp en livechat løsning fra Hubspot\footnote{\url{https://www.hubspot.com/products/crm/live-chat}}. Figur \ref{fig:chat-init} og \ref{fig:chat-open} viser hvordan det ser ut for sluttbruker. Figur \ref{fig:chat-admin} viser hvordan det ser ut for administrator.
 \begin{figure}[H]
     \begin{center}
         \subfigure[Chat når en bruker kommer inn på nettstedet]{
@@ -275,7 +274,7 @@ Vi bestemte oss for å sette opp en livechat løsning fra Hubspot\footnote{\url{
     \label{fig:chat-admin}
 \end{figure}
 
-Vi ønsket at det skulle være lett for Sirkus Media å endre til en annen løsning for chat. Derfor endte vi opp med å legge til ekstra funksjonalitet i CMS'et. Det ble opprettet CRUD for innstillinger (\textit{site\_settings}), som kan hentes ut via API'et på samme måte som \textit{pages}. I innstillingene kan administrator endre hvilket script som blir brukt for chat-løsning, se figur \ref{fig:chat-setting}. Innstillingen for chat hentes ut av front-end, som bruker den til å linke opp til det scriptet som er angitt.
+Vi ønsket at det skulle være lett for Sirkus Media å endre til en annen løsning for chat. Derfor endte vi opp med å legge til ekstra funksjonalitet i CMS-et. Det ble opprettet CRUD for innstillinger (\textit{site\_settings}), som kan hentes ut via API-et på samme måte som \textit{pages}. I innstillingene kan administrator endre hvilket script som blir brukt for chat-løsning, se figur \ref{fig:chat-setting}. Innstillingen for chat hentes ut av front-end, som bruker den til å linke opp til det scriptet som er angitt.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{bjornar/chat-setting.png}
@@ -313,7 +312,7 @@ Dette løste problemet og prosessen kunne fortsette. Da ble følgende gjort:
 
 Etter disse stegene begynte planleggingen av de forskjellige komponentene.
 
-\subsection{Planlegging av komponenter}
+\subsection{Planlegging av components}
 Komponenter i React kan beskrives som gjenbrukbare biter av kode. En stor fordel med komponenter er at de er mulig å gjenbruke, slik at det ikke lenger er nødvendig å skrive den samme koden flere ganger. 
 
 Ved å se på den godkjente mockupen ble følgende komponenter fastsatt: 
@@ -370,7 +369,7 @@ Før det ble opprettet et objekt som inneholdt alle eksisterende components, ble
 
 Feilmeldingen var at komponenten brukte feil casing, noe som ikke var riktig da feilmeldingen viste at \q{\textless HeaderComponent /\textgreater} var skrevet på riktig måte. Etter en del feilsøking, fant vi ingen som hadde løst dette problemet tidligere. Vi endte derfor opp med å opprette objektet som inneholder alle komponentene. 
 
-I tillegg til å finne ut av hvilke komponenter som tilhører siden, må man i tillegg finne ut av hvilke felter som tilhører hvilke komponenter. Dette blir satt i back-end. I løkka som går igjennom objektene ble det derfor lagt til en ny løkke, som går igjennom og lagrer alle tilhørende felter til en komponent i en array. Denne arrayen blir så sendt videre som props i de ulike komponentene.
+I tillegg til å finne ut av hvilke komponenter som tilhører siden, må vi finne ut av hvilke felter som tilhører hvilke komponenter. Dette blir satt i back-end. I løkka som går igjennom objektene ble det derfor lagt til en ny løkke, som går igjennom og lagrer alle tilhørende felter til en komponent i en array. Denne arrayen blir så sendt videre som props i de ulike komponentene.
 
 \subsection{Child components}
 I systemet vårt kan en komponent ha flere \q{barn}. Det å ha komponenter som er barn av en komponent gjør at disse har et forhold til hverandre. Da blir det mulig å putte forskjellig innhold inn i en felles seksjon.
