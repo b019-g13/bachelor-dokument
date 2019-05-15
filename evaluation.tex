@@ -39,7 +39,7 @@ Testperson 2 var en mann på 30 år, som gjennomførte testen på mobil. Case 1 
 Testperson 3 var en kvinne på 25 år, som utførte testen på laptop. Etter å ha fått oppgitt case 1 trykket hun raskt inn på \q{Om oss}-siden og fant frem til teksten som beskrev bedriften. Under case nummer 2 trykket hun seg tilbake til forsiden ved hjelp av logoen. Etter litt scrolling oppga hun at hun også er en slik person som hadde tatt kontakt via chatten, for å få høre mer om tjenestene til bedriften. For case 3 trykket hun seg innpå \q{Kontakt oss}-siden og oppga at hun hadde tatt kontakt gjennom dette skjema, om hun ikke allerede hadde tatt kontakt via chatten. 
 
 \subsection{Evaluering og konklusjon av brukertester}
-Etter at alle testpersonene hadde gjennomført de ulike casene kunne vi sette oss ned, gå igjennom testene og komme frem til en konklusjon. Det første interessante funnet var at flere oppga at de hadde tatt kontakt gjennom chatten for å få vite mer om tjenestene til oppdragsgiver. Vi tror grunnen til dette er at ingen av overskriftene eller menypunktene hadde ordet \q{Tjenester} i seg. Likevel tror vi at situasjonen hadde vært annereldes om caset hadde vært reelt og en potensiell kunde hadde ønsket å finne ut mer om tjenestene til Sirkus Media. Vi tror at personen hadde tatt seg tid til å lese gjennom teksten på siden før en eventuell kontakt. Samtidig ønsket vi å gjøre det enda lettere for kundene å finne frem og forbedre brukeropplevelsen. Vi besluttet derfor å legge til et menypunkt som heter \q{Vår prosess} og tar brukeren til informasjonen om prosessen, som også omhandler oppdragsgiver tjenester.
+Etter at alle testpersonene hadde gjennomført de ulike casene kunne vi sette oss ned, gå igjennom testene og komme frem til en konklusjon. Det første interessante funnet var at flere oppga at de hadde tatt kontakt gjennom chatten for å få vite mer om tjenestene til oppdragsgiver. Vi tror grunnen til dette er at ingen av overskriftene eller menypunktene hadde ordet \q{Tjenester} i seg. Likevel tror vi at situasjonen hadde vært annereldes om caset hadde vært reelt og en potensiell kunde hadde ønsket å finne ut mer om tjenestene til Sirkus Media. Vi tror at personen hadde tatt seg tid til å lese gjennom teksten på siden før en eventuell kontakt. Samtidig ønsket vi å gjøre det enda lettere for kundene å finne frem og forbedre brukeropplevelsen. Vi besluttet derfor å legge til et menypunkt som heter \q{Vår prosess} og tar brukeren til informasjonen om prosessen, som også omhandler oppdragsgivers tjenester.
 
 Et annet funn vi gjorde, var at ikke alle klarte å komme seg tilbake til forsiden. Vi bestemte derfor å legge til menypunktet \q{Forside} på alle sider unntatt selve forsiden.
 
@@ -47,7 +47,7 @@ Videre fikk vi også noen tilbakemeldinger på designet. Alle testpersonene ment
 
 \section{Akseptansetest}
 Etter at første versjonen av nettsted og CMS var ferdig, kunne oppdragsgiver teste systemet. Målet med denne testen var å kartlegge hvor fornøyd oppdragsgiver var med produktet, samt hvilke endringer som burde foretas. I akseptansetesten blir det mulig for oppdragsgiver å verifisere at leveransen er i henhold til bestillingen. 
-Etter at versjon 1 ble lastet opp fikk oppdragsgiver beskjed om å teste å prøve å lage en ny side med komponenter og innhold, endre innholdet på eksisterende sider og slette den nyopprettede siden. Før testingen ble det sendt ut brukerveiledning på e-post\footnote{Se vedlegg \ref{appendix:user-manual}}. Oppdragsgiver fikk også beskjed om å gå igjennom de forskjellige sidene og komme med tilbakemelding på designet. 
+Etter at versjon 1 ble lastet opp på midlertidig domenet fikk oppdragsgiver beskjed om å teste å prøve å lage en ny side med komponenter og innhold, endre innholdet på eksisterende sider og slette den nyopprettede siden. Før testingen ble det sendt ut brukerveiledning på e-post\footnote{Se vedlegg \ref{appendix:user-manual}}. Oppdragsgiver fikk også beskjed om å gå igjennom de forskjellige sidene og komme med tilbakemelding på designet. 
 
 Vi fikk følgende tilbakemelding på forespørselen vår: 
 
@@ -140,7 +140,7 @@ Resultatene fra Checkbot viser også en god poengsum i gjennomsnitt. Se figur \r
 \end{figure}
 
 \subsubsection{WAVE \& kontrastforhold}
-Ved testing med Wave ble det ikke funnet noen feil, kun advarsler. De fleste av kontrastfeilene som blir presentert er ikke reelle, da testen ikke tar hensyn til tekstskygge. Vi har benyttet oss av tekstskygge for å få bedre kontrast. Se figur \ref{fig:analysis-new-wave-summary} for resultater. I figur \ref{fig:analysis-new-contrast} ser vi at kontrasten er god nok.
+Ved testing med Wave ble det kun funnet kontrastfeil og noen advarsler. De fleste av kontrastfeilene som blir presentert er ikke reelle, da testen ikke tar hensyn til tekstskygge, noe vi har benyttet oss av nettopp for å få bedre kontrast. Se figur \ref{fig:analysis-new-wave-summary} for resultater. I figur \ref{fig:analysis-new-contrast} ser vi at kontrasten er god nok.
 
 \begin{figure}[H]
     \centering
@@ -167,7 +167,7 @@ Resultatet, se figur \ref{fig:analysis-new-ssl-test}, hos Qualys SSL Server ble 
 \end{figure}
 
 \subsubsection{Test med skjermleser}
-Nettsiden ble også testet med skjermleser. Vi kan konkludere med at det var enkelt å navigere seg rundt på nettsiden fordi innholdet kommer i en logisk rekkefølge. Det har i tillegg blitt lagt til en \q{Hopp til innhold}-knapp som gjør det mulig å hoppe over menyen, som også gjør navigeringen enklere.
+Nettstedet ble også testet med skjermleser. Vi kan konkludere med at det var enkelt å navigere seg rundt på nettsiden fordi innholdet kommer i en logisk rekkefølge. Det har i tillegg blitt lagt til en \q{Hopp til innhold}-knapp som gjør det mulig å hoppe over menyen, som også gjør navigeringen enklere.
 
 \subsection{Sammenligning av ny og gammel løsning}
 I avsnitt \ref{sec:analysis-original-website}, der vi analyserte den opprinnelige nettsiden til Sirkus Media, kom det frem via testresultatene at nettsiden var rask. På testen som ble utført på nettet ved høgskolen lastet siden inn på under 1 sekund i gjennomsnitt, noe som var meget bra. Løsningen fikk også 70\% i poengsum hos Checkbot, og jevnt gode resultater i testen gjort med Google Lighthouse. Vi beskrev også hvorfor resultatene ble så gode som de ble. Hovedgrunnen til de gode resultatene var at nettstedet kun bestod av en forside og lite informasjon. Dette begrenset muligheten for feil. Vi hevdet også at det kom til å bli en utfordring å gjøre det like bra i disse testene med et nettsted som består av flere sider, mer innhold og kompleks funksjonalitet.

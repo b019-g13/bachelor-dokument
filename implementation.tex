@@ -313,7 +313,7 @@ Dette løste problemet og prosessen kunne fortsette. Da ble følgende gjort:
 Etter disse stegene begynte planleggingen av de forskjellige komponentene.
 
 \subsection{Planlegging av components}
-Komponenter i React kan beskrives som gjenbrukbare biter av kode. En stor fordel med komponenter er at de er mulig å gjenbruke, slik at det ikke lenger er nødvendig å skrive den samme koden flere ganger. 
+Komponenter i React kan beskrives som gjenbrukbare biter av kode. En stor fordel dette er at det ikke lenger er nødvendig å skrive den samme koden flere ganger. 
 
 Ved å se på den godkjente mockupen ble følgende komponenter fastsatt: 
 \begin{itemize}
@@ -372,25 +372,25 @@ Feilmeldingen var at komponenten brukte feil casing, noe som ikke var riktig da 
 I tillegg til å finne ut av hvilke komponenter som tilhører siden, må vi finne ut av hvilke felter som tilhører hvilke komponenter. Dette blir satt i back-end. I løkka som går igjennom objektene ble det derfor lagt til en ny løkke, som går igjennom og lagrer alle tilhørende felter til en komponent i en array. Denne arrayen blir så sendt videre som props i de ulike komponentene.
 
 \subsection{Child components}
-I systemet vårt kan en komponent ha flere \q{barn}. Det å ha komponenter som er barn av en komponent gjør at disse har et forhold til hverandre. Da blir det mulig å putte forskjellig innhold inn i en felles seksjon.
+I systemet vårt kan en komponent ha flere \q{barn}. Det å ha komponenter som er barn av andre komponenter, gjør at disse har et forhold til hverandre. Da blir det mulig å putte forskjellig innhold inn i en felles seksjon.
 
 \subsection{Felter med samme navn}
-Underveis i prosessen ble det oppdaget at hvis en komponent hadde den samme felttypen flere ganger, ville bare den siste verdien bli skrevet ut. En komponent vil ofte bestå av for eksempel flere tekstfelt, og derfor måtte vi finne en måte å løse dette på.
+Underveis i prosessen ble det oppdaget at hvis en komponent hadde den samme felttypen flere ganger, ville bare den siste verdien bli skrevet ut. En komponent vil ofte bestå av for eksempel flere tekstfelt, og vi måtte derfor finne en måte å løse dette på.
 
-Løsningen ble en betingelsetest der det blir sjekket om samme felttype er til stede flere ganger. Hvis denne blir sann, vil feltene med verdier bli lagt til i en array. 
+Løsningen ble en betingelse-test der det blir sjekket om samme felttype er til stede flere ganger. Hvis denne blir sann, vil feltene med verdier bli lagt til i en array. 
 
 \subsection{Utskrift av tomme felter}
 Videre i prosessen ble det oppdaget at hvis en prop ikke innholdt en verdi, ville feltet fortsatt bli skrevet ut. Dette førte til at nettstedet inneholdt mange tomme HTML-tagger. Brukervennligheten på for eksempel skjermlesere hadde blitt betraktelig dårligere, så derfor måtte dette gjøres om. Løsningen ble å gjøre en betingelse-test på hver prop, for å sjekke om den innholdt en verdi. Da ble det mulig å kun skrive ut om dette var oppfylt.
 
 \subsection{Testing}
-For å teste systemet, ble header-komponenten laget. Når denne ble opprettet både i objektet og back-end, ble alle props/feltene som blir mottatt fra komponenten skrevet ut. Dette betydde at Header-komponenten fungerte som den skulle, og vi kunne starte med å legge til resten av komponentene på samme måte. 
+For å teste systemet, ble header-komponenten laget. Når denne ble opprettet både i objektet og back-end, ble alle mottatte props/felter fra komponenten skrevet ut. Dette betydde at Header-komponenten fungerte som den skulle, og vi kunne starte med å legge til resten av komponentene på samme måte. 
 
-Da kunne vi også begynne å style komponentene slik at de ligner mockupen som ble laget.
+Da kunne vi også begynne å style komponentene slik at de lignet mockupen som ble laget.
 
 \subsection{Kompilere SCSS til CSS}
 Gruppen har tidligere nevnt at det ble besluttet å bruke SASS til styling. Da er det nødvendig å ha noe som kompilerer fra SCSS til CSS. Dette ble oppnådd ved å følge guiden hos TechCookbook\footnote{\url{https://techcookbook.com/react/use-scss-with-create-react-app}}
 
-Installerte først node-sass ved å kjøre :
+Først ble node-sass installert ved å kjøre :
 
 \begin{lstlisting}[caption={Installering av node-sass},language=bash]
 npm install --save node-sass
@@ -421,13 +421,13 @@ En test ble gjort ved å lage en fil som het "header.scss" og satte bakgrunnsfar
 Designet til nettstedet ble stylet ved hjelp av SCSS, og er så lik den godkjente mockupen som mulig. Designet er også responsivt og fungerer derfor like godt på stor skjerm, laptop, nettbrett og mobil. For stylingen ble prinsippet \q{mobil først} benyttet. Dette prinsippet går ut på at utviklingen først skjer for små skjermer, for deretter å skalere opp og gjøre designendringer når det er nødvendig. 
 
 \subsection{Ikoner og illustrasjoner}
-Ikonene er hentet fra Feather\footnote{\url{https://feathericons.com/}}. Feather er en ikonpakke med åpen kildekode. Alle illustrasjonene er hentet fra unDraw\footnote{\url{https://undraw.co/}}. På nettsiden til unDraw oppgir de at både private og kommersielle kan bruke og modifisere illustrasjonene gratis\footnote{\url{https://undraw.co/license}}. Siden disse er av filtypen SVG har vi hatt muligheten til å tilpasse fargene på illustrasjonene til å passe designet til nettstedet.
+Ikonene er hentet fra Feather\footnote{\url{https://feathericons.com/}}. Feather er en ikonpakke med åpen kildekode. Alle illustrasjonene er hentet fra unDraw\footnote{\url{https://undraw.co/}}. På nettsiden til unDraw oppgir de at både private og kommersielle kan bruke og modifisere illustrasjonene gratis\footnote{\url{https://undraw.co/license}}. Siden illustrasjonene er av filtypen SVG har vi hatt muligheten til å enkelt tilpasse fargene på illustrasjonene, slik at de passer designet til nettstedet.
 
 \section{DevOps}
-Vi har ikke fått all informasjon som skal på nettstedet eller tilgang til domenet til Sirkus Media. Nettsted og CMS måtte derfor lastes opp på midlertidig domener.
+Gruppen har ikke mottatt all informasjon som skal på nettstedet. Vi har eller fått tilgang til domenet til Sirkus Media. Nettsted og CMS måtte derfor lastes opp på midlertidig domener.
 I forbindelse med prosjektet skulle gruppen ha et eget nettsted der det er informasjon om oppgaven og gruppen, samt oppdatering underveis i prosessen. Det ble derfor kjøpt et eget domenet for dette: \url{b019-g13.group}. Vi bestemte oss for å bruke det samme domenet. Det ble opprettet et subdomene hver for front-end og back-end: \url{sirkusmedia.b019-g13.group} og \url{api.b019-g13.group}.
 
-Front-end ble lastet opp og kan styres via Netlify\footnote{\url{https://www.netlify.com/}}. Back-end skulle i utgangspunktet settes opp på en virtuell server hos DigitalOcean\footnote{\url{https://www.digitalocean.com/}}, som vi selv satt opp med LEMP. Vi endte opp med en litt annen løsning, der alt settes opp og styres gjennom Laravel Forge\footnote{https://forge.laravel.com/} og oppdateres med Envoyer\footnote{\url{https://envoyer.io/}}. Oppsettet kjører forsatt på en VPS hos DigitalOcean, men vi trengte ikke lenger å sette opp LEMP.
+Front-end ble lastet opp og kan styres via Netlify\footnote{\url{https://www.netlify.com/}}. Back-end skulle i utgangspunktet settes opp på en virtuell server hos DigitalOcean\footnote{\url{https://www.digitalocean.com/}}, som vi selv satt opp med LEMP. Vi endte opp med en litt annen løsning, der alt settes opp og styres gjennom Laravel Forge\footnote{\url{https://forge.laravel.com/}} og oppdateres med Envoyer\footnote{\url{https://envoyer.io/}}. Oppsettet kjører forsatt på en VPS hos DigitalOcean, men vi trengte ikke lenger å sette opp LEMP.
 
 \section{Første versjon av database, CMS og nettsted}
 Det ble noen avvik fra den planlagte databasen. Databasen ble derfor mer optimalisert og bedre tilpasset det oppsettet vi ønsket, se figur \ref{fig:first-version-db} og \ref{fig:first-version-db-other}.
@@ -446,7 +446,9 @@ Det ble noen avvik fra den planlagte databasen. Databasen ble derfor mer optimal
     \label{fig:first-version-db-other}
 \end{figure}
 
-CMS-et endte opp med å bli som vi planla i avsnitt \ref{sec-planning-cms}. Det var kun en ekstra funksjonalitet som ble lagt til, muligheten til å gi kallenavn til felter som tilhører komponenter. Dette gjør det enklere for sluttbruker å redigere sider. En funksjonalitet som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image-modellen. For å sette verdien til dette feltet på riktig måte, trenger man en ID til et bilde i \q{images}-tabellen. Alt dette tar bildevelgeren seg av, samt at den gjør det enkelt å laste opp nye bilder. Figur \ref{fig:first-version-cms} viser første versjon av CMS-et, og \ref{fig:media-picker-cms} viser bildevelgeren til CMS-et.
+CMS-et endte opp med å bli som vi planla i avsnitt \ref{sec-planning-cms}. Det var kun et par ekstra funksjoner som ble lagt til, muligheten til å gi kallenavn til felter som tilhører komponenter og CRUD for innstillinger. Kallenavn til felter gjør det enklere for sluttbruker å redigere sider.
+
+En funksjonalitet som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image-modellen. For å sette verdien til dette feltet på riktig måte, trenger man en ID til et bilde i \q{images}-tabellen. Alt dette tar bildevelgeren seg av, samt at den gjør det enkelt å laste opp nye bilder. Figur \ref{fig:first-version-cms} viser første versjon av CMS-et, og \ref{fig:media-picker-cms} viser bildevelgeren til CMS-et.
 
 \begin{figure}[H]
     \centering
@@ -462,7 +464,7 @@ CMS-et endte opp med å bli som vi planla i avsnitt \ref{sec-planning-cms}. Det 
     \label{fig:media-picker-cms}
 \end{figure}
 
-Nettstedet endte også opp som vi planla i avsnitt \ref{sec:planning-website}. Både forsiden, menyen, om- og kontakt oss siden ble utviklet uten avvik. Videre innholder footeren en link som fører til logg inn til administrasjonsgrensesnittet. Det har også blitt opprettet sider for personvern og informasjonskapsler. Disse innholder tekst fra den opprinnelige nettsiden til oppdragsgiver. Nettstedet består i tillegg av en chat, der meldingene blir sendt direkte til en e-postadresse. Figur \ref{fig:first-version-website} viser første versjon av nettstedet.
+Nettstedet endte også opp som vi planla i avsnitt \ref{sec:planning-website}. Både forsiden, menyen, om- og kontakt oss siden ble utviklet uten avvik. Videre innholder footeren en link som fører til logg inn til administrasjonsgrensesnittet. Det har også blitt opprettet sider for personvern og informasjonskapsler. Disse innholder tekst fra den opprinnelige nettsiden til oppdragsgiver. Nettstedet består i tillegg av en chat. Figur \ref{fig:first-version-website} viser første versjon av nettstedet.
 
 \begin{figure}[H]
     \centering
