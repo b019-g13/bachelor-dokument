@@ -11,7 +11,7 @@ CMS-et er oppbygget på følgende måte:
 \item Hver komponent inneholder felter (fields), som holder på innholdet som vises på siden. Det finnes forskjellig felttyper. For eksempel kan et felt være et bilde, et tekstområde eller en lenke. 
 \end{itemize}
 
-Det er bare brukere med rollen superadmin som kan opprette komponenter og felter. Andre roller kan kun velge mellom de ferdigdefinerte komponenter og felter når en ny side skal opprettes.
+Det er bare brukere med rollen superadmin som kan opprette komponenter og felter. Andre roller kan kun velge mellom de ferdigdefinerte komponenter og felter, når en ny side skal opprettes.
 
 \section{Legge til ny side}
 
@@ -102,7 +102,7 @@ Komponentene kommer i den rekkefølgen som blir vist i brukergrensesnittet. Om d
 Her kommer en oversikt over de forskjellige komponentene det er mulig å velge mellom:
 
 \subsection{Header}
-Headeren er det første som vises på siden. Den bør minst inneholde en tittel. Utover tittelen kan headeren også inneholde et avsnitt med tekst, en knapp samt et tekstfelt under knappen. Figuren under viser headeren til forsiden. Legg merke til at headeren alltd vil ha denne fargen som bakgrunn.
+Headeren er det første som vises på siden. Den bør minst inneholde en tittel. Utover tittelen kan headeren også inneholde et avsnitt med tekst, en knapp, samt et tekstfelt under knappen. Figuren under viser headeren til forsiden. Legg merke til at headeren alltid vil ha denne fargen som bakgrunn.
 
 \begin{figure}[H]
     \centering
@@ -128,9 +128,9 @@ Den hvite boksen med innhold har vi kalt action box. Her kan du velge mellom \q{
 \end{figure}
 
 \subsection{Om oss}
-\q{Om oss}-komponenten henviser til \q{Om oss}-avsnittet på forsiden. Den kan likevel fint brukes til annen informasjon når du ønsker samme layout med grå bakgrunn.
+\q{Om oss}-komponenten henviser til \q{Om oss}-avsnittet på forsiden. Den kan likevel fint brukes til annen informasjon, når du ønsker dem samme layouten og grå bakgrunn.
 
-Det som er spesielt med denne komponenten er at den er helt tom, men fungerer som en slags wrapper for stylingen og gjør at teksten og annet innhold havner der den skal på siden. Derfor må du legge til \q{Om oss - barn} inni denne komponenten for å få samme layout.
+Det som er spesielt med denne komponenten er at den er helt tom. Den fungerer som en slags wrapper for stylingen og gjør at teksten og annet innhold havner der den skal på siden. Derfor må du legge til \q{Om oss - barn} inni denne komponenten for å få samme layout som vist på bilde under.
 
 \begin{figure}[H]
     \centering
@@ -142,7 +142,7 @@ Det som er spesielt med denne komponenten er at den er helt tom, men fungerer so
 \q{Wrapper - hvit bakgrunn} er også en tom komponent som fungerer som en wrapper for stylingen. Forskjellen mellom denne og \q{Om oss} er at denne har hvit bakgrunn. Hvis du for eksempel ønsker en seksjon med overskrift, tekstavsnitt og hvit bakgrunn kan du legge komponenten \q{Overskrift + tekst} som et barn av denne komponenten.
 
 \section{Prosess}
-Prosess-komponenten henviser til prosessen. I denne komponenten kan du legge til en hovedoverskrift etterfulgt av så mange steg som er ønskelig. Et steg kan bestå av en overskrift, et tekstområdet og bilde. 
+Prosess-komponenten henviser til prosessen. I denne komponenten kan du legge til en hovedoverskrift, etterfulgt av så mange steg som er ønskelig. Et steg kan bestå av en overskrift, et tekstområdet og bilde. 
 
 \begin{figure}[H]
     \centering
@@ -170,10 +170,10 @@ Kontaktskjema er selve kontaktskjema.
 \end{figure}
 
 \section{Ikon m. tekst}
-For å få et ikon ved siden av en tekst bruker du komponenten \q{Ikon m. tekst}. Dette er en komponent som typisk er inni en forelder.
+For å få et ikon ved siden av en tekst, bruker du komponenten \q{Ikon m. tekst}. Dette er en komponent som typisk er inni en forelder.
 
 \section{Ikon m. link}
-For å få et ikon ved siden av tekst bruker du komponenten \q{Ikon m. link}. Dette er en komponent som typisk er inni en forelder.
+For å få et ikon ved siden av en link, bruker du komponenten \q{Ikon m. link}. Dette er en komponent som typisk er inni en forelder.
 
 \section{Overskrift + tekst}
 For å få en overskrift med tilhørende tekst under, bruker du denne komponenten. Dette er også en komponent som ofte vil være inni en forelder. Hvis du ønsker å legge til et tekstområdet kan denne komponenten også brukes til dette, ved å la være å fylle inn overskriften. 
@@ -205,7 +205,7 @@ For å legge til et bilde eller ikon må du først velge en komponent som innhol
     \label{fig:cms-upload-image}
 \end{figure}
 
- Nå vil det åpne seg et vindu med bildevelgeren. Her kan du velge blant allerede opplastede bilder eller du kan velge å laste opp et nytt fra maskinen din. Dette gjør du ved å trykke på \q{Last opp nytt}-knappen.
+ Nå vil det åpne seg et vindu med bildevelgeren. Her kan du velge blant allerede opplastede bilder, eller du kan velge å laste opp et nytt fra maskinen din. Dette gjør du ved å trykke på \q{Last opp nytt}-knappen.
  
 \begin{figure}[H]
     \centering
@@ -284,7 +284,7 @@ For å slette en side, trykk på det røde ikonet med søppelbøtte. Deretter vi
 
 
 \section{Legg til link i meny}
-For å legge til en link i menyen, trykk på menypunktet \q{Menyer}. Velg så menyen du ønsker å endre ved å trykke på det grønne ikonet. Da vil du komme til et nytt vindu. Her kan du velge mellom alle linkene som eksisterer og dra den over til \q{Menyens linker}. Trykk på \q{Oppdater} for å lagre.
+For å legge til en link i menyen, trykk på menypunktet \q{Menyer}. Velg så menyen du ønsker å endre ved å trykke på det grønne ikonet. Da vil du komme til et nytt vindu. Her kan du velge blant alle linkene som eksisterer, og dra den over til \q{Menyens linker}. Trykk på \q{Oppdater} for å lagre.
 
 \begin{figure}[H]
     \centering
