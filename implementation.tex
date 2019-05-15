@@ -2,10 +2,6 @@
 \chapter{Produksjon av CMS og nettsted}
 \label{chap:implementation} 
 
-% \meta{
-% Her skal det beskrives hvordan man faktisk produserte resultatene i prosjektet, og viktigst, beskrive selve produktet. Hvilke verktøy brukte man, hvordan foregikk produksjonen, etc. Utformingen av dette kapittelet avhenger helt klart av type prosjekt.
-% }
-
 I dette kapittelet skal vi presentere resultatene i prosjektet og beskrive CMS og nettsted. Her vil vi også presentere hvilke verktøy vi endte opp med å bruke og hvordan selve produksjonen foregikk.
 
 \section{Verktøy}
@@ -22,15 +18,10 @@ MySQL \cite{oracle2019am} er et databasestyringssystem med åpen kildekode.
 
 Prosjektets database er en MySQL-database.
 
-% \subsection{Let’s Encrypt}
-% Let’s Encrypt \cite{le2019ale} er en gratis og åpen sertifikatautoritet som gir ut X.509-sertifikater for kryptering av transportlaget. Tjenesten leveres av ISRG (Internet Security Research Group).
-
-% Studentgruppen har benyttet Let's Encrypt til å lage TLS-sertfikater\footnote{Se avsnitt \ref{sec:analysis-security-tls}}.
-
 \subsection{Node.js}
-Node.js er et servermiljø med åpen og gratis kildekode. Node.js kan kjøre på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren \cite{w3schools2019win}. I tillegg kan Node.js generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. Videre kan Node.js legge til, slette og endre data i databasen.
+Node.js er et JavaScript runtime environment med åpen og gratis kildekode. Node.js kan kjøre på ulike plattformer (Windows, Linux, Unix, Mac OS) og bruker JavaScript på serveren \cite{w3schools2019win}. I tillegg kan Node.js generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. Videre kan Node.js legge til, slette og endre data i databasen.
 
-Vi har brukt Node.js for å kunne kjøre verktøy knyttet til utvikling av front-end.
+Vi har brukt Node.js for å kunne kjøre verktøy knyttet til utvikling av front-end og back-end.
 
 \section{Tilhørende teknologier og begreper}
 Ved å bruke verktøyene som har blitt presentert benyttes også noen tilhørende teknologier. Disse blir presentert videre i dette kapittelet. 
@@ -65,7 +56,7 @@ REST (Representational State Transfer) er en arkitektonisk stil for programvare.
 % Når koden skal commites må det opprettes en pull request, som må godkjennes. Da blir det mulig å luke ut kode som inneholder feil som potensielt kan ødelegge for eksisterende kode.
 
 \section{Back-end}
-\subsection{Installasjon og oppsett av Laravel og tilhørende verktøy}
+\subsection{Installasjon og oppsett av Laravel med tilhørende verktøy}
 Første steg var å installere package manageren Composer. Deretter kunne siste versjon av Laravel (5.7) settes opp og installeres. Da vi benyttet oss av Composer ble det mulig å installere Laravel med et par kommandoer i terminalen:
 \begin{lstlisting}[caption={Installasjon av Laravel med Composer},language=bash]
     composer global require laravel/installer
@@ -96,14 +87,14 @@ Etter at databasen var klar for bruk begynte vi å sette innstillingene for e-po
     MAIL_ENCRYPTION=tls
 \end{lstlisting}
 
-Når løsningen skal ut i produksjon må det brukes noe annet enn Mailtrap. Sirkus Media kan selv bestemme hva de ønsker å bruke, men systemet er satt opp til bruk av Mailgun\footnote{\url{https://www.mailgun.com/}}.
+Når løsningen skal ut i produksjon må det brukes noe annet enn Mailtrap. Sirkus Media kan selv bestemme hva de ønsker å bruke, men systemet er gjort klar til bruk av Mailgun\footnote{\url{https://www.mailgun.com/}}.
 
 \subsubsection{Lagring}
 Lagring av opplastede og genererte filer foregår på samme server som back-end kjører på. For å sette opp dette kjørte vi en Larvel Artisan kommando:
 \begin{lstlisting}[caption={Laravel Artisan kommando for å sette opp lagring av filer}, language=bash]
     php artisan storage:link
 \end{lstlisting}
-Storage klassen til Larvel gjør at Sirkus Media enkelt kan benytte seg av andre løsninger, som for eksempel Amazon Web Servies S3.
+Storage-klassen til Larvel gjør at Sirkus Media enkelt kan benytte seg av andre løsninger, som for eksempel Amazon Web Servies S3.
 
 \subsubsection{Laravel Mix}
 Laravel Mix\footnote{\url{https://laravel-mix.com/}} var det siste som måtte settes opp før utviklingen kunne starte. Dette er en \textit{wrapper} rundt den populære module bundleren Webpack\footnote{\url{https://webpack.js.org/}}. For å bruke Laravel Mix måtte vi først installere Node.js. Etter Node.js ble installert trengte vi kun å kjøre et par npm-kommandoer:
@@ -112,7 +103,7 @@ Laravel Mix\footnote{\url{https://laravel-mix.com/}} var det siste som måtte se
     npm run dev
 \end{lstlisting}
 
-For å konfigurere hvilke filer som skal brukes av front-end til Laravel fylte vi ut filen webpack.mix.js:
+For å konfigurere hvilke filer som skal brukes av front-enden til Laravel fylte vi ut filen webpack.mix.js:
 \begin{lstlisting}[caption={Eksempel på oppsett av webpack.mix.js}]
     const mix = require("laravel-mix");
 
@@ -123,7 +114,8 @@ For å konfigurere hvilke filer som skal brukes av front-end til Laravel fylte v
     mix.browserSync({ proxy: "localhost:8000", notify: false });
 \end{lstlisting}
 
-Når vi snakker om \q{front-end til Laravel}, er det ikke snakk om front-end til nettsiden som lages for Sirkus Media, men front-end til CMS-et.
+Når vi snakker om \q{front-enden til Laravel}, er det ikke snakk om front-end til nettstedet som lages for Sirkus Media, men front-end til CMS-et.
+
 Laravel kommer med en del dependencies til front-end som vi ikke trenger. Alle dependencies defineres i package.json. Følgende dependencies ble fjernet: Bootstrap, jQuery, lodash, Popper og Vue. Det ble kun lagt til en dependency; Shopify sin Draggable pakke. BrowserSync ble også lagt til som en devDependency.
 
 \begin{lstlisting}[caption={Orginal package.json}]
@@ -162,23 +154,23 @@ Laravel kommer med en del dependencies til front-end som vi ikke trenger. Alle d
 Den eneste grunnen til at vue-template-compiler ligger som en dependency her, er fordi siste versjon av Laravel Mix ikke kjører uten.
 
 \subsection{Modeller og database migrations}
-Definering av modeller og migrasjon filer til databasetabellene var det første som ble gjort etter konfigurering av rammeverket.
+Definering av modeller og migrasjon-filer til databasetabellene, var det første som ble gjort etter konfigurering av rammeverket.
 Modeller lagde vi ved å skrive følgende Larvel Artisan kommando i terminalen:
 \begin{lstlisting}[caption={Laravel Artisan kommando for oppretting av modell og migration},language=php]
     php artisan make:model Modelnavn -m
 \end{lstlisting}
 Parameteret \q{-m} i kommandoen over brukes for å opprette en migration-fil for modellen. Det er også mulig å opprette migration-fil etter å ha lagd en modell:
-\begin{lstlisting}[caption={Laravel Artisan kommando for oppretting av migration fil},language=php]
+\begin{lstlisting}[caption={Laravel Artisan kommando for oppretting av migration-fil},language=php]
     php artisan make:migration migration_file_name
 \end{lstlisting}
-Etter at modellene og migration filene er opprettet kan man definere forhold mellom modellene (gjøres i modell filen), samt databasetabell for hver modell (gjøres i migration filen).
-Når migration filene er ferdig definert kan man kjøre migration ved å skrive følgende kommando i terminalen:
+Etter at modellene og migration-filene er opprettet kan man definere forhold mellom modellene (gjøres i modell-filen), samt databasetabell for hver modell (gjøres i migration-filen).
+Når migration-filene er ferdig definert kan en migration kjøres ved å skrive følgende kommando i terminalen:
 \begin{lstlisting}[caption={Laravel Artisan kommando for å kjøre migration},language=php]
     php artisan migrate
 \end{lstlisting}
 Etter at migration blir kjørt vil alle tabellene og deres kolonner bli opprettet i MySQL.
-Under er et eksempel på en migration fil
-\lstinputlisting[caption={Laravel migration fil}, language=php]{laravel-code-examples/migration.php}
+Under er et eksempel på en migration-fil
+\lstinputlisting[caption={Laravel migration-fil}, language=php]{laravel-code-examples/migration.php}
 
 \subsubsection{Eloquent forhold mellom modellene}
 Eloquent\footnote{\url{https://laravel.com/docs/5.8/eloquent}} er Laravel sitt ORM, det lar oss definere forhold mellom de forskjellige modellene. Det er ønskelig å definere forhold som f.eks: en forfatter har mange bøker. Når et slikt forhold er definert i modellene til Larvel, lar Eloquent oss hente alle bøkene til forfatteren med kode som dette: \lstinline[language=PHP]{$author->books}.

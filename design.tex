@@ -47,7 +47,7 @@ Figur \ref{fig:database} viser databasen som ble planlagt for prosjektet:
 \end{figure}
 
 \section{Planlegging av API}
-I felleskap begynte vi å planlegge hvilke linker som API-et skal ha, og hva de skal sende i svar. Det ble derfor utarbeidet en JSON-fil som beskriver strukturen og hvilke data den skal gi i svar for forskjellige forespørsler.
+I felleskap begynte vi å planlegge hvilke linker API-et skal ha, og hva de skal sende i svar. Det ble derfor utarbeidet noen JSON-filer som beskriver strukturen og hvilke data API-et skal gi i svar for forskjellige forespørsler.
 
 I første omgang ble URL-er for Pages og Menus definert. Dataene disse gir i svar, vil være offentlig. 
 
@@ -56,7 +56,7 @@ I første omgang ble URL-er for Pages og Menus definert. Dataene disse gir i sva
 \lstinputlisting[caption={JSON-eksempel for menyer (api.sirkusmedia.no/api/v1/menus)}]{api-code-examples/menus.json}
 \lstinputlisting[caption={JSON-eksempel for en meny (api.sirkusmedia.no/api/v1/menus/id)}]{api-code-examples/menu.json}
 
-Denne filen er kun eksempeldata. Den vil bli brukt til å se på at back-end sender svar på riktig måte. Front-end kan også benytte filen og se hvilke svar som kan forventes på de forskjellige forespørselene. Fordelen med dette er at det kan lages \q{dummy responses} som er mulig å jobbe med underveis i utviklingen.
+Disse filene er kun eksempeldata. De vil bli brukt til som referansepunkt under utvikling av back-end. Front-end kan også benytte filene og se hvilke svar som kan forventes på de forskjellige forespørselene. Fordelen med dette er at det kan lages \q{dummy responses} som er mulig å jobbe med underveis i utviklingen.
 
 \section{Mockups}
 En del av planleggingsfasen var å lage mockups/skisser av nettstedet. Det ble først utarbeidet en skisse for forsiden, slik at den kunne sendes til oppdragsgiver for godkjenning.
