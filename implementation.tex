@@ -424,13 +424,15 @@ Designet til nettstedet ble stylet ved hjelp av SCSS, og er så lik den godkjent
 Ikonene er hentet fra Feather\footnote{\url{https://feathericons.com/}}. Feather er en ikonpakke med åpen kildekode. Alle illustrasjonene er hentet fra unDraw\footnote{\url{https://undraw.co/}}. På nettsiden til unDraw oppgir de at både private og kommersielle kan bruke og modifisere illustrasjonene gratis\footnote{\url{https://undraw.co/license}}. Siden illustrasjonene er av filtypen SVG har vi hatt muligheten til å enkelt tilpasse fargene på illustrasjonene, slik at de passer designet til nettstedet.
 
 \section{DevOps}
-Gruppen har ikke mottatt all informasjon som skal på nettstedet. Vi har eller fått tilgang til domenet til Sirkus Media. Nettsted og CMS måtte derfor lastes opp på midlertidig domener.
+Gruppen har ikke mottatt all informasjon som skal på nettstedet. Vi har heller ikke fått tilgang til domenet til Sirkus Media. Nettsted og CMS måtte derfor lastes opp på midlertidig domener.
 I forbindelse med prosjektet skulle gruppen ha et eget nettsted der det er informasjon om oppgaven og gruppen, samt oppdatering underveis i prosessen. Det ble derfor kjøpt et eget domenet for dette: \url{b019-g13.group}. Vi bestemte oss for å bruke det samme domenet. Det ble opprettet et subdomene hver for front-end og back-end: \url{sirkusmedia.b019-g13.group} og \url{api.b019-g13.group}.
 
-Front-end ble lastet opp og kan styres via Netlify\footnote{\url{https://www.netlify.com/}}. Back-end skulle i utgangspunktet settes opp på en virtuell server hos DigitalOcean\footnote{\url{https://www.digitalocean.com/}}, som vi selv satt opp med LEMP. Vi endte opp med en litt annen løsning, der alt settes opp og styres gjennom Laravel Forge\footnote{\url{https://forge.laravel.com/}} og oppdateres med Envoyer\footnote{\url{https://envoyer.io/}}. Oppsettet kjører forsatt på en VPS hos DigitalOcean, men vi trengte ikke lenger å sette opp LEMP.
+Front-end ble lastet opp og kan styres via Netlify\footnote{\url{https://www.netlify.com/}}. Back-end skulle i utgangspunktet settes opp på en virtuell server hos DigitalOcean\footnote{\url{https://www.digitalocean.com/}}, som vi selv satt opp med LEMP. Vi endte opp med en litt annen løsning, der alt settes opp og styres gjennom Laravel Forge\footnote{\url{https://forge.laravel.com/}} og oppdateres med Envoyer\footnote{\url{https://envoyer.io/}}. Oppsettet kjører forsatt på en VPS hos DigitalOcean, men det var ikke lenger nødvendig å sette opp LEMP.
 
 \section{Første versjon av database, CMS og nettsted}
-Det ble noen avvik fra den planlagte databasen. Databasen ble derfor mer optimalisert og bedre tilpasset det oppsettet vi ønsket, se figur \ref{fig:first-version-db} og \ref{fig:first-version-db-other}.
+I dette avsnittet vil vi presentere første versjon av databasen, CMS og nettstedet.
+
+Det ble noen avvik fra den planlagte databasen. Databasen ble underveis i prosessen optimalisert og bedre tilpasset det oppsettet vi ønsket, se figur \ref{fig:first-version-db} og \ref{fig:first-version-db-other}.
 
 \begin{figure}[H]
     \centering
@@ -448,7 +450,7 @@ Det ble noen avvik fra den planlagte databasen. Databasen ble derfor mer optimal
 
 CMS-et endte opp med å bli som vi planla i avsnitt \ref{sec-planning-cms}. Det var kun et par ekstra funksjoner som ble lagt til, muligheten til å gi kallenavn til felter som tilhører komponenter og CRUD for innstillinger. Kallenavn til felter gjør det enklere for sluttbruker å redigere sider.
 
-En funksjonalitet som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image-modellen. For å sette verdien til dette feltet på riktig måte, trenger man en ID til et bilde i \q{images}-tabellen. Alt dette tar bildevelgeren seg av, samt at den gjør det enkelt å laste opp nye bilder. Figur \ref{fig:first-version-cms} viser første versjon av CMS-et, og \ref{fig:media-picker-cms} viser bildevelgeren til CMS-et.
+En funksjonalitet som ble diskutert under planlegging, men aldri skrevet ned var en bildevelger. Felter som er av typen bilde, har en referanse til Image-modellen. For å sette verdien til dette feltet på riktig måte, trenger man en ID til et bilde i \q{images}-tabellen. Alt dette tar bildevelgeren seg av. Den gjør det også enkelt å laste opp nye bilder. Figur \ref{fig:first-version-cms} viser første versjon av CMS-et, og \ref{fig:media-picker-cms} viser bildevelgeren til CMS-et.
 
 \begin{figure}[H]
     \centering
@@ -464,7 +466,7 @@ En funksjonalitet som ble diskutert under planlegging, men aldri skrevet ned var
     \label{fig:media-picker-cms}
 \end{figure}
 
-Nettstedet endte også opp som vi planla i avsnitt \ref{sec:planning-website}. Både forsiden, menyen, om- og kontakt oss siden ble utviklet uten avvik. Videre innholder footeren en link som fører til logg inn til administrasjonsgrensesnittet. Det har også blitt opprettet sider for personvern og informasjonskapsler. Disse innholder tekst fra den opprinnelige nettsiden til oppdragsgiver. Nettstedet består i tillegg av en chat. Figur \ref{fig:first-version-website} viser første versjon av nettstedet.
+Nettstedet endte opp som vi planla i avsnitt \ref{sec:planning-website}. Både forsiden, menyen, om- og kontakt oss siden ble utviklet uten avvik. Videre innholder footeren en link som fører til logg inn til administrasjonsgrensesnittet. Det har også blitt opprettet sider for personvern og informasjonskapsler. Disse innholder tekst fra den opprinnelige nettsiden til oppdragsgiver. Nettstedet består i tillegg av en chat. Figur \ref{fig:first-version-website} viser første versjon av nettstedet.
 
 \begin{figure}[H]
     \centering
