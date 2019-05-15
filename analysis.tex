@@ -9,7 +9,7 @@
 
 %  -- 
 
-Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. I løpet av dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, design og funksjonalitet. I tillegg vil vi presentere en analyse av opprinnelig løsning, konkurrentanalyse, kravene som er satt til verktøy etterfulgt av en presentasjon av verktøy vi mener er passende.
+Kapittel 2 omhandler relevant teori og beste praksis for planlegging, design og utvikling. I løpet av dette kapittelet vil vi danne oss et bilde av hvordan en nettsted bør se ut. Både med hensyn på innhold, design og funksjonalitet. I tillegg vil vi presentere en analyse av opprinnelig løsning, konkurrentanalyse og kravene som er satt til verktøy. Videre vil vi presentere de verktøy vi mener er passende.
 
 \section{Utdypning av oppgavebeskrivelse}
 Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette betyr at nettstedet i hovedsak består av en lang nettside. Samtidig ønsker oppdragsgiver at nettstedet skal være godt synlig i Google og andre søkemotorer. De ønsker også at det er mulig å logge inn, slik at det er mulig å legge til, oppdatere og fjerne innhold. Studentgruppen vil dermed utvikle et eget CMS eller benytte et ferdigutviklet system som møter disse behovene. Ved utvikling av eget CMS vil det også bli opprettet et eget Rest-API. Videre ønsker oppdragsgiver at systemet skal ha mulighet for å legge til to sider, kundehistorier og blogg. Disse sidene skal ikke være en del av den ferdige løsningen, men systemet skal kunne ta høyde for og ha mulighet til å utvide.
@@ -17,7 +17,7 @@ Sirkus Media har gitt utrykk for at de ønsker en "one-pager". Dette betyr at ne
 \section{Hvorfor et nettsted er viktig}
 Å benytte seg av internett har i dagens samfunn blitt et hverdagslig gjøremål for mange. Undersøkelser gjort av Statistisk sentralbyrå (SSB)\footnote{Statistisk sentralbyrå utarbeider og gir ut offisiell statistikk i Norge} er med på å underbygge denne påstanden. Den første undersøkelsen \cite{ssb17fim} kartla at hele 98\% av Norges befolkning hadde tilgang på internett hjemme i 2017. Videre viser en undersøkelse \cite{ssb17nat} at hele 9 av 10 nordmenn surfet på nettet hver dag i 2017. SSB har også kartlagt  at så mange som 89\% av Norges befolkning, mellom 16-79 år, brukte internett til å søke etter informasjon om varer eller tjenester de siste 3 månedene i 2018 \cite{ssb18aup}. Disse funnene er svært relevante og er med på å bevise hvorfor det er så viktig for en bedrift å være på internett i dag.
 
-I tillegg til disse funnene, er det også andre faktorer som bidrar til at nettsteder til bedrifter er viktig i dag. Disse blir presentert nærmere i dette kapittelet. 
+I tillegg til disse funnene, er det andre faktorer som bidrar til at nettsteder til bedrifter er viktig i dag. Disse blir presentert nærmere i dette kapittelet. 
 
 \subsection{Treff i søk}
 \label{sec:search-results}
@@ -59,7 +59,7 @@ Innenfor webdesign finnes det flere avgjørende faktorer som er med å bestemme 
 
 
 \subsection{Førsteinntrykk}
-I følge en artikkel skrevet av Paul Benjamin Lowry \cite{lowry2014pis}, er et nettsted ofte første, eller til og med eneste, interaksjon en forbruker har med et firma i moderne handel. Da forbrukere har en tendens til å ta avgjørelser i løpet av de første sekundene av en online-interaksjon, kan førsteinntrykket som gis i stor grad bestemme suksessen til et nettsted. 
+I følge en artikkel skrevet av Paul Benjamin Lowry \cite{lowry2014pis} er et nettsted ofte første, eller til og med eneste, interaksjon en forbruker har med et firma i moderne handel. Da forbrukere har en tendens til å ta avgjørelser i løpet av de første sekundene av en online-interaksjon, kan førsteinntrykket som gis i stor grad bestemme suksessen til et nettsted. 
 
 Videre viser en studie \cite{lindgaard2006awd} at en webdesigner kun har 50 ms på å gjøre et godt førsteinntrykk.
 I løpet av denne korte tiden danner forbrukeren seg en formening om nettstedet, som bestemmer om de liker nettstedet eller ikke og om de vil bli eller forlate siden.
@@ -67,20 +67,20 @@ I løpet av denne korte tiden danner forbrukeren seg en formening om nettstedet,
 En ytterligere studie \cite{sillence2004tam} viser at 94\% av førsteinntrykket påvirkes av designet.
 Viktigheten av design kommer vi tilbake til i avsnitt \ref{sec:design}.
 
-For å øke sannsynligheten for at en bruker forblir på nettstedet vil vi forsøke å lage et innbydende design som vil falle i smak hos majoriteten av kundene.
+For å øke sannsynligheten for at en bruker forblir på nettstedet vil vi forsøke å lage et innbydende design, som vil falle i smak hos majoriteten av kundene.
 
 \subsection{Responsivt design}
 Målet med responsivt design er at nettsted skal se bra ut, uavhengig av skjermstørrelsen på enheten \cite{kim2013rwd}. Når det er ønskelig at et nettsted skal lykkes i dagens samfunn, er det helt avgjørende å ha et responsivt design.  I følge brukerdata fra Google \cite{google16hms} viser det seg nemlig at dagens forbrukere er mer avhengig av telefonen sin enn noen gang, og at mer enn halvparten av all nettverkstrafikk kommer fra mobiler eller nettbrett . 
 
 I tillegg viser undersøkelser gjort av Adobe \cite{stark2015frf} at nesten 8 av 10 forbrukere vil slutte å engasjere seg i innhold, dersom det ikke er godt nok tilpasset deres enhet.
 
-Ved å benytte seg av responsivt design er det, i følge Google \cite{google2018rwd}, også mulig å spare ressurser når en Googlebot skal indeksere et nettsted. For responsive nettsider vil en enkelt Googlebot kun trenge å gå igjennom siden en gang. Dette i steden for å gjøre det flere ganger med forskjellige Googlebots, som må til for å hente ut alle versjoner av innholdet når et nettsted ikke er responsivt. Fordelen med denne effektiviseringen er at dette indirekte kan hjelpe Google å indeksere mer av nettsidenes innhold og holde det oppdatert. Fordelen med å lette indekseringen er at det kan føre til bedre plassering i søkeresultatene hos Google.  
+Ved å benytte seg av responsivt design er det, i følge Google \cite{google2018rwd}, også mulig å spare ressurser når en Googlebot skal indeksere et nettsted. For responsive nettsider vil en enkelt Googlebot kun trenge å gå igjennom siden en gang. Dette i steden for å gjøre det flere ganger med forskjellige Googlebots, som må til for å hente ut alle versjoner av innholdet når et nettsted ikke er responsivt. Fordelen med effektiviseringen, er at dette indirekte kan hjelpe Google å indeksere mer av nettsidenes innhold og holde det oppdatert. Fordelen med å lette indekseringen er at det kan føre til bedre plassering i søkeresultatene hos Google.  
 
 Etter analysen gjort i dette kapittelet kan vi konkludere med at det finnes flere grunner til at nettstedet vårt bør være responsivt.
 
 \subsection{Søkemotoroptimalisering (SEO)}
 \label{sec:concepts-seo}
-SEO er sterkt knyttet til resultater i søk, som vi beskrev viktigheten av i avsnitt \ref{sec:search-results}. SEO går ut på å oppnå gode plasseringer i de organiske søkeresulatene hos søkemotorer \cite[s.~16]{flensted10smg}. I praksis handler SEO om at en nettside blir optimalisert på en rekke områder slik at søkemotoren finner akkurat dette nettstedet og presenterer det godt synlig i de organiske søkeresultatene. \cite[s.~20]{flensted10smg}.
+SEO er sterkt knyttet til resultater i søk, som vi beskrev viktigheten av i avsnitt \ref{sec:search-results}. SEO går ut på å oppnå gode plasseringer i de organiske søkeresulatene hos søkemotorer \cite[s.~16]{flensted10smg}. I praksis handler SEO om at en nettside blir optimalisert på en rekke områder, slik at søkemotoren finner akkurat dette nettstedet og presenterer det godt synlig i de organiske søkeresultatene. \cite[s.~20]{flensted10smg}.
 
 Mer teoretisk fungerer søkemotoroptimalisering ved at de innsamlede dataene blir indeksert og lagret. Alle disse operasjonene utføres av søkemotor-programvare (crawler, edderkopp,
 bot). Disse programmene \q{beveger} seg ved å bruke hyperkobling-struktur på nettet. De navigerer regelmessig gjennom nettsider og fanger opp endringer som har blitt gjort siden sist  \cite[s.~488]{yalccin2010search}.
@@ -96,7 +96,7 @@ Viktigheten av god SEO kommer tydelig frem etter kartlegging av normale brukerbe
 
 Disse faktorene er med å underbygge påstanden om at SEO er viktig i dagens samfunn, og en god SEO-strategi er derfor på sin plass. 
 
-En annen faktor som er viktig å tenke på er at god SEO krever disiplin, planlegging og research før oppstart. Dette er ikke en oppgave som kun gjøres en gang, men krever konstant overvåking og optimalisering da algoritmene hele tiden endrer hvordan de evaluerer nettsider \cite[s.~1]{mitchell2012usb}. Det er derfor viktig å ha SEO i fokus under utviklingsprosessen, særlig når et av målene er god plassering hos søkemotorene for å gjøre bedriften synlig i søkeresultatene.
+En annen faktor som er viktig å tenke på er at god SEO krever disiplin, planlegging og research før oppstart. Dette er ikke en oppgave som kun gjøres en gang, men krever konstant overvåking og optimalisering, da algoritmene hele tiden endrer hvordan de evaluerer nettsider \cite[s.~1]{mitchell2012usb}. Det er derfor viktig å ha SEO i fokus under utviklingsprosessen. Særlig når et av målene er god plassering hos søkemotorene, for å gjøre bedriften synlig i søkeresultatene.
 
 \subsection{Brukeropplevelse}
 \label{sec:ux}
@@ -122,7 +122,7 @@ I denne seksjonen gjennomgår vi funn fra undersøkelser som omhandler brukeropp
 Brukeropplevelse handler mye om innhold, det visuelle og funksjonalitet, men også om noen tekniske aspekter, som hastighet. En brukers opplevelse av et nettsteds hastighet påvirkes av flere elementer som responstid, indikasjon på ventetid og animasjoner til brukergrensesnitt.
 
 Responstid er tiden et system bruker på å svare på en gitt brukerinput.
-Dette kan være mye forskjellig, men for nettsider er responstid den tiden det tar fra brukeren har trykket på en link/knapp til den ønskede handlingen utføres, samt tiden det tar fra brukeren går på en nettadresse til siden lastes inn.
+Dette kan være mye forskjellig, men for nettsider er responstid den tiden det tar fra brukeren har trykket på en link/knapp til den ønskede handlingen utføres. Det er også tiden det tar fra brukeren går på en nettadresse til siden lastes inn.
 
 \begin{figure}[H]
     \centering
@@ -132,13 +132,14 @@ Dette kan være mye forskjellig, men for nettsider er responstid den tiden det t
 \end{figure}
 
 Indikasjon på ventetid er teknikker som brukes for å informere brukeren om at systemet har motatt brukerinput eller er opptatt med å utføre en jobb. Her er det vanlig med blant annet fremdriftslinjer, spinners eller animerte ikoner og illustrasjoner. Se figur \ref{fig:analysis-loading-indicators} for eksempler.
-Det er ønskelig å bruke disse for å gi brukeren en følelse av kontroll, samt sette forventninger. Når en bruker sender inn et skjema er det best å vise indikasjon med en gang brukeren trykker send. Da skjønner brukeren at skjemaet blir sendt, i stedet for å bli sittende og lure. Ved å ikke vise en indikasjon kan brukeren tro at knappetrykket ikke ble registrert, og dermed trykke enda en gang. 
 
-En annen faktor som gjelder ved hastighet er at brukere hater trege nettsider. Dette fordi de mister følelsen av kontroll. Når noe trykkes og det får en umiddelbar reaksjon, føler brukeren seg i kontroll. Med en gang ventetiden på en reaksjon går over et sekund begynner brukeren å miste følelsen av kontroll. En treg nettside kan derfor føre til at brukeren gir opp og går vekk fra siden.
+Det er ønskelig å bruke disse for å gi brukeren en følelse av kontroll, samt sette forventninger. Når en bruker sender inn et skjema, er det best å vise indikasjon med en gang brukeren trykker send. Da skjønner brukeren at skjemaet blir sendt, i stedet for å bli sittende og lure. Ved å ikke vise en indikasjon kan brukeren tro at knappetrykket ikke ble registrert, og dermed trykke enda en gang. 
+
+En annen faktor som gjelder ved hastighet er at brukere hater trege nettsider. Dette fordi de mister følelsen av kontroll. Når noe trykkes og det får en umiddelbar reaksjon, føler brukeren seg i kontroll. Med en gang ventetiden på en reaksjon går over et sekund, begynner brukeren å miste følelsen av kontroll. En treg nettside kan derfor føre til at brukeren gir opp og går vekk fra siden.
 
 
 \section{Lovverk}
-Det finnes også lovverk som må følges når det kommer til utvikling av nettsteder. I dette underkapittelet blir det beskrevet hva disse går ut på. Det blir videre forklart hvorfor disse lovene er viktig, utover det faktum at de er lovpålagt. 
+Det finnes lovverk som må følges når det kommer til utvikling av nettsteder. I dette underkapittelet blir det beskrevet hva disse går ut på. Det blir videre forklart hvorfor disse lovene er viktig, utover det faktum at de er lovpålagt. 
 
 \subsection{Universell utforming}
 \label{sec:universal-design}
@@ -148,7 +149,7 @@ Universell utforming er en del av likestillings- og diskrimineringsloven \cite{l
     Med universell utforming menes utforming eller tilrettelegging av hovedløsningen i de fysiske forholdene, inkludert informasjons- og kommunikasjonsteknologi (IKT), slik at virksomhetens alminnelige funksjoner kan benyttes av flest mulig, uavhengig av funksjonsnedsettelse.
 \end{quote}
 
-Universell utforming er viktig fordi det gjør at alle kan benytte seg av løsningene uavhengig av funksjonsnedsettelse. Et annet aspekt er at ved å følge loven om universell utforming, vil bedriften oppnå fordeler som at det blir færre løsninger å utvikle og vedlikeholde. I tillegg vil det bli få eller ingen spesialløsninger for de funksjonshemmede. Det kommer også fordeler som at løsningene blir enkle og bedre for alle og det vil være flere måter å bruke løsningene på. En annen viktig side flere kan bruke løsningene \cite{difi2018keu}.
+Universell utforming er viktig fordi det gjør at alle kan benytte seg av løsningene, uavhengig av funksjonsnedsettelse. Et annet aspekt er at ved å følge loven om universell utforming, vil bedriften oppnå fordeler som at det blir færre løsninger å utvikle og vedlikeholde. I tillegg vil det bli få eller ingen spesialløsninger for de funksjonshemmede. Det kommer også fordeler som at løsningene blir enkle og bedre for alle, og det vil være flere måter å bruke løsningene på. En annen viktig side flere kan bruke løsningene \cite{difi2018keu}.
 
 For å kunne følge loven og øke tilgjengeligheten, må det tas bevisste valg i hele utviklingsprosessen. Designet til løsningen vi utvikler vil derfor bli sterkt påvirket av å følge loven om universell utforming. Det er for eksempel krav om å ha gode kontraster og at nettsiden kan benyttes av skjermlesere. 
 
@@ -162,7 +163,7 @@ For å imøtekomme de ulike behovene som de forskjellige behovsgrupper og situas
 \subsection{Personvern og GDPR}
 I dette avsnittet tar vi for oss Datatilsynets \cite{data2018opm} introduksjon av den nye personopplysningsloven Norge fikk i 2018. Personopplysningsloven består av både nasjonale regler og EUs personvernsforordning (GDPR - General Data Protection Regulation). Denne forordningen er et sett med regler som gjelder alle EU- og EØS-land. Loven tar for seg innsamling og bruk av personopplysninger, altså hvordan personopplysninger behandles. Reglene i denne loven gir virksomhetene flere plikter, samtidig som den gir enkeltpersoner en rekke rettigheter. Loven gjelder stort sett for alle virksomheter, fordi den omfatter alle virksomheter etablert i Norge og som helt eller delvis foretar elektronisk (automatisk) behandling av personopplysninger. 
 
-Oppdragsgiver ønsker kontaktskjema og chat på nettstedet. Følgelig vil systemet vi skal utvikle også bli påvirket av denne loven, og studentgruppen må under hele prosessen ta hensyn til at løsningen vår følger gjeldene lover og regler.
+Oppdragsgiver ønsker kontaktskjema og chat på nettstedet. Følgelig vil systemet vi skal utvikle bli påvirket av denne loven, og studentgruppen må under hele prosessen ta hensyn til at løsningen vår følger gjeldene lover og regler.
 
 \section{Beste praksis}
 
@@ -173,7 +174,7 @@ I dette underkapittelet skal vi se på hva som er beste praksis når det kommer 
 I følge boken \q{The Principles of Beautiful Webdesign} \cite[s.~5]{beaird2014tpo} finnes det to hovedpunkter som er avgjørende når det gjelder hvordan de fleste bestemmer om designet til en nettside er bra eller dårlig. Det første punktet er brukbarheten, som fokuserer på funksjonaliteten, hvor effektivt informasjonen presenteres og effektiviteten til nettstedet. Hovedpunkt nummer to er det rent estetiske perspektivet, som kun fokuserer på artistisk verdi og visuell fremtoning av designet. For å nå ut til kunder og holde deres interesse, er det nødvendig og gjøre mest mulig ut av begge punktene. Beste praksis når det gjelder design vil altså være å ha god brukeropplevelse\footnote{Se avsnitt \ref{sec:ux}} samtidig som nettsiden har et pent og innbydende design.
 
 \subsection{Innhold}
-Selve innholdet er ofte hovedgrunnen til de fleste besøk på en nettside og er derfor av stor betydning \cite{thielsch2014ueo}.
+Selve innholdet er ofte hovedgrunnen til de fleste besøk på en nettside, og er derfor av stor betydning \cite{thielsch2014ueo}.
 
 Det ble i en undersøkelse \cite{marchant18wdc} kartlagt hva som er nøkkelinformasjon på en lokal bedrifts nettsted, ved å spørre deltagerne om hva akkurat de mente var den viktigste informasjonen. Resultatene var klare, og det viste seg at forbrukere jevnt over var på utkikk etter samme informasjon:
 \begin{enumerate}
@@ -196,7 +197,7 @@ Kryptering er en prosess som gjør om data fra et leselig format til et uleslig 
  
 \subsubsection{Passord hashing}
 \label{sec:analysis-security-password-hashing}
-Det anses ikke som bra praksis å lagre passord i klartekst. Hvis filen/databasen som inneholder passordene kommer på avveie vil alle passordene kunne leses. Dette er ikke ønskelig. Det benyttes derfor ofte en enveis krypteringsteknikk som krypterer alle passord og gjør de om til en hash-kode \cite[s.~100-103]{NattTomHeine2015Datasikkerhet}. Hvis en database som inneholder krypterte passord kommer på avveie, vil det være vanskelig å hente ut de faktiske passordene.
+Det anses ikke som god praksis å lagre passord i klartekst. Hvis filen/databasen som inneholder passordene kommer på avveie vil alle passordene kunne leses. Dette er ikke ønskelig. Det benyttes derfor ofte en enveis krypteringsteknikk som krypterer alle passord og gjør de om til en hash-kode \cite[s.~100-103]{NattTomHeine2015Datasikkerhet}. Hvis en database som inneholder krypterte passord kommer på avveie, vil det være vanskelig å hente ut de faktiske passordene.
  
 \subsubsection{Offentlig nøkkelkryptering}
 \label{sec:analysis-security-public_key-cryptography}
@@ -215,7 +216,7 @@ HTTPS er en sikker versjon av HTTP-protokollen som overfører data på nett \cit
 \subsubsection{Cross-site scripting (XSS)}
 \label{sec:analysis-security-xss}
 Et nettsted som tar imot brukerinput og viser det på siden vil ha høy risiko for XSS-angrep.
-Et XSS-angrep går ut på å sende inn kode via brukerinput som vil kjøre når det vises på siden \cite[s.~179-183]{NattTomHeine2015Datasikkerhet}. Konsekvensene av et slikt angrep kan være at brukere som kommer inn på siden med koden sendes til en annen nettside, eller at alt de skriver sendes til en tredjepart. En annen mulig konsekvens, om nettstedet har brukerautentisering, er at brukerens informasjonskapsler og sesjons-ID kommer på avveie. Dette vil gjøre det mulig for en angriper å logge seg inn som brukeren.
+Et XSS-angrep går ut på å sende inn kode via brukerinput, som vil kjøre når det vises på siden \cite[s.~179-183]{NattTomHeine2015Datasikkerhet}. Konsekvensene av et slikt angrep kan være at brukere som kommer inn på siden med koden sendes til en annen nettside, eller at alt de skriver sendes til en tredjepart. En annen mulig konsekvens, om nettstedet har brukerautentisering, er at brukerens informasjonskapsler og sesjons-ID kommer på avveie. Dette vil gjøre det mulig for en angriper å logge seg inn som brukeren.
 
 Mottiltak for XSS-angrep går ut på å validere og \textit{escape} brukerinput før det lagres og vises.
 Visse språk som kan prosessere brukerinput kommer med innebygd funksjonalitet for å \textit{escape} brukerinput, for eksempel PHP sin \lstinline{htmlspecialchars}-funksjon \cite{php_htmlspecialchars}.
@@ -226,8 +227,8 @@ CSRF er angrep som tvinger brukere til å utføre uønskede handlinger på en ne
 
 \subsubsection{SQL-injection}
 \label{sec:analysis-security-sql-injection}
-SQL-injections klassifiseres av noen som en av de mest seriøse trusselene mot webapplikasjoner \cite[s.~1]{halfond2006classification}. Om et nettsted har en svakhet for SQL-injections kan en angriper ende opp med full kontroll over databasen.
-En SQL-injection går ut på at en angriper skriver inn SQL kode i brukerinput, som da kjøres på serveren \cite[s.~2]{halfond2006classification}.
+SQL-injections klassifiseres av noen som en av de mest seriøse trusselene mot webapplikasjoner \cite[s.~1]{halfond2006classification}. Om et nettsted har en svakhet for SQL-injections, kan en angriper ende opp med full kontroll over databasen.
+En SQL-injection går ut på at en angriper skriver inn SQL-kode i brukerinput, som da kjøres på serveren \cite[s.~2]{halfond2006classification}.
 For å unngå slike angrep kan \textit{prepared statements} eller \textit{escaping} av brukerinput benyttes. \cite[s.~6]{halfond2006classification}.
 
 \subsubsection{MySQL}
@@ -241,26 +242,26 @@ på sikkerhet:
 \item Fjerne eller endre standardbrukere.
 \end{itemize}
 
-\subsubsection{phpMyAdmin}
-\label{sec:analysis-security-phpmyadmin}
-Ved bruk av phpMyAdmin er det også grep som bør tas med tanke på sikkerhet. \q{phpmyadmin} burde ikke brukes i URL-en som går til innlogging, f.eks: http://eksempel.com/phpmyadmin. Det er bedre å gjøre om linken til f.eks /pma, eller enda bedre; noe mindre åpenbart \cite{canepa2016}.
-I tillegg burde også HTTP Basic access authentication skrus på. Dette gjør det nødvendig å skrive inn brukernavn og passord før det er mulig å komme til innloggingsiden til phpMyAdmin \cite{drake_2018}.
+% \subsubsection{phpMyAdmin}
+% \label{sec:analysis-security-phpmyadmin}
+% Ved bruk av phpMyAdmin er det også grep som bør tas med tanke på sikkerhet. \q{phpmyadmin} burde ikke brukes i URL-en som går til innlogging, f.eks: http://eksempel.com/phpmyadmin. Det er bedre å gjøre om linken til f.eks /pma, eller enda bedre; noe mindre åpenbart \cite{canepa2016}.
+% I tillegg burde også HTTP Basic access authentication skrus på. Dette gjør det nødvendig å skrive inn brukernavn og passord, før det er mulig å komme til innloggingsiden til phpMyAdmin \cite{drake_2018}.
 
 \subsubsection{Web-server med SSH tilkobling}
 \label{sec:analysis-security-web-server-ssh}
 Det er også viktig å forbedre sikkerheten på en web-server. Da kan følgende tiltak benyttes:
 \begin{itemize}
 \item Skru av fjerntilgang for root brukeren og lage en egen bruker i sudo-gruppen \cite{ellingwood_2014}.
-\item Skru av login med passord \cite{jetha2018} og heller bruke innlogging med public/private nøkkelpar. Gjerne med passord på nøkkelen \cite{jetha2018}.
-\item Sette maks antall forsøk på innlogging før midlertidig utestengt via IP \cite{ellingwood_2014_2}.
-\item Skifte fra standard SSH port 22 \cite{miessler2019} til en annen port under 1024 \cite{w3cports1995}.
-\item Sette opp en brannmur som blokkerer alt unntatt SSH-porten som er satt, port 80 for HTTP og port 443 for HTTPS \cite{virdo2016}.
+\item Skru av innlogging med passord \cite{jetha2018}. Bruk heller innlogging med public/private nøkkelpar. Gjerne med passord på nøkkelen \cite{jetha2018}.
+\item Sett maks antall forsøk på innlogging før midlertidig utestenging via IP \cite{ellingwood_2014_2}.
+\item Skift fra standard SSH port 22 \cite{miessler2019} til en annen port under 1024 \cite{w3cports1995}.
+\item Sett opp en brannmur som blokkerer alt unntatt SSH-porten som er satt. Port 80 for HTTP og port 443 for HTTPS \cite{virdo2016}.
 \item Bruke rettighetene 755 på mapper og 644 på filer som serveres offentlig. \cite[s.~34]{barnettapache}
 \end{itemize}
 
 \section{Analyse av opprinnelig løsning}
 
-I dette kapittelet blir det gjort en analyse av nettstedet Sirkus Media har i dag. Analysen tar utgangspunkt i teori som ble kartlagt i de foregående kapitlene. Målet med analyseringen er å kartlegge eventuelle problemerområder som bør forbedres. Når utviklingen av det nye nettstedet er ferdig, vil vi sammenligne de nye testresultatene med resultatene som blir presentert i dette kapittelet. Analysen har hovedvekt på brukeropplevelsen og noen tekniske aspekter.
+I dette underkapittelet blir det gjort en analyse av nettstedet Sirkus Media har i dag. Analysen tar utgangspunkt i teori som ble kartlagt i de foregående kapitlene. Målet med analyseringen er å kartlegge eventuelle problemerområder som bør forbedres. Når utviklingen av det nye nettstedet er ferdig, vil vi sammenligne de nye testresultatene med resultatene som blir presentert i dette kapittelet. Analysen har hovedvekt på brukeropplevelsen og noen tekniske aspekter.
 Figur \ref{fig:analysis-current-sirkusmedia.no} viser dagens nettside, både for PC og mobil.
 
 \begin{figure}[H]
@@ -310,9 +311,9 @@ Innlastningstiden til DOM beskriver hvor lang tid det tar for nettleseren å les
 \subsection{Test med Google Lighthouse}
 \label{sec:analysis-current-lighthouse}
 \label{sec:google-lighthouse}
-Google Lighthouse \cite{google2018lig} er et gratis verktøy for å sjekke kvaliteten på nettsider. Den analyserer nettsidens tilgjengelighet, hastighet og SEO, samt om nettsiden følger de beste praksiser både generelt og for progressive webapplikasjoner. Lighthouse kan kjøres via Google Chrome DevTools, en nettleserutvidelse i Google Chrome eller via nettsiden \url{https://web.dev/}.
+Google Lighthouse \cite{google2018lig} er et gratis verktøy for å sjekke kvaliteten på nettsider. Den analyserer nettsidens tilgjengelighet, hastighet og SEO, samt om nettsiden følger de beste praksiser. Både generelt og for progressive webapplikasjoner. Lighthouse kan kjøres via Google Chrome DevTools, en nettleserutvidelse i Google Chrome eller via nettsiden \url{https://web.dev/}.
 
-Figur \ref{fig:analysis-current-lightouse-summary} viser oppsummering av resultatetene etter å ha kjørt testen fra Google Lighthouse. Oversikten viser at nettstedet får gode poengsummer på alle områdene. Hovedgrunnen til dette er at dagens nettsted består av kun en forside og lite informasjon. Dette begrenser muligheten for feil.
+Figur \ref{fig:analysis-current-lightouse-summary} viser oppsummering av resultatetene etter å ha kjørt testen fra Google Lighthouse. Oversikten viser at nettstedet får gode poengsummer på alle områder. Hovedgrunnen til dette er at dagens nettsted består av kun en forside og lite informasjon. Dette begrenser muligheten for feil.
 
 \begin{figure}[H]
     \centering
@@ -323,12 +324,12 @@ Figur \ref{fig:analysis-current-lightouse-summary} viser oppsummering av resulta
 
 Ikonet for \q{Progressive Web App} har en feil, slik at man ikke får sett scoren. Ved hjelp av en JSON-fil som inneholdt resultatene, ser vi at poengsummen er på 58\%.
 
-Denne delen av testen er ikke relevant\footnote{Nettstedet til Sirks Media er ikke, og kommer ikke til å bli en progressiv webapplikasjon.}, og vi vil derfor ikke se på eller nevne den i de andre tekniske analysene som bruker Google Lighthouse.
+Denne delen av testen er ikke relevant\footnote{Nettstedet til Sirkus Media er ikke, og kommer ikke til å bli en progressiv webapplikasjon.}, og vi vil derfor ikke se på eller nevne den i de andre tekniske analysene som bruker Google Lighthouse.
 
-I rapporten kan vi se at Google laster inn nettsiden på 2,7 sekunder og at det tar 4,9 sekunder før siden blir beregnet som interaktiv. Hovedproblemet til siden er bruken av \q{render-blocking resources}. Dette kan lett fikses og kan i følge Google spare 1,34 sekunder. Google påpeker også at det finnes 3 sikkerhetshull i JavaScript-biblioteker som blir brukt på nettsiden. Dette er ikke ønskelig, da dette øker risikoen for uønskede hendelser.
+I rapporten kan vi se at Google laster inn nettsiden på 2,7 sekunder, og at det tar 4,9 sekunder før siden blir beregnet som interaktiv. Hovedproblemet til siden er bruken av \q{render-blocking resources}. Dette har en enkel fiks, og kan i følge Google spare 1,34 sekunder. Google påpeker også at det finnes 3 sikkerhetshull i JavaScript-biblioteker som blir brukt på nettsiden. Dette er ikke ønskelig, da det øker risikoen for uønskede hendelser.
 
 \subsection{Checkbot}
-Checkbot \cite{checkbot2019cth} tester sikkerheten, hastigheten og søkemotoroptimalisering for en nettside. Checkbot kan sjekke hundrevis av sider på minutter for å se etter ødelagte koblinger, duplikat innhold, ugyldig HTML og usikre skjemaer.
+Checkbot \cite{checkbot2019cth} tester sikkerhet, hastighet og søkemotoroptimalisering for en nettside. Checkbot kan sjekke hundrevis av sider på minutter for å se etter ødelagte koblinger, duplikat innhold, ugyldig HTML og usikre skjemaer.
 
 \begin{figure}[H]
     \centering
@@ -369,11 +370,11 @@ Ved å kjøre testen \q{small non bold text} for nivå AA, som gjelder for skrif
     \end{center}
 \end{figure}
 
-Resultatene etter å ha kjørt tester for nivå AAA viser at store deler av nettstedet ikke oppfyller kravet for kontrastnivå. Se figur \ref{fig:analysis-current-cca-aaa}. Her blir ingen av avsnittene med ordinær skriftstørrelse markert. Ved å kjøre en test med Chrome DevTools verifiseres påstanden om for dårlig kontrastnivå. Se figur \ref{fig:analysis-current-cdt-c}.
+Resultatene for nivå AAA viser at store deler av nettstedet ikke oppfyller kravet for kontrastnivå. Se figur \ref{fig:analysis-current-cca-aaa}. Her blir ingen av avsnittene med ordinær skriftstørrelse markert. Ved å kjøre en test med Chrome DevTools verifiseres påstanden om for dårlig kontrastnivå. Se figur \ref{fig:analysis-current-cdt-c}.
 
 \subsection{WAVE}
 \label{sec:wave}
-Web Accessibility Evaluation Tool \cite{webaim2018wh} er et verktøy som tester universell utforming hos nettsider og hvorvidt de følger visse punkter i WCAG 2.1-standarden og Section 508. Verktøyet er tilgjengelig som en nettleserutvidelse og som en webbasert tjeneste hos \url{https://wave.webaim.org/}.
+Web Accessibility Evaluation Tool \cite{webaim2018wh} er et verktøy som tester universell utforming hos nettsider, og hvorvidt de følger visse punkter i WCAG 2.1-standarden og Section 508. Verktøyet er tilgjengelig som en nettleserutvidelse og som en webbasert tjeneste hos \url{https://wave.webaim.org/}.
 
 Med verktøyet WAVE kan vi videre verifisere funnene som ble gjort i avsnitt \ref{sec:analysis-current-color-contrast-analyzer}. WAVE rapporterer om 20 kontrastfeil på nettsiden. \vskip 1em Det ble også oppdaget andre feil:\\ \quad 1x: Dokument språk mangler\\
 \quad 4x: Tomme linker\\
