@@ -48,15 +48,11 @@ Med utgangspunktet i disse studiene kan vi derfor konkludere med at en nettside 
 Et nettsted kan ses på som et enveis onlineverktøy med høy bedriftskontroll \cite{taiminen2015tuo}. På en nettside har en bedrift altså mulighet til å bestemme innholdet og hvordan firmaet skal fremstå. Dette er en mulighet enhver bedrift burde benytte seg av, da nettstedet kan være med å forbedre og øke troverdigheten\footnote{Se avsnitt \ref{sec:analyse-troverdighet}} og dermed påvirke forholdet kunden har til bedriften.
 
 \subsection{Innsamling av data}
-En annen god grunn til å ha et nettsted, er at det blir mulig å benytte seg av verktøy som Google Analytics\footnote{Se avsnitt \ref{sec:google-analytics}}. Data samlet inn av Google Analytics kan brukes til å finne ut hvilken av sidene som er mest populær og har flest besøk. Det er også mulig å finne ut hvilken type informasjon besøkende er interessert i, gjennom hvilken vei en bruker kommer inn og ut av siden på og hvor mye tid som har blitt brukt på nettstedet \cite{kent2011lwa}. Ved å kartlegge dette vil bedriften alltid ha oppdatert og relevant informasjon tilgjengelig, som kan brukes til å forbedre nettstedet fortløpende. 
-
-% https://ac.els-cdn.com/S0363811111001433/1-s2.0-S0363811111001433-main.pdf?_tid=6362f9f9-b2cf-4c0f-95ac-004f5552c93e&acdnat=1550673249_e4d9b2b5340feb6427e7bd538ecd0f65
-
+En annen god grunn til å ha et nettsted, er at det blir mulig å benytte seg av verktøy som Google Analytics\footnote{Se avsnitt \ref{sec:google-analytics}}. Data samlet inn med Google Analytics kan brukes til å finne ut hvilken av sidene som er mest besøkt. Det er også mulig å finne ut hvilken type informasjon besøkende er interessert i, gjennom hvilken vei en bruker kommer inn og ut av siden på og hvor mye tid som har blitt brukt på hver side \cite{kent2011lwa}. Ved å kartlegge dette vil bedriften alltid ha oppdatert og relevant informasjon tilgjengelig, som kan brukes til å forbedre nettstedet fortløpende. 
 
 \section{Viktige faktorer innen webdesign}
 \label{sec:viktige-faktorer}
 Innenfor webdesign finnes det flere avgjørende faktorer som er med å bestemme hvor godt et nettsted er utført. I dette kapittelet vil vi kartlegge disse faktorene og hvorfor de er så viktige.
-
 
 \subsection{Førsteinntrykk}
 I følge en artikkel skrevet av Paul Benjamin Lowry \cite{lowry2014pis} er et nettsted ofte første, eller til og med eneste, interaksjon en forbruker har med et firma i moderne handel. Da forbrukere har en tendens til å ta avgjørelser i løpet av de første sekundene av en online-interaksjon, kan førsteinntrykket som gis i stor grad bestemme suksessen til et nettsted. 
@@ -119,7 +115,7 @@ De fleste bedrifter i dag er avhengig av gode kundeforhold og at deres kunder ha
 \subsubsection{Hastighet}
 I denne seksjonen gjennomgår vi funn fra undersøkelser som omhandler brukeropplevelsen rundt hastighet til nettsider, gjort av Jakob Nielsen fra Nielsen Norman Group \cite{nngroupWebsiteResponseTimes} og Niall Murphy fra Barr Group \cite{barrgroupReponseTimingUI}. 
 
-Brukeropplevelse handler mye om innhold, det visuelle og funksjonalitet, men også om noen tekniske aspekter, som hastighet. En brukers opplevelse av et nettsteds hastighet påvirkes av flere elementer som responstid, indikasjon på ventetid og animasjoner til brukergrensesnitt.
+Brukeropplevelse handler mye om innhold, det visuelle og funksjonalitet, men også om noen tekniske aspekter, som hastighet. En brukers opplevelse av et nettsteds hastighet påvirkes av flere elementer som responstid, indikasjon på ventetid og animasjoner i brukergrensesnittet.
 
 Responstid er tiden et system bruker på å svare på en gitt brukerinput.
 Dette kan være mye forskjellig, men for nettsider er responstid den tiden det tar fra brukeren har trykket på en link/knapp til den ønskede handlingen utføres. Det er også tiden det tar fra brukeren går på en nettadresse til siden lastes inn.
@@ -133,7 +129,7 @@ Dette kan være mye forskjellig, men for nettsider er responstid den tiden det t
 
 Indikasjon på ventetid er teknikker som brukes for å informere brukeren om at systemet har motatt brukerinput eller er opptatt med å utføre en jobb. Her er det vanlig med blant annet fremdriftslinjer, spinners eller animerte ikoner og illustrasjoner. Se figur \ref{fig:analysis-loading-indicators} for eksempler.
 
-Det er ønskelig å bruke disse for å gi brukeren en følelse av kontroll, samt sette forventninger. Når en bruker sender inn et skjema, er det best å vise indikasjon med en gang brukeren trykker send. Da skjønner brukeren at skjemaet blir sendt, i stedet for å bli sittende og lure. Ved å ikke vise en indikasjon kan brukeren tro at knappetrykket ikke ble registrert, og dermed trykke enda en gang. 
+Det er ønskelig å bruke disse for å gi brukeren en følelse av kontroll, samt sette forventninger. Når en bruker sender inn et skjema, er det best å vise indikasjon på ventetid med en gang brukeren trykker send. Da skjønner brukeren at skjemaet blir sendt, i stedet for å bli sittende og lure. Ved å ikke vise en indikasjon kan brukeren tro at knappetrykket ikke ble registrert, og dermed trykke enda en gang. 
 
 En annen faktor som gjelder ved hastighet er at brukere hater trege nettsider. Dette fordi de mister følelsen av kontroll. Når noe trykkes og det får en umiddelbar reaksjon, føler brukeren seg i kontroll. Med en gang ventetiden på en reaksjon går over et sekund, begynner brukeren å miste følelsen av kontroll. En treg nettside kan derfor føre til at brukeren gir opp og går vekk fra siden.
 
@@ -241,11 +237,6 @@ på sikkerhet:
 \item Kun mulighet for å godta tilkoblinger fra lokalmaskin.
 \item Fjerne eller endre standardbrukere.
 \end{itemize}
-
-% \subsubsection{phpMyAdmin}
-% \label{sec:analysis-security-phpmyadmin}
-% Ved bruk av phpMyAdmin er det også grep som bør tas med tanke på sikkerhet. \q{phpmyadmin} burde ikke brukes i URL-en som går til innlogging, f.eks: http://eksempel.com/phpmyadmin. Det er bedre å gjøre om linken til f.eks /pma, eller enda bedre; noe mindre åpenbart \cite{canepa2016}.
-% I tillegg burde også HTTP Basic access authentication skrus på. Dette gjør det nødvendig å skrive inn brukernavn og passord, før det er mulig å komme til innloggingsiden til phpMyAdmin \cite{drake_2018}.
 
 \subsubsection{Web-server med SSH tilkobling}
 \label{sec:analysis-security-web-server-ssh}
@@ -376,13 +367,13 @@ Resultatene for nivå AAA viser at store deler av nettstedet ikke oppfyller krav
 \label{sec:wave}
 Web Accessibility Evaluation Tool \cite{webaim2018wh} er et verktøy som tester universell utforming hos nettsider, og hvorvidt de følger visse punkter i WCAG 2.1-standarden og Section 508. Verktøyet er tilgjengelig som en nettleserutvidelse og som en webbasert tjeneste hos \url{https://wave.webaim.org/}.
 
-Med verktøyet WAVE kan vi videre verifisere funnene som ble gjort i avsnitt \ref{sec:analysis-current-color-contrast-analyzer}. WAVE rapporterer om 20 kontrastfeil på nettsiden. \vskip 1em Det ble også oppdaget andre feil:\\ \quad 1x: Dokument språk mangler\\
+Med verktøyet WAVE kan vi verifisere funnene som ble gjort i avsnitt \ref{sec:analysis-current-color-contrast-analyzer}. WAVE rapporterer om 20 kontrastfeil på nettsiden. \vskip 1em Det ble også oppdaget andre feil:\\ \quad 1x: Dokument språk mangler\\
 \quad 4x: Tomme linker\\
 \quad 5x: Redudante linker\\
 \vskip 1em Annet:\\
 \quad 8x: Bilder med tom alt-attributt.\\
 \vskip 1em Ved å skru på \q{No-styling} vil man oppdage at det er en skjult seksjon på siden \q{THE COMPANIES THAT MAKE THEIR LIFE SIMPLE}. Dette blir plukket opp av noen skjermlesere og er derfor ikke ideelt.\\
-WAVE viser også at nettstedet har bra stuktur på overskrifter og følger beste praksis.
+WAVE viser også at nettstedet har bra stuktur på overskrifter som følger beste praksis.
 
 \subsection{Kontrastforhold mellom tekst og bakgrunnsbilder}
 Etter å ha testet kontrasten til siden med verktøyet fra avsnitt \ref{sec:analysis-current-color-contrast-analyzer} og Google Chrome DevTools, vet vi enda ikke om kontrastforholdet i headeren er bra nok. Ved å se på figur \ref{fig:analysis-current-cca-aa} og \ref{fig:analysis-current-cca-aaa} kan vi se at uthevingen av teksten i headeren, er svakere i figur \ref{fig:analysis-current-cca-aaa} enn i \ref{fig:analysis-current-cca-aa}. Dette må vi undersøke nærmere.
@@ -424,7 +415,7 @@ Resultatet som vi ser i figur \ref{fig:analysis-current-a11y_bg-h1_p} viser at t
 \subsection{Qualys SSL Server Test}
 SSL Server Test\footnote{\url{https://www.ssllabs.com/ssltest/}} er en tjeneste som tester SSL- og TLS-sertifikater. 
 
-Resultatet fra testen Qualys SSL Server ble en A. Dette er bra, men nettstedet burde få et bedre resultatet som A+ eller A++. Det kreves hverken mye tid eller ressurser for å oppnå dette.
+Resultatet fra Qualys SSL Server ble en A. Dette er bra, men nettstedet burde få et bedre resultatet som A+ eller A++. Det kreves hverken mye tid eller ressurser for å oppnå dette.
 
 \begin{figure}[H]
     \centering
@@ -461,7 +452,7 @@ For å vurdere de tekniske faktorene har vi brukt Google Lighthouse\footnote{Se 
 Sirkus Media har mange konkurrenter, deriblant alle firmaer som driver mediebyråvirksomhet. Etter møte med Hans Christian Hymer\footnote{Møte med oppdragsgiver (16.01.2019)} fikk vi oppgitt 3 bedrifter som blir ansett som de største konkurrentene til Sirkus Media. Det er følgelig disse konkurrentene vi har valgt å analysere.
 
 \subsection{TACTIC™ Real-Time Marketing}
-Nettstedet til TACTIC™ Real-Time Marketing ligger på følgende domene; https://tacticrealtime.com. Se figur \ref{fig:competitors-tacticrealtime.com} for bilde av nettstedet.
+Nettstedet til TACTIC™ Real-Time Marketing ligger på følgende domene; \url{https://tacticrealtime.com}. Se figur \ref{fig:competitors-tacticrealtime.com} for bilde av nettstedet.
 
 \subsubsection{Førsteinntrykk}
 Førsteinntrykket er at nettstedet fremstår ryddig og profesjonelt. Det første som møter deg er et stort bakgrunnsbilde. Bilde dekker hele skjermen og har en tittel og en underoverskrift. Headeren består også av en knapp der du kan trykke på \q{Request a demo}. Helt øverst på forsiden er logoen til Tactic og en meny. Til høyre er det en knapp som gir deg muligheten til å se en video. 
@@ -507,21 +498,21 @@ Nettstedet består også av følgende undersider:
 
 Etter å ha gjennomført testen til Google Lighthouse, viste det seg at TACTIC var den som kom best ut på alle punkter av de 3 konkurrentene. Resultatene fra Google Lighthouse vises i figur \ref{fig:competitors-lighthouse-summary-tacticrealtime.com}. Bedriften gjør relativt få feil med tanke på ytelse. Feilene som gjelder \q{Eliminate render-blocking resources} og \q{Serve static assets with an efficient cache policy} burde rettes opp. Vi kan se at siden lastet inn på 2,7 sekunder. Fikses de overnevnte feilene vil, i følge rapporten, innlastingstiden kunne mer enn halveres.
 
-Når det kommer til beste praksis, så er det et par forbedringer TACTIC burde gjort. De burde benytte HTTP2, i stedet for HTTP \footnote{HTTP2 er bakoverkompatibel, og det er derfor ingen grunn til å ikke bruke det. Det pleier også å være en linje med kode for aktivering på de fleste web-servere.}. Det linkes også til et JavaScript-bibliotek med kjente sikkerhetshull, noe som er ganske uheldig.
+Når det kommer til beste praksis, så er det et par forbedringer TACTIC burde gjort. De burde benytte HTTP2, i stedet for HTTP\footnote{HTTP2 er bakoverkompatibel, og det finners derfor ingen god grunn til å ikke bruke det. Det pleier også å være en linje med kode for aktivering på de fleste web-servere.}. Det linkes også til et JavaScript-bibliotek med kjente sikkerhetshull, noe som er ganske uheldig.
 
 På SEO-delen av testen fikk TACTIC 100 av 100 poeng og det er derfor ingenting å påpeke her.
 
-Figur \ref{fig:competitors-wave-summary-tacticrealtime.com} viser resultatene fra WAVE. Fra resultatene ser man at Tactic fikk 6 feilmeldinger når det kommer til universell utforming. I tillegg har nettsiden deres 22 kontrastfeil. 
+Figur \ref{fig:competitors-wave-summary-tacticrealtime.com} viser resultatene fra WAVE. Resultatene viser at Tactic fikk 6 feilmeldinger når det kommer til universell utforming. I tillegg har nettsiden deres 22 kontrastfeil. 
 
 \subsubsection{Styrker}
-En stor fordel er at nettstedet gir et bra førsteinntrykket. Dette fordi nettstedet fremstår som profesjonelt. Førsteinntrykket er dermed med på å styrke brukerens inntrykk av bedriften. Nettstedet har også god oppbygning og struktur. I tillegg har løsningen en sterk profil, hvor det er ganske tydelig at det er grønn som er primærfargen til selskapet.
+En stor fordel er at nettstedet gir et bra førsteinntrykket. Grunnen til dette er at nettstedet fremstår som profesjonelt. Førsteinntrykket er dermed med på å styrke brukerens inntrykk av bedriften. Nettstedet har også god oppbygning og struktur. I tillegg har løsningen en sterk profil, hvor det er ganske tydelig at det er grønn som er primærfargen til selskapet.
 
 \subsubsection{Svakheter}
 En svakhet kan være at hele nettstedet er på engelsk, i tillegg til at den befinner seg på et .com-domene. Disse to faktorene kan forvirre brukerne, da det er vanskelig å skjønne at dette er et firma som er lokalisert i Oslo. En annen svakhet er at det er lite luft rundt noen elementer, noe som fører til at nettstedet fremstår som kompakt og rotete. Det er heller ikke samme mengde luft over og under elementene, som også er med på å trekke ned helhetsinntrykket. Det er også vanskelig å bevege seg rundt på nettstedet ved hjelp av tastaturet ettersom TACTIC har fjernet all visuell indikasjon for fokus. Dette gjør at nettsiden ikke oppfyller noe som er et krav i loven om universell utforming og tilgjengelighet. I tillegg får nettstedet mange kontrastfeil, som også bryter lovkravet om universell utforming.
 
 \subsection{Marketer Technologies AS}
 Nettstedet til Marketer Technologies AS ligger på følgende domene;
-https://marketer.tech/. Se figur \ref{fig:competitors-marketer.tech} for bilde av nettstedet.
+\url{https://marketer.tech/}. Se figur \ref{fig:competitors-marketer.tech} for bilde av nettstedet.
 
 \subsubsection{Førsteinntrykk}
 Førsteinntrykket av nettstedet er positivt, fordi det fremstår som ryddig og profesjonelt. Det første som møter deg er headeren\footnote{Hodet til nettstedet} til nettstedet, som inneholder logoen til firmaet og en meny. Under menyen er en tittel, en underoverskrift og to lenker. Headeren inneholder også et ikon for chat. Det at kunder enkelt kan ta kontakt med firmaet kan virke betryggende, og kan være med å øke troverdigheten til bedriften.
@@ -566,7 +557,7 @@ Nettstedet består også av følgende undersider:
     \end{center}
 \end{figure}
 
-Figur \ref{fig:competitors-lighthouse-summary-marketer.tech} viser resultatene fra testen gjort med Google Lighthouse. Her kom Marketer dårligst ut. Testen påpeker flere feil på punkter vedrørende ytelse, tilgjengelighet og beste praksiser. Det tar Google 5,3 sekunder å laste inn nettstedet, noe som er relativt tregt, men raskere enn Inviso.no. Selv om siden til Marketer laster inn raskere, får den en dårligere poengsum på ytelse. Dette fordi det tar hele 15,2 sekunder før siden blir beregnet som interaktiv\footnote{\q{Time to Interactive} i Google Lightouse rapporten}. Marketer burde ta samme grep som TACTIC, i tillegg til å fjerne ubrukt CSS, servere skalerte bilder og vurdere å redusere antall animasjoner.
+Figur \ref{fig:competitors-lighthouse-summary-marketer.tech} viser resultatene fra testen gjort med Google Lighthouse. Her kom Marketer dårligst ut. Testen påpeker flere feil på punkter vedrørende ytelse, tilgjengelighet og beste praksiser. Det tar Google 5,3 sekunder å laste inn nettstedet, noe som er relativt tregt, men raskere enn Inviso.no. Selv om siden til Marketer laster inn raskere, får den en dårligere poengsum på ytelse. Dette fordi det tar hele 15,2 sekunder før siden blir beregnet som interaktiv\footnote{\q{Time to Interactive} i Google Lightouse rapporten}. Marketer burde ta samme grep som TACTIC. I tillegg burde de fjerne ubrukt CSS, servere skalerte bilder og vurdere å redusere antall animasjoner.
 
 Figur \ref{fig:competitors-wave-summary-marketer.tech} viser WAVE-resultatene. Her kommer det frem at løsningen har 5 kontrastfeil og hele 147 feil når det kommer til universell utforming og tilgjengelighet. 135 av disse feilmeldingene er manglende bruk av alt-tekster.
 
@@ -578,10 +569,10 @@ En ulempe er at nettstedet består av flere store filer, som fører til at netts
 
 \subsection{Inviso AS}
 Nettstedet til Inviso AS ligger på følgende domene;
-https://www.inviso.no/. Se figur \ref{fig:competitors-inviso.no} for bilde av nettstedet.
+\url{https://www.inviso.no}. Se figur \ref{fig:competitors-inviso.no} for bilde av nettstedet.
 
 \subsubsection{Førsteinntrykk}
-Førsteinntrykket av nettstedet er at det fremstår som rotete. Hovedgrunnen til dette er at det er mange elementer og mye som skjer i headeren. Logoen og noe av teksten på bakgrunnsbilde er også vanskelig å se på grunn av det dårlige kontrastforholdet. 
+Førsteinntrykket av nettstedet er at det fremstår som rotete. Hovedgrunnen til dette, er at det er mange elementer og mye som skjer i headeren. Logoen og noe av teksten på bakgrunnsbilde er også vanskelig å se på grunn av det dårlige kontrastforholdet. 
 
 \begin{figure}[H]
     \centering
@@ -626,7 +617,7 @@ Figur \ref{fig:competitors-lighthouse-summary-inviso.no} viser resultatene fra t
 
 På testen vedrørende tilgjengelighet kommer det frem at Inviso burde forbedre kontrastforhold på deler av siden.
 
-Når det kommer til SEO er det ingenting å påpeke. Noe som derimot hadde vært lurt å ta en titt på er hvilke JavaScript-biblioteker som blir brukt, ettersom Google kan melde at hele 5 kjente sikkerhetshull er tilgjengelig på siden. 
+Når det kommer til SEO er det ingenting å påpeke. Noe de derimot burde ta en titt på er hvilke JavaScript-biblioteker som blir brukt, ettersom Google kan melde at hele 5 kjente sikkerhetshull er tilgjengelig på siden. 
 
 Ved å kjøre test via WAVE oppgir resultatet at nettstedet har 4 kontrastfeil. Nettstedet får også 37 feilmeldinger når det gjelder universell utforming. Figur \ref{fig:competitors-wave-summary-inviso.no} viser resultatene fra WAVE-testen.
 
@@ -644,7 +635,7 @@ Felles for alle 3 konkurrentene er at ingen følger loven om universell utformin
 
 Figur \ref{fig:competitors-mobile} viser at alle konkurrentene har gått for samme løsning når det kommer til design på mobil. Alle har bedriftens logo oppe til venstre og et meny ikon til høyre. Ved å ha et lignende design på vår løsning, er det lett for brukerne å forstå hvordan menyen fungerer, nettopp fordi denne løsningen er blitt ganske vanlig.
 
-Konkurrentene har gode løsninger, men også en del svakheter som har blitt påpekt i denne analysen. Konkurrentanalysen har vært nyttig fordi den både har ført til at gruppen har fått inspirasjon til deler av den løsningen som skal utvikles og samtidig gitt en pekepinn på hva som bør gjøres annerledes.
+Konkurrentene har gode løsninger, men også en del svakheter som har blitt påpekt i denne analysen. Konkurrentanalysen har vært nyttig fordi den har ført til at gruppen har fått inspirasjon til løsningen som skal utvikles. Samtidig har den gitt en pekepinn på hva vi bør gjøre annerledes.
 
 Studentgruppen har satt som mål å få minst like bra score på testen til Google Lighthouse, som gjennomsnittsscoren til de utvalgte konkurrentene. Den totale gjennomsnittsscoren ligger på 74,25 av 100 poeng.
 \begin{figure}[H]
@@ -676,15 +667,15 @@ Følgende sett med minimumskrav er satt med basis i de foregående analysene:
 \subsubsection{Krav til utvikling}
 \label{sec:analysis-tools-requirements-back-end}
 \begin{compactdesc}
-\item [Versjonskontroll] Verktøyene vi bruker burde være mulig å sjekke inn i versjonskontroll, slik at studentgruppen alltid har historikk på kodeendringer. En annen fordel er at det vil opprettes en sikkerhetskopi.
-\item [Hastighet] Systemet på back-end må kunne svare raskt på forespørsler fra front-end slik at det blir minst mulig ventetid for klientene.
+\item [Versjonskontroll] Verktøyene vi bruker burde være mulig å sjekke inn i versjonskontroll, slik at vi alltid har historikk på kodeendringer. En annen fordel er at det vil opprettes en sikkerhetskopi.
+\item [Hastighet] Systemet på back-end må kunne svare raskt på forespørsler fra front-end, slik at det blir minst mulig ventetid for klientene.
 \item [Nettleserkompatibilitet] Verktøyene vi bruker burde fungere i alle moderne nettlesere, slik at flest mulig kan benytte seg av dem.
 \item [Plattformuavhengighet] Det burde være mulig å benytte seg av verktøyene, uavhengig av plattform. Verktøyene burde derfor kunne brukes både på Windows, MacOs og Linux.
 \end{compactdesc}
 
 \subsubsection{Krav til DevOps}
 \begin{compactdesc}
-\item [Linux kompatibelt] Verktøy vi bruker til DevOps bør funke på Linux distribusjoner, da planen er å benytte seg av en Linux-server fordi det anses som sikrere, mer stabilt og mer fleksibelt enn en Windows-server \cite{cabrera2009windows}.
+\item [Linux kompatibelt] Verktøy vi bruker til DevOps bør fungere på Linux distribusjoner, da planen er å benytte seg av en Linux-server fordi det anses som sikrere, mer stabilt og mer fleksibelt enn en Windows-server \cite{cabrera2009windows}.
 \end{compactdesc}
 
 
@@ -700,7 +691,7 @@ Følgende sett med minimumskrav er satt med basis i de foregående analysene:
 % Behance er et nettsted for deling av design verk. Det brukes ofte som en kilde for inspirasjon \cite{Sloan_wib}.
 
 \subsection{Verktøy til utvikling}
-I dette avsnittet vil vi presentere de verktøyene vi mener er passende og oppfyller kravene vi har definert for utvikling. 
+I dette avsnittet vil vi presentere de verktøyene vi mener er passende, og som oppfyller kravene vi har definert for utvikling. 
 
 \subsubsection{Laravel}
 Laravel \cite{cbcp2019lvw} er et PHP-rammeverk, med åpen kildekode, som brukes til å lage webapplikasjoner og andre nettsteder. Rammeverket baserer seg på webapplikasjonsrammeverket Symfony og følger Model-view-controller\footnote{Avsnitt \ref{sec:tools-mvc}} (MVC) designmønsteret.
@@ -744,13 +735,13 @@ Matteo J. (2018, Mars 16) Re: Explain MVC like I'm five [Blogg kommentar]\footno
     The order is passed to the operator, who is the Controller, that will go in the kitchen and fetch a burger (your wanted resource) of the type (Model) you asked, then deliver it back to you.
 \end{quote}
 
-Dette vil si at:
+Dette betyr at:
 
 \textbf{Modell} (Model) representerer de forskjellige type ressurser en applikasjon har. Her beskrives hver ressurs, hvordan den er oppbygd og hva som kan gjøres med den.
 
-\textbf{Visning} (View) håndterer brukerinteraksjon og presentasjon av data. Er ofte et grafisk brukergrensesnitt.
+\textbf{Visning} (View) håndterer brukerinteraksjon og presentasjon av data. Dette er ofte et grafisk brukergrensesnitt.
 
-\textbf{Kontroller} (Control) delen er ansvarlig for å koordinere forespørsler og svar.
+\textbf{Kontroller} (Control) er ansvarlig for å koordinere forespørsler og svar.
 
 \subsection{Valg av utviklingsverktøy}
 Denne oppgaven består i hovedsak av utviklingen av et nettsted, og det kan være avgjørende å benytte seg av gode utviklingsverktøy. I dette kapittelet forteller vi om hvilke verktøy studentgruppen har tenkt til å benytte til utviklingen og hvorfor.
@@ -762,7 +753,7 @@ I introduksjonen ble det nevnt at studentgruppen enten skal utvikle et eget CMS 
 \textbf{Fordeler med Laravel}
 \begin{itemize}
     \item Laravel er raskere enn Wordpress, da Laravel ikke får med ekstra kode som ikke blir brukt og gjør systemet tregt.
-    \item Kommer med ferdig funksjonalitet for blant annet autentisering, caching, beskyttelse mot CSRF\footnote{Se avsnitt \ref{sec:analysis-security-csrf}}, job queuing og event broadcasting.
+    \item Det kommer med ferdig funksjonalitet for blant annet autentisering, caching, beskyttelse mot CSRF\footnote{Se avsnitt \ref{sec:analysis-security-csrf}}, job queuing og event broadcasting.
     \item Alt kan tilpasses og det er lett å styre hvordan elementer skal fungere.
     \item Databasen kan brukes eller utformes slik man ønsker, i motsetning til Wordpress som har en ferdig definert database.
 \end{itemize}
@@ -772,7 +763,7 @@ I introduksjonen ble det nevnt at studentgruppen enten skal utvikle et eget CMS 
     \item Tar lengre tid å sette opp og utvikle til et ferdig system, enn Wordpress som er et ferdigutviklet CMS.
 \end{itemize}
 
-Studentgruppen har kommet frem til at fordelene trumfer ulempene når det kommer til Laravel. Derfor har vi valgt å bruke dette for å videreutvikle et eget CMS. Da må vi også velge en teknologi til front-end og et verktøy som kan binde sammen back- og front-end. Da ble henholdsvis React og Axios valgt. 
+Studentgruppen har kommet frem til at fordelene trumfer ulempene når det kommer til Laravel. Derfor har vi valgt å bruke dette for å videreutvikle et eget CMS. Vi må også velge en teknologi til front-end og et verktøy som kan binde sammen back- og front-end. Da ble henholdsvis React og Axios valgt. 
 \begin{compactdesc}
 % \item[Google Chrome DevTools] Ble valgt fordi det følger med Google Chrome nettleseren og er enkelt å bruke.
 % \item[Google Lighthouse] Ble valgt fordi det produserer oversiktlige og lettleste rapporter som forklarer kort og greit hvilke punkter som bør ses på.
