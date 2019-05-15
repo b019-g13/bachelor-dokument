@@ -6,7 +6,7 @@
 % Her skal det beskrives hvordan man faktisk produserte resultatene i prosjektet, og viktigst, beskrive selve produktet. Hvilke verktøy brukte man, hvordan foregikk produksjonen, etc. Utformingen av dette kapittelet avhenger helt klart av type prosjekt.
 % }
 
-I dette kapittelet skal vi presentere resultatene i prosjektet og beskrive CMS og nettstedet. Her vil vi også presentere hvilke verktøy vi endte opp med å bruke og hvordan selve produksjonen foregikk.
+I dette kapittelet skal vi presentere resultatene i prosjektet og beskrive CMS og nettsted. Her vil vi også presentere hvilke verktøy vi endte opp med å bruke og hvordan selve produksjonen foregikk.
 
 \section{Verktøy}
 Vi endte opp med å bruke flere verktøy enn beskrevet i  \ref{sec:technologies}. 
@@ -28,7 +28,7 @@ Prosjektets database er en MySQL-database.
 % Studentgruppen har benyttet Let's Encrypt til å lage TLS-sertfikater\footnote{Se avsnitt \ref{sec:analysis-security-tls}}.
 
 \subsection{Node.js}
-Node.js er et servermiljø med åpen og gratis kildekode. Node.js kan kjøre på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren \cite{w3schools2019win}. I tillegg kan Node.js generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. I tillegg kan Node.js legge til, slette og endre data i databasen.
+Node.js er et servermiljø med åpen og gratis kildekode. Node.js kan kjøre på ulike plattformer (Windows, Linux, Unix, Mac OS X) og bruker JavaScript på serveren \cite{w3schools2019win}. I tillegg kan Node.js generere dynamisk sideinnhold og opprette, åpne, lese, skrive, slette og lukke filer på serveren. Videre kan Node.js legge til, slette og endre data i databasen.
 
 Vi har brukt Node.js for å kunne kjøre verktøy knyttet til utvikling av front-end.
 
@@ -38,7 +38,7 @@ Ved å bruke verktøyene som har blitt presentert benyttes også noen tilhørend
 \subsection{Git}
 Git \cite{TechTarget} er et system for versjonskontroll. Et versjonskontrollsystem blir hovedsaklig brukt under utvikling av software og nettsteder. Det kan også brukes til andre type prosjekter som grafisk design og skriving av dokumenter.
 
-Ved å bruke Git har vi fått en historikk over alle endringer, samt en sikkerhetskopi av alle versjoner av filene. En annen fordel ved å bruke Git er at det blir enklere å samarbeide med hverandre, uten å måtte tenke på at alle må sitte på nyeste versjon av filene.
+Ved å bruke Git har vi fått historikk over alle endringer, samt en sikkerhetskopi av alle versjoner av filene. En annen fordel ved å bruke Git er at det blir enklere å samarbeide med hverandre, uten å måtte tenke på at alle må sitte på nyeste versjon av filene.
 
 % \subsection{Github}
 % GitHub.com er et nettsted for å hoste git repositories, og blir mye brukt for \q{Open Source}-prosjekter. 
@@ -53,16 +53,16 @@ Et API (programmeringsgrensesnitt) er et sett med funksjoner, prosedyrer, metode
 
 REST (Representational State Transfer) er en arkitektonisk stil for programvare. Et REST-API \cite{Masse2011radr} er et API som følger REST-stilen og de begrensninger som REST definerer.
 
-\subsection{Google Analytics}
-\label{sec:google-analytics}
-Google Analytics \cite{google2019gtk} er en gratis, webbasert tjeneste som gir statistikk og grunnleggende verktøy for analyse av bruksdata, søkemotoroptimalisering og markedsføring.
+% \subsection{Google Analytics}
+% \label{sec:google-analytics}
+% Google Analytics \cite{google2019gtk} er en gratis, webbasert tjeneste som gir statistikk og grunnleggende verktøy for analyse av bruksdata, søkemotoroptimalisering og markedsføring.
 
-Dette verktøyet blir av oss brukt til å overvåke hvordan brukerne på nettsiden oppfører seg.
+% Dette verktøyet blir av oss brukt til å overvåke hvordan brukerne på nettsiden oppfører seg.
 
-\section{Utviklingen}
+% \section{Utviklingen}
 
-Det ble opprettet en \q{Branch protection rule} på back-end repository i Github. Dette gjør at det må kjøres en \q{Code review} før kode kan sendes inn til \q{Master branch}-en. Alle medlemmene på studentgruppen har en egen branch.
-Når koden skal commites må det opprettes en pull request, som må godkjennes. Da blir det mulig å luke ut kode som inneholder feil som potensielt kan ødelegge for eksisterende kode.
+% Det ble opprettet en \q{Branch protection rule} på back-end repository i Github. Dette gjør at det må kjøres en \q{Code review} før kode kan sendes inn til \q{Master branch}-en. Alle medlemmene på studentgruppen har en egen branch.
+% Når koden skal commites må det opprettes en pull request, som må godkjennes. Da blir det mulig å luke ut kode som inneholder feil som potensielt kan ødelegge for eksisterende kode.
 
 \section{Back-end}
 \subsection{Installasjon og oppsett av Laravel og tilhørende verktøy}

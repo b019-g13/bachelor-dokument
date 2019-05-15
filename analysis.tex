@@ -48,7 +48,7 @@ Med utgangspunktet i disse studiene kan vi derfor konkludere med at en nettside 
 Et nettsted kan ses på som et enveis onlineverktøy med høy bedriftskontroll \cite{taiminen2015tuo}. På en nettside har en bedrift altså mulighet til å bestemme innholdet og hvordan firmaet skal fremstå. Dette er en mulighet enhver bedrift burde benytte seg av, da nettstedet kan være med å forbedre og øke troverdigheten\footnote{Se avsnitt \ref{sec:analyse-troverdighet}} og dermed påvirke forholdet kunden har til bedriften.
 
 \subsection{Innsamling av data}
-En annen god grunn til å ha et nettsted, er at det blir mulig å benytte seg av verktøy som Google Analytics\footnote{Se avsnitt \ref{sec:google-analytics}}. Data samlet inn med Google Analytics kan brukes til å finne ut hvilken av sidene som er mest besøkt. Det er også mulig å finne ut hvilken type informasjon besøkende er interessert i, gjennom hvilken vei en bruker kommer inn og ut av siden på og hvor mye tid som har blitt brukt på hver side \cite{kent2011lwa}. Ved å kartlegge dette vil bedriften alltid ha oppdatert og relevant informasjon tilgjengelig, som kan brukes til å forbedre nettstedet fortløpende. 
+En annen god grunn til å ha et nettsted, er at det blir mulig å benytte seg av verktøy som Google Analytics. Data samlet inn med Google Analytics kan brukes til å finne ut hvilken av sidene som er mest besøkt. Det er også mulig å finne ut hvilken type informasjon besøkende er interessert i, gjennom hvilken vei en bruker kommer inn og ut av siden på og hvor mye tid som har blitt brukt på hver side \cite{kent2011lwa}. Ved å kartlegge dette vil bedriften alltid ha oppdatert og relevant informasjon tilgjengelig, som kan brukes til å forbedre nettstedet fortløpende. 
 
 \section{Viktige faktorer innen webdesign}
 \label{sec:viktige-faktorer}
@@ -272,7 +272,7 @@ Figur \ref{fig:analysis-current-sirkusmedia.no} viser dagens nettside, både for
 
 \subsection{Test med Google Chrome DevTools}
 \label{sec:google-chrome-devtools}
-Google Chrome DevTools \cite{google2019cdt} er et utviklerverktøy som følger med nettleseren Google Chrome. Verktøyet lar oss blant annet sjekke hastighet og kontrastforhold på nettsider, og kjøre tester med Google Lighthouse\footnote{Se avsnitt \ref{sec:google-lighthouse}}. Med Google Chrome DevTools testet vi hastigheten til siden, ved hjelp av det trådløse nettverket til Høgskolen i Østfold (avdeling Halden) fra en Dell XPS 13 (9350). Resultatene ble målt i millisekunder, og presenteres i tabell \ref{tab:table-analysis-current-website}.
+Google Chrome DevTools \cite{google2019cdt} er et utviklerverktøy som følger med nettleseren Google Chrome. Verktøyet lar oss blant annet sjekke hastighet og kontrastforhold på nettsider, og kjøre tester med Google Lighthouse\footnote{Se avsnitt \ref{sec:google-lighthouse}}. Med Google Chrome DevTools testet vi hastigheten til siden, ved hjelp av det trådløse nettverket til Høgskolen i Østfold (avdeling Halden) fra en Dell XPS 13 (9350). Nettleseren ble åpnet i inkognito modus uten noen innstallerte utvidelser. Resultatene ble målt i millisekunder, og presenteres i tabell \ref{tab:table-analysis-current-website}.
 
 \begin{table}[H]
 \begin{center}
@@ -304,7 +304,7 @@ Innlastningstiden til DOM beskriver hvor lang tid det tar for nettleseren å les
 \label{sec:google-lighthouse}
 Google Lighthouse \cite{google2018lig} er et gratis verktøy for å sjekke kvaliteten på nettsider. Den analyserer nettsidens tilgjengelighet, hastighet og SEO, samt om nettsiden følger de beste praksiser. Både generelt og for progressive webapplikasjoner. Lighthouse kan kjøres via Google Chrome DevTools, en nettleserutvidelse i Google Chrome eller via nettsiden \url{https://web.dev/}.
 
-Figur \ref{fig:analysis-current-lightouse-summary} viser oppsummering av resultatetene etter å ha kjørt testen fra Google Lighthouse. Oversikten viser at nettstedet får gode poengsummer på alle områder. Hovedgrunnen til dette er at dagens nettsted består av kun en forside og lite informasjon. Dette begrenser muligheten for feil.
+Figur \ref{fig:analysis-current-lightouse-summary} viser oppsummering av resultatetene etter å ha kjørt testen fra Google Lighthouse. Oversikten viser at nettstedet får gode poengsummer på alle områder. Hovedgrunnen til dette er at dagens nettsted består av kun en enkel forside og lite informasjon. Dette begrenser muligheten for feil.
 
 \begin{figure}[H]
     \centering
@@ -333,7 +333,7 @@ Checkbot \cite{checkbot2019cth} tester sikkerhet, hastighet og søkemotoroptimal
 
 \subsection{Color Contrast Analyzer}
 \label{sec:analysis-current-color-contrast-analyzer}
-Videre presenteres resultatene fra Color Contrast Analyzer. Color Contrast Analyzer \cite{ncstate2013cca} er en Google Chrome-utvidelse som lar deg analysere kontrastproblemer på nettsteder i henhold til WCAG 2 fargekontrastkravene. Denne utvidelsen gjør det mulig å analysere tekst som ligger over bakgrunnsbilder eller gradienter, analysere tekst i bilder og gi en visuell oversikt over kontrastene på siden.
+Videre presenteres resultatene fra Color Contrast Analyzer. Verktøyet \cite{ncstate2013cca} er en Google Chrome-utvidelse som lar deg analysere kontrastproblemer på nettsteder i henhold til WCAG 2 fargekontrastkravene. Denne utvidelsen gjør det mulig å analysere tekst som ligger over bakgrunnsbilder eller gradienter, analysere tekst i bilder og gi en visuell oversikt over kontrastene på siden.
 
 \begin{figure}[H]
     \centering
@@ -375,43 +375,6 @@ Med verktøyet WAVE kan vi verifisere funnene som ble gjort i avsnitt \ref{sec:a
 \vskip 1em Ved å skru på \q{No-styling} vil man oppdage at det er en skjult seksjon på siden \q{THE COMPANIES THAT MAKE THEIR LIFE SIMPLE}. Dette blir plukket opp av noen skjermlesere og er derfor ikke ideelt.\\
 WAVE viser også at nettstedet har bra stuktur på overskrifter som følger beste praksis.
 
-\subsection{Kontrastforhold mellom tekst og bakgrunnsbilder}
-Etter å ha testet kontrasten til siden med verktøyet fra avsnitt \ref{sec:analysis-current-color-contrast-analyzer} og Google Chrome DevTools, vet vi enda ikke om kontrastforholdet i headeren er bra nok. Ved å se på figur \ref{fig:analysis-current-cca-aa} og \ref{fig:analysis-current-cca-aaa} kan vi se at uthevingen av teksten i headeren, er svakere i figur \ref{fig:analysis-current-cca-aaa} enn i \ref{fig:analysis-current-cca-aa}. Dette må vi undersøke nærmere.
-
-Dette er ikke mulig å sjekke med Chrome DevTools eller WAVE. Begge verktøyene vil gi negative resultater som ikke stemmer ettersom de ikke får en bakgrunnsfarge å se på, men et bakgrunnsbilde. Dette fører til at testen ikke blir utført korrekt.
-
-For å løse dette bruker vi A11y-test til Brandwood \cite{sl2009sst}. Verktøyet deler opp bilde i seksjoner og finner gjennomsnittsfargen i hver av disse seksjonene. Deretter sjekkes kontrastforholdet mellom teksten sin farge og fargen i de seksjonene som teksten er over.
-
-I figur \ref{fig:analysis-current-a11y_bg-example} kan man se eksempel på resultatet av en test. Her testet vi en hvit tekst mot et bilde av en regnbue. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{bjornar/bg-image-eksempel.png}
-    \caption{Test av kontrastforhold - Eksempel}
-    \label{fig:analysis-current-a11y_bg-example}
-\end{figure}
-
-Vi gjenskapte headeren til Sirkus Media i verktøyet, og testet den store teksten: \q{Vi skaffer konkrete kundehenvendelser} og den mindre teksten \q{Med vår egenutviklede løsning jobber vi for å skaffe våre kunder konkrete kundehenvendelser - direkte på epost og telefon.} Se figur \ref{fig:analysis-current-a11y_bg-generator}. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{bjornar/bg-image-generator.png}
-    \caption{Test av opprinnelig header til Sirkus Media}
-    \label{fig:analysis-current-a11y_bg-generator}
-\end{figure}
-
-\begin{figure}[H]
-    \begin{center}
-        \subfigure[Stor tekst]{\label{fig:analysis-current-a11y_bg-h1}\includegraphics[width=0.475\textwidth]{bjornar/bg-image-h1.png}}
-        \subfigure[Liten tekst]{\label{fig:analysis-current-a11y_bg-p}\includegraphics[width=0.475\textwidth]{bjornar/bg-image-p.png}}
-
-        \caption{Kontrastforhold - Testresultat}
-        \label{fig:analysis-current-a11y_bg-h1_p}
-    \end{center}
-\end{figure}
-
-Resultatet som vi ser i figur \ref{fig:analysis-current-a11y_bg-h1_p} viser at teksten i headeren har bra nok kontrastforhold for å passere kravet for AA, men ikke AAA. 
-
 \subsection{Qualys SSL Server Test}
 SSL Server Test\footnote{\url{https://www.ssllabs.com/ssltest/}} er en tjeneste som tester SSL- og TLS-sertifikater. 
 
@@ -429,14 +392,11 @@ Brukervennligheten via skjermleser ble også testet. Nettsiden ble testet med sk
 
 Ved å gjennomføre testen oppdaget vi at det var enkelt å navigere seg rundt på nettsiden. Innholdet kom i en logisk rekkefølge og det var lett å navigere seg mellom elementene. Det eneste problemet var kontaktskjema, som er ganske viktig ettersom målet med nettsiden er at potensielle kunder skal kunne ta kontakt. En annen faktor som manglet var en \q{skip to main content}-link.
 
-\subsection{Google Transparency Report - Safe Browsing: malware and phishing}
-Til slutt sjekket vi om nettsiden har skadevare på seg med en tjeneste fra Google. Googles Safe Browsing-teknologi \cite{google2019sbs} undersøker milliarder av nettadresser per dag på jakt etter usikre nettsteder. Hver dag oppdages tusenvis av nye usikre nettsteder, hvorav mange er legitime nettsteder som har blitt kompromittert. På tjenestens nettsted er det mulig å søke for å se om et nettsted for øyeblikket er farlig å besøke. I denne testen  ble det ikke oppdaget skadevare, noe som selvfølgelig er positivt.
-
 \subsection{Konklusjon}
 \label{sec:analysis-original-website}
 Ut i fra testene gjort med Google Chrome DevTools, Google Lighthouse og Checkbot kan vi konkludere med at nettsiden er rask. På testen gjort ved høgskolen lastes siden inn på under 1 sekund i gjennomsnittet, noe som er meget bra. Siden får over 70\% i poengsum fra Google Lighthouse og Checkbot. Med relativt enkle forbedringer, kan vi få denne summen opp til et sted mellom 90-100\%.
 
-Når det kommer til universell utforming gjør Sirkus Media det bra og følger de lover og regler som gjelder i Norge vedrørende dette. Vi ser likevel at kontrastforholdene på siden kun er godt nok for kravene til nivå AA, og ikke for AAA. Dette er noe som kan forbedres.
+Når det kommer til universell utforming gjør Sirkus Media det bra og følger de lover og regler som gjelder i Norge vedrørende dette. Vi ser likevel at kontrastforholdene på siden kun er gode nok for kravene til nivå AA, og ikke for AAA. Dette er noe som kan forbedres.
 
 Totalt sett gjør nettstedet til Sirkus Media det bra på testene som vi kjørte den gjennom. Som beskrevet tidligere er hovedgrunnen til de gode resultatene at dagens nettsted består av kun en forside og lite informasjon. Dette begrenser muligheten for feil. Det vil være en utfordring å gjøre det like bra i disse testene med et nettsted som består av flere sider, mer innhold og kompleks funksjonalitet.
 
@@ -631,8 +591,6 @@ En svakhet er at det er for mye informasjon i headeren. Dette kan bidra til at f
 \label{sec:analysis-competitors-conclusion}
 Felles for alle 3 konkurrentene er at ingen følger loven om universell utforming og tilgjengelighet. Universell utforming er lovpålagt i Norge\footnote{Se avsnitt \ref{sec:universal-design}}, og vår løsning kommer derfor til å følge disse kravene. 
 
-% En annen faktor konkurrentene har til felles er at de presenterer sine kunder og/eller partnere. Dette bør også Sirkus Media gjøre. Presentasjon av kundeforhold med kjente firmaer er tillitsvekkende og kan skape bedre troverdighet blant brukerne \cite{vitaldesign_client_logos}.
-
 Figur \ref{fig:competitors-mobile} viser at alle konkurrentene har gått for samme løsning når det kommer til design på mobil. Alle har bedriftens logo oppe til venstre og et meny ikon til høyre. Ved å ha et lignende design på vår løsning, er det lett for brukerne å forstå hvordan menyen fungerer, nettopp fordi denne løsningen er blitt ganske vanlig.
 
 Konkurrentene har gode løsninger, men også en del svakheter som har blitt påpekt i denne analysen. Konkurrentanalysen har vært nyttig fordi den har ført til at gruppen har fått inspirasjon til løsningen som skal utvikles. Samtidig har den gitt en pekepinn på hva vi bør gjøre annerledes.
@@ -678,18 +636,6 @@ Følgende sett med minimumskrav er satt med basis i de foregående analysene:
 \item [Linux kompatibelt] Verktøy vi bruker til DevOps bør fungere på Linux distribusjoner, da planen er å benytte seg av en Linux-server fordi det anses som sikrere, mer stabilt og mer fleksibelt enn en Windows-server \cite{cabrera2009windows}.
 \end{compactdesc}
 
-
-% \subsection{Verktøy til grafisk design}
-
-% \subsubsection{Figma}
-% Figma \cite{figma2019abw} er et webbasert designverktøy som åpner muligheten for å samarbeide i sanntid. Med Figma er det også mulig å designe mockups og prototyper av applikasjoner og nettsider.
-
-% \subsubsection{Dribbble}
-% Dribbble er et nettsted for deling av design verk. Det brukes ofte som en kilde for inspirasjon \cite{Dribbble2019}.
-
-% \subsubsection{Adobe Behance}
-% Behance er et nettsted for deling av design verk. Det brukes ofte som en kilde for inspirasjon \cite{Sloan_wib}.
-
 \subsection{Verktøy til utvikling}
 I dette avsnittet vil vi presentere de verktøyene vi mener er passende, og som oppfyller kravene vi har definert for utvikling. 
 
@@ -698,22 +644,10 @@ Laravel \cite{cbcp2019lvw} er et PHP-rammeverk, med åpen kildekode, som brukes 
 Laravel kommer med innebygde funksjoner for autentisering, modeller, visninger, sesjoner, ruting og andre funksjoner som en \textit{templating engine} kalt Blade.
 
 \subsubsection{Wordpress}
-WordPress\cite{wordpress} er gratis programvare med åpen kildekode som kan brukes til å utvikle nettside, blogger eller apper. I Wordpress er det også mulig å legge til ekstra funksjonalitet via utvidelser, som gjør det mulig å for eksempel legge til gallerier, postlister og analyser.
-
-% \subsubsection{PHP}
-% PHP (rekursiv akronym for PHP Hypertext Pre-processor)\cite{McGrath2016pies} er et skriptspråk som er spesielt egnet for webutvikling og kan legges inn i filer sammen med HTML. PHP er et serverside programmeringsspråk og kan brukes til å lage dynamiske og interaktive nettsteder. PHP er gratis og plattformuavhengig, samtidig som det er  er raskt og fleksibelt. Det kan installeres i pakker med webserver og database. Eksempelvis LAMP, LEMP, WAMP og XAMPP. PHP er også mulig å installere enkeltstående. 
-
-% \subsubsection{HTML}
-% Hypertext Markup Language \cite{w3c2016hc} er et markeringsspråk som brukes til å lage nettsidedokumenter. Det er et system som identifiserer og beskriver de forskjellige komponentene i et dokument som overskrifter, avsnitt og lister. HTML5 er den nyeste versjonen av HTML-standarden.
-
-% \subsubsection{CSS}
-% Casecading Style Sheet \cite{w3c2016hc} er et format for stilsett som beskriver utseendet i en applikasjon eller på et nettsted. CSS styrer blant annet fonter, farger, bakgrunnsbilder, linjeavstand og sidelayout. Formatet lar utviklere style innhold på en slik måte at brukere enklere kan identifisere hva det er, samt være i tråd med en bedrift eller person sin identitet.
+WordPress\cite{wordpress} er gratis programvare med åpen kildekode som kan brukes til å utvikle nettside, blogger eller apper. I Wordpress er det også mulig å legge til ekstra funksjonalitet via utvidelser.
 
 \subsubsection{SASS}
 Syntactically Awesome Style Sheets \cite{Catlin2006cws} er en utvidelse av CSS. SASS gir mulighet til å bruke variabler, nestede regler, inline-import og mixins. Alt dette gjør det enklere å gjenbruke CSS syntaks. Med SASS er det mulig å lage stilark raskere. SASS er kompatibel med alle versjoner av CSS. Det er ingen nettlesere som kjører SASS, man må derfor kompilere SASS til CSS for å kunne bruke det på nettsider.
-
-% \subsubsection{JavaScript}
-% JavaScript er et programmeringsspråk som følger ECMAScript-spesifikasjonen \cite{mdn2019jav}. Det er mye brukt til å utvikle webapplikasjoner. Språket støttes av de fleste moderne nettlesere, og brukes til å manipulere elementene på nettsiden og stilene som er brukt på dem. JavaScript støtter objektorientert- og funksjonell programmering.
 
 \subsubsection{Axios}
 \label{sec:tool:axios}
@@ -721,7 +655,7 @@ Axios\cite{axios2019a} er et JavaScript-bibliotek for en promise-basert HTTP-kli
 
 
 \subsubsection{React}
-React\cite{facebook2019r} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og brukes som visningslaget for webapplikasjoner som følger designmønsteret MVC\footnote{Se avsnitt\ref{sec:tools-mvc}}. React har åpen kildekode og er utviklet av Facebook.
+React\cite{facebook2019r} er et fleksibelt JavaScript-bibliotek for å bygge brukergrensesnitt, og kan brukes som visningslaget for webapplikasjoner som følger designmønsteret MVC\footnote{Se avsnitt\ref{sec:tools-mvc}}. React har åpen kildekode og er utviklet av Facebook.
 
 \subsection{Designmønster}
 
@@ -763,41 +697,17 @@ I introduksjonen ble det nevnt at studentgruppen enten skal utvikle et eget CMS 
     \item Tar lengre tid å sette opp og utvikle til et ferdig system, enn Wordpress som er et ferdigutviklet CMS.
 \end{itemize}
 
-Studentgruppen har kommet frem til at fordelene trumfer ulempene når det kommer til Laravel. Derfor har vi valgt å bruke dette for å videreutvikle et eget CMS. Vi må også velge en teknologi til front-end og et verktøy som kan binde sammen back- og front-end. Da ble henholdsvis React og Axios valgt. 
+Studentgruppen har kommet frem til at fordelene trumfer ulempene når det kommer til Laravel. Derfor har vi valgt å bruke dette for å utvikle et eget CMS. Vi må også velge en teknologi til front-end og et verktøy som kan binde sammen back- og front-end. Da ble henholdsvis React og Axios valgt. SASS ble valgt til å style produktet.
+
+\subsubsection{Begrunnelser for valgene}
 \begin{compactdesc}
-% \item[Google Chrome DevTools] Ble valgt fordi det følger med Google Chrome nettleseren og er enkelt å bruke.
-% \item[Google Lighthouse] Ble valgt fordi det produserer oversiktlige og lettleste rapporter som forklarer kort og greit hvilke punkter som bør ses på.
-% \item[Checkbot] Ble valgt fordi det er enkelt å bruke og produserer rapporter som er enkle å forstå.
-% \item[Color Contrast Analyzer] Ble valgt fordi det var det eneste verktøyet som vi fant med disse egenskapene.
-% \item[WAVE] Ble valgt fordi det er enkelt å bruke og kan produserer rapporter som er enkle å forstå.
-% \item[Brandwoods A11y-test] Ble valgt fordi det var den mest intuitive verktøyet vi fant som kunne utføre jobben denne type test.
-% \item[Qualys SSL Server Test] Ble valgt fordi det er enkelt å bruke og genererer rapporter som er lette å forstå.
-% \item[Google Transparency Report - Safe Browsing: malware and phishing] Ble valgt fordi det ikke finnes noen tilsvarende alternativer.
-% \item[Figma] Ble valgt fordi det er enkelt å bruke og veldig intuitivt. I tillegg er det gratis, i motsetning til f.eks. Photoshop.
-% \item[Laravel] Ble valgt fordi det er populært, har god dokumentasjon og er enkelt å komme i gang med.
-% \item[PHP] Ble valgt fordi det er et relativt \q{snillt} og fleksibelt språk som er enkelt å komme i gang med.
-% % \item [GNU/Linux] Ble valgt fordi det er sikkert, stabilt og fleksibelt.
-% \item[Nginx] Ble valgt fordi det fremstod som brukervennlig og intuitivt. I tillegg er den av nyere dato enn tilsvarende verktøy.
-% \item[phpMyAdmin] Ble valgt fordi det ikke finnes noen tilsvarende alternativer.
-% \item[MariaDB] Ble valgt fordi en av gruppemedlemmene ønsker å støtte de orginale MySQL-utviklerne ovenfor Oracle som har vist tvilsom etikk når det gjelder åpen kildekode utvikling.\footnote{\url{https://arstechnica.com/information-technology/2016/06/the-googleoracle-decision-was-bad-for-copyright-and-bad-for-software/}}
-% \item[Buddy] Ble valgt fordi en av gruppemedlemmene hadde et ønske om å lære seg dette verktøyet.
-% \item[Ottomatik.io] Ble valgt fordi det ikke finnes noen tilsvarende alternativer.
-% \item[Amazon S3] Ble valgt fordi det har godt omdømme og har god dokumentasjon.
-% \item[Let’s Encrypt] Ble valgt fordi det ikke finnes noen tilsvarende alternativer.
-% \item[HTML] Ble valgt ettersom det er standard markeringsspråk for å lage nettsider og webapplikasjoner
-% \item[CSS] Ble valgt ettersom det er standard stilsett-språk for å lage nettsider og webapplikasjoner.
 \item[SASS] Ble valgt fordi koden fremstår som ryddigere og mer strukturert, siden det er mulig med \textit{nesting}.
-% \item[JavaScript] Ble valgt ettersom det er standard programmeringsspråk for å lage nettsider og webapplikasjoner.
 \item[React] Ble valgt fordi det er populært, har god dokumentasjon og noen av gruppemedlemmene hadde et ønske om å lære seg denne teknologien.
 \item[Axios] Ble valgt fordi det fremstår som brukervennlig og intuitivt.
-% \item[Git \& Github] Ble valgt fordi det er veldig populært, gir deg god historikk over endringer og trygg sikkerhetskopiering. I tillegg hadde alle gruppemedlemmene har erfaring med disse.
-% \item[REST-API] Ble valg fordi det er populært og er en bra arkitektonisk stil.
-% \item[Google Analytics] Ble valgt fordi det er populært, har god dokumentasjon og er enkelt å komme i gang med.
 \end{compactdesc}
 
-
 \section{Hvorfor et headless CMS?}
-Som beskrevet tidligere\footnote{Se avsnitt \ref{sec:wordpressvslaravel}} kom studentgruppen frem til at det var best å utvikle et eget CMS. Valget falt da på et headless CMS. Et headless CMS henter ut innhold fra et API. Det vil si at funksjonalitet og design lages adskilt fra selve publiseringsløsningen.
+Som beskrevet tidligere\footnote{Se avsnitt \ref{sec:wordpressvslaravel}} kom studentgruppen frem til at det var best å utvikle et eget CMS. Valget falt da på et headless CMS. En klient av et headless CMS henter ut innhold fra API-et som CMS-et definerer. Det vil si at funksjonalitet og design lages adskilt fra selve publiseringsløsningen.
 
 Et headless CMS består ofte av:
 \begin{itemize}
@@ -807,163 +717,3 @@ Et headless CMS består ofte av:
 \end{itemize}
 
 En stor fordel med å velge et headless CMS, særlig i et prosjekt som dette der oppdragsgiver ikke har noe krav til teknologier, er at det blir mulig å velge den teknologien man ønsker til front-end. Dette var hovedgrunnen til at gruppen valgte å utvikle et headless CMS, da det åpnet opp for muligheten til å jobbe med de teknologiene vi selv ønsket.
-
-% \section{Akademiske og tekniske dokumenter}
-
-% Akademiske og tekniske dokumenter ser noe forskjellige ut avhengig av fagfeltet. Likevel, en litt grundigere analyse avslører en felles hovedstruktur, som egentlig er ganske intuitiv\dots og omtrent lik den vi lærte på barneskolen: {\em Hode, kropp og hale}. Hver av disse hoveddelene består som regel av omtrent de samme elementene. 
-
-
-
-% \subsection{Mayfield Handbook of Technical \& Scientific Writing}
-% \label{sec:mayfield}
-
-% I følge engelsk terminologi deler man gjerne et dokument opp i {\em Front matter, Body og End (Back) matter}, og det gjøres konsekvent i
-% Mayfield Handbook of Technical \& Scientific Writing \cite{perelman97mht}. Denne utmerkede kilden finnes også på 
-% elektronisk form\footnote{\url{http://www.mhhe.com/mayfieldpub/tsw/home.htm}}. 
-% I kapittelet 
-% {\em Elements of Technical Documents}\footnote{\url{http://www.mhhe.com/mayfieldpub/tsw/elemtech.htm}}
-% blir den følgende generiske strukturen foreslått:
-
-% \begin{compactitem}
-% \item Front Matter
-% \begin{compactitem}
-% \item Title page
-% \item Abstract
-% \item Table of contents
-% \item List of figures
-% \item List of tables
-% \item List of terms
-% \item Acknowledgments
-% \end{compactitem}
-
-% \item Body
-% \begin{compactitem}
-% \item Introduction
-% \item Background
-% \item Theory
-% \item Design criteria
-% \item Materials and apparatus
-% \item Procedure
-% \item Workplan
-% \item Results
-% \item Discussion
-% \item Conclusion
-% \item Recommendations
-% \end{compactitem}
-
-% \item End Matter
-% \begin{compactitem}
-% \item References
-% \item Appendixes
-% \item Index
-% \end{compactitem}
-
-% \end{compactitem}
-
-% Hvert av punktene blir nærmere beskrevet, med mange eksempler på godt (og dårlig) innhold, og det anbefales på det sterkeste å  studere dette kapitellet nærmere. 
-
-% Denne strukturen er så nær man kommer en universell mal for en teknisk/vitenskapelig rapport.
-
-% \subsection{HiØ/IT}
-% \label{sec:hiof-it}
-
-% Ved HiØ/IT har man valgt å skille grovt sett mellom to typer dokumentasjon.
-% {\em Prosessdokumentasjonen} omfatter en forprosjektrapport samt individuelle refleksjonsnotater, og selve produktet er omtalt i
-% {\em hoveddokumentet}\footnote{\url{https://wiki.hiof.no/index.php/Bacheloroppgaven_-_Leveranser}}(eller rett og slett det vi kaller bacheloroppgaven).
-% Når det gjelder oppbygging og innhold er hoveddokumentet å regne som en typisk akademisk/teknisk rapport/artikkel:
-
-% \begin{compactitem}
-% \item Tittelside
-% \item Sammendrag
-% \item (Takk til)
-% \item Innholdsfortegnelse
-% \item (Liste over figurer)
-% \item (Liste over tabeller)
-% \item Introduksjon
-% \item Analyse
-% \item Design
-% \item Implementasjon
-% \item Evaluering
-% \item Diskusjon
-% \item Konklusjon
-% \item Referanser
-% \item Referanser
-% \end{compactitem}
-
-% \section{Skriveverktøy for store og komplekse dokumenter}
-
-% For å starte på et stort og komplekst dokument, vil mange åpne sin vanlige teksteditor og sette igang. Det går sjelden bra. Som ved alle typer større oppgaver, bør man velge sine verktøy med omhu.
-% Før man setter igang å lage et digitalt dokument, kan det være fornuftig å dvele litt ved hvordan dokumenter har blitt, og blir, produsert på tradisjonelt vis. 
-
-% \subsection{Forfatter, redaktør, typograf, trykkeri}
-
-% Tradisjonelt hersker det en streng arbeidsdeling innen produksjon av dokumenter, som f.eks. en bok, eller en avis. Forfatteren (eller journalisten) skriver såkalt {\rm brødtekst}, som rett og slett er tekst, skrevet for hånd, på skrivemaskin, eller talt inn på diktafon. I teksten er det gjerne markert ulike strukturelle elementer. Det er markert hvor et nytt avsnitt begynner, kanskje det står skrevet at her kommer det en illustrasjon, etc. Dette råmaterialet går gjerne til en redaktør, som kvalitetssikrer innholdet og tildels struktur, og eventuelt foreslår/foretar endringer. Deretter tar typografen (eller den grafiske formgiveren) over, og bestemmer skriftstørrelser, fonter, marger, linjeavstand etc. Til slutt går trykkoriginalen til trykkeriet\footnote{Her kan jo være på sine plass å tenke litt på XHTML og CSS, og hvor de har sine røtter\dots og da tenker jeg ikke på Håkon Wium Lie \smiley.}.
-
-% Denne framgangsmåten ivaretar en klar tredeling av arbeidet; innhold, struktur, og form. Innholdet, og grovstrukturen, bestemmes av forfatteren. Redaktøren sørger for å kvalitetssikre innholdet, og eventuelle justere strukturen. Den endelig formgivingen av dokumentet blir typografens rolle. Det er viktig å merke seg at alle disse tre rollene krever høy kompetanse innen helt forskjellige fagfelt. De fleste mener også at det er ganske unaturlig for en forfatter å legge ned mye tankearbeid i hvilken font og størrelse det bør være på overskriftene. På den annen side ville vel det ikke være rett at typografen blandet seg bort i innholdet.
-
-% \subsection{The curse of the cursor \\  \normalsize -eller- \\DTP: DeskTop Publishing eller Dom Tokigas Paradis? }
-
-% Og etterhvert kom datamaskinene, som tilsynelatende kunne gjøre ``alt'', og dermed begynte mange å gjøre ``alt'', selv. Teksteditorer og desktop publishing verktøy gjorde det mulig for at en person kunne stå for hele prosessen, både skrive, redigere, og formgi, uten å ha særlig kompetanse, ferdighet eller erfaring i noen av feltene.
-
-% Personlig husker jeg godt mitt første møte med DTP, tidlig i IT-utdannelsen. Oppgaven var å lage en liten avis, med bilder og det hele, ved hjelp av en søt liten Mac, som på et mysteriøst vis var knyttet sammen med en skriver som til og med skrev ut illustrasjoner og fotografier i grov oppløsning. Den blinkende markøren i teksteditoren var hypnotisk, halvt innbydende, halvt skremmende. Og så måtte man bare kaste seg ut i det. Skrive noen setninger, markere en del som ``bold'' og fontstørrelse 18, fin overskrift, et par ``enter'', forsette med vanlig font, nei, kanskje en litt mer fancy kalligrafifont, kanskje til og med blå? Og dermed var det gjort, forvirringen var total. Noe senere erfarte jeg at i enkelte svenske miljøer mente man at DTP sto for ``Dom Tokigas Paradis". Innen visse segmenter av reklamebransjen mener jeg fremdeles å se spor etter slike traumatiske møter med datastøttet publisering.
-
-% Man kan jo spørre seg om det egentlig er noen forskjell mellom et blankt ark, enten på et skrivebord eller i en skrivemaskin, og en blinkende markør øverst i venstre hjørne i en editor? Uansett svar, det blanke arket gir deg ikke anledning til å eksperimentere med fonter, marger, skriftstørrelse og plassering av bilder. Arket handler kun om innhold, og hvordan det skal struktureres, hvilken passasje som følger en annen, og hvor det begynner et nytt avsnitt.
-
-% \subsection{Programmering av dokumenter}
-
-% Et par år senere skal jeg produsere min første akademiske artikkel, i \LaTeX~med  AMS stilen. Hæh?
-
-% Det tok et par dager før jeg skjønte poenget. Skrive innholdet i filer (ark) i en editor uten formateringsmulighet, sette inn kryptiske kommandoer for å markere avsnitt eller matematiske uttrykk, sette sammen delene i en styrefil, legge til noen kommandoer som avgjorde hvordan dokumentet ble seendes ut. Deretter {\em kompilere} hele greia! Som så resulterte i  en DVI-fil\footnote{DVI: DeVice Independent}, som igjen kunne konverteres til alle mulige trykk- og printbare formater. Og det beste av alt, resultatet, rent formmessig, ble helt strøkent, akkurat som i lærebøkene og artikkelsamlingene.
-
-% Dette var jo akkurat som å programmere. Full kontroll.
-
-
-% \section{Digital dokumentproduksjon}
-
-% Vi foreslår et sett med minimumskrav til digitale dokumentverktøy, basert på  den forutgående analysen. Deretter gir vi kort beskrivelse av 
-% \LaTeX~ og OpenOffice Writer, som etter en kort vurdering er de to verktøyene som tilfredstiller de fleste av kravene.
-
-% \subsection{Generelle krav}
-% \label{sec:generelle-krav}
-
-% Kravene er utarbeidet delvis med basis i den forutgående analysen, men i hovedsak ut fra forfatterens erfaringer.
-
-% \vspace{1em}
-% \begin{compactdesc}
-% \item [Plattformuavhengighet] I et prosjekt med flere deltagere, er det direkte arrogant å forvente at alle skal bruke samme plattform, fordi valget av dokumentasjonsverktøy krever dette.
-% \item [Robusthet] En hovedrapport er ofte relativt stor, og tildels med komplekst innhold (figurer, tabeller etc). Det er ikke uvanlig at selv kostbare og vidt utbredte verktøy kræsjer i en slik kontekst, eller verre, begynner å oppføre seg inkonsistent og uforutsigbart Det å åpne et dokument, bare for å oppleve at formatering som ble foretatt kvelden før er ødelagt, er ingen særlig givende erfaring, særlig ikke hvis det er to timer til rapporten skal leveres inn.
-% \item [Maler/stiler] Det må kunne være mulig å skifte mal på et og samme dokument uten å gjøre ekstra tilpasninger. Dermed oppnår man et klart skille mellom innhold og utforming. Hvis f.eks. retningslinjene for hovedrapporten endrer seg, så er det bare å lage en ny mal og bruke denne.
-% \item [Oppsplitting]Det bør kunne være mulig å splitte dokumentet i mindre deler, f.eks. en fil for hvert kapittel. Delene må kunne knyttes sammen i et masterdokument. På denne måten vil det være lett å endre rekkefølgen på komponentene. Da er også strukturen uavhengig av det faktiske innholdet. Oppsplitting er også en forutsetning for å kunne jobbe distribuert, der de ulike deltagerne jobber parallelt på ulike deler av rapporten.
-% \item [Kryssreferanser]Det må være mulig å bruke dynamiske kryssreferanser, slik at man f.eks. kan referere til en nummerert figur. Hvis da nummeret til figuren endrer seg pga. av at det blir lagt inn en figur tidligere i dokumentet, så må referanse oppdateres automatisk.
-% \item [Bibliografi]De må være enkelt å referere til en ekstern samling bibliografiske referanser. Det også være enkelt å når som helst endre referansestil (f.eks. IEEE eller Harvard).
-% \item [Brukermasse]Det bør eksistere en stor og variert brukermasse, noe som i seg selv kan være en antydning om at verktøyet holder mål.
-% \item [Dokumentasjon]Verktøyet må være godt dokumentert, både den innebyggede dokumentasjonen, samt i ulike fora på nettet.
-% \item [Versjonskontroll]Det må være enkelt å håndtere versjonering, dvs. at man lett kan rekonstruere tidlige versjoner, og lett se hva som er endret fra versjon til versjon.
-% \item [Framtids/fortidssikker]Verktøyet bør kunne uten videre behandle dokumenter som er laget i tidligere versjoner. Dette vil også være en indikasjon på at dokumentet du jobber fremdeles ``lever'' i rimelig overskuelig framtid. 
-% \item [Stave/grammatikkontroll] Minimumskravet er at det er mulig å utføre effektiv stavekontroll, for ulike språk, ikke minst norsk bokmål. I tillegg vil det være et pluss om det er mulig å verifisere grammatikk.
-% \end{compactdesc}
-
-
-% \subsection{\LaTeX}
-
-% Klipt og limt fra Wikipedia\footnote{\url{http://no.wikipedia.org/wiki/LaTeX}}:
-
-% \begin{quotation}
-% \LaTeX~ er et typesettingssystem for dokumentproduksjon. Det skrives normalt LaTeX i dokumenter som ikke har hevet og senket tekst.
-% \LaTeX~ ble opprinnelig utviklet av Leslie Lamport i 1984 og tilbyr idag en lang rekke dokumentproduksjonspakker som f.eks. automatisk opprettelse av innholdsfortegnelser, lister med tabeller og figurer, inkludering av bilder, kryssreferanser, sideoppsett, bibliografier mm.
-
-
-% LaTeX~ baserer seg på at forfatteren av et dokument kun skal være forfatter av dokumentet og slippe å bry seg om utforming og hvordan ting ser ut; noe han normalt sett ikke er ekspert på uansett. Det forfatteren gjør er å dele opp dokumentet i logiske strukturer før han lar LaTeX~ ta seg av selve oppsettet. LaTeX~ ansees ofte som WYSIWYM (det du ser er det du mener) fremfor WYSIWYG (det du ser er det du får) editor. Dette fører til at det ofte anerkjennes som overlegent fremfor andre skriveprogrammer grunnet at endringer som påvirker hele dokumentet er meget enkle å gjennomføre. De trenger ofte bare en endring et sted, så er endringen gjennomført i hele dokumentet.
-% \end{quotation}
-
-
-% \subsection{OpenOffice Writer (med kloner)}
-
-% Klipt og limt fra Wikipedia\footnote{\url{http://no.wikipedia.org/wiki/OpenOffice}}:
-
-% \begin{quotation}
-% Apache OpenOffice (AOO), er en kontorprogramvare som inneholder tekstbehandlingsprogram, regneark, presentasjonsprogram, tegneprogram og et databaseprogram. AOO er fri programvare, og distribueres av Apache Software Foundation under Apache-lisensen. Det betyr at både programmet og dets kildekode kan lastes ned gratis, og privatpersoner eller bedrifter kan selv gjøre endringer eller reparere feil. 
-
-% AOO benytter ODF som sitt primære dokumentformat. Dette er en ISO-standard som blant annet er tatt i bruk av offentlig sektor i Norge og EU for utveksling av digitale dokumenter. I tillegg støttes formatene til Microsoft Office og en rekke andre kontorprogrammer. AOO er multiplattform programvare, tilgjengelig for mange forskjellige operativsystemer, deriblant Microsoft Windows, Mac OS X, Linux, Solaris, FreeBSD, NetBSD og OpenBSD.
-% \end{quotation}
-

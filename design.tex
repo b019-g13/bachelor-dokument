@@ -1,65 +1,27 @@
 \cleardoublepage
 \chapter{Planlegging av produktet}
 \label{chap:design} 
-% \meta{
-%  Basert på beskrivelsen av oppgaven (Avsnitt \ref{sec:oppgaven}) og analysen i (Kapittel \ref{chap:analysis}), skal denne delen beskrive hvordan man har tenkt å utforme løsningen. Beskrivelsen er noe avhengig av type prosjekt.
 
-% \paragraph{Utredning}
-
-% Først og fremst må det redegjøres for hvordan man skal innhente informasjonen som skal danne grunnlaget for utredningen. Deretter må man bestemme hvordan man skal behandle materialet, f.eks. om man skal bruke statistiske metoder. Etter det er det naturlig å presentere en disposisjon for selve utredningen, som i dette tilfellet vil være hovedresultatet i prosjektet. Selve utredningen bør være et frittstående dokument, på samme måte som en film vil være et frittstående dokument i en mediaproduksjon, og et program vil være i et utviklingsprosjekt.
-
-% \paragraph{Mediaproduksjon}
-% Her vil det være naturlig å presentere story-boards og liknende metoder for å beskrive produksjonen. 
-
-% \paragraph{Utvikling}
-% Her er det bare å ta for seg av ulike måter å beskrive systemer på, alt fra overordnet arkitektur, moduler, meldingsprotokoller etc. Bruk gjerne formelle beskrivelsesspråk, typisk UML. 
-% }
-
-% I det videre tar vi for oss oppgaven med å utvikle struktur, innhold og formgiving av rapportmalen, uavhengig av hvilket verktøy som skal brukes ved implementasjonen.
-
-
-
-% ---
-
-I dette kapittelet vil vi ta for oss hvordan vi har tenkt å utforme nettstedet. Vi vil presentere forslag til innhold, struktur, design, utforming av CMS og databaser. Dette vil være grunnlaget for resten av oppgaven.
-
-% Sirkus Media "Vi vet ikke helt hva vi vil ha før vi ser det". Samtale 27.02.2019.
-
-% \section{Strategi og planlegging}
-% I alle type prosjekter er det viktig å ha en strategi og planlegge etter dette, og det kan være helt avgjørende å ha en god plan.
-
-% Når det kommer til webdesign-prosjekter inneholder disse fire viktige komponenter. Første steg er at du må kjenne miljøet ditt. Andre steg er å planlegge. Tredje steg er å lære å kunne tilpasse seg, og siste steg er å fullføre prosessen ved å løse kompatibilitetsproblemer etter hvert som de oppstår. (Dawson, 2011).
-
-% Dawson, A. (2011). Future-proof web design. Retrieved from https://ebookcentral.proquest.com
-
-% \url{https://www.sciencedirect.com/science/article/pii/S014829631630203X#bb0175 }
-
-
-% ---
-
-% \section{Struktur}
-
-% Vi tar utgangspunkt i den tradisjonelle og generiske strukturen beskrevet i Avsnitt \ref{sec:mayfield}. Det er etter min mening vanskelig å se noen grunn til å gjøre noe annet.
-
+I dette kapittelet tar vi for oss hvordan vi har tenkt å utforme nettstedet. Vi vil presentere forslag til innhold, struktur, design, utforming av CMS og databaser. Dette vil være grunnlaget for resten av oppgaven.
 
 \section{Planlegging av struktur og innhold}
 \label{sec:planning-website}
 
 Etter analysen gjort i kapittel \ref{chap:analysis} har studentgruppen kommet frem til at struktur og innhold burde være som følgende: 
 
-\textbf{Forside} Tanken er at hele nettstedet i hovedsak skal bestå av en lang forside. Da dette ikke er beste praksis for søkemotoroptimalisering, vil vi forbedre SEO ved å lenke til nye sider som er mer detaljert. Høyt oppe på siden skal det være en knapp til et kontaktskjema. Telefonnummeret til bedriften skal også være lett tilgjengelig. I tillegg skal forsiden bestå av en beskrivelse av bedriften, presentasjon av hva de tilbyr og steg for steg om prosessen. Videre skal nettstedet ha et kart som er integrert med Google Maps og viser lokasjonen til bedriften. Nederst på nettstedet skal organisasjonsnummer, link til personvern og logg inn til CMS-et bli presentert.
+\textbf{Forside} Tanken er at hele nettstedet i hovedsak skal bestå av en lang forside. Da dette ikke er beste praksis for søkemotoroptimalisering, vil vi forbedre SEO ved å lenke til andre sider som er mer detaljert. Høyt oppe på siden skal det være en knapp til et kontaktskjema. Telefonnummeret til bedriften skal også være lett tilgjengelig. I tillegg skal forsiden bestå av en beskrivelse av bedriften, presentasjon av hva de tilbyr og steg for steg om prosessen. Videre skal nettstedet ha et kart som er integrert med Google Maps og viser lokasjonen til bedriften. Nederst på nettstedet skal organisasjonsnummer, link til personvern og logg inn til CMS-et bli presentert.
 
 \textbf{Meny} Nettstedets meny skal være tilgjengelig uavhengig av hvilken side brukeren står på. Her skal alltid forside, om oss og kontakt oss være tilgjengelig. 
 
 \textbf{Om oss} Det vil bli opprettet en egen \q{Om oss}-side som er tilgjengelig via menypunktet \q{Om oss}. Denne siden inneholder en mer detaljert presentasjon av Sirkus Media og deres visjon.
 
-\textbf{Kontakt oss} Nettstedet vil i tillegg til kontaktskjema på forsiden, bestå av en egen side med kontaktinformasjon. Her presenteres også relevant informasjon som bedriftens adresse, e-post, mobilnummer og kart. Vi lager en dedikert side for kontaktinformasjon fordi det er positivt med tanke på søkemotoroptimalisering. For eksempel: Hvis en bruker søker på Google etter Sirkus Media og det ikke er en egen side for kontakt oss, vil brukeren kun få treff på forsiden og undersidene med andre irrelevant temaer. Siden brukeren ønsker å kontakte Sirkus Media, er det mer brukervennlig å ha en link til kontakt-siden i Google.
+\textbf{Kontakt oss} Nettstedet vil i tillegg til kontaktskjema på forsiden, bestå av en egen side med kontaktinformasjon. Her presenteres også relevant informasjon som bedriftens adresse, e-post, mobilnummer og kart. Vi lager en dedikert side for kontaktinformasjon fordi det er positivt med tanke på søkemotoroptimalisering. For eksempel: Hvis en bruker søker på Google etter Sirkus Media og det ikke er en egen side for kontakt oss, vil brukeren kun få treff på forsiden og undersidene som inneholder irrelevant temaer. Siden brukeren ønsker å kontakte Sirkus Media, er det mer brukervennlig å ha en link til kontakt-siden i Google.
 
 \textbf{Logg inn} Dette er en egen side der de ansatte kan logge inn for å komme til brukergrensesnittet for oppdatering og endring av innhold.
 
 \textbf{Administrasjonsside}  På administrasjonssiden kan de ansatte endre og legge til innhold gjennom et brukergrensesnitt.
 
-\textbf{Informasjon om personvern og informasjonskapsler} Personvernsiden skal inneholde en personvernserklæring. Denne forteller hvordan Sirkus Media samler inn og bruker personopplysninger. Målet er å gi brukerne overordnet informasjon om deres behandling av personopplysninger. I tillegg skal den fortelle brukeren hvilke informasjonskapsler som blir brukt på nettstedet.
+\textbf{Informasjon om personvern og informasjonskapsler} Personvernsiden skal inneholde en personvernserklæring. Denne forteller hvordan Sirkus Media samler inn og bruker personopplysninger. Målet er å gi brukerne overordnet informasjon om oppdragsgivers behandling av personopplysninger. I tillegg skal den fortelle brukerne hvilke informasjonskapsler som blir brukt på nettstedet.
 
 \textbf{Annet} Alle sidene skal ha tilgang til en chat, der det er mulig å ta direkte kontakt med bedriften.
 
@@ -73,7 +35,7 @@ Etter å ha planlagt innholdet måtte gruppen sette seg ned og bestemme hvordan 
     \item Hver komponent inneholder felter (fields), som holder på innholdet som vises på siden. Det er forskjellige type felter, for eksempel kan et felt være et bilde, et tekstområde eller en lenke. 
 \end{itemize}
 
-Videre ble det bestemt at studentgruppen, eller en fremtidig superadmin, ferdigdefinerer komponenter og felter. I brukergrensesnittet til back-end vil oppdragsgiver få mulighet til å opprette sider med ønsket komponenter og felter.  
+Videre ble det bestemt at studentgruppen, eller en fremtidig superadmin, ferdigdefinerer komponenter og felter. I brukergrensesnittet til back-end vil oppdragsgiver få mulighet til å opprette sider med ønskede komponenter og felter.  
 
 \section{UML-diagram}
 Figur \ref{fig:database} viser databasen som ble planlagt for prosjektet:
@@ -87,17 +49,17 @@ Figur \ref{fig:database} viser databasen som ble planlagt for prosjektet:
 \section{Planlegging av API}
 I felleskap begynte vi å planlegge hvilke linker som API-et skal ha, og hva de skal sende i svar. Det ble derfor utarbeidet en JSON-fil som beskriver strukturen og hvilke data den skal gi i svar for forskjellige forespørsler.
 
-I første omgang ble URL-er for Pages og Menus definerte. Dataene disse gir i svar, vil være offentlig. 
+I første omgang ble URL-er for Pages og Menus definert. Dataene disse gir i svar, vil være offentlig. 
 
 \lstinputlisting[caption={JSON-eksempel for sider (api.sirkusmedia.no/api/v1/pages)}]{api-code-examples/pages.json}
 \lstinputlisting[caption={JSON-eksempel for en side (api.sirkusmedia.no/api/v1/pages/slug)}]{api-code-examples/page.json}
 \lstinputlisting[caption={JSON-eksempel for menyer (api.sirkusmedia.no/api/v1/menus)}]{api-code-examples/menus.json}
 \lstinputlisting[caption={JSON-eksempel for en meny (api.sirkusmedia.no/api/v1/menus/id)}]{api-code-examples/menu.json}
 
-Denne filen er altså kun eksempeldata. Den vil bli brukt til å se på at back-end sender svar på riktig måte. Front-end kan også se på filen for hvilke svar som kan forventes på de forskjellige forespørselene. Fordelen med dette er at det kan lages \q{dummy responses} som er mulig å jobbe med underveis i utviklingen.
+Denne filen er kun eksempeldata. Den vil bli brukt til å se på at back-end sender svar på riktig måte. Front-end kan også benytte filen og se hvilke svar som kan forventes på de forskjellige forespørselene. Fordelen med dette er at det kan lages \q{dummy responses} som er mulig å jobbe med underveis i utviklingen.
 
 \section{Mockups}
-En del av planleggingsfasen var å lage mockups/skisser av nettstedet. Det ble utarbeidet en skisse for forsiden, slik at den kunne sendes til oppdragsgiver for godkjenning.
+En del av planleggingsfasen var å lage mockups/skisser av nettstedet. Det ble først utarbeidet en skisse for forsiden, slik at den kunne sendes til oppdragsgiver for godkjenning.
 
 \subsection{Versjon 1}
 Figur \ref{fig:mockup-v1} viser forsøk nummer 1. Tilbakemeldingen her var oppdragsgiver syns det var et kult design, men ikke helt den stilen de ønsket seg.
@@ -129,6 +91,7 @@ Figur \ref{fig:mockup-v3-index} viser det tredje forsøket. Dette var skissen so
 Når designet til forsiden ble godkjent, startet utarbeidingen av designet til de andre planlagte sidene på front-end.
 
 \textbf{Om oss}
+
 Figur \ref{fig:mockup-v3-about} viser designet til den planlagte \q{Om oss}-siden.
 \begin{figure}[H]
     \centering
@@ -138,6 +101,7 @@ Figur \ref{fig:mockup-v3-about} viser designet til den planlagte \q{Om oss}-side
 \end{figure}
 
 \textbf{Kontakt oss}
+
 Figur \ref{fig:mockup-v3-contact} viser designet til den planlagte \q{Kontakt oss}-siden.
 \begin{figure}[H]
     \centering
@@ -180,7 +144,7 @@ Figur \ref{fig:icon} viser ikonet som ble utarbeidet.
 Figur \ref{fig:colors} viser de utvalgte fargene til oppdragsgiver. Disse fargene ble valgt med tanke på å få selskapet til å fremstå som moderne og innovative.
 Den midterste kolonnen med farger er standardfargene. Kolonnene til venstre og høyre for midten, er lysere og mørkere versjoner av disse.
 \begin{itemize}
-    \item Rad en er de forskjellige gråfargene, disse blir brukt til tekst og bakgrunnsfarger.
+    \item Rad en er de forskjellige gråfargene. Disse blir brukt til tekst og bakgrunnsfarger.
     \item Rad to (blå) er primærfargen.
     \item Rad tre (cyan) er sekundærfargen.
     \item Rad fire (grønn) brukes til positive meldinger og handlinger.
