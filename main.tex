@@ -27,8 +27,8 @@
 
 %%% CUSTOM STYLING - Start %%%
 
-\input{code-style}
-\input{vedlegg-listing}
+\input{code-style}       % Synax highlighting
+\input{vedlegg-listing}  % Custom listing
 
 %%% CUSTOM STYLING - End %%%
 \makeindex
@@ -55,11 +55,7 @@
 
 	\cleardoublepage % DO NOT CHANGE    
 	\setcounter{tocdepth}{2}
-    \tableofcontents  % DO NOT CHANGE    
-    
-    
-    \listofvedleggs
-    
+    \tableofcontents  % DO NOT CHANGE
     \cleardoublepage % DO NOT CHANGE    
     
     % OPTIONAL
@@ -112,6 +108,9 @@
     \cleardoublepage    
 
     \appendix
+    \addcontentsline{toc}{chapter}{Vedleggsliste}
+    \listofvedleggs
+
     \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 
     \include{vedlegg/innlogging}
@@ -121,6 +120,9 @@
     \includepdf[pages=2-, scale=0.80, pagecommand={}]{vedlegg/sitemap-cms.pdf}
 
     \includepdf[pages=1, scale=0.8, offset=0 -6cm, pagecommand=\chapter{Sidekart for sirkusmedia.no}]{vedlegg/sitemap-website.pdf}
+    
+    \include{vedlegg/bilder-av-cms}
+    \include{vedlegg/bilder-av-nettsted}
     
     \include{vedlegg/1-veiledermote}
     \include{vedlegg/2-veiledermote}
